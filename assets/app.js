@@ -1,7 +1,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   const nav = document.querySelector('.nav');
-  const reveals = document.querySelectorAll('.reveal');
+  const revealEls = document.querySelectorAll('.reveal');
   const counters = document.querySelectorAll('.counter');
 
   const revealObserver = new IntersectionObserver((entries) => {
@@ -10,15 +10,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }, { threshold: 0.14 });
 
-  reveals.forEach(el => revealObserver.observe(el));
+  revealEls.forEach(el => revealObserver.observe(el));
 
-  const counterObserver = new IntersectionObserver((entries) => {
+  const countObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
       const el = entry.target;
-      const target = parseInt(el.dataset.target || '0', 10);
+      const target = parseInt(el.dataset.target, 10);
       let current = 0;
-      const step = Math.max(1, Math.ceil(target / 48));
+      const step = Math.max(1, Math.ceil(target / 42));
       const timer = setInterval(() => {
         current += step;
         if (current >= target) {
@@ -27,12 +27,12 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
           el.textContent = current + '+';
         }
-      }, 28);
-      counterObserver.unobserve(el);
+      }, 30);
+      countObserver.unobserve(el);
     });
   }, { threshold: 0.5 });
 
-  counters.forEach(el => counterObserver.observe(el));
+  counters.forEach(el => countObserver.observe(el));
 
   window.addEventListener('scroll', () => {
     if (window.scrollY > 20) nav.classList.add('scrolled');
