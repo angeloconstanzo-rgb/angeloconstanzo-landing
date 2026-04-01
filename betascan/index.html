@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BetaScan — Angelo Constanzo</title>
+<meta name="description" content="Diagnóstico de tus 8 capacidades humanas.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body data-page="betascan">
+<nav class="nav" id="nav">
+  <a class="nav-brand" href="/"><div class="nav-lines"><span></span><span></span><span></span></div><div class="nav-brand-text">Angelo Constanzo</div></a>
+  <div class="nav-links">
+    <a href="/persona" data-page-link="persona">Persona</a>
+    <a href="/empresa" data-page-link="empresa">Empresa</a>
+    <a href="/betamode" data-page-link="betamode">BetaMode</a>
+    <a href="/contacto" data-page-link="contacto">Contacto</a>
+    <a href="https://api.whatsapp.com/send?phone=56930879763&text=Quiero%20evaluar%20sesiones%20y%20programas%20contigo%2C%20te%20escribo%20desde%20angeloconstanzo.com%0A" class="nav-cta" target="_blank" rel="noopener noreferrer">Contacta</a>
+  </div>
+  <button class="nav-toggle" id="navToggle" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/">Inicio</a><a href="/persona">Persona</a><a href="/empresa">Empresa</a><a href="/betascan" data-page-link="betascan">BetaScan</a><a href="/lab">Laboratorio</a><a href="/betagym">BetaGym</a><a href="/betamode">BetaMode</a><a href="/contacto">Contacto</a>
+  <a href="https://api.whatsapp.com/send?phone=56930879763&text=Quiero%20evaluar%20sesiones%20y%20programas%20contigo%2C%20te%20escribo%20desde%20angeloconstanzo.com%0A" target="_blank" rel="noopener noreferrer" style="color:var(--gold)">Contactar</a>
+</div>
+<main class="bs-page"><div class="bs-container">
+  <div id="bsIntroScreen" class="bs-screen bs-active"><div class="bs-logo">BetaScan</div><div class="bs-intro-badge">Mini BetaScan 2.0</div>
+    <h1 style="font-size:clamp(32px,6vw,52px);margin-bottom:20px">Descubre tu<br><span>Poder Humano</span></h1>
+    <p class="bs-intro-sub">Un diagnóstico de las 8 capacidades que determinan tu ventaja real como ser humano — las que ninguna IA puede reemplazar.</p>
+    <div class="bs-cap-grid"><div class="bs-cap-chip">🔥 Fuego Propio</div><div class="bs-cap-chip">🌌 Mundo Interior</div><div class="bs-cap-chip">🌿 Raíz</div><div class="bs-cap-chip">🤝 Campo de Empatía</div><div class="bs-cap-chip">🧭 Norte Vital</div><div class="bs-cap-chip">✨ Chispa Creativa</div><div class="bs-cap-chip">⚡ Movimiento</div><div class="bs-cap-chip">💎 Energía Vital</div></div>
+    <button class="bs-btn-primary" onclick="bsShowEmailCapture()">COMENZAR MI DIAGNÓSTICO</button>
+    <p class="bs-time-note">⏱ 5–7 minutos · 16 preguntas · Resultado inmediato</p></div>
+  <div id="bsEmailScreen" class="bs-screen"><div class="bs-logo">BetaScan</div><div class="bs-email-form"><h2>Primero,<br>¿cómo te llamamos?</h2><p>Tu resultado es personalizado. Lo recibirás también en tu correo con un análisis más detallado.</p>
+    <div class="bs-field-group"><label>Nombre</label><input type="text" id="bsUserName" placeholder="Tu nombre" /></div>
+    <div class="bs-field-group"><label>Email</label><input type="email" id="bsUserEmail" placeholder="tu@email.com" /></div>
+    <button class="bs-btn-primary" onclick="bsStartScan()">INICIAR SCAN →</button></div></div>
+  <div id="bsQuestionScreen" class="bs-screen"><div class="bs-progress-wrap"><div class="bs-progress-meta"><span class="bs-progress-cap-name" id="bsProgressCapName">—</span><span class="bs-progress-count" id="bsProgressCount">1 / 16</span></div><div class="bs-progress-bar-bg"><div class="bs-progress-bar-fill" id="bsProgressFill" style="width:0%"></div></div></div>
+    <div class="bs-question-number" id="bsQuestionNumber">PREGUNTA 01</div><div class="bs-question-text" id="bsQuestionText">—</div><div id="bsAnswersContainer"></div>
+    <div class="bs-nav-btns"><button class="bs-btn-back" onclick="bsPrevQuestion()">← ATRÁS</button></div></div>
+  <div id="bsLoadingScreen" class="bs-screen" style="text-align:center;padding:80px 0"><p class="bs-loader-text">Analizando tu perfil...</p><div class="bs-analyzer" id="bsAnalyzerRows"></div></div>
+  <div id="bsResultScreen" class="bs-screen"><div class="bs-result-header"><div class="bs-result-name" id="bsResultName">—</div><div class="bs-result-title" id="bsResultTitle">—</div></div>
+    <div class="bs-result-score-wrap"><div class="bs-score-circle"><div class="bs-score-number" id="bsScoreNumber">0</div><div class="bs-score-max">/100</div></div><div class="bs-score-text"><div class="bs-score-label" id="bsScoreLabel">—</div><div class="bs-score-desc" id="bsScoreDesc">—</div></div></div>
+    <div style="margin-bottom:40px"><div class="bs-section-title">Perfil de las 8 Capacidades</div><div class="bs-radar-container"><canvas id="bsRadarCanvas" width="280" height="280"></canvas></div></div>
+    <div class="bs-section-title">Detalle por Capacidad</div><div class="bs-cap-bars" id="bsCapBars"></div>
+    <div class="bs-section-title" style="margin-top:8px">Tu Diagnóstico</div><div class="bs-narrative-box"><p id="bsNarrativeText">—</p></div>
+    <div class="bs-section-title">Zonas de Entrenamiento</div><div class="bs-insights-grid" id="bsInsightsGrid"></div>
+    <div class="bs-cta-block"><div class="bs-cta-eyebrow">Siguiente Paso</div><div class="bs-cta-title">Tu diagnóstico tiene solución</div><div class="bs-cta-sub">Entrenamos exactamente estas capacidades. Empieza con una experiencia real.</div><a href="https://api.whatsapp.com/send?phone=56930879763&text=Quiero%20evaluar%20sesiones%20y%20programas%20contigo%2C%20te%20escribo%20desde%20angeloconstanzo.com%0A" target="_blank" rel="noopener noreferrer" class="bs-btn-cta">QUIERO EMPEZAR</a><button class="bs-share-btn" onclick="bsShareResult()">↗ COMPARTIR MI RESULTADO</button></div>
+  </div>
+</div></main>
+<footer class="footer"><p>© 2026 Angelo Constanzo — La vida que quieres se entrena.</p></footer>
+<a href="https://api.whatsapp.com/send?phone=56930879763&text=Quiero%20evaluar%20sesiones%20y%20programas%20contigo%2C%20te%20escribo%20desde%20angeloconstanzo.com%0A" target="_blank" rel="noopener noreferrer" class="wa-sticky"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.111.546 4.1 1.508 5.832L0 24l6.335-1.463C8.06 23.478 9.98 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75c-1.856 0-3.624-.476-5.17-1.378l-.37-.22-3.838.887.96-3.706-.24-.384A9.698 9.698 0 012.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75z"/></svg><span>Hablar</span></a>
+<script src="/assets/app.js"></script>
+<script src="/assets/betascan.js"></script>
+</body>
+</html>
