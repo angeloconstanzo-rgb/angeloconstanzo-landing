@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Angelo Constanzo - Sistema de Entrenamiento Humano. BetaGym para personas, BetaMode para empresas. Entrena lo que la IA no puede reemplazar.">
+<meta name="theme-color" content="#0A0F1E">
+<title>Angelo Constanzo — La vida que quieres se entrena</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sauce+One:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#0A0F1E;--bg2:#111827;--bg3:#1A2540;--gold:#C9A84C;--gold2:#FFD330;--purple:#8B5CF6;--blue:#38B6FF;--white:#F8FAFC;--gray:#94A3B8;--dgray:#475569;--font:'Open Sauce One',sans-serif}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--white);font-family:var(--font);font-size:17px;line-height:1.7;overflow-x:hidden;margin:0;padding:0}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 48px;display:flex;align-items:center;justify-content:space-between;background:rgba(10,15,30,.94);backdrop-filter:blur(14px);border-bottom:1px solid rgba(201,168,76,.12)}
+@media(max-width:768px){nav{padding:12px 24px}}
+.nav-logo{font-size:14px;font-weight:800;color:var(--white);cursor:pointer;user-select:none}
+.nav-links{display:flex;align-items:center;gap:28px;font-size:13px}
+.nav-links a{color:var(--gray);text-decoration:none;transition:color .2s;cursor:pointer}
+.nav-links a:hover{color:var(--white)}
+.nav-cta{background:transparent;border:1px solid var(--gold);color:var(--gold);font-size:13px;font-weight:700;padding:8px 20px;border-radius:4px;cursor:pointer;transition:all .2s;text-decoration:none}
+.nav-cta:hover{background:var(--gold);color:var(--bg)}
+.page{display:none;min-height:100vh;padding-top:72px;padding-bottom:40px}
+.page.active{display:block}
+@keyframes fi{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.page.active{animation:fi .3s ease forwards}
+#home{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;padding:72px 24px 60px;text-align:center}
+.home-eyebrow{font-size:11px;letter-spacing:.2em;color:var(--gold);text-transform:uppercase;margin-bottom:18px;font-weight:700}
+.home-title{font-size:clamp(46px,8vw,90px);font-weight:800;line-height:1.0;letter-spacing:-.03em;margin-bottom:16px}
+.home-title span{color:var(--gold)}
+.home-claim{font-size:clamp(15px,1.8vw,19px);color:var(--gray);margin:0 auto 8px;font-style:italic}
+.home-sub{font-size:14px;color:var(--dgray);max-width:460px;margin:0 auto 48px;line-height:1.6}
+.home-cards{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:760px;width:100%;margin:0 auto}
+@media(max-width:768px){.home-cards{grid-template-columns:1fr}}
+.home-card{background:var(--bg2);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:34px 30px;text-align:left;cursor:pointer;transition:all .28s;position:relative;overflow:hidden}
+.home-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.home-card.personas::before{background:var(--purple)}
+.home-card.empresas::before{background:var(--blue)}
+.home-card:hover{transform:translateY(-4px)}
+.home-card.personas:hover{box-shadow:0 20px 60px rgba(139,92,246,.14);border-color:rgba(139,92,246,.3)}
+.home-card.empresas:hover{box-shadow:0 20px 60px rgba(56,182,255,.14);border-color:rgba(56,182,255,.3)}
+.ctag{font-size:10px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;margin-bottom:10px;display:block}
+.personas .ctag{color:var(--purple)}.empresas .ctag{color:var(--blue)}
+.ctitle{font-size:24px;font-weight:800;margin-bottom:6px}
+.cclaim{font-size:11px;color:var(--gold);font-weight:600;font-style:italic;margin-bottom:9px}
+.cdesc{font-size:13px;color:var(--gray);line-height:1.6;margin-bottom:20px}
+.cbtn{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:700;padding:9px 20px;border-radius:6px;cursor:pointer;transition:all .2s;border:none;font-family:var(--font)}
+.personas .cbtn{background:var(--purple);color:var(--white)}.empresas .cbtn{background:var(--blue);color:var(--bg)}
+.cbtn:hover{opacity:.88;transform:translateX(3px)}
+.container{max-width:900px;margin:0 auto;padding:0 32px}
+section{padding:68px 0}
+.sl{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:14px;display:block}
+.sl.blue{color:var(--blue)}.sl.purple{color:var(--purple)}
+.hxl{font-size:clamp(32px,5vw,54px);font-weight:800;line-height:1.05;letter-spacing:-.025em;margin-bottom:18px}
+.hlg{font-size:clamp(24px,3.5vw,38px);font-weight:700;line-height:1.15;letter-spacing:-.015em;margin-bottom:14px}
+.hmd{font-size:clamp(18px,2.5vw,26px);font-weight:700;line-height:1.25;margin-bottom:12px}
+.gold{color:var(--gold)}.purple{color:var(--purple)}.blue-t{color:var(--blue)}
+.lead{font-size:17px;color:var(--gray);line-height:1.75;margin-bottom:20px}
+p{margin-bottom:15px;color:rgba(248,250,252,.82);line-height:1.75}
+.div{width:42px;height:3px;background:var(--gold);border-radius:2px;margin:18px 0}
+.div.purple{background:var(--purple)}.div.blue{background:var(--blue)}
+.claim-big{font-size:clamp(24px,3.8vw,44px);font-weight:800;color:var(--gold);letter-spacing:-.02em;line-height:1.1;margin:26px 0;font-style:italic}
+.btn{display:inline-flex;align-items:center;gap:9px;font-size:13px;font-weight:700;padding:12px 24px;border-radius:8px;cursor:pointer;transition:all .22s;text-decoration:none;border:none;font-family:var(--font)}
+.btn-gold{background:var(--gold);color:var(--bg)}.btn-gold:hover{background:var(--gold2);transform:translateY(-2px);box-shadow:0 12px 36px rgba(201,168,76,.28)}
+.btn-purple{background:var(--purple);color:var(--white)}.btn-purple:hover{opacity:.9;transform:translateY(-2px)}
+.btn-blue{background:var(--blue);color:var(--bg)}.btn-blue:hover{opacity:.9;transform:translateY(-2px)}
+.btn-op{background:transparent;border:1.5px solid var(--gold);color:var(--gold)}.btn-op:hover{background:var(--gold);color:var(--bg)}
+.btn-opu{background:transparent;border:1.5px solid var(--purple);color:var(--purple)}.btn-opu:hover{background:var(--purple);color:var(--white)}
+.btn-obl{background:transparent;border:1.5px solid var(--blue);color:var(--blue)}.btn-obl:hover{background:var(--blue);color:var(--bg)}
+.crow{display:flex;gap:11px;flex-wrap:wrap;margin-top:26px}
+.qb{border-left:3px solid var(--gold);padding:16px 24px;margin:26px 0;background:rgba(201,168,76,.05);border-radius:0 8px 8px 0}
+.qb.purple{border-color:var(--purple);background:rgba(139,92,246,.05)}
+.qb.blue{border-color:var(--blue);background:rgba(56,182,255,.05)}
+.qb p{font-size:19px;font-weight:700;line-height:1.45;color:var(--white);font-style:italic;margin:0}
+.cg{display:grid;gap:14px;margin-top:28px}
+.cg2{grid-template-columns:repeat(2,1fr)}
+.cg3{grid-template-columns:repeat(3,1fr)}
+@media(max-width:768px){.cg2,.cg3{grid-template-columns:1fr}}
+.fc{background:var(--bg2);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:26px 22px;transition:border-color .25s}
+.fc:hover{border-color:rgba(255,255,255,.16)}
+.fc h3{font-size:16px;font-weight:800;margin-bottom:7px}
+.fc p{font-size:13px;color:var(--gray);margin:0;line-height:1.65}
+.tb{height:3px;border-radius:2px;margin-bottom:18px;width:34px}
+footer{background:var(--bg2);border-top:1px solid rgba(255,255,255,.05);padding:36px 32px;text-align:center;font-size:12px;color:var(--gray)}
+.fl{display:flex;gap:20px;justify-content:center;margin-bottom:16px;flex-wrap:wrap}
+.fl a{color:var(--gray);text-decoration:none;transition:color .2s;cursor:pointer}
+.fl a:hover{color:var(--white)}
+footer p{margin-bottom:8px;font-size:11px}
+footer a{color:var(--gold);text-decoration:none}
+footer a:hover{opacity:.8}
+.ds{background:var(--bg2);margin:0 -32px;padding:52px 32px}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo" onclick="showPage('home')">ANGELO CONSTANZO</div>
+  <div class="nav-links">
+    <a onclick="showPage('home')">Inicio</a>
+    <a onclick="showPage('betagym')">BetaGym</a>
+    <a onclick="showPage('betamode')">BetaMode</a>
+    <a onclick="showPage('about')">Acerca de</a>
+    <a href="https://wa.link/o1dohs" target="_blank" class="nav-cta">Conversar →</a>
+  </div>
+</nav>
+
+<div id="home" class="page active">
+  <div style="text-align:center;margin-bottom:32px">
+    <p class="home-eyebrow">Sistema de Entrenamiento Humano</p>
+    <h1 class="home-title">La vida que quieres <span>se entrena</span></h1>
+    <p class="home-claim">Tres métodos. Un ecosistema. Resultados reales.</p>
+    <p class="home-sub">Entrena emociones, liderazgo y conducta. Como en un gimnasio: diagnóstico, progresión, comunidad, evidencia.</p>
+  </div>
+  
+  <div class="home-cards">
+    <div class="home-card personas" onclick="showPage('betagym')">
+      <span class="ctag">Para Personas</span>
+      <h3 class="ctitle">BetaGym</h3>
+      <p class="cclaim">Entrena tu mente y emociones</p>
+      <p class="cdesc">Sistema de entrenamiento mental y emocional con estructura de gimnasio. Diagnóstico inicial, sesiones progresivas, comunidad de práctica y métricas reales.</p>
+      <button class="cbtn">Explorar →</button>
+    </div>
+    
+    <div class="home-card empresas" onclick="showPage('betamode')">
+      <span class="ctag">Para Empresas</span>
+      <h3 class="ctitle">BetaMode System</h3>
+      <p class="cclaim">Entrena tu organización</p>
+      <p class="cdesc">Transformación real de líderes y equipos. Coaching táctico, facilitación de cambio cultural, y resultados medibles en el negocio.</p>
+      <button class="cbtn">Explorar →</button>
+    </div>
+  </div>
+</div>
+
+<div id="betagym" class="page">
+  <div class="container">
+    <section>
+      <span class="sl purple">BetaGym</span>
+      <h1 class="hxl">Entrena lo que la IA <span class="purple">no puede reemplazar</span></h1>
+      <div class="div purple"></div>
+      <p class="lead">La mayoría de plataformas de bienestar te prometen motivación. Te cansarás. Desaparecerás. Volverás al mismo lugar.</p>
+      <p>BetaGym es diferente. Es el primer sistema de <strong>entrenamiento emocional y conductual</strong> con estructura de gimnasio real:</p>
+    </section>
+
+    <section class="ds">
+      <h2 class="hmd">¿Cómo funciona?</h2>
+      <div class="cg cg2">
+        <div class="fc">
+          <div class="tb" style="background:var(--gold)"></div>
+          <h3>1. BetaScan — Diagnóstico Real</h3>
+          <p>Test interactivo de 8 capacidades: Fuego Propio, Mundo Interior, Raíz, Campo de Empatía, Norte Vital, Chispa Creativa, Movimiento, Energía Vital. Recibes tu mapa emocional completo.</p>
+        </div>
+        <div class="fc">
+          <div class="tb" style="background:var(--purple)"></div>
+          <h3>2. Laboratorio Beta — Experiencia Inicial</h3>
+          <p>Sesión grupal de 90 minutos donde experimentas en el cuerpo qué significa entrenar. No teoría. Práctica real. Conexión humana auténtica.</p>
+        </div>
+        <div class="fc">
+          <div class="tb" style="background:var(--blue)"></div>
+          <h3>3. BetaGym Programa — Entrenamiento Sistemático</h3>
+          <p>Acceso a 24 sesiones de entrenamiento progresivo. Cada semana enfocas una capacidad diferente. Con comunidad, gamificación (Beta Points) y seguimiento real de avance.</p>
+        </div>
+        <div class="fc">
+          <div class="tb" style="background:var(--gold)"></div>
+          <h3>4. Comunidad + Métricas — Adherencia Garantizada</h3>
+          <p>Lo que diferencia un gimnasio de una buena intención es la comunidad y las métricas. Eso es lo que hace que sigas. Y que cambies.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="hlg">¿Qué personas lo necesitan?</h2>
+      <p class="lead">Si reconoces alguno de estos patrones, BetaGym fue diseñado para ti:</p>
+      <div style="margin-top:24px">
+        <p>✓ Empiezas cursos, libros, talleres... y a los 3 meses vuelves al punto de partida.</p>
+        <p>✓ Sabes exactamente qué deberías cambiar. Simplemente no lo haces de forma sostenida.</p>
+        <p>✓ Te sientes desconectado de tus propias emociones o relaciones.</p>
+        <p>✓ Quieres crecimiento real, no solo inspiración temporal.</p>
+        <p>✓ Buscas un espacio donde cambiar no sea un viaje solitario, sino una práctica compartida.</p>
+      </div>
+    </section>
+
+    <section class="ds" style="text-align:center">
+      <p style="font-size:12px;color:var(--purple);font-style:italic;font-weight:700;margin-bottom:7px">Empieza hoy</p>
+      <h2 class="hmd">¿Listo para entrenar?</h2>
+      <p style="color:var(--gray);max-width:480px;margin:10px auto 22px">Descubre tus 8 capacidades con BetaScan. Es gratuito y toma 5 minutos.</p>
+      <div class="crow" style="justify-content:center">
+        <a href="https://wa.link/o1dohs" target="_blank" class="btn btn-purple">Acceder a BetaScan →</a>
+        <a href="https://wa.link/o1dohs" target="_blank" class="btn btn-opu">Más información →</a>
+      </div>
+    </section>
+  </div>
+</div>
+
+<div id="betamode" class="page">
+  <div class="container">
+    <section>
+      <span class="sl blue">BetaMode System</span>
+      <h1 class="hxl">Entrena tus líderes. Transforma tu <span class="blue">cultura</span></h1>
+      <div class="div blue"></div>
+      <p class="lead">El problema no es que tus líderes no sepan qué hacer. Es que no saben cómo hacerlo dentro de sistemas complejos, bajo presión, con equipos diversos.</p>
+      <p>BetaMode System es un programa de transformación cultural que entrena a tus líderes en las capacidades que realmente importan en el mundo real.</p>
+    </section>
+
+    <section class="ds">
+      <h2 class="hmd">Metodología: Coaching Táctico + Transformación Cultural</h2>
+      <div class="cg cg2">
+        <div class="fc">
+          <div class="tb" style="background:var(--gold)"></div>
+          <h3>Diagnóstico Organizacional</h3>
+          <p>Evaluación profunda de liderazgo, cultura, brechas de ejecución y patrones conductuales que frenaban resultados.</p>
+        </div>
+        <div class="fc">
+          <div class="tb" style="background:var(--purple)"></div>
+          <h3>Coaching Individual — Líderes Clave</h3>
+          <p>Sesiones 1:1 diseñadas para instalar nuevas formas de pensar y actuar. Psicología + coaching táctico. Cambio real en el rol.</p>
+        </div>
+        <div class="fc">
+          <div class="tb" style="background:var(--blue)"></div>
+          <h3>Facilitación de Equipos</h3>
+          <p>Talleres vivenciales que generan confianza, claridad de propósito y nuevas dinámicas de comunicación y colaboración.</p>
+        </div>
+        <div class="fc">
+          <div class="tb" style="background:var(--gold)"></div>
+          <h3>Seguimiento + Métricas</h3>
+          <p>Evaluación continua de comportamientos nuevos en situaciones reales. Evidencia, no intenciones. Ajuste según resultados.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="hlg">Resultados que hemos generado</h2>
+      <div class="cg cg3">
+        <div class="fc">
+          <h3>Reducción de Rotación</h3>
+          <p>Equipos con nuevas dinámicas de liderazgo mantienen talento. Menos burnout. Más retención.</p>
+        </div>
+        <div class="fc">
+          <h3>Ejecución Mejorada</h3>
+          <p>Líderes que entrenan conducta logran resultados concretos. Cumplimiento de estrategia. Velocidad en decisiones.</p>
+        </div>
+        <div class="fc">
+          <h3>Cultura Transformada</h3>
+          <p>De jerárquica y reactiva a ágil y empoderada. Comunicación más directa. Confianza genuina.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="ds" style="text-align:center">
+      <p style="font-size:12px;color:var(--blue);font-style:italic;font-weight:700;margin-bottom:7px">Transformación Organizacional</p>
+      <h2 class="hmd">¿Cuál es tu desafío de liderazgo?</h2>
+      <p style="color:var(--gray);max-width:480px;margin:10px auto 22px">Una conversación de 30 minutos puede cambiar la dirección de tu equipo.</p>
+      <div class="crow" style="justify-content:center">
+        <a href="https://wa.link/o1dohs" target="_blank" class="btn btn-blue">Agendar conversación estratégica →</a>
+        <a href="https://wa.link/o1dohs" target="_blank" class="btn btn-obl">Escribir por WhatsApp →</a>
+      </div>
+    </section>
+  </div>
+</div>
+
+<div id="about" class="page">
+  <div class="container">
+    <section>
+      <span class="sl">Acerca de Angelo</span>
+      <h1 class="hxl">¿Estás viviendo o solo <span class="gold">sobreviviendo?</span></h1>
+      <div style="margin-top:20px;margin-bottom:30px">
+        <p style="font-size:13px;color:var(--gray);font-weight:600">Psicólogo · Coach Ejecutivo IAC® · Human Advantage Trainer · Consultor Senior · +20 años de trayectoria</p>
+      </div>
+      <p class="lead">No solo escalo montañas, también nado emociones y cruzo fronteras buscando sentido.</p>
+      <p>Psicólogo de formación, coach acreditado IAC®, consultor y facilitador con más de 20 años acompañando a personas, líderes y equipos en Chile y Latinoamérica.</p>
+      <p>15 años en el mundo corporativo (RRHH, Comercial, Marketing). Después, otros 10+ como psicólogo, coach y consultor. Esa combinación única me permite entender tanto el lado emocional del cambio como el lado estratégico del negocio.</p>
+    </section>
+
+    <section>
+      <h2 class="hlg">La libertad no se busca. Se entrena.</h2>
+      <div class="div"></div>
+      <p>Pasé más de 15 años en el mundo corporativo — Recursos Humanos, Comercial y Marketing. Diseñé universidades corporativas y lideré transformaciones culturales que cambiaron la forma en que las organizaciones funcionan.</p>
+      <p>Esa experiencia me dio algo que pocos consultores tienen: entender el mundo corporativo desde adentro — no desde la teoría, sino desde los pasillos, las presiones y las conversaciones difíciles.</p>
+      <div class="qb"><p>Entre sesiones, viajes, brazadas y cumbres, entendí que la verdadera libertad no se encuentra fuera. Se encuentra adentro. Y no se encuentra — se entrena.</p></div>
+      <p>Paralelamente, ejercí siempre como psicólogo clínico. Porque el cambio sostenible tiene una dimensión emocional que ningún framework puede ignorar.</p>
+      <p style="font-size:clamp(20px,3.5vw,32px);font-weight:800;color:var(--gold);letter-spacing:-.02em;line-height:1.1;margin:26px 0;font-style:italic">La vida que quieres se entrena.</p>
+    </section>
+
+    <section class="ds">
+      <h2 class="hlg">Trayectoria</h2>
+      <div style="margin-top:24px;display:grid;gap:16px">
+        <div style="border-left:3px solid var(--gold);padding:20px;background:rgba(201,168,76,.05);border-radius:0 8px 8px 0">
+          <h4 style="font-size:14px;font-weight:800;margin-bottom:5px">Psicólogo Clínico</h4>
+          <p style="font-size:13px;color:var(--gray);margin:0">Psicoterapia individual · Patrones conductuales · Procesos de cambio profundo</p>
+        </div>
+        <div style="border-left:3px solid var(--purple);padding:20px;background:rgba(139,92,246,.05);border-radius:0 8px 8px 0">
+          <h4 style="font-size:14px;font-weight:800;margin-bottom:5px">Coach Ejecutivo IAC®</h4>
+          <p style="font-size:13px;color:var(--gray);margin:0">Certificación internacional · Liderazgo · Desarrollo de talento · Latinoamérica</p>
+        </div>
+        <div style="border-left:3px solid var(--blue);padding:20px;background:rgba(56,182,255,.05);border-radius:0 8px 8px 0">
+          <h4 style="font-size:14px;font-weight:800;margin-bottom:5px">Consultor Senior y Facilitador</h4>
+          <p style="font-size:13px;color:var(--gray);margin:0">Universidades Corporativas · Transformación cultural · Fusiones · Charlas en Latinoamérica</p>
+        </div>
+        <div style="border-left:3px solid var(--gold);padding:20px;background:rgba(201,168,76,.05);border-radius:0 8px 8px 0">
+          <h4 style="font-size:14px;font-weight:800;margin-bottom:5px">Creador de BetaMode System™</h4>
+          <p style="font-size:13px;color:var(--gray);margin:0">Metodología propia de entrenamiento emocional y coaching táctico. Entrena lo que la IA no puede reemplazar.</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="text-align:center;padding:32px 0 52px">
+      <h2 class="hmd">¿Resonó algo?</h2>
+      <p style="color:var(--gray);max-width:440px;margin:10px auto 22px">Una conversación de 30 minutos lo define todo.</p>
+      <div class="crow" style="justify-content:center">
+        <a href="https://wa.link/o1dohs" target="_blank" class="btn btn-gold">Agendar una conversación →</a>
+        <button class="btn btn-opu" onclick="showPage('betagym')">Soy persona →</button>
+        <button class="btn btn-obl" onclick="showPage('betamode')">Soy empresa →</button>
+      </div>
+    </section>
+  </div>
+</div>
+
+<footer>
+  <div class="fl">
+    <a onclick="showPage('home')">Inicio</a>
+    <a onclick="showPage('betagym')">BetaGym</a>
+    <a onclick="showPage('betamode')">BetaMode</a>
+    <a onclick="showPage('about')">Acerca de</a>
+  </div>
+  <p>© 2026 Angelo Constanzo · Psicólogo · Coach IAC® · Human Advantage Trainer</p>
+  <p style="margin-top:5px">hello@angeloconstanzo.com · <a href="https://www.instagram.com/angelo.constanzo" target="_blank">Instagram</a> · <a href="https://www.linkedin.com/in/angeloconstanzo/" target="_blank">LinkedIn</a></p>
+  <p style="margin-top:8px;font-size:10px;color:var(--dgray)">Sistema Black + Gold + Purple + Blue · Tipografía: Open Sauce One</p>
+</footer>
+
+<script>
+function showPage(pageId){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById(pageId).classList.add('active');window.scrollTo(0,0)}
+document.addEventListener('DOMContentLoaded',()=>{showPage('home')})
+</script>
+
+</body>
+</html>
