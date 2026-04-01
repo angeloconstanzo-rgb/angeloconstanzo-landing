@@ -8,7 +8,6 @@
 <link rel="stylesheet" href="/assets/styles.css">
 </head>
 <body>
-<div class="site-wrap">
   <nav class="nav">
     <div class="container nav-inner">
       <a class="brand" href="/">
@@ -18,7 +17,7 @@
       <div class="nav-links">
         <a href="/persona/">Persona</a>
         <a href="/empresa/">Empresa</a>
-        <a href="/acerca/">Acerca</a>
+        <a href="/acerca/" class="accent">Acerca</a>
         <a href="/betascan/">BetaScan</a>
         <a href="/betagym/">BetaGym</a>
         <a href="/betamode/">BetaMode</a>
@@ -29,7 +28,7 @@
   
 <header class="hero">
   <div class="container hero-grid">
-    <div>
+    <div class="reveal">
       <div class="eyebrow">Entrenamiento humano para personas y empresas</div>
       <h1>
         <span class="line">Deja de entenderte.</span>
@@ -43,9 +42,12 @@
       </div>
       <div class="micro">Si no sabes por dónde empezar, escríbeme directo por WhatsApp.</div>
     </div>
-    <div class="hero-card card">
-      <img src="/assets/images/angelo-profile.jpg" alt="Angelo Constanzo" class="hero-portrait">
-      <p class="photo-note">Solo reemplaza esta imagen subiendo tu foto como <strong>angelo-profile.jpg</strong> dentro de <strong>/assets/images/</strong>.</p>
+    <div class="hero-visual reveal">
+      <div class="visual-lines"><span></span><span></span><span></span></div>
+      <div class="visual-copy">
+        <strong>Entrenar lo humano cambia la forma en que vives, lideras y decides.</strong>
+        <span>Personas, equipos y cultura. Cambio real con dirección, práctica y exigencia.</span>
+      </div>
     </div>
   </div>
 </header>
@@ -54,11 +56,11 @@
 
 <section>
   <div class="container stats-grid">
-    <div class="stat card"><div class="stat-number">500+</div><div class="stat-label">Personas que dejaron de repetir lo mismo</div></div>
-    <div class="stat card"><div class="stat-number">450+</div><div class="stat-label">Líderes de equipo entrenados</div></div>
-    <div class="stat card"><div class="stat-number">350+</div><div class="stat-label">Procesos de psicoterapia</div></div>
-    <div class="stat card"><div class="stat-number">150+</div><div class="stat-label">Coachees acompañados</div></div>
-    <div class="stat card"><div class="stat-number">80+</div><div class="stat-label">Empresas transformadas</div></div>
+    <div class="stat card reveal"><div class="stat-number counter" data-target="500">0+</div><div class="stat-label">Personas que dejaron de repetir lo mismo</div></div>
+    <div class="stat card reveal"><div class="stat-number counter" data-target="450">0+</div><div class="stat-label">Líderes de equipo entrenados</div></div>
+    <div class="stat card reveal"><div class="stat-number counter" data-target="350">0+</div><div class="stat-label">Procesos de psicoterapia</div></div>
+    <div class="stat card reveal"><div class="stat-number counter" data-target="150">0+</div><div class="stat-label">Coachees acompañados</div></div>
+    <div class="stat card reveal"><div class="stat-number counter" data-target="80">0+</div><div class="stat-label">Empresas transformadas</div></div>
   </div>
 </section>
 
@@ -66,14 +68,14 @@
 
 <section>
   <div class="container split-grid">
-    <div>
+    <div class="reveal">
       <div class="eyebrow">Filosofía</div>
       <h2>
         <span class="line">Entrenar distinto.</span>
         <span class="line text-gold">Lograr distinto.</span>
       </h2>
     </div>
-    <div class="copy">
+    <div class="copy reveal">
       <p>La mayoría de las personas no tiene un problema de capacidad. Tiene un problema de entrenamiento.</p>
       <p>Saben lo que les pasa. Lo han hablado. Lo han pensado. Y aun así siguen en el mismo lugar.</p>
       <p><strong>Porque el cambio no pasa por entender. Pasa por entrenar.</strong></p>
@@ -87,10 +89,10 @@
 
 <section id="acerca">
   <div class="container about-grid">
-    <div class="photo-shell card">
+    <div class="photo-shell card reveal">
       <img src="/assets/images/angelo-profile.jpg" alt="Angelo Constanzo" class="profile-photo">
     </div>
-    <div>
+    <div class="reveal">
       <div class="eyebrow">Acerca de Angelo</div>
       <h2>
         <span class="line">No necesitas más teoría.</span>
@@ -118,7 +120,7 @@
 <div class="divider"></div>
 
 <section>
-  <div class="container cta-band">
+  <div class="container cta-band reveal">
     <div class="eyebrow">Próximo paso</div>
     <h2>
       <span class="line">Tu próximo paso no es pensar más.</span>
@@ -133,10 +135,7 @@
 </section>
 
   <div class="divider"></div>
-  <footer class="footer">
-    <div class="container">© 2026 Angelo Constanzo — La vida que quieres no llega. Se entrena.</div>
-  </footer>
-</div>
-<script src="/assets/app.js"></script>
+  <footer class="footer"><div class="container">© 2026 Angelo Constanzo — La vida que quieres no llega. Se entrena.</div></footer>
+  <script src="/assets/app.js"></script>
 </body>
 </html>
