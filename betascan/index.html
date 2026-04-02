@@ -1,30 +1,639 @@
-<!DOCTYPE html>
-<html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BetaScan — Angelo Constanzo</title><meta name="description" content="Diagnóstico inicial">
-<link rel="stylesheet" href="/assets/styles.css"></head><body>
-<nav class="nav"><div class="container nav-inner">
-<a class="brand" href="/"><div class="brand-lines"><span></span><span></span><span></span></div><div class="brand-name">Angelo Constanzo</div></a>
-<div class="nav-links">
-<a href="/persona/">Persona</a>
-<a href="/empresa/">Empresa</a>
-<a href="/acerca-de/">Acerca</a>
-<a href="/betascan/" class="active">BetaScan</a>
-<a href="/betagym/">BetaGym</a>
-<a href="/betamode/">BetaMode</a>
-</div>
-<a href="https://wa.link/zyw1c4" target="_blank" rel="noopener noreferrer" class="btn btn-gold">Hablemos</a>
-</div></nav>
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>BetaScan — Angelo Constanzo</title><meta name="description" content="Diagnóstico gratuito de 5 minutos."><link rel="stylesheet" href="/assets/site.css"><style>body{background:radial-gradient(circle at 100% 0%, rgba(111,90,159,.08), transparent 28%),radial-gradient(circle at 0% 15%, rgba(0,184,212,.08), transparent 22%),linear-gradient(180deg,#0A0A0A 0%,#111 100%)!important}.container{max-width:720px;margin:0 auto;padding:40px 24px 80px;position:relative;z-index:1}.screen{display:none;animation:fadeIn .5s ease}.screen.active{display:block}@keyframes fadeIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}.logo{font-size:13px;font-weight:700;letter-spacing:4px;color:var(--gold);text-transform:uppercase;margin-bottom:60px}.intro-badge{display:inline-block;border:1px solid var(--gold-border);color:var(--gold);font-size:11px;letter-spacing:3px;text-transform:uppercase;padding:6px 16px;margin-bottom:32px;border-radius:999px}#betascan-app h1{font-size:clamp(32px,6vw,52px);font-weight:700;line-height:1.05;margin-bottom:20px;letter-spacing:-1px}#betascan-app h1 span{color:var(--gold)}.intro-sub{font-size:16px;color:rgba(245,240,232,.65);line-height:1.7;max-width:520px;margin-bottom:40px}.capacidades-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:48px}.cap-chip{background:var(--gold-dim);border:1px solid var(--gold-border);padding:8px 10px;font-size:10px;font-weight:700;letter-spacing:.5px;color:var(--gold-light);text-align:center;line-height:1.3;border-radius:10px}.btn-primary,.btn-cta{background:var(--gold)!important;color:#0A0A0A!important;border:none;padding:16px 40px;font-family:'OpenSauceOne',Arial,sans-serif!important;font-size:14px;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:all .2s;border-radius:999px}.btn-primary:hover,.btn-cta:hover{background:var(--gold-light)!important;transform:translateY(-1px)}.time-note,.progress-count,.question-number,.likert-label,.analyzer-label,.score-max{color:var(--gray)!important}.email-form{max-width:480px}.email-form h2,.cta-title,.result-title{font-weight:700}.email-form p,.score-desc,.insight-text,.cta-sub{color:rgba(245,240,232,.6)!important}.field-group{margin-bottom:20px}.field-group label{display:block;font-size:11px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:8px}.field-group input{width:100%;background:var(--card);border:1px solid var(--gold-border);color:var(--white);padding:14px 18px;font-family:'OpenSauceOne',Arial,sans-serif;font-size:14px;outline:none;transition:border-color .2s;border-radius:12px}.field-group input:focus{border-color:var(--gold)}.field-group input::placeholder{color:rgba(245,240,232,.3)}.progress-wrap{margin-bottom:48px}.progress-meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}.progress-cap-name,.section-title,.cta-eyebrow,.result-name{font-size:11px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;font-weight:700}.progress-bar-bg,.analyzer-bar-bg{height:2px;background:rgba(201,168,76,.15);width:100%}.progress-bar-fill,.analyzer-bar-fill{height:2px;background:var(--gold);transition:width .4s ease}.question-text{font-size:clamp(18px,3vw,24px);font-weight:700;line-height:1.4;margin-bottom:36px;letter-spacing:-.3px}.likert-wrap{margin-bottom:40px}.likert-labels{display:flex;justify-content:space-between;margin-bottom:12px}.likert-options{display:flex;gap:10px}.likert-btn{flex:1;height:52px;background:var(--card);border:1px solid rgba(201,168,76,.2);color:rgba(245,240,232,.5);font-family:'OpenSauceOne',Arial,sans-serif;font-size:15px;font-weight:700;cursor:pointer;transition:all .2s;position:relative;border-radius:12px}.likert-btn:hover,.likert-btn.selected,.text-opt:hover,.text-opt.selected{background:var(--gold-dim);border-color:var(--gold);color:var(--gold-light)}.likert-btn.selected::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:2px;background:var(--gold)}.text-options{display:flex;flex-direction:column;gap:10px;margin-bottom:40px}.text-opt{background:var(--card);border:1px solid rgba(201,168,76,.2);padding:16px 20px;text-align:left;color:rgba(245,240,232,.7);font-family:'OpenSauceOne',Arial,sans-serif;font-size:14px;cursor:pointer;transition:all .2s;line-height:1.4;border-radius:14px}.text-opt.selected{padding-left:28px;position:relative;color:var(--white)}.text-opt.selected::before{content:'▸';color:var(--gold);position:absolute;left:12px;top:50%;transform:translateY(-50%)}.nav-btns{display:flex;gap:12px;align-items:center}.btn-back,.share-btn{background:transparent;border:1px solid rgba(245,240,232,.15);color:var(--gray);padding:14px 24px;font-family:'OpenSauceOne',Arial,sans-serif;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:all .2s;border-radius:999px}.btn-back:hover,.share-btn:hover{border-color:var(--gold-border);color:var(--white);background:var(--gold-dim)}#loadingScreen{text-align:center;padding:80px 0}.loader-text{font-size:13px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:32px}.analyzer{display:flex;flex-direction:column;gap:12px;max-width:360px;margin:0 auto}.analyzer-row{display:flex;align-items:center;gap:12px;opacity:0;animation:slideIn .4s ease forwards}@keyframes slideIn{from{opacity:0;transform:translateX(-10px)}to{opacity:1;transform:translateX(0)}}.result-header{margin-bottom:48px}.result-score-wrap{display:flex;align-items:center;gap:20px;padding:24px;background:var(--card);border:1px solid var(--gold-border);margin-bottom:40px;border-radius:20px}.score-circle{width:80px;height:80px;border:2px solid var(--gold);border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0}.score-number{font-size:26px;font-weight:700;color:var(--gold);line-height:1}.radar-container{display:flex;justify-content:center;margin-bottom:20px}.cap-bars{display:flex;flex-direction:column;gap:14px;margin-bottom:40px}.cap-bar-row{display:flex;flex-direction:column;gap:5px}.cap-bar-meta{display:flex;justify-content:space-between}.cap-bar-name{font-size:12px;font-weight:700;letter-spacing:.5px}.cap-bar-score{font-size:12px;color:var(--gold);font-weight:700}.cap-bar-bg{height:4px;background:rgba(201,168,76,.1);border-radius:2px}.cap-bar-fill{height:4px;border-radius:2px;background:var(--gold);width:0;transition:width 1.2s cubic-bezier(.4,0,.2,1)}.cap-bar-fill.weak{background:#7a5c1e}.cap-bar-fill.mid{background:#C9A84C}.cap-bar-fill.strong{background:var(--gold-light)}.insights-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:40px}.insight-card{background:var(--card);border:1px solid var(--gold-border);padding:20px;border-radius:18px}.insight-card.weak{border-color:rgba(122,92,30,.5)}.insight-tag{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:8px}.insight-card.weak .insight-tag{color:#7a5c1e}.insight-cap{font-size:14px;font-weight:700;margin-bottom:6px}.narrative-box{background:var(--card);border-left:3px solid var(--gold);padding:28px;margin-bottom:40px;border-radius:0 18px 18px 0}.narrative-box p{font-size:15px;line-height:1.8;color:rgba(245,240,232,.8);font-weight:400}.narrative-box strong{color:var(--gold);font-weight:700}.cta-block{background:linear-gradient(135deg,#111 0%,#0D0D0D 100%);border:1px solid var(--gold-border);padding:36px;text-align:center;margin-bottom:24px;border-radius:22px}@media (max-width:600px){.capacidades-grid{grid-template-columns:repeat(2,1fr)}.insights-grid{grid-template-columns:1fr}.likert-options{gap:6px}.likert-btn{height:44px;font-size:14px}}</style></head><body><nav class="nav"><div class="container nav-inner"><a class="brand" href="/"><div class="brand-lines"><span></span><span></span><span></span></div><div class="brand-name">Angelo Constanzo</div></a><div class="nav-links"><a href="/persona/">Persona</a><a href="/empresa/">Empresa</a><a href="/betascan/" class="active">BetaScan</a><a href="/betagym/">BetaGym</a><a href="/betamode/">BetaMode</a><a href="/acerca-de/">Acerca</a></div><a href="https://wa.link/zyw1c4" target="_blank" rel="noopener noreferrer" class="btn btn-gold">Hablemos</a></div></nav><header><div class="container reveal" style="padding-bottom:0"><div class="eyebrow text-gold">BetaScan</div><h1><span class="line">¿Dónde estás hoy realmente?</span></h1><div class="copy lead"><p>No todos están en el mismo punto. Por eso no todos necesitan lo mismo.</p><p>BetaScan es un diagnóstico gratuito que en 5 minutos te muestra cómo estás operando realmente:</p><p>Cómo piensas. Cómo decides. Cómo actúas bajo presión. Cómo te relacionas.</p><p>No es un test de personalidad. Es una radiografía de tu funcionamiento actual.</p><p>A partir de eso, definimos el siguiente paso. No desde intuición. Desde evidencia.</p></div></div></header><div id="betascan-app">
+<div class="container">
 
-<header><div class="container reveal">
-<div class="eyebrow text-gold">BetaScan</div>
-<h1><span class="line">No todos están en el mismo punto.</span><span class="line text-gold">Antes de elegir qué hacer, necesitas ver dónde estás.</span></h1>
-<div class="copy" style="max-width:780px">
-<p>El BetaScan mide tus 8 capacidades humanas: Fuego Propio, Mundo Interior, Raíz, Campo de Empatía, Norte Vital, Chispa Creativa, Movimiento y Energía Vital.</p>
-<p>En menos de 10 minutos sabrás cuáles están activas, cuáles están dormidas y por dónde deberías empezar a entrenar.</p>
-</div>
-<div class="hero-actions"><a href="#BETASCAN_FORM_LINK_PENDING" class="btn btn-gold">Hacer diagnóstico</a></div>
-<div class="notice">Pendiente: reemplazar este link por el formulario final del BetaScan o la integración definitiva.</div>
-</div></header>
+  <!-- INTRO -->
+  <div id="introScreen" class="screen active">
+    <div class="logo">Beta Gym</div>
+    <div class="intro-badge">Mini BetaScan 2.0</div>
+    <h1>Descubre tu<br><span>Poder Humano</span></h1>
+    <p class="intro-sub">Un diagnóstico de las 8 capacidades que determinan tu ventaja real como ser humano — las que ninguna IA puede reemplazar.</p>
 
-<div class="divider"></div><footer class="footer"><div class="container">© 2026 Angelo Constanzo — La vida que quieres no llega. Se entrena.</div></footer>
-<script src="/assets/app.js"></script></body></html>
+    <div class="capacidades-grid">
+      <div class="cap-chip">🔥 Fuego Propio</div>
+      <div class="cap-chip">🌌 Mundo Interior</div>
+      <div class="cap-chip">🌿 Raíz</div>
+      <div class="cap-chip">🤝 Campo de Empatía</div>
+      <div class="cap-chip">🧭 Norte Vital</div>
+      <div class="cap-chip">✨ Chispa Creativa</div>
+      <div class="cap-chip">⚡ Movimiento</div>
+      <div class="cap-chip">💎 Energía Vital</div>
+    </div>
+
+    <button class="btn-primary" onclick="showEmailCapture()">COMENZAR MI DIAGNÓSTICO</button>
+    <p class="time-note">⏱ 5–7 minutos · 16 preguntas · Resultado inmediato</p>
+  </div>
+
+  <!-- EMAIL CAPTURE -->
+  <div id="emailScreen" class="screen">
+    <div class="logo">Beta Gym</div>
+    <div class="email-form">
+      <h2>Primero,<br>¿cómo te llamamos?</h2>
+      <p>Tu resultado es personalizado. Lo recibirás también en tu correo con un análisis más detallado.</p>
+      <div class="field-group">
+        <label>Nombre</label>
+        <input type="text" id="userName" placeholder="Tu nombre" />
+      </div>
+      <div class="field-group">
+        <label>Email</label>
+        <input type="email" id="userEmail" placeholder="tu@email.com" />
+      </div>
+      <button class="btn-primary" onclick="startScan()">INICIAR SCAN →</button>
+    </div>
+  </div>
+
+  <!-- QUESTIONS -->
+  <div id="questionScreen" class="screen">
+    <div class="progress-wrap">
+      <div class="progress-meta">
+        <span class="progress-cap-name" id="progressCapName">—</span>
+        <span class="progress-count" id="progressCount">1 / 16</span>
+      </div>
+      <div class="progress-bar-bg">
+        <div class="progress-bar-fill" id="progressFill" style="width:0%"></div>
+      </div>
+    </div>
+
+    <div class="question-number" id="questionNumber">PREGUNTA 01</div>
+    <div class="question-text" id="questionText">—</div>
+
+    <div id="answersContainer"></div>
+
+    <div class="nav-btns">
+      <button class="btn-back" onclick="prevQuestion()">← ATRÁS</button>
+    </div>
+  </div>
+
+  <!-- LOADING -->
+  <div id="loadingScreen" class="screen">
+    <p class="loader-text">Analizando tu perfil...</p>
+    <div class="analyzer" id="analyzerRows"></div>
+  </div>
+
+  <!-- RESULTS -->
+  <div id="resultScreen" class="screen">
+    <div class="result-header">
+      <div class="result-name" id="resultName">—</div>
+      <div class="result-title" id="resultTitle">—</div>
+    </div>
+
+    <div class="result-score-wrap">
+      <div class="score-circle">
+        <div class="score-number" id="scoreNumber">0</div>
+        <div class="score-max">/100</div>
+      </div>
+      <div class="score-text">
+        <div class="score-label" id="scoreLabel">—</div>
+        <div class="score-desc" id="scoreDesc">—</div>
+      </div>
+    </div>
+
+    <div class="radar-section">
+      <div class="section-title">Perfil de las 8 Capacidades</div>
+      <div class="radar-container">
+        <canvas id="radarCanvas" width="280" height="280"></canvas>
+      </div>
+    </div>
+
+    <div class="section-title">Detalle por Capacidad</div>
+    <div class="cap-bars" id="capBars"></div>
+
+    <div class="section-title" style="margin-top:8px">Tu Diagnóstico</div>
+    <div class="narrative-box">
+      <p id="narrativeText">—</p>
+    </div>
+
+    <div class="section-title">Zonas de Entrenamiento</div>
+    <div class="insights-grid" id="insightsGrid"></div>
+
+    <div class="cta-block">
+      <div class="cta-eyebrow">Siguiente Paso</div>
+      <div class="cta-title">Tu diagnóstico tiene solución</div>
+      <div class="cta-sub">En Beta Gym entrenamos exactamente estas capacidades. Una clase demo gratuita para que lo compruebes.</div>
+      <a href="#" class="btn-cta">QUIERO MI CLASE DEMO GRATIS</a>
+      <button class="share-btn" onclick="shareResult()">↗ COMPARTIR MI RESULTADO</button>
+    </div>
+  </div>
+
+</div>
+
+
+</div><script>
+const CAPACIDADES = [
+  {
+    id: 'fuego',
+    name: 'Fuego Propio',
+    emoji: '🔥',
+    desc: 'Tu motivación intrínseca y energía interna para actuar desde adentro, no desde el miedo o la presión externa.',
+    questions: [
+      {
+        text: '¿Con qué frecuencia sientes que actúas desde una motivación genuina, no por miedo o presión externa?',
+        type: 'likert',
+        labels: ['Casi nunca', 'Siempre']
+      },
+      {
+        text: 'Cuando termina tu jornada, ¿cómo te sientes habitualmente?',
+        type: 'text',
+        options: [
+          'Vacío/a, como si hubiera dado sin recibir nada',
+          'Neutral, ni bien ni mal',
+          'Con algo de energía, aunque cansado/a',
+          'Encendido/a, con ganas de hacer más'
+        ]
+      }
+    ]
+  },
+  {
+    id: 'mundo',
+    name: 'Mundo Interior',
+    emoji: '🌌',
+    desc: 'Tu capacidad de autoconocimiento, gestión emocional y presencia con lo que ocurre dentro de ti.',
+    questions: [
+      {
+        text: '¿Qué tan claramente puedes identificar qué estás sintiendo en el momento en que lo sientes?',
+        type: 'likert',
+        labels: ['Muy confuso', 'Muy claro']
+      },
+      {
+        text: 'Cuando algo te afecta emocionalmente en el trabajo, ¿qué sueles hacer?',
+        type: 'text',
+        options: [
+          'Lo guardo y sigo como si nada',
+          'Reacciono y a veces me arrepiento',
+          'Lo proceso después, solo/a',
+          'Lo identifico y decido cómo responder conscientemente'
+        ]
+      }
+    ]
+  },
+  {
+    id: 'raiz',
+    name: 'Raíz',
+    emoji: '🌿',
+    desc: 'Tu sentido de identidad sólida, arraigo y confianza interna independiente del contexto externo.',
+    questions: [
+      {
+        text: '¿En qué medida tu autoconfianza depende de la aprobación o reconocimiento de otros?',
+        type: 'likert',
+        labels: ['Dependo mucho', 'Soy autónomo/a']
+      },
+      {
+        text: 'Ante un cambio grande o una crisis, ¿cómo reacciona tu sentido de identidad?',
+        type: 'text',
+        options: [
+          'Me desestabilizo profundamente y tardo en recuperarme',
+          'Me cuesta, pero vuelvo eventualmente',
+          'Me adapto aunque con incomodidad',
+          'Me mantengo firme desde adentro'
+        ]
+      }
+    ]
+  },
+  {
+    id: 'empatia',
+    name: 'Campo de Empatía',
+    emoji: '🤝',
+    desc: 'Tu capacidad de conectar genuinamente con otros, escuchar profundamente y construir vínculos reales.',
+    questions: [
+      {
+        text: '¿Con qué facilidad logras que las personas se sientan realmente escuchadas y comprendidas contigo?',
+        type: 'likert',
+        labels: ['Muy difícil', 'Con mucha facilidad']
+      },
+      {
+        text: 'En una conversación difícil, ¿dónde suele ir tu atención principalmente?',
+        type: 'text',
+        options: [
+          'En pensar qué voy a responder',
+          'En mantener la calma',
+          'En entender lo que el otro realmente siente',
+          'En integrar lo que siento yo y lo que siente el otro'
+        ]
+      }
+    ]
+  },
+  {
+    id: 'norte',
+    name: 'Norte Vital',
+    emoji: '🧭',
+    desc: 'La claridad sobre tu propósito, dirección de vida y la capacidad de tomar decisiones alineadas con lo que más importa.',
+    questions: [
+      {
+        text: '¿Qué tan claro tienes hacia dónde quieres ir en tu vida en este momento?',
+        type: 'likert',
+        labels: ['Muy confuso', 'Muy claro']
+      },
+      {
+        text: 'Cuando debes tomar una decisión importante, ¿qué proceso sigues?',
+        type: 'text',
+        options: [
+          'Procrastino o dejo que otros decidan',
+          'Decido desde el miedo o la urgencia',
+          'Analizo bien, aunque me cuesta soltar el control',
+          'Conecto con mis valores y decido desde ahí'
+        ]
+      }
+    ]
+  },
+  {
+    id: 'chispa',
+    name: 'Chispa Creativa',
+    emoji: '✨',
+    desc: 'Tu capacidad de generar ideas originales, conectar puntos inesperados y encontrar soluciones fuera del camino trillado.',
+    questions: [
+      {
+        text: '¿Con qué frecuencia generas ideas o soluciones que sorprenden a otros o a ti mismo/a?',
+        type: 'likert',
+        labels: ['Casi nunca', 'Con frecuencia']
+      },
+      {
+        text: 'Cuando enfrentas un problema sin solución obvia, ¿qué ocurre en ti?',
+        type: 'text',
+        options: [
+          'Me bloqueo y busco que alguien me diga qué hacer',
+          'Sigo los pasos conocidos aunque no funcionen bien',
+          'Exploro alternativas, aunque con inseguridad',
+          'Me activo: los problemas difíciles me energizan'
+        ]
+      }
+    ]
+  },
+  {
+    id: 'movimiento',
+    name: 'Movimiento',
+    emoji: '⚡',
+    desc: 'Tu capacidad de pasar del pensamiento a la acción concreta, gestionar la inercia y ejecutar lo que importa.',
+    questions: [
+      {
+        text: '¿Qué tan bien logras convertir tus intenciones y planes en acciones concretas y sostenidas?',
+        type: 'likert',
+        labels: ['Muy mal', 'Muy bien']
+      },
+      {
+        text: 'Cuando tienes una meta importante, ¿cuál es tu patrón más frecuente?',
+        type: 'text',
+        options: [
+          'Arranco fuerte y me apago a la semana',
+          'Pienso mucho pero actúo poco',
+          'Avanzo en momentos, aunque no siempre constante',
+          'Construyo impulso sostenido hasta lograrlo'
+        ]
+      }
+    ]
+  },
+  {
+    id: 'energia',
+    name: 'Energía Vital',
+    emoji: '💎',
+    desc: 'La gestión consciente de tu energía física, mental y emocional para operar desde tu mejor versión.',
+    questions: [
+      {
+        text: '¿Qué tan bien gestionas tu energía a lo largo de la semana (sin llegar agotado/a al fin de semana)?',
+        type: 'likert',
+        labels: ['Muy mal', 'Muy bien']
+      },
+      {
+        text: 'Cuando sientes que tu energía está baja, ¿qué haces habitualmente?',
+        type: 'text',
+        options: [
+          'Sigo empujando hasta que el cuerpo me detiene',
+          'Me desconecto sin realmente recuperarme',
+          'Ajusto algo, aunque no siempre sé bien qué',
+          'Tengo prácticas concretas que me restauran'
+        ]
+      }
+    ]
+  }
+];
+
+// Flatten questions
+const ALL_QUESTIONS = [];
+CAPACIDADES.forEach(cap => {
+  cap.questions.forEach(q => {
+    ALL_QUESTIONS.push({ ...q, capId: cap.id, capName: cap.name, capEmoji: cap.emoji });
+  });
+});
+
+const TOTAL = ALL_QUESTIONS.length;
+let currentQ = 0;
+let answers = {};
+let userName = '';
+let userEmail = '';
+
+function showEmailCapture() {
+  showScreen('emailScreen');
+}
+
+function startScan() {
+  userName = document.getElementById('userName').value.trim() || 'Beta';
+  userEmail = document.getElementById('userEmail').value.trim();
+  currentQ = 0;
+  answers = {};
+  showScreen('questionScreen');
+  renderQuestion();
+}
+
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+function renderQuestion() {
+  const q = ALL_QUESTIONS[currentQ];
+  document.getElementById('progressCapName').textContent = `${q.capEmoji} ${q.capName}`;
+  document.getElementById('progressCount').textContent = `${currentQ + 1} / ${TOTAL}`;
+  document.getElementById('progressFill').style.width = `${((currentQ) / TOTAL) * 100}%`;
+  document.getElementById('questionNumber').textContent = `PREGUNTA ${String(currentQ + 1).padStart(2, '0')}`;
+  document.getElementById('questionText').textContent = q.text;
+
+  const container = document.getElementById('answersContainer');
+  container.innerHTML = '';
+
+  if (q.type === 'likert') {
+    const wrap = document.createElement('div');
+    wrap.className = 'likert-wrap';
+    const labels = document.createElement('div');
+    labels.className = 'likert-labels';
+    labels.innerHTML = `<span class="likert-label">${q.labels[0]}</span><span class="likert-label">${q.labels[1]}</span>`;
+    const opts = document.createElement('div');
+    opts.className = 'likert-options';
+    [1, 2, 3, 4, 5].forEach(v => {
+      const btn = document.createElement('button');
+      btn.className = 'likert-btn';
+      btn.textContent = v;
+      if (answers[currentQ] === v) btn.classList.add('selected');
+      btn.onclick = () => selectAnswer(v, btn, '.likert-btn');
+      opts.appendChild(btn);
+    });
+    wrap.appendChild(labels);
+    wrap.appendChild(opts);
+    container.appendChild(wrap);
+  } else {
+    const wrap = document.createElement('div');
+    wrap.className = 'text-options';
+    q.options.forEach((opt, i) => {
+      const btn = document.createElement('button');
+      btn.className = 'text-opt';
+      btn.textContent = opt;
+      if (answers[currentQ] === i + 1) btn.classList.add('selected');
+      btn.onclick = () => selectAnswer(i + 1, btn, '.text-opt');
+      wrap.appendChild(btn);
+    });
+    container.appendChild(wrap);
+  }
+}
+
+function selectAnswer(val, el, selector) {
+  document.querySelectorAll(selector).forEach(b => b.classList.remove('selected'));
+  el.classList.add('selected');
+  answers[currentQ] = val;
+  setTimeout(() => nextQuestion(), 350);
+}
+
+function nextQuestion() {
+  if (answers[currentQ] === undefined) return;
+  if (currentQ < TOTAL - 1) {
+    currentQ++;
+    renderQuestion();
+  } else {
+    showLoading();
+  }
+}
+
+function prevQuestion() {
+  if (currentQ > 0) {
+    currentQ--;
+    renderQuestion();
+  } else {
+    showScreen('emailScreen');
+  }
+}
+
+function showLoading() {
+  showScreen('loadingScreen');
+  const rows = document.getElementById('analyzerRows');
+  rows.innerHTML = '';
+  CAPACIDADES.forEach((cap, i) => {
+    const row = document.createElement('div');
+    row.className = 'analyzer-row';
+    row.style.animationDelay = `${i * 0.15}s`;
+    row.innerHTML = `
+      <span class="analyzer-label">${cap.emoji} ${cap.name}</span>
+      <div class="analyzer-bar-bg"><div class="analyzer-bar-fill" id="abar_${cap.id}"></div></div>
+    `;
+    rows.appendChild(row);
+    setTimeout(() => {
+      const score = calcCapScore(cap.id);
+      document.getElementById(`abar_${cap.id}`).style.width = `${score}%`;
+    }, i * 150 + 400);
+  });
+  setTimeout(() => showResults(), 3200);
+}
+
+function calcCapScore(capId) {
+  const qIndices = ALL_QUESTIONS.map((q, i) => q.capId === capId ? i : -1).filter(i => i >= 0);
+  let total = 0;
+  qIndices.forEach(i => { total += (answers[i] || 1); });
+  return Math.round((total / (qIndices.length * 5)) * 100);
+}
+
+function showResults() {
+  const scores = {};
+  CAPACIDADES.forEach(cap => { scores[cap.id] = calcCapScore(cap.id); });
+  const globalScore = Math.round(Object.values(scores).reduce((a, b) => a + b, 0) / 8);
+
+  showScreen('resultScreen');
+
+  document.getElementById('resultName').textContent = `Diagnóstico de ${userName}`;
+  document.getElementById('scoreNumber').textContent = globalScore;
+
+  let scoreLabel, scoreDesc, titleText;
+  if (globalScore >= 80) {
+    scoreLabel = 'Poder Humano Activado';
+    scoreDesc = 'Tus capacidades están altamente desarrolladas. El reto ahora es mantener y profundizar.';
+    titleText = 'Estás operando desde tu mejor versión';
+  } else if (globalScore >= 60) {
+    scoreLabel = 'En Desarrollo';
+    scoreDesc = 'Tienes una base sólida con áreas claras de crecimiento. El potencial está, falta entrenamiento.';
+    titleText = 'Tu potencial humano está despertando';
+  } else if (globalScore >= 40) {
+    scoreLabel = 'Modo Supervivencia';
+    scoreDesc = 'Estás funcionando por inercia. Hay capacidades dormidas que al activarlas cambian todo.';
+    titleText = 'Hay capacidades tuyas que están dormidas';
+  } else {
+    scoreLabel = 'Zona de Transformación';
+    scoreDesc = 'Este diagnóstico es el primer paso. El camino está claro y empieza ahora.';
+    titleText = 'Estás ante una oportunidad de transformación real';
+  }
+
+  document.getElementById('scoreLabel').textContent = scoreLabel;
+  document.getElementById('scoreDesc').textContent = scoreDesc;
+  document.getElementById('resultTitle').textContent = titleText;
+
+  // RADAR
+  drawRadar(scores);
+
+  // BARS
+  const capBars = document.getElementById('capBars');
+  capBars.innerHTML = '';
+  CAPACIDADES.forEach(cap => {
+    const s = scores[cap.id];
+    const level = s < 50 ? 'weak' : s < 75 ? 'mid' : 'strong';
+    const row = document.createElement('div');
+    row.className = 'cap-bar-row';
+    row.innerHTML = `
+      <div class="cap-bar-meta">
+        <span class="cap-bar-name">${cap.emoji} ${cap.name}</span>
+        <span class="cap-bar-score">${s}%</span>
+      </div>
+      <div class="cap-bar-bg"><div class="cap-bar-fill ${level}" data-width="${s}"></div></div>
+    `;
+    capBars.appendChild(row);
+  });
+  setTimeout(() => {
+    document.querySelectorAll('.cap-bar-fill').forEach(el => {
+      el.style.width = el.dataset.width + '%';
+    });
+  }, 100);
+
+  // NARRATIVE
+  const sorted = Object.entries(scores).sort((a, b) => b[1] - a[1]);
+  const topCap = CAPACIDADES.find(c => c.id === sorted[0][0]);
+  const weakCap = CAPACIDADES.find(c => c.id === sorted[sorted.length - 1][0]);
+  const narratives = buildNarrative(userName, globalScore, topCap, weakCap, scores);
+  document.getElementById('narrativeText').innerHTML = narratives;
+
+  // INSIGHTS
+  const insightsGrid = document.getElementById('insightsGrid');
+  insightsGrid.innerHTML = '';
+  const top2 = sorted.slice(0, 2).map(([id]) => CAPACIDADES.find(c => c.id === id));
+  const weak2 = sorted.slice(-2).map(([id]) => CAPACIDADES.find(c => c.id === id));
+  top2.forEach(cap => {
+    insightsGrid.innerHTML += `
+      <div class="insight-card">
+        <div class="insight-tag">✦ Fortaleza</div>
+        <div class="insight-cap">${cap.emoji} ${cap.name}</div>
+        <div class="insight-text">${cap.desc}</div>
+      </div>`;
+  });
+  weak2.forEach(cap => {
+    insightsGrid.innerHTML += `
+      <div class="insight-card weak">
+        <div class="insight-tag">▲ Zona de Entrenamiento</div>
+        <div class="insight-cap">${cap.emoji} ${cap.name}</div>
+        <div class="insight-text">${cap.desc}</div>
+      </div>`;
+  });
+}
+
+function buildNarrative(name, score, topCap, weakCap, scores) {
+  const introMap = {
+    fuego: `${name}, lo que más llama la atención en tu perfil es que tu <strong>Fuego Propio</strong> está encendido`,
+    mundo: `${name}, tu perfil revela un <strong>Mundo Interior</strong> en desarrollo que ya opera como un recurso`,
+    raiz: `${name}, tu capacidad de mantenerte en pie desde adentro — tu <strong>Raíz</strong> — es tu principal activo`,
+    empatia: `${name}, tu <strong>Campo de Empatía</strong> es uno de tus activos más poderosos`,
+    norte: `${name}, tienes un <strong>Norte Vital</strong> que ya funciona como brújula`,
+    chispa: `${name}, tu <strong>Chispa Creativa</strong> es lo que te distingue del promedio`,
+    movimiento: `${name}, tu capacidad de <strong>Movimiento</strong> — de pasar del pensamiento a la acción — está activada`,
+    energia: `${name}, tu gestión de <strong>Energía Vital</strong> te da una base sobre la cual todo lo demás se construye`
+  };
+
+  const weakMap = {
+    fuego: `La zona que más necesita entrenamiento es tu <strong>motivación intrínseca</strong>: estás operando más desde el deber que desde el deseo.`,
+    mundo: `Tu <strong>Mundo Interior</strong> aún no es un aliado completo: hay emociones que procesan sin tu permiso consciente.`,
+    raiz: `Tu <strong>Raíz</strong> está buscando consolidarse: la autoconfianza depende más de lo externo de lo que te gustaría.`,
+    empatia: `Tu <strong>Campo de Empatía</strong> tiene espacio de crecimiento: conectar profundamente con otros requiere más entrenamiento.`,
+    norte: `Tu <strong>Norte Vital</strong> está borroso en este momento: tomar decisiones sin brújula clara genera desgaste invisible.`,
+    chispa: `Tu <strong>Chispa Creativa</strong> está subutilizada: hay un potencial generativo en ti que aún no se ha activado.`,
+    movimiento: `El paso de idea a acción — el <strong>Movimiento</strong> — es donde más energía se pierde en tu perfil actual.`,
+    energia: `Tu <strong>Energía Vital</strong> es la base que necesita atención: sin ese cimiento, todo lo demás opera a menos del 100%.`
+  };
+
+  return `${introMap[topCap.id]}. ${weakMap[weakCap.id]} <br><br>Tu puntaje de <strong>${score}/100</strong> no es una calificación — es un punto de partida. Estas capacidades no son rasgos fijos: son músculos. Y los músculos se entrenan.`;
+}
+
+function drawRadar(scores) {
+  const canvas = document.getElementById('radarCanvas');
+  const ctx = canvas.getContext('2d');
+  const cx = 140, cy = 140, radius = 100;
+  const N = 8;
+  const keys = ['fuego', 'mundo', 'raiz', 'empatia', 'norte', 'chispa', 'movimiento', 'energia'];
+  const emojis = ['🔥', '🌌', '🌿', '🤝', '🧭', '✨', '⚡', '💎'];
+
+  ctx.clearRect(0, 0, 280, 280);
+
+  // Grid
+  for (let r = 1; r <= 5; r++) {
+    ctx.beginPath();
+    for (let i = 0; i < N; i++) {
+      const angle = (Math.PI * 2 * i / N) - Math.PI / 2;
+      const x = cx + (radius * r / 5) * Math.cos(angle);
+      const y = cy + (radius * r / 5) * Math.sin(angle);
+      i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+    }
+    ctx.closePath();
+    ctx.strokeStyle = 'rgba(201,168,76,0.12)';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+  }
+
+  // Axes
+  for (let i = 0; i < N; i++) {
+    const angle = (Math.PI * 2 * i / N) - Math.PI / 2;
+    ctx.beginPath();
+    ctx.moveTo(cx, cy);
+    ctx.lineTo(cx + radius * Math.cos(angle), cy + radius * Math.sin(angle));
+    ctx.strokeStyle = 'rgba(201,168,76,0.2)';
+    ctx.stroke();
+  }
+
+  // Data
+  ctx.beginPath();
+  keys.forEach((k, i) => {
+    const angle = (Math.PI * 2 * i / N) - Math.PI / 2;
+    const r = (scores[k] / 100) * radius;
+    const x = cx + r * Math.cos(angle);
+    const y = cy + r * Math.sin(angle);
+    i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+  });
+  ctx.closePath();
+  ctx.fillStyle = 'rgba(201,168,76,0.2)';
+  ctx.fill();
+  ctx.strokeStyle = '#C9A84C';
+  ctx.lineWidth = 2;
+  ctx.stroke();
+
+  // Dots
+  keys.forEach((k, i) => {
+    const angle = (Math.PI * 2 * i / N) - Math.PI / 2;
+    const r = (scores[k] / 100) * radius;
+    const x = cx + r * Math.cos(angle);
+    const y = cy + r * Math.sin(angle);
+    ctx.beginPath();
+    ctx.arc(x, y, 4, 0, Math.PI * 2);
+    ctx.fillStyle = '#C9A84C';
+    ctx.fill();
+  });
+
+  // Labels
+  ctx.font = '13px Poppins, sans-serif';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  emojis.forEach((emoji, i) => {
+    const angle = (Math.PI * 2 * i / N) - Math.PI / 2;
+    const lx = cx + (radius + 22) * Math.cos(angle);
+    const ly = cy + (radius + 22) * Math.sin(angle);
+    ctx.fillText(emoji, lx, ly);
+  });
+}
+
+function shareResult() {
+  const score = document.getElementById('scoreNumber').textContent;
+  const text = `Acabo de hacer el Mini BetaScan y obtuve ${score}/100 en Poder Humano. ¿Cuál es tu puntaje?`;
+  if (navigator.share) {
+    navigator.share({ title: 'Mi BetaScan', text });
+  } else {
+    navigator.clipboard.writeText(text).then(() => alert('Texto copiado al portapapeles'));
+  }
+}
+</script><div class="divider"></div><footer class="footer"><div class="container">© 2026 Angelo Constanzo — La vida que quieres no llega. Se entrena.</div></footer><script src="/assets/site.js"></script></body></html>
