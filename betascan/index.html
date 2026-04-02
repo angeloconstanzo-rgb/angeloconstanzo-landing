@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/assets/styles.css">
 <title>Mini BetaScan — Diagnóstico de Poder Humano</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #0A0A0A;
@@ -23,7 +23,7 @@
   body {
     background: var(--bg);
     color: var(--white);
-    font-family: 'Poppins', sans-serif;
+    font-family: var(--font-body);
     min-height: 100vh;
     overflow-x: hidden;
   }
@@ -116,7 +116,7 @@
     color: #0A0A0A;
     border: none;
     padding: 16px 40px;
-    font-family: 'Poppins', sans-serif;
+    font-family: var(--font-body);
     font-size: 14px;
     font-weight: 700;
     letter-spacing: 2px;
@@ -147,7 +147,7 @@
     border: 1px solid var(--gold-border);
     color: var(--white);
     padding: 14px 18px;
-    font-family: 'Poppins', sans-serif;
+    font-family: var(--font-body);
     font-size: 14px;
     outline: none;
     transition: border-color 0.2s;
@@ -238,7 +238,7 @@
     background: var(--dark-card);
     border: 1px solid rgba(201,168,76,0.2);
     color: rgba(245,240,232,0.5);
-    font-family: 'Poppins', sans-serif;
+    font-family: var(--font-body);
     font-size: 15px;
     font-weight: 600;
     cursor: pointer;
@@ -275,7 +275,7 @@
     padding: 16px 20px;
     text-align: left;
     color: rgba(245,240,232,0.7);
-    font-family: 'Poppins', sans-serif;
+    font-family: var(--font-body);
     font-size: 14px;
     cursor: pointer;
     transition: all 0.2s;
@@ -313,7 +313,7 @@
     border: 1px solid rgba(245,240,232,0.15);
     color: var(--gray);
     padding: 14px 24px;
-    font-family: 'Poppins', sans-serif;
+    font-family: var(--font-body);
     font-size: 12px;
     font-weight: 600;
     letter-spacing: 2px;
@@ -473,7 +473,7 @@
     color: #0A0A0A;
     border: none;
     padding: 16px 36px;
-    font-family: 'Poppins', sans-serif;
+    font-family: var(--font-body);
     font-size: 13px;
     font-weight: 700;
     letter-spacing: 2px;
@@ -491,7 +491,7 @@
     border: 1px solid var(--gold-border);
     color: var(--gold);
     padding: 14px 28px;
-    font-family: 'Poppins', sans-serif;
+    font-family: var(--font-body);
     font-size: 12px;
     font-weight: 600;
     letter-spacing: 2px;
@@ -511,9 +511,39 @@
     .likert-options { gap: 6px; }
     .likert-btn { height: 44px; font-size: 14px; }
   }
+
+  body { font-family: var(--font-body); background: var(--bg); color: var(--text); }
+  .logo, h1, .question-text, .result-title, .cta-title { font-family: var(--font-display); }
+  .container { max-width: 780px; padding-top: 24px; }
+  .screen { margin-top: 24px; }
+  .intro-badge, .section-title, .progress-cap-name, .result-name, .cta-eyebrow, .loader-text { color: var(--gold); border-color: rgba(212,176,90,.24); }
+  .cap-chip, .likert-btn:hover, .likert-btn.selected, .text-opt:hover, .text-opt.selected, .share-btn:hover { background: rgba(212,176,90,.12); border-color: rgba(212,176,90,.24); }
+  .btn-primary, .btn-cta { border-radius: 999px; font-family: var(--font-body); }
+  .field-group input, .text-opt, .likert-btn, .insight-card, .narrative-box, .result-score-wrap, .cta-block { border-radius: 18px; }
+  .dark-card, .darker-card {}
+
 </style>
 </head>
 <body>
+
+<nav class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="/">
+      <div class="brand-lines"><span></span><span></span><span></span></div>
+      <div class="brand-name">Angelo Constanzo</div>
+    </a>
+    <div class="nav-links">
+      <a href="/persona/">Persona</a>
+      <a href="/empresa/">Empresa</a>
+      <a href="/acerca/">Acerca</a>
+      <a href="/betascan/" class="active">BetaScan</a>
+      <a href="/betagym/">BetaGym</a>
+      <a href="/betamode/">BetaMode</a>
+    </div>
+    <a href="https://api.whatsapp.com/send?phone=56930879763&text=Quiero%20evaluar%20sesiones%20y%20programas%20contigo%2C%20te%20escribo%20desde%20angeloconstanzo.com%0A" target="_blank" rel="noopener noreferrer" class="btn btn-gold">Hablemos</a>
+  </div>
+</nav>
+
 <div class="container">
 
   <!-- INTRO -->
