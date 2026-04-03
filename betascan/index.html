@@ -1,123 +1,90 @@
-<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>BetaScan — Angelo Constanzo</title><meta name="description" content="Diagnóstico gratuito de 5 minutos."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet"><link rel="stylesheet" href="/assets/site.css"><style>body{background:radial-gradient(circle at 100% 0%, rgba(111,90,159,.08), transparent 28%),radial-gradient(circle at 0% 15%, rgba(0,184,212,.08), transparent 22%),linear-gradient(180deg,#0A0A0A 0%,#111 100%)!important}.container{max-width:720px;margin:0 auto;padding:40px 24px 80px;position:relative;z-index:1}.screen{display:none;animation:fadeIn .5s ease}.screen.active{display:block}@keyframes fadeIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}.logo{font-size:13px;font-weight:700;letter-spacing:4px;color:var(--gold);text-transform:uppercase;margin-bottom:60px}.intro-badge{display:inline-block;border:1px solid var(--gold-border);color:var(--gold);font-size:11px;letter-spacing:3px;text-transform:uppercase;padding:6px 16px;margin-bottom:32px;border-radius:999px}#betascan-app h1{font-size:clamp(32px,6vw,52px);font-weight:700;line-height:1.05;margin-bottom:20px;letter-spacing:-1px}#betascan-app h1 span{color:var(--gold)}.intro-sub{font-size:16px;color:rgba(245,240,232,.65);line-height:1.7;max-width:520px;margin-bottom:40px}.capacidades-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:48px}.cap-chip{background:var(--gold-dim);border:1px solid var(--gold-border);padding:8px 10px;font-size:10px;font-weight:700;letter-spacing:.5px;color:var(--gold-light);text-align:center;line-height:1.3;border-radius:10px}.btn-primary,.btn-cta{background:var(--gold)!important;color:#0A0A0A!important;border:none;padding:16px 40px;font-family:'OpenSauceOne',Arial,sans-serif!important;font-size:14px;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:all .2s;border-radius:999px}.btn-primary:hover,.btn-cta:hover{background:var(--gold-light)!important;transform:translateY(-1px)}.time-note,.progress-count,.question-number,.likert-label,.analyzer-label,.score-max{color:var(--gray)!important}.email-form{max-width:480px}.email-form h2,.cta-title,.result-title{font-weight:700}.email-form p,.score-desc,.insight-text,.cta-sub{color:rgba(245,240,232,.6)!important}.field-group{margin-bottom:20px}.field-group label{display:block;font-size:11px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:8px}.field-group input{width:100%;background:var(--card);border:1px solid var(--gold-border);color:var(--white);padding:14px 18px;font-family:'OpenSauceOne',Arial,sans-serif;font-size:14px;outline:none;transition:border-color .2s;border-radius:12px}.field-group input:focus{border-color:var(--gold)}.field-group input::placeholder{color:rgba(245,240,232,.3)}.progress-wrap{margin-bottom:48px}.progress-meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}.progress-cap-name,.section-title,.cta-eyebrow,.result-name{font-size:11px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;font-weight:700}.progress-bar-bg,.analyzer-bar-bg{height:2px;background:rgba(201,168,76,.15);width:100%}.progress-bar-fill,.analyzer-bar-fill{height:2px;background:var(--gold);transition:width .4s ease}.question-text{font-size:clamp(18px,3vw,24px);font-weight:700;line-height:1.4;margin-bottom:36px;letter-spacing:-.3px}.likert-wrap{margin-bottom:40px}.likert-labels{display:flex;justify-content:space-between;margin-bottom:12px}.likert-options{display:flex;gap:10px}.likert-btn{flex:1;height:52px;background:var(--card);border:1px solid rgba(201,168,76,.2);color:rgba(245,240,232,.5);font-family:'OpenSauceOne',Arial,sans-serif;font-size:15px;font-weight:700;cursor:pointer;transition:all .2s;position:relative;border-radius:12px}.likert-btn:hover,.likert-btn.selected,.text-opt:hover,.text-opt.selected{background:var(--gold-dim);border-color:var(--gold);color:var(--gold-light)}.likert-btn.selected::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:2px;background:var(--gold)}.text-options{display:flex;flex-direction:column;gap:10px;margin-bottom:40px}.text-opt{background:var(--card);border:1px solid rgba(201,168,76,.2);padding:16px 20px;text-align:left;color:rgba(245,240,232,.7);font-family:'OpenSauceOne',Arial,sans-serif;font-size:14px;cursor:pointer;transition:all .2s;line-height:1.4;border-radius:14px}.text-opt.selected{padding-left:28px;position:relative;color:var(--white)}.text-opt.selected::before{content:'▸';color:var(--gold);position:absolute;left:12px;top:50%;transform:translateY(-50%)}.nav-btns{display:flex;gap:12px;align-items:center}.btn-back,.share-btn{background:transparent;border:1px solid rgba(245,240,232,.15);color:var(--gray);padding:14px 24px;font-family:'OpenSauceOne',Arial,sans-serif;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:all .2s;border-radius:999px}.btn-back:hover,.share-btn:hover{border-color:var(--gold-border);color:var(--white);background:var(--gold-dim)}#loadingScreen{text-align:center;padding:80px 0}.loader-text{font-size:13px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:32px}.analyzer{display:flex;flex-direction:column;gap:12px;max-width:360px;margin:0 auto}.analyzer-row{display:flex;align-items:center;gap:12px;opacity:0;animation:slideIn .4s ease forwards}@keyframes slideIn{from{opacity:0;transform:translateX(-10px)}to{opacity:1;transform:translateX(0)}}.result-header{margin-bottom:48px}.result-score-wrap{display:flex;align-items:center;gap:20px;padding:24px;background:var(--card);border:1px solid var(--gold-border);margin-bottom:40px;border-radius:20px}.score-circle{width:80px;height:80px;border:2px solid var(--gold);border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0}.score-number{font-size:26px;font-weight:700;color:var(--gold);line-height:1}.radar-container{display:flex;justify-content:center;margin-bottom:20px}.cap-bars{display:flex;flex-direction:column;gap:14px;margin-bottom:40px}.cap-bar-row{display:flex;flex-direction:column;gap:5px}.cap-bar-meta{display:flex;justify-content:space-between}.cap-bar-name{font-size:12px;font-weight:700;letter-spacing:.5px}.cap-bar-score{font-size:12px;color:var(--gold);font-weight:700}.cap-bar-bg{height:4px;background:rgba(201,168,76,.1);border-radius:2px}.cap-bar-fill{height:4px;border-radius:2px;background:var(--gold);width:0;transition:width 1.2s cubic-bezier(.4,0,.2,1)}.cap-bar-fill.weak{background:#7a5c1e}.cap-bar-fill.mid{background:#C9A84C}.cap-bar-fill.strong{background:var(--gold-light)}.insights-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:40px}.insight-card{background:var(--card);border:1px solid var(--gold-border);padding:20px;border-radius:18px}.insight-card.weak{border-color:rgba(122,92,30,.5)}.insight-tag{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:8px}.insight-card.weak .insight-tag{color:#7a5c1e}.insight-cap{font-size:14px;font-weight:700;margin-bottom:6px}.narrative-box{background:var(--card);border-left:3px solid var(--gold);padding:28px;margin-bottom:40px;border-radius:0 18px 18px 0}.narrative-box p{font-size:15px;line-height:1.8;color:rgba(245,240,232,.8);font-weight:400}.narrative-box strong{color:var(--gold);font-weight:700}.cta-block{background:linear-gradient(135deg,#111 0%,#0D0D0D 100%);border:1px solid var(--gold-border);padding:36px;text-align:center;margin-bottom:24px;border-radius:22px}@media (max-width:600px){.capacidades-grid{grid-template-columns:repeat(2,1fr)}.insights-grid{grid-template-columns:1fr}.likert-options{gap:6px}.likert-btn{height:44px;font-size:14px}}</style></head><body><nav class="nav"><div class="container nav-inner"><a class="brand" href="/"><div class="brand-lines"><span></span><span></span><span></span></div><div class="brand-name">Angelo Constanzo</div></a><div class="nav-links"><a href="/persona/">Persona</a><a href="/empresa/">Empresa</a><a href="/betascan/" class="active">BetaScan</a><a href="/betagym/">BetaGym</a><a href="/betamode/">BetaMode</a><a href="/acerca-de/">Acerca</a></div><a href="https://wa.link/zyw1c4" target="_blank" rel="noopener noreferrer" class="btn btn-gold">Hablemos</a></div></nav><header><div class="container reveal" style="padding-bottom:0"><div class="eyebrow text-gold">BetaScan</div><h1><span class="line">¿Dónde estás hoy realmente?</span></h1><div class="copy lead"><p>No todos están en el mismo punto. Por eso no todos necesitan lo mismo.</p><p>BetaScan es un diagnóstico gratuito que en 5 minutos te muestra cómo estás operando realmente:</p><p>Cómo piensas. Cómo decides. Cómo actúas bajo presión. Cómo te relacionas.</p><p>No es un test de personalidad. Es una radiografía de tu funcionamiento actual.</p><p>A partir de eso, definimos el siguiente paso. No desde intuición. Desde evidencia.</p></div></div></header><div id="betascan-app">
-<div class="container">
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>BetaScan — Angelo Constanzo</title><meta name="description" content="Diagnóstico gratuito de 5 minutos."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet"><link rel="stylesheet" href="/assets/site.css"><style>body{background:radial-gradient(circle at 100% 0%, rgba(111,90,159,.08), transparent 28%),radial-gradient(circle at 0% 15%, rgba(0,184,212,.08), transparent 22%),linear-gradient(180deg,#0A0A0A 0%,#111 100%)!important}.container{max-width:720px;margin:0 auto;padding:40px 24px 80px;position:relative;z-index:1}.screen{display:none;animation:fadeIn .5s ease}.screen.active{display:block}@keyframes fadeIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}.logo{font-size:13px;font-weight:700;letter-spacing:4px;color:var(--gold);text-transform:uppercase;margin-bottom:60px}.intro-badge{display:inline-block;border:1px solid var(--gold-border);color:var(--gold);font-size:11px;letter-spacing:3px;text-transform:uppercase;padding:6px 16px;margin-bottom:32px;border-radius:999px}#betascan-app h1{font-size:clamp(32px,6vw,52px);font-weight:700;line-height:1.05;margin-bottom:20px;letter-spacing:-1px}#betascan-app h1 span{color:var(--gold)}.intro-sub{font-size:16px;color:rgba(245,240,232,.65);line-height:1.7;max-width:520px;margin-bottom:40px}.capacidades-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:48px}.cap-chip{background:var(--gold-dim);border:1px solid var(--gold-border);padding:8px 10px;font-size:10px;font-weight:700;letter-spacing:.5px;color:var(--gold-light);text-align:center;line-height:1.3;border-radius:10px}.btn-primary,.btn-cta{background:var(--gold)!important;color:#0A0A0A!important;border:none;padding:16px 40px;font-family:'OpenSauceOne',Arial,sans-serif!important;font-size:14px;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:all .2s;border-radius:999px}.btn-primary:hover,.btn-cta:hover{background:var(--gold-light)!important;transform:translateY(-1px)}.time-note,.progress-count,.question-number,.likert-label,.analyzer-label,.score-max{color:var(--gray)!important}.email-form{max-width:480px}.email-form h2,.cta-title,.result-title{font-weight:700}.email-form p,.score-desc,.insight-text,.cta-sub{color:rgba(245,240,232,.6)!important}.field-group{margin-bottom:20px}.field-group label{display:block;font-size:11px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:8px}.field-group input{width:100%;background:var(--card);border:1px solid var(--gold-border);color:var(--white);padding:14px 18px;font-family:'OpenSauceOne',Arial,sans-serif;font-size:14px;outline:none;transition:border-color .2s;border-radius:12px}.field-group input:focus{border-color:var(--gold)}.field-group input::placeholder{color:rgba(245,240,232,.3)}.progress-wrap{margin-bottom:48px}.progress-meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}.progress-cap-name,.section-title,.cta-eyebrow,.result-name{font-size:11px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;font-weight:700}.progress-bar-bg,.analyzer-bar-bg{height:2px;background:rgba(201,168,76,.15);width:100%}.progress-bar-fill,.analyzer-bar-fill{height:2px;background:var(--gold);transition:width .4s ease}.question-text{font-size:clamp(18px,3vw,24px);font-weight:700;line-height:1.4;margin-bottom:36px;letter-spacing:-.3px}.likert-wrap{margin-bottom:40px}.likert-labels{display:flex;justify-content:space-between;margin-bottom:12px}.likert-options{display:flex;gap:10px}.likert-btn{flex:1;height:52px;background:var(--card);border:1px solid rgba(201,168,76,.2);color:rgba(245,240,232,.5);font-family:'OpenSauceOne',Arial,sans-serif;font-size:15px;font-weight:700;cursor:pointer;transition:all .2s;position:relative;border-radius:12px}.likert-btn:hover,.likert-btn.selected,.text-opt:hover,.text-opt.selected{background:var(--gold-dim);border-color:var(--gold);color:var(--gold-light)}.likert-btn.selected::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:2px;background:var(--gold)}.text-options{display:flex;flex-direction:column;gap:10px;margin-bottom:40px}.text-opt{background:var(--card);border:1px solid rgba(201,168,76,.2);padding:16px 20px;text-align:left;color:rgba(245,240,232,.7);font-family:'OpenSauceOne',Arial,sans-serif;font-size:14px;cursor:pointer;transition:all .2s;line-height:1.4;border-radius:14px}.text-opt.selected{padding-left:28px;position:relative;color:var(--white)}.text-opt.selected::before{content:'▸';color:var(--gold);position:absolute;left:12px;top:50%;transform:translateY(-50%)}.nav-btns{display:flex;gap:12px;align-items:center}.btn-back,.share-btn{background:transparent;border:1px solid rgba(245,240,232,.15);color:var(--gray);padding:14px 24px;font-family:'OpenSauceOne',Arial,sans-serif;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:all .2s;border-radius:999px}.btn-back:hover,.share-btn:hover{border-color:var(--gold-border);color:var(--white);background:var(--gold-dim)}#loadingScreen{text-align:center;padding:80px 0}.loader-text{font-size:13px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:32px}.analyzer{display:flex;flex-direction:column;gap:12px;max-width:360px;margin:0 auto}.analyzer-row{display:flex;align-items:center;gap:12px;opacity:0;animation:slideIn .4s ease forwards}@keyframes slideIn{from{opacity:0;transform:translateX(-10px)}to{opacity:1;transform:translateX(0)}}.result-header{margin-bottom:48px}.result-score-wrap{display:flex;align-items:center;gap:20px;padding:24px;background:var(--card);border:1px solid var(--gold-border);margin-bottom:40px;border-radius:20px}.score-circle{width:80px;height:80px;border:2px solid var(--gold);border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0}.score-number{font-size:26px;font-weight:700;color:var(--gold);line-height:1}.radar-container{display:flex;justify-content:center;margin-bottom:20px}.cap-bars{display:flex;flex-direction:column;gap:14px;margin-bottom:40px}.cap-bar-row{display:flex;flex-direction:column;gap:5px}.cap-bar-meta{display:flex;justify-content:space-between}.cap-bar-name{font-size:12px;font-weight:700;letter-spacing:.5px}.cap-bar-score{font-size:12px;color:var(--gold);font-weight:700}.cap-bar-bg{height:4px;background:rgba(201,168,76,.1);border-radius:2px}.cap-bar-fill{height:4px;border-radius:2px;background:var(--gold);width:0;transition:width 1.2s cubic-bezier(.4,0,.2,1)}.cap-bar-fill.weak{background:#7a5c1e}.cap-bar-fill.mid{background:#C9A84C}.cap-bar-fill.strong{background:var(--gold-light)}.insights-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:40px}.insight-card{background:var(--card);border:1px solid var(--gold-border);padding:20px;border-radius:18px}.insight-card.weak{border-color:rgba(122,92,30,.5)}.insight-tag{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:8px}.insight-card.weak .insight-tag{color:#7a5c1e}.insight-cap{font-size:14px;font-weight:700;margin-bottom:6px}.narrative-box{background:var(--card);border-left:3px solid var(--gold);padding:28px;margin-bottom:40px;border-radius:0 18px 18px 0}.narrative-box p{font-size:15px;line-height:1.8;color:rgba(245,240,232,.8);font-weight:400}.narrative-box strong{color:var(--gold);font-weight:700}.cta-block{background:linear-gradient(135deg,#111 0%,#0D0D0D 100%);border:1px solid var(--gold-border);padding:36px;text-align:center;margin-bottom:24px;border-radius:22px}@media (max-width:600px){.capacidades-grid{grid-template-columns:repeat(2,1fr)}.insights-grid{grid-template-columns:1fr}.likert-options{gap:6px}.likert-btn{height:44px;font-size:14px}}
+.landing-shell{display:grid;gap:28px}
+.landing-top-card{position:relative;display:grid;grid-template-columns:1.2fr .55fr;gap:24px;align-items:center;padding:30px 30px 28px;border:1px solid var(--gold-border);border-radius:30px;background:linear-gradient(135deg,rgba(255,255,255,.03),rgba(201,168,76,.05));overflow:hidden;box-shadow:var(--shadow)}
+.landing-top-card::before{content:'';position:absolute;inset:auto -10% -40% auto;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle, rgba(201,168,76,.16), transparent 62%);filter:blur(12px)}
+.landing-copy{position:relative;z-index:1}
+.landing-top-actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:20px}
+.landing-time{margin:0;color:rgba(245,240,232,.62);font-size:13px;letter-spacing:.04em;text-transform:uppercase}
+.btn-start{min-height:54px;padding:0 28px}
+.pulse-cta{animation:pulseGlow 2.2s ease-in-out infinite}
+@keyframes pulseGlow{0%,100%{box-shadow:0 0 0 0 rgba(201,168,76,.0)}50%{box-shadow:0 0 0 12px rgba(201,168,76,.06)}}
+.landing-orbit{position:relative;min-height:160px}
+.landing-orbit span{position:absolute;display:inline-flex;align-items:center;justify-content:center;padding:10px 16px;border-radius:999px;border:1px solid var(--gold-border);background:rgba(255,255,255,.03);color:var(--gold-light);font-size:12px;letter-spacing:.12em;text-transform:uppercase;animation:floatTag 5s ease-in-out infinite}
+.landing-orbit span:nth-child(1){top:16px;right:18px;animation-delay:0s}
+.landing-orbit span:nth-child(2){top:70px;left:10px;animation-delay:1s}
+.landing-orbit span:nth-child(3){bottom:8px;right:48px;animation-delay:2s}
+@keyframes floatTag{0%,100%{transform:translateY(0px)}50%{transform:translateY(-8px)}}
+.landing-explain{padding:6px 2px 0}
+.landing-label{display:inline-block;margin-bottom:12px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
+.landing-title{font-size:clamp(28px,4vw,44px);margin-bottom:14px}
+.landing-text{max-width:820px;color:rgba(245,240,232,.74);font-size:17px;line-height:1.9;margin-bottom:22px}
+.landing-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:22px}
+.landing-meta-card{padding:18px;border-radius:20px;border:1px solid rgba(201,168,76,.18);background:rgba(255,255,255,.02)}
+.landing-meta-card strong{display:block;margin-bottom:6px;color:var(--white);font-size:14px}
+.landing-meta-card span{display:block;color:rgba(245,240,232,.68);font-size:14px;line-height:1.6}
+.capacity-detail-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.capacity-detail-card{padding:22px;border-radius:22px;border:1px solid rgba(201,168,76,.18);background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.015));transition:transform .22s ease,border-color .22s ease,background .22s ease}
+.capacity-detail-card:hover{transform:translateY(-3px);border-color:var(--gold-border);background:rgba(201,168,76,.05)}
+.capacity-emoji{font-size:24px;margin-bottom:12px}
+.capacity-detail-card h3{font-size:18px;margin-bottom:8px}
+.capacity-detail-card p{margin:0;color:rgba(245,240,232,.7);font-size:15px;line-height:1.75}
+.landing-bridge{padding-top:26px}
+.bridge-card{max-width:620px;padding:24px 24px 20px;border-radius:24px;border:1px solid rgba(201,168,76,.18);background:rgba(255,255,255,.02)}
+.bridge-label{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.bridge-card p{margin:0 0 18px;color:rgba(245,240,232,.7);line-height:1.8}
+body.diagnosis-started .landing-explain, body.diagnosis-started .landing-bridge{opacity:.52}
+.share-panel{display:none;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:18px}
+.share-panel.active{display:grid}
+.share-option{display:flex;align-items:center;justify-content:center;min-height:48px;padding:0 14px;border-radius:14px;border:1px solid rgba(201,168,76,.18);background:rgba(255,255,255,.02);color:var(--white);font-family:'OpenSauceOne',Arial,sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:all .18s ease}
+.share-option:hover{border-color:var(--gold-border);background:var(--gold-dim);color:var(--gold-light)}
+.share-hint{margin-top:10px;color:rgba(245,240,232,.58);font-size:13px;line-height:1.7}
+@media (max-width:900px){.landing-top-card{grid-template-columns:1fr}.landing-orbit{min-height:96px}.landing-meta,.capacity-detail-grid,.share-panel{grid-template-columns:1fr}}
 
-  <!-- INTRO -->
-  <div id="introScreen" class="screen active">
-    <div class="logo">Beta Gym</div>
-    <div class="intro-badge">Mini BetaScan 2.0</div>
-    <h1>Descubre tu<br><span>Poder Humano</span></h1>
-    <p class="intro-sub">Un diagnóstico de las 8 capacidades que determinan tu ventaja real como ser humano — las que ninguna IA puede reemplazar.</p>
-
-    <div class="capacidades-grid">
-      <div class="cap-chip">🔥 Fuego Propio</div>
-      <div class="cap-chip">🌌 Mundo Interior</div>
-      <div class="cap-chip">🌿 Raíz</div>
-      <div class="cap-chip">🤝 Campo de Empatía</div>
-      <div class="cap-chip">🧭 Norte Vital</div>
-      <div class="cap-chip">✨ Chispa Creativa</div>
-      <div class="cap-chip">⚡ Movimiento</div>
-      <div class="cap-chip">💎 Energía Vital</div>
-    </div>
-
-    <button class="btn-primary" onclick="showEmailCapture()">COMENZAR MI DIAGNÓSTICO</button>
-    <p class="time-note">⏱ 5–7 minutos · 16 preguntas · Resultado inmediato</p>
-  </div>
-
-  <!-- EMAIL CAPTURE -->
-  <div id="emailScreen" class="screen">
-    <div class="logo">Beta Gym</div>
-    <div class="email-form">
-      <h2>Primero,<br>¿cómo te llamamos?</h2>
-      <p>Tu resultado es personalizado. Lo recibirás también en tu correo con un análisis más detallado.</p>
-      <div class="field-group">
-        <label>Nombre</label>
-        <input type="text" id="userName" placeholder="Tu nombre" />
-      </div>
-      <div class="field-group">
-        <label>Email</label>
-        <input type="email" id="userEmail" placeholder="tu@email.com" />
-      </div>
-      <button class="btn-primary" onclick="startScan()">INICIAR SCAN →</button>
-    </div>
-  </div>
-
-  <!-- QUESTIONS -->
-  <div id="questionScreen" class="screen">
-    <div class="progress-wrap">
-      <div class="progress-meta">
-        <span class="progress-cap-name" id="progressCapName">—</span>
-        <span class="progress-count" id="progressCount">1 / 16</span>
-      </div>
-      <div class="progress-bar-bg">
-        <div class="progress-bar-fill" id="progressFill" style="width:0%"></div>
-      </div>
-    </div>
-
-    <div class="question-number" id="questionNumber">PREGUNTA 01</div>
-    <div class="question-text" id="questionText">—</div>
-
-    <div id="answersContainer"></div>
-
-    <div class="nav-btns">
-      <button class="btn-back" onclick="prevQuestion()">← ATRÁS</button>
-    </div>
-  </div>
-
-  <!-- LOADING -->
-  <div id="loadingScreen" class="screen">
-    <p class="loader-text">Analizando tu perfil...</p>
-    <div class="analyzer" id="analyzerRows"></div>
-  </div>
-
-  <!-- RESULTS -->
-  <div id="resultScreen" class="screen">
-    <div class="result-header">
-      <div class="result-name" id="resultName">—</div>
-      <div class="result-title" id="resultTitle">—</div>
-    </div>
-
-    <div class="result-score-wrap">
-      <div class="score-circle">
-        <div class="score-number" id="scoreNumber">0</div>
-        <div class="score-max">/100</div>
-      </div>
-      <div class="score-text">
-        <div class="score-label" id="scoreLabel">—</div>
-        <div class="score-desc" id="scoreDesc">—</div>
-      </div>
-    </div>
-
-    <div class="radar-section">
-      <div class="section-title">Perfil de las 8 Capacidades</div>
-      <div class="radar-container">
-        <canvas id="radarCanvas" width="280" height="280"></canvas>
-      </div>
-    </div>
-
-    <div class="section-title">Detalle por Capacidad</div>
-    <div class="cap-bars" id="capBars"></div>
-
-    <div class="section-title" style="margin-top:8px">Tu Diagnóstico</div>
-    <div class="narrative-box">
-      <p id="narrativeText">—</p>
-    </div>
-
-    <div class="section-title">Zonas de Entrenamiento</div>
-    <div class="insights-grid" id="insightsGrid"></div>
-
-    <div class="cta-block">
-      <div class="cta-eyebrow">Siguiente Paso</div>
-      <div class="cta-title">Tu diagnóstico tiene solución</div>
-      <div class="cta-sub">En Beta Gym entrenamos exactamente estas capacidades. Una clase demo gratuita para que lo compruebes.</div>
-      <a href="#" class="btn-cta">QUIERO MI CLASE DEMO GRATIS</a>
-      <button class="share-btn" onclick="shareResult()">↗ COMPARTIR MI RESULTADO</button>
-    </div>
-  </div>
-
-</div>
+.hero-screen{display:block}
+.hero-panel{position:relative;display:grid;grid-template-columns:1.15fr .55fr;gap:24px;align-items:center;padding:34px 32px;border:1px solid var(--gold-border);border-radius:30px;background:linear-gradient(135deg,rgba(255,255,255,.03),rgba(201,168,76,.05));overflow:hidden;box-shadow:var(--shadow)}
+.hero-panel::before{content:'';position:absolute;inset:auto -10% -35% auto;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle, rgba(201,168,76,.14), transparent 62%);filter:blur(12px)}
+.hero-copy,.hero-orbit{position:relative;z-index:1}
+.hero-title{font-size:clamp(34px,5.2vw,58px);line-height:1.03;letter-spacing:-.04em;margin-bottom:14px}
+.hero-sub{max-width:560px;color:rgba(245,240,232,.72);font-size:17px;line-height:1.8;margin-bottom:18px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.hero-link{display:inline-flex;align-items:center;gap:10px;color:var(--white);font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;opacity:.86;background:none;border:none;padding:0;cursor:pointer;font-family:'OpenSauceOne',Arial,sans-serif}
+.hero-link:hover{color:var(--gold-light);opacity:1}
+.hero-time{margin:0;color:rgba(245,240,232,.56);font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+.hero-orbit{min-height:170px}
+.hero-orbit span{position:absolute;display:inline-flex;align-items:center;justify-content:center;padding:10px 16px;border-radius:999px;border:1px solid var(--gold-border);background:rgba(255,255,255,.03);color:var(--gold-light);font-size:12px;letter-spacing:.12em;text-transform:uppercase;animation:floatTag 5s ease-in-out infinite}
+.hero-orbit span:nth-child(1){top:14px;right:10px}.hero-orbit span:nth-child(2){top:76px;left:4px;animation-delay:1s}.hero-orbit span:nth-child(3){bottom:8px;right:50px;animation-delay:2s}
+.hero-screen.hidden{display:none}
+.explain-modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;padding:24px;background:rgba(8,8,8,.72);backdrop-filter:blur(12px);z-index:70}
+.explain-modal.active{display:flex}
+.explain-dialog{width:min(980px,100%);max-height:min(88vh,920px);overflow:auto;padding:30px;border:1px solid var(--gold-border);border-radius:30px;background:linear-gradient(180deg,#111,#0b0b0b);box-shadow:0 24px 80px rgba(0,0,0,.42)}
+.dialog-top{display:flex;justify-content:space-between;gap:18px;align-items:flex-start;margin-bottom:18px}
+.dialog-top h2{margin-bottom:8px}
+.dialog-close{width:46px;height:46px;border-radius:50%;border:1px solid rgba(245,240,232,.14);background:transparent;color:var(--white);font-size:20px;cursor:pointer}
+.dialog-close:hover{border-color:var(--gold-border);background:var(--gold-dim);color:var(--gold-light)}
+.dialog-copy{max-width:760px;color:rgba(245,240,232,.76);line-height:1.85;margin-bottom:18px}
+.dialog-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0 22px}
+.dialog-meta .landing-meta-card{padding:18px}
+.dialog-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.dialog-grid .capacity-detail-card{min-height:100%}
+.screen-shell{padding-top:10px}
+.result-top-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
+.cta-block .btn-cta{margin-bottom:14px;display:inline-flex}
+.share-panel{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (max-width:900px){.hero-panel{grid-template-columns:1fr}.dialog-meta,.dialog-grid,.share-panel{grid-template-columns:1fr}.hero-orbit{min-height:96px}}
 
 
-</div><script>
+header .container.reveal{max-width:660px!important;padding-top:56px!important}
+.hero-panel{grid-template-columns:1fr!important;max-width:620px;margin:0 auto;padding:28px 28px 24px!important;min-height:auto!important}
+.hero-copy{text-align:center;max-width:none}
+.hero-title{font-size:clamp(34px,5.4vw,48px)!important;margin-bottom:14px!important}
+.hero-sub{font-size:15px!important;line-height:1.7!important;max-width:520px;margin:0 auto 18px!important}
+.hero-actions{justify-content:center}
+.hero-time{text-align:center;margin-top:6px}
+.hero-orbit{display:none!important}
+.screen-shell{padding-top:0!important}
+@media (max-width:640px){.hero-panel{padding:24px 18px 20px!important}.hero-title{font-size:clamp(30px,8vw,38px)!important}}
+
+</style></head><body><nav class="nav"><div class="container nav-inner"><a class="brand" href="/"><div class="brand-lines"><span></span><span></span><span></span></div><div class="brand-name">Angelo Constanzo</div></a><div class="nav-links"><a href="/persona/">Persona</a><a href="/empresa/">Empresa</a><a href="/betascan/" class="active">BetaScan</a><a href="/betagym/">BetaGym</a><a href="/acerca-de/">Acerca</a></div><a href="https://wa.link/zyw1c4" target="_blank" rel="noopener noreferrer" class="btn btn-gold">Hablemos</a></div></nav><header><div class="container reveal" style="padding-bottom:20px"><div id="betascan-app" class="screen-shell"><div id="heroScreen" class="hero-screen"><div class="hero-panel magnetic-card"><div class="hero-copy"><h1 class="hero-title">Descubre tu poder humano.</h1><p class="hero-sub">Un diagnóstico breve para entender dónde estás hoy realmente y qué conviene entrenar primero.</p><div class="hero-actions"><button class="btn btn-gold btn-start pulse-cta" onclick="startDiagnosis()">Comenzar mi diagnóstico</button><button class="hero-link" onclick="openExplainModal()" type="button">Ver cómo funciona</button></div><p class="hero-time">5–7 minutos · 16 preguntas · resultado inmediato</p></div><div class="hero-orbit" aria-hidden="true"><span>8 capacidades</span><span>claridad</span><span>acción</span></div></div></div><div id="emailScreen" class="screen"><div class="email-form"><h2>Primero,<br>¿cómo te llamamos?</h2><p>Tu resultado es personalizado. Lo recibirás también en tu correo con un análisis más claro y compartible.</p><div class="field-group"><label>Nombre</label><input type="text" id="userName" placeholder="Tu nombre" /></div><div class="field-group"><label>Email</label><input type="email" id="userEmail" placeholder="tu@email.com" /></div><div class="nav-btns"><button class="btn-back" onclick="goBackToHero()">← Volver</button><button class="btn-primary pulse-cta" onclick="startScan()">Comenzar diagnóstico</button></div></div></div><div id="questionScreen" class="screen"><div class="progress-wrap"><div class="progress-meta"><span class="progress-cap-name" id="progressCapName">—</span><span class="progress-count" id="progressCount">1 / 16</span></div><div class="progress-bar-bg"><div class="progress-bar-fill" id="progressFill" style="width:0%"></div></div></div><div class="question-number" id="questionNumber">PREGUNTA 01</div><div class="question-text" id="questionText">—</div><div id="answersContainer"></div><div class="nav-btns"><button class="btn-back" onclick="prevQuestion()">← Atrás</button></div></div><div id="loadingScreen" class="screen"><p class="loader-text">Analizando tu perfil...</p><div class="analyzer" id="analyzerRows"></div></div><div id="resultScreen" class="screen"><div class="result-header"><div class="result-name" id="resultName">—</div><div class="result-title" id="resultTitle">—</div><div class="result-top-actions"><button class="btn-back" onclick="restartDiagnosis()">↺ Repetir diagnóstico</button></div></div><div class="result-score-wrap"><div class="score-circle"><div class="score-number" id="scoreNumber">0</div><div class="score-max">/100</div></div><div class="score-text"><div class="score-label" id="scoreLabel">—</div><div class="score-desc" id="scoreDesc">—</div></div></div><div class="radar-section"><div class="section-title">Perfil de las 8 capacidades</div><div class="radar-container"><canvas id="radarCanvas" width="280" height="280"></canvas></div></div><div class="section-title">Detalle por capacidad</div><div class="cap-bars" id="capBars"></div><div class="section-title" style="margin-top:8px">Tu diagnóstico</div><div class="narrative-box"><p id="narrativeText">—</p></div><div class="section-title">Zonas de entrenamiento</div><div class="insights-grid" id="insightsGrid"></div><div class="cta-block"><div class="cta-eyebrow">Siguiente paso</div><div class="cta-title">Tu diagnóstico tiene solución</div><div class="cta-sub">Si quieres traducir esto en práctica real, el siguiente paso es entrenar estas capacidades con estructura.</div><a href="https://wa.link/o1dohs" target="_blank" rel="noopener noreferrer" class="btn-cta">Quiero conversar el siguiente paso</a><button class="share-btn" onclick="toggleSharePanel()">↗ Compartir mi resultado</button><div id="sharePanel" class="share-panel"><button class="share-option" onclick="shareResultTo('native')">Compartir</button><button class="share-option" onclick="shareResultTo('whatsapp')">WhatsApp</button><button class="share-option" onclick="shareResultTo('linkedin')">LinkedIn</button><button class="share-option" onclick="shareResultTo('facebook')">Facebook</button><button class="share-option" onclick="shareResultTo('x')">X / Twitter</button><button class="share-option" onclick="shareResultTo('email')">Email</button><button class="share-option" onclick="shareResultTo('instagram')">Instagram</button><button class="share-option" onclick="shareResultTo('copy')">Copiar texto</button></div><div class="share-hint">En Instagram no existe un enlace web universal con texto precargado, así que el botón copia el mensaje y abre Instagram para que puedas pegarlo.</div></div></div></div></div></header><div id="explainModal" class="explain-modal" aria-hidden="true"><div class="explain-dialog"><div class="dialog-top"><div><div class="landing-label">Diagnóstico claro</div><h2>Dónde estás hoy realmente</h2><p class="dialog-copy">Este diagnóstico te ayuda a ver, con más claridad, cómo estás funcionando hoy en tus principales capacidades humanas. No busca etiquetarte. Busca mostrarte desde dónde estás operando y qué conviene entrenar primero.</p></div><button class="dialog-close" onclick="closeExplainModal()" aria-label="Cerrar">×</button></div><div class="dialog-meta"><div class="landing-meta-card"><strong>Tiempo estimado</strong><span>5–7 minutos</span></div><div class="landing-meta-card"><strong>Formato</strong><span>16 preguntas + resultado inmediato</span></div><div class="landing-meta-card"><strong>Objetivo</strong><span>Entender tu punto de partida</span></div></div><div class="dialog-grid"><article class="capacity-detail-card"><div class="capacity-emoji">🔥</div><h3>Fuego Propio</h3><p>Tu capacidad de sostener deseo, motivación y ambición sin depender solo de la presión externa.</p></article><article class="capacity-detail-card"><div class="capacity-emoji">🌌</div><h3>Mundo Interior</h3><p>Qué tan conectado estás con lo que sientes, piensas y necesitas realmente.</p></article><article class="capacity-detail-card"><div class="capacity-emoji">🌿</div><h3>Raíz</h3><p>Tu estabilidad interna, autoconfianza y capacidad de mantenerte en pie incluso en contextos difíciles.</p></article><article class="capacity-detail-card"><div class="capacity-emoji">🤝</div><h3>Campo de Empatía</h3><p>Cómo conectas con otros, cuánto comprendes su experiencia y cómo impactas tus vínculos.</p></article><article class="capacity-detail-card"><div class="capacity-emoji">🧭</div><h3>Norte Vital</h3><p>La claridad que tienes respecto a dirección, sentido y decisiones importantes en tu vida.</p></article><article class="capacity-detail-card"><div class="capacity-emoji">✨</div><h3>Chispa Creativa</h3><p>Tu capacidad de generar ideas originales, conectar puntos inesperados y salir de lo obvio.</p></article><article class="capacity-detail-card"><div class="capacity-emoji">⚡</div><h3>Movimiento</h3><p>Qué tan capaz eres de pasar de la intención a la acción sin quedarte atrapado en la postergación.</p></article><article class="capacity-detail-card"><div class="capacity-emoji">💎</div><h3>Energía Vital</h3><p>La base de tu energía disponible: presencia, regulación y capacidad de sostener lo que quieres construir.</p></article></div></div></div><div class="divider"></div><script>
 const CAPACIDADES = [
   {
     id: 'fuego',
@@ -320,7 +287,22 @@ let userName = '';
 let userEmail = '';
 
 function showEmailCapture() {
+  document.getElementById('heroScreen')?.classList.add('hidden');
   showScreen('emailScreen');
+  const input = document.getElementById('userName');
+  if (input) setTimeout(() => input.focus(), 60);
+}
+
+function goBackToHero() {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById('heroScreen')?.classList.remove('hidden');
+}
+
+function restartDiagnosis() {
+  currentQ = 0;
+  answers = {};
+  document.getElementById('sharePanel')?.classList.remove('active');
+  goBackToHero();
 }
 
 function startScan() {
@@ -334,8 +316,8 @@ function startScan() {
 
 function showScreen(id) {
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  window.scrollTo(0, 0);
+  const target = document.getElementById(id);
+  if (target) target.classList.add('active');
 }
 
 function renderQuestion() {
@@ -627,13 +609,97 @@ function drawRadar(scores) {
   });
 }
 
-function shareResult() {
-  const score = document.getElementById('scoreNumber').textContent;
-  const text = `Acabo de hacer el Mini BetaScan y obtuve ${score}/100 en Poder Humano. ¿Cuál es tu puntaje?`;
-  if (navigator.share) {
-    navigator.share({ title: 'Mi BetaScan', text });
-  } else {
-    navigator.clipboard.writeText(text).then(() => alert('Texto copiado al portapapeles'));
+
+function startDiagnosis() {
+  document.body.classList.add('diagnosis-started');
+  closeExplainModal();
+  showEmailCapture();
+}
+
+function openExplainModal() {
+  const modal = document.getElementById('explainModal');
+  if (!modal) return;
+  modal.classList.add('active');
+  modal.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeExplainModal() {
+  const modal = document.getElementById('explainModal');
+  if (!modal) return;
+  modal.classList.remove('active');
+  modal.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+}
+
+function toggleSharePanel() {
+  const panel = document.getElementById('sharePanel');
+  if (!panel) return;
+  panel.classList.toggle('active');
+  if (panel.classList.contains('active')) {
+    setTimeout(() => panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 60);
   }
 }
-</script><div class="divider"></div><footer class="footer"><div class="container">© 2026 Angelo Constanzo — La vida que quieres no llega. Se entrena.</div></footer><script src="/assets/site.js"></script></body></html>
+
+function buildSharePayload() {
+  const score = document.getElementById('scoreNumber').textContent;
+  const title = document.getElementById('resultTitle').textContent || 'Mi resultado BetaScan';
+  const url = window.location.origin + window.location.pathname;
+  const text = `Hice el BetaScan de Angelo Constanzo y obtuve ${score}/100. ${title}. Haz el tuyo aquí: ${url}`;
+  return { score, title, url, text };
+}
+
+function shareResultTo(channel) {
+  const payload = buildSharePayload();
+  const encodedText = encodeURIComponent(payload.text);
+  const encodedUrl = encodeURIComponent(payload.url);
+  const encodedSubject = encodeURIComponent('Mi resultado BetaScan');
+  const routes = {
+    whatsapp: `https://wa.me/?text=${encodedText}`,
+    linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`,
+    facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}&quote=${encodedText}`,
+    x: `https://twitter.com/intent/tweet?text=${encodedText}`,
+    email: `mailto:?subject=${encodedSubject}&body=${encodedText}`
+  };
+
+  if (channel === 'native') {
+    if (navigator.share) {
+      navigator.share({ title: 'Mi resultado BetaScan', text: payload.text, url: payload.url });
+    } else {
+      shareResultTo('copy');
+    }
+    return;
+  }
+
+  if (channel === 'copy') {
+    navigator.clipboard.writeText(payload.text).then(() => alert('Resultado copiado para compartir.'));
+    return;
+  }
+
+  if (channel === 'instagram') {
+    navigator.clipboard.writeText(payload.text).then(() => {
+      window.open('https://www.instagram.com/', '_blank', 'noopener,noreferrer');
+      alert('Copiamos el texto. Pégalo en tu historia, DM o publicación de Instagram.');
+    });
+    return;
+  }
+
+  const url = routes[channel];
+  if (url) {
+    window.open(url, '_blank', 'noopener,noreferrer');
+  }
+}
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeExplainModal();
+});
+document.getElementById('explainModal')?.addEventListener('click', (e) => {
+  if (e.target.id === 'explainModal') closeExplainModal();
+});
+</script><div class="divider"></div><footer class="footer"><div class="container"><div class="footer-grid"><div><div class="footer-brand"><div class="brand-lines"><span></span><span></span><span></span></div><div class="footer-title">Angelo Constanzo</div></div><div class="footer-copy">Entrenamiento humano para personas y empresas. Menos discurso. Más transformación observable.</div></div><div><div class="footer-group-title">Explorar</div><div class="footer-links"><a href="/persona/">Persona</a><a href="/empresa/">Empresa</a><a href="/betascan/">BetaScan</a><a href="/betagym/">BetaGym</a><a href="/acerca-de/">Acerca de</a></div></div><div class="footer-cta"><div class="footer-group-title">Conversemos</div><p>Si quieres mover algo de verdad, partamos por una conversación clara.</p><a href="https://wa.link/zyw1c4" target="_blank" rel="noopener noreferrer" class="btn btn-gold">Ir a WhatsApp</a></div></div><div class="footer-bottom"><span>© 2026 Angelo Constanzo — La vida que quieres no llega. Se entrena.</span><div class="footer-socials"><a class="social-link icon-only" href="https://www.youtube.com/@angeloconstanzo" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.4 3.5 12 3.5 12 3.5s-7.4 0-9.4.6A3 3 0 0 0 .5 6.2 31.8 31.8 0 0 0 0 12a31.8 31.8 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c2 .6 9.4.6 9.4.6s7.4 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.8 31.8 0 0 0 24 12a31.8 31.8 0 0 0-.5-5.8ZM9.6 15.7V8.3l6.4 3.7-6.4 3.7Z"/></svg></a><a class="social-link icon-only" href="https://www.instagram.com/angelo.constanzo" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2.2A2.8 2.8 0 0 0 4.2 7v10A2.8 2.8 0 0 0 7 19.8h10a2.8 2.8 0 0 0 2.8-2.8V7A2.8 2.8 0 0 0 17 4.2H7Zm10.5 1.7a1.3 1.3 0 1 1 0 2.6 1.3 1.3 0 0 1 0-2.6ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2.2A2.8 2.8 0 1 0 12 14.8 2.8 2.8 0 0 0 12 9.2Z"/></svg></a><a class="social-link icon-only" href="https://www.tiktok.com/@angelo.constanzo" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.8 2h2.8a4.8 4.8 0 0 0 4.4 4.4v2.8a7.4 7.4 0 0 1-4.4-1.4v8.1A6.9 6.9 0 1 1 10.7 9v2.9a4 4 0 1 0 4.1 4V2Z"/></svg></a><a class="social-link icon-only" href="https://www.linkedin.com/in/angeloconstanzo" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.9 3.5a1.7 1.7 0 1 1 0 3.5 1.7 1.7 0 0 1 0-3.5ZM3.4 8.6h3v12h-3v-12Zm5 0h2.9v1.7h.1c.4-.8 1.4-2 3.8-2 4 0 4.8 2.6 4.8 6v6.3h-3v-5.6c0-1.3 0-3.1-1.9-3.1s-2.2 1.5-2.2 3v5.7h-3v-12Z"/></svg></a></div></div></div></footer><script src="/assets/site.js">document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeExplainModal();
+});
+document.getElementById('explainModal')?.addEventListener('click', (e) => {
+  if (e.target.id === 'explainModal') closeExplainModal();
+});
+</script>
+</body></html>
