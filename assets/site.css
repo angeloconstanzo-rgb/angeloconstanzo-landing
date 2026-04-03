@@ -87,3 +87,14 @@ header,section{padding:82px 0}h1,h2,h3{margin:0 0 18px;font-weight:700;line-heig
 .premium-socials .social-link{background:rgba(255,255,255,.035);box-shadow:0 14px 30px rgba(0,0,0,.25)}
 .premium-socials .social-link:hover{transform:translateY(-3px) scale(1.02)}
 @media (max-width:1024px){.social-cta{grid-template-columns:1fr}.social-cta-side{justify-self:start}}
+
+.interest-form{margin-top:24px}
+.interest-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.interest-form .field-group{margin-bottom:14px}
+.interest-form .field-group label{display:block;font-size:11px;letter-spacing:.18em;color:var(--gold);text-transform:uppercase;margin-bottom:8px}
+.interest-form .field-group input{width:100%;background:rgba(255,255,255,.03);border:1px solid var(--gold-border);color:var(--white);padding:14px 16px;border-radius:14px;font-family:'OpenSauceOne',Arial,sans-serif;font-size:14px;outline:none;transition:border-color .2s ease,box-shadow .2s ease}
+.interest-form .field-group input:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,168,76,.12)}
+.interest-form .field-group input::placeholder{color:rgba(245,240,232,.32)}
+.interest-actions{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-top:8px}
+.interest-note{margin:0;color:rgba(245,240,232,.6);font-size:14px;line-height:1.6;max-width:360px}
+@media (max-width:760px){.interest-grid{grid-template-columns:1fr}.interest-actions{align-items:flex-start;flex-direction:column}}
