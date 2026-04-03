@@ -55,3 +55,20 @@ header,section{padding:82px 0}h1,h2,h3{margin:0 0 18px;font-weight:700;line-heig
 .photo-tag{position:absolute;left:18px;bottom:18px;z-index:2;display:inline-flex;align-items:center;min-height:34px;padding:0 14px;border-radius:999px;background:rgba(255,255,255,.09);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.14);color:var(--white);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
 @media (max-width:1024px){.photo-showcase{grid-template-columns:1fr 1fr}.photo-card.featured{grid-column:span 2}}
 @media (max-width:760px){.photo-showcase{grid-template-columns:1fr}.photo-card.featured{grid-column:auto;min-height:300px}}
+
+
+.authority-carousel{position:relative;overflow:hidden}
+.authority-track{display:flex;gap:18px;overflow:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding-bottom:6px;-ms-overflow-style:none;scrollbar-width:none}
+.authority-track::-webkit-scrollbar{display:none}
+.authority-slide{min-width:min(78vw,340px);scroll-snap-align:start;position:relative;overflow:hidden;min-height:360px;border-radius:28px;border:1px solid rgba(201,168,76,.18);background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.01));box-shadow:var(--shadow)}
+.authority-slide img{width:100%;height:100%;object-fit:cover;object-position:center 18%}
+.authority-slide::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 28%,rgba(0,0,0,.68) 100%)}
+.authority-copy{position:absolute;left:18px;right:18px;bottom:18px;z-index:2}
+.authority-kicker{display:inline-flex;align-items:center;min-height:32px;padding:0 12px;border-radius:999px;background:rgba(255,255,255,.09);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.14);color:var(--white);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px}
+.authority-copy h3{font-size:22px;margin-bottom:8px}
+.authority-copy p{margin:0;color:rgba(245,240,232,.82);line-height:1.7}
+.carousel-controls{display:flex;gap:10px;align-items:center;margin-top:18px;flex-wrap:wrap}
+.carousel-btn{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:50%;border:1px solid var(--gold-border);background:rgba(255,255,255,.02);color:var(--white);font-size:18px;cursor:pointer;transition:all .18s ease}
+.carousel-btn:hover{background:var(--gold-dim);color:var(--gold-light)}
+.carousel-note{color:rgba(245,240,232,.58);font-size:13px;line-height:1.7}
+@media (max-width:760px){.authority-slide{min-width:84vw;min-height:320px}}

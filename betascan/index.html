@@ -39,101 +39,40 @@ body.diagnosis-started .landing-explain, body.diagnosis-started .landing-bridge{
 .share-option:hover{border-color:var(--gold-border);background:var(--gold-dim);color:var(--gold-light)}
 .share-hint{margin-top:10px;color:rgba(245,240,232,.58);font-size:13px;line-height:1.7}
 @media (max-width:900px){.landing-top-card{grid-template-columns:1fr}.landing-orbit{min-height:96px}.landing-meta,.capacity-detail-grid,.share-panel{grid-template-columns:1fr}}
-</style></head><body><nav class="nav"><div class="container nav-inner"><a class="brand" href="/"><div class="brand-lines"><span></span><span></span><span></span></div><div class="brand-name">Angelo Constanzo</div></a><div class="nav-links"><a href="/persona/">Persona</a><a href="/empresa/">Empresa</a><a href="/betascan/" class="active">BetaScan</a><a href="/betagym/">BetaGym</a><a href="/acerca-de/">Acerca</a></div><a href="https://wa.link/zyw1c4" target="_blank" rel="noopener noreferrer" class="btn btn-gold">Hablemos</a></div></nav><header><div class="container reveal" style="padding-bottom:0"><div class="eyebrow text-gold">BetaScan</div><div class="landing-shell"><div class="landing-top-card magnetic-card"><div class="landing-copy"><h1 class="page-hero-title compact"><span class="line">Descubre tu poder humano.</span></h1><div class="landing-top-actions"><button class="btn btn-gold btn-start pulse-cta" onclick="startDiagnosis()">Comenzar mi diagnóstico</button><p class="landing-time">5–7 minutos · 16 preguntas · resultado inmediato</p></div></div><div class="landing-orbit" aria-hidden="true"><span>8 capacidades</span><span>claridad</span><span>acción</span></div></div><div class="landing-explain reveal" id="betascanLanding"><div class="landing-label">Diagnóstico claro</div><h2 class="landing-title">Dónde estás hoy realmente</h2><p class="landing-text">Este diagnóstico te ayuda a ver, con más claridad, cómo estás funcionando hoy en tus principales capacidades humanas. No busca etiquetarte. Busca mostrarte desde dónde estás operando y qué conviene entrenar primero.</p><div class="landing-meta"><div class="landing-meta-card"><strong>Tiempo estimado</strong><span>5–7 minutos</span></div><div class="landing-meta-card"><strong>Formato</strong><span>16 preguntas + resultado inmediato</span></div><div class="landing-meta-card"><strong>Objetivo</strong><span>Entender tu punto de partida</span></div></div><div class="capacity-detail-grid"><article class="capacity-detail-card reveal"><div class="capacity-emoji">🔥</div><h3>Fuego Propio</h3><p>Tu capacidad de sostener deseo, motivación y ambición sin depender solo de la presión externa.</p></article><article class="capacity-detail-card reveal"><div class="capacity-emoji">🌌</div><h3>Mundo Interior</h3><p>Qué tan conectado estás con lo que sientes, piensas y necesitas realmente.</p></article><article class="capacity-detail-card reveal"><div class="capacity-emoji">🌿</div><h3>Raíz</h3><p>Tu estabilidad interna, autoconfianza y capacidad de mantenerte en pie incluso en contextos difíciles.</p></article><article class="capacity-detail-card reveal"><div class="capacity-emoji">🤝</div><h3>Campo de Empatía</h3><p>Cómo conectas con otros, cuánto comprendes su experiencia y cómo impactas tus vínculos.</p></article><article class="capacity-detail-card reveal"><div class="capacity-emoji">🧭</div><h3>Norte Vital</h3><p>La claridad que tienes respecto a dirección, sentido y decisiones importantes en tu vida.</p></article><article class="capacity-detail-card reveal"><div class="capacity-emoji">✨</div><h3>Chispa Creativa</h3><p>Tu capacidad de imaginar nuevas posibilidades, salir de lo obvio y generar movimiento interno.</p></article><article class="capacity-detail-card reveal"><div class="capacity-emoji">⚡</div><h3>Movimiento</h3><p>Qué tan capaz eres de pasar de la intención a la acción sin quedarte atrapado en la postergación.</p></article><article class="capacity-detail-card reveal"><div class="capacity-emoji">💎</div><h3>Energía Vital</h3><p>La base de tu energía disponible: presencia, regulación y capacidad de sostener lo que quieres construir.</p></article></div></div></div></div></header><div id="betascan-app"><div class="container"><div id="introScreen" class="screen active landing-bridge"><div class="bridge-card"><div class="bridge-label">Listo para comenzar</div><p>Cuando presiones el botón, te pediremos tu nombre y correo para entregarte un resultado más claro y compartible.</p><button class="btn-primary pulse-cta" onclick="startDiagnosis()">Comenzar mi diagnóstico</button><p class="time-note">⏱ 5–7 minutos · 16 preguntas · Resultado inmediato</p></div></div><!-- EMAIL CAPTURE -->
-  <div id="emailScreen" class="screen">
-    <div class="logo"></div>
-    <div class="email-form">
-      <h2>Primero,<br>¿cómo te llamamos?</h2>
-      <p>Tu resultado es personalizado. Lo recibirás también en tu correo con un análisis más detallado.</p>
-      <div class="field-group">
-        <label>Nombre</label>
-        <input type="text" id="userName" placeholder="Tu nombre" />
-      </div>
-      <div class="field-group">
-        <label>Email</label>
-        <input type="email" id="userEmail" placeholder="tu@email.com" />
-      </div>
-      <button class="btn-primary" onclick="startScan()">INICIAR SCAN →</button>
-    </div>
-  </div>
 
-  <!-- QUESTIONS -->
-  <div id="questionScreen" class="screen">
-    <div class="progress-wrap">
-      <div class="progress-meta">
-        <span class="progress-cap-name" id="progressCapName">—</span>
-        <span class="progress-count" id="progressCount">1 / 16</span>
-      </div>
-      <div class="progress-bar-bg">
-        <div class="progress-bar-fill" id="progressFill" style="width:0%"></div>
-      </div>
-    </div>
+.hero-screen{display:block}
+.hero-panel{position:relative;display:grid;grid-template-columns:1.15fr .55fr;gap:24px;align-items:center;padding:34px 32px;border:1px solid var(--gold-border);border-radius:30px;background:linear-gradient(135deg,rgba(255,255,255,.03),rgba(201,168,76,.05));overflow:hidden;box-shadow:var(--shadow)}
+.hero-panel::before{content:'';position:absolute;inset:auto -10% -35% auto;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle, rgba(201,168,76,.14), transparent 62%);filter:blur(12px)}
+.hero-copy,.hero-orbit{position:relative;z-index:1}
+.hero-title{font-size:clamp(34px,5.2vw,58px);line-height:1.03;letter-spacing:-.04em;margin-bottom:14px}
+.hero-sub{max-width:560px;color:rgba(245,240,232,.72);font-size:17px;line-height:1.8;margin-bottom:18px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.hero-link{display:inline-flex;align-items:center;gap:10px;color:var(--white);font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;opacity:.86;background:none;border:none;padding:0;cursor:pointer;font-family:'OpenSauceOne',Arial,sans-serif}
+.hero-link:hover{color:var(--gold-light);opacity:1}
+.hero-time{margin:0;color:rgba(245,240,232,.56);font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+.hero-orbit{min-height:170px}
+.hero-orbit span{position:absolute;display:inline-flex;align-items:center;justify-content:center;padding:10px 16px;border-radius:999px;border:1px solid var(--gold-border);background:rgba(255,255,255,.03);color:var(--gold-light);font-size:12px;letter-spacing:.12em;text-transform:uppercase;animation:floatTag 5s ease-in-out infinite}
+.hero-orbit span:nth-child(1){top:14px;right:10px}.hero-orbit span:nth-child(2){top:76px;left:4px;animation-delay:1s}.hero-orbit span:nth-child(3){bottom:8px;right:50px;animation-delay:2s}
+.hero-screen.hidden{display:none}
+.explain-modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;padding:24px;background:rgba(8,8,8,.72);backdrop-filter:blur(12px);z-index:70}
+.explain-modal.active{display:flex}
+.explain-dialog{width:min(980px,100%);max-height:min(88vh,920px);overflow:auto;padding:30px;border:1px solid var(--gold-border);border-radius:30px;background:linear-gradient(180deg,#111,#0b0b0b);box-shadow:0 24px 80px rgba(0,0,0,.42)}
+.dialog-top{display:flex;justify-content:space-between;gap:18px;align-items:flex-start;margin-bottom:18px}
+.dialog-top h2{margin-bottom:8px}
+.dialog-close{width:46px;height:46px;border-radius:50%;border:1px solid rgba(245,240,232,.14);background:transparent;color:var(--white);font-size:20px;cursor:pointer}
+.dialog-close:hover{border-color:var(--gold-border);background:var(--gold-dim);color:var(--gold-light)}
+.dialog-copy{max-width:760px;color:rgba(245,240,232,.76);line-height:1.85;margin-bottom:18px}
+.dialog-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0 22px}
+.dialog-meta .landing-meta-card{padding:18px}
+.dialog-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.dialog-grid .capacity-detail-card{min-height:100%}
+.screen-shell{padding-top:10px}
+.result-top-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
+.cta-block .btn-cta{margin-bottom:14px;display:inline-flex}
+.share-panel{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (max-width:900px){.hero-panel{grid-template-columns:1fr}.dialog-meta,.dialog-grid,.share-panel{grid-template-columns:1fr}.hero-orbit{min-height:96px}}
 
-    <div class="question-number" id="questionNumber">PREGUNTA 01</div>
-    <div class="question-text" id="questionText">—</div>
-
-    <div id="answersContainer"></div>
-
-    <div class="nav-btns">
-      <button class="btn-back" onclick="prevQuestion()">← ATRÁS</button>
-    </div>
-  </div>
-
-  <!-- LOADING -->
-  <div id="loadingScreen" class="screen">
-    <p class="loader-text">Analizando tu perfil...</p>
-    <div class="analyzer" id="analyzerRows"></div>
-  </div>
-
-  <!-- RESULTS -->
-  <div id="resultScreen" class="screen">
-    <div class="result-header">
-      <div class="result-name" id="resultName">—</div>
-      <div class="result-title" id="resultTitle">—</div>
-    </div>
-
-    <div class="result-score-wrap">
-      <div class="score-circle">
-        <div class="score-number" id="scoreNumber">0</div>
-        <div class="score-max">/100</div>
-      </div>
-      <div class="score-text">
-        <div class="score-label" id="scoreLabel">—</div>
-        <div class="score-desc" id="scoreDesc">—</div>
-      </div>
-    </div>
-
-    <div class="radar-section">
-      <div class="section-title">Perfil de las 8 Capacidades</div>
-      <div class="radar-container">
-        <canvas id="radarCanvas" width="280" height="280"></canvas>
-      </div>
-    </div>
-
-    <div class="section-title">Detalle por Capacidad</div>
-    <div class="cap-bars" id="capBars"></div>
-
-    <div class="section-title" style="margin-top:8px">Tu Diagnóstico</div>
-    <div class="narrative-box">
-      <p id="narrativeText">—</p>
-    </div>
-
-    <div class="section-title">Zonas de Entrenamiento</div>
-    <div class="insights-grid" id="insightsGrid"></div>
-
-    <div class="cta-block">
-      <div class="cta-eyebrow">Siguiente Paso</div>
-      <div class="cta-title">Tu diagnóstico tiene solución</div>
-      <div class="cta-sub">En  entrenamos exactamente estas capacidades. Una clase demo gratuita para que lo compruebes.</div>
-      <a href="#" class="btn-cta">QUIERO MI CLASE DEMO GRATIS</a>
-      <button class="share-btn" onclick="toggleSharePanel()">↗ COMPARTIR MI RESULTADO</button><div id="sharePanel" class="share-panel"><button class="share-option" onclick="shareResultTo('native')">Compartir</button><button class="share-option" onclick="shareResultTo('whatsapp')">WhatsApp</button><button class="share-option" onclick="shareResultTo('linkedin')">LinkedIn</button><button class="share-option" onclick="shareResultTo('facebook')">Facebook</button><button class="share-option" onclick="shareResultTo('x')">X / Twitter</button><button class="share-option" onclick="shareResultTo('email')">Email</button><button class="share-option" onclick="shareResultTo('instagram')">Instagram</button><button class="share-option" onclick="shareResultTo('copy')">Copiar texto</button></div><div class="share-hint">En Instagram no existe un enlace web universal con texto precargado, así que el botón te copia el mensaje y abre Instagram para que puedas pegarlo.</div>
-    </div>
-  </div>
-
-</div>
-
-
-</div><script>
+</style></head><body><nav class="nav"><div class="container nav-inner"><a class="brand" href="/"><div class="brand-lines"><span></span><span></span><span></span></div><div class="brand-name">Angelo Constanzo</div></a><div class="nav-links"><a href="/persona/">Persona</a><a href="/empresa/">Empresa</a><a href="/betascan/" class="active">BetaScan</a><a href="/betagym/">BetaGym</a><a href="/acerca-de/">Acerca</a></div><a href="https://wa.link/zyw1c4" target="_blank" rel="noopener noreferrer" class="btn btn-gold">Hablemos</a></div></nav><header><div class="container reveal" style="padding-bottom:20px"><div class="eyebrow text-gold">BetaScan</div><div id="betascan-app" class="screen-shell"><div id="heroScreen" class="hero-screen"><div class="hero-panel magnetic-card"><div class="hero-copy"><h1 class="hero-title">Descubre tu poder humano.</h1><p class="hero-sub">Un diagnóstico breve para entender desde dónde estás operando hoy y qué conviene entrenar primero.</p><div class="hero-actions"><button class="btn btn-gold btn-start pulse-cta" onclick="startDiagnosis()">Comenzar mi diagnóstico</button><button class="hero-link" onclick="openExplainModal()" type="button">Ver cómo funciona</button></div><p class="hero-time">5–7 minutos · 16 preguntas · resultado inmediato</p></div><div class="hero-orbit" aria-hidden="true"><span>8 capacidades</span><span>claridad</span><span>acción</span></div></div></div><div id="emailScreen" class="screen"><div class="email-form"><h2>Primero,<br>¿cómo te llamamos?</h2><p>Tu resultado es personalizado. Lo recibirás también en tu correo con un análisis más claro y compartible.</p><div class="field-group"><label>Nombre</label><input type="text" id="userName" placeholder="Tu nombre" /></div><div class="field-group"><label>Email</label><input type="email" id="userEmail" placeholder="tu@email.com" /></div><div class="nav-btns"><button class="btn-back" onclick="goBackToHero()">← Volver</button><button class="btn-primary pulse-cta" onclick="startScan()">Iniciar scan</button></div></div></div><div id="questionScreen" class="screen"><div class="progress-wrap"><div class="progress-meta"><span class="progress-cap-name" id="progressCapName">—</span><span class="progress-count" id="progressCount">1 / 16</span></div><div class="progress-bar-bg"><div class="progress-bar-fill" id="progressFill" style="width:0%"></div></div></div><div class="question-number" id="questionNumber">PREGUNTA 01</div><div class="question-text" id="questionText">—</div><div id="answersContainer"></div><div class="nav-btns"><button class="btn-back" onclick="prevQuestion()">← Atrás</button></div></div><div id="loadingScreen" class="screen"><p class="loader-text">Analizando tu perfil...</p><div class="analyzer" id="analyzerRows"></div></div><div id="resultScreen" class="screen"><div class="result-header"><div class="result-name" id="resultName">—</div><div class="result-title" id="resultTitle">—</div><div class="result-top-actions"><button class="btn-back" onclick="restartDiagnosis()">↺ Repetir diagnóstico</button></div></div><div class="result-score-wrap"><div class="score-circle"><div class="score-number" id="scoreNumber">0</div><div class="score-max">/100</div></div><div class="score-text"><div class="score-label" id="scoreLabel">—</div><div class="score-desc" id="scoreDesc">—</div></div></div><div class="radar-section"><div class="section-title">Perfil de las 8 capacidades</div><div class="radar-container"><canvas id="radarCanvas" width="280" height="280"></canvas></div></div><div class="section-title">Detalle por capacidad</div><div class="cap-bars" id="capBars"></div><div class="section-title" style="margin-top:8px">Tu diagnóstico</div><div class="narrative-box"><p id="narrativeText">—</p></div><div class="section-title">Zonas de entrenamiento</div><div class="insights-grid" id="insightsGrid"></div><div class="cta-block"><div class="cta-eyebrow">Siguiente paso</div><div class="cta-title">Tu diagnóstico tiene solución</div><div class="cta-sub">Si quieres traducir esto en práctica real, el siguiente paso es entrenar estas capacidades con estructura.</div><a href="https://wa.link/o1dohs" target="_blank" rel="noopener noreferrer" class="btn-cta">Quiero conversar el siguiente paso</a><button class="share-btn" onclick="toggleSharePanel()">↗ Compartir mi resultado</button><div id="sharePanel" class="share-panel"><button class="share-option" onclick="shareResultTo('native')">Compartir</button><button class="share-option" onclick="shareResultTo('whatsapp')">WhatsApp</button><button class="share-option" onclick="shareResultTo('linkedin')">LinkedIn</button><button class="share-option" onclick="shareResultTo('facebook')">Facebook</button><button class="share-option" onclick="shareResultTo('x')">X / Twitter</button><button class="share-option" onclick="shareResultTo('email')">Email</button><button class="share-option" onclick="shareResultTo('instagram')">Instagram</button><button class="share-option" onclick="shareResultTo('copy')">Copiar texto</button></div><div class="share-hint">En Instagram no existe un enlace web universal con texto precargado, así que el botón copia el mensaje y abre Instagram para que puedas pegarlo.</div></div></div></div></div></header><div id="explainModal" class="explain-modal" aria-hidden="true"><div class="explain-dialog"><div class="dialog-top"><div><div class="landing-label">Diagnóstico claro</div><h2>Dónde estás hoy realmente</h2><p class="dialog-copy">Este diagnóstico te ayuda a ver, con más claridad, cómo estás funcionando hoy en tus principales capacidades humanas. No busca etiquetarte. Busca mostrarte desde dónde estás operando y qué conviene entrenar primero.</p></div><button class="dialog-close" onclick="closeExplainModal()" aria-label="Cerrar">×</button></div><div class="dialog-meta"><div class="landing-meta-card"><strong>Tiempo estimado</strong><span>5–7 minutos</span></div><div class="landing-meta-card"><strong>Formato</strong><span>16 preguntas + resultado inmediato</span></div><div class="landing-meta-card"><strong>Objetivo</strong><span>Entender tu punto de partida</span></div></div><div class="dialog-grid"><article class="capacity-detail-card"><div class="capacity-emoji">🔥</div><h3>Fuego Propio</h3><p>Tu capacidad de sostener deseo, motivación y ambición sin depender solo de la presión externa.</p></article><article class="capacity-detail-card"><div class="capacity-emoji">🌌</div><h3>Mundo Interior</h3><p>Qué tan conectado estás con lo que sientes, piensas y necesitas realmente.</p></article><article class="capacity-detail-card"><div class="capacity-emoji">🌿</div><h3>Raíz</h3><p>Tu estabilidad interna, autoconfianza y capacidad de mantenerte en pie incluso en contextos difíciles.</p></article><article class="capacity-detail-card"><div class="capacity-emoji">🤝</div><h3>Campo de Empatía</h3><p>Cómo conectas con otros, cuánto comprendes su experiencia y cómo impactas tus vínculos.</p></article><article class="capacity-detail-card"><div class="capacity-emoji">🧭</div><h3>Norte Vital</h3><p>La claridad que tienes respecto a dirección, sentido y decisiones importantes en tu vida.</p></article><article class="capacity-detail-card"><div class="capacity-emoji">✨</div><h3>Chispa Creativa</h3><p>Tu capacidad de generar ideas originales, conectar puntos inesperados y salir de lo obvio.</p></article><article class="capacity-detail-card"><div class="capacity-emoji">⚡</div><h3>Movimiento</h3><p>Qué tan capaz eres de pasar de la intención a la acción sin quedarte atrapado en la postergación.</p></article><article class="capacity-detail-card"><div class="capacity-emoji">💎</div><h3>Energía Vital</h3><p>La base de tu energía disponible: presencia, regulación y capacidad de sostener lo que quieres construir.</p></article></div></div></div><div class="divider"></div><script>
 const CAPACIDADES = [
   {
     id: 'fuego',
@@ -336,7 +275,22 @@ let userName = '';
 let userEmail = '';
 
 function showEmailCapture() {
+  document.getElementById('heroScreen')?.classList.add('hidden');
   showScreen('emailScreen');
+  const input = document.getElementById('userName');
+  if (input) setTimeout(() => input.focus(), 60);
+}
+
+function goBackToHero() {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById('heroScreen')?.classList.remove('hidden');
+}
+
+function restartDiagnosis() {
+  currentQ = 0;
+  answers = {};
+  document.getElementById('sharePanel')?.classList.remove('active');
+  goBackToHero();
 }
 
 function startScan() {
@@ -350,8 +304,8 @@ function startScan() {
 
 function showScreen(id) {
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  window.scrollTo(0, 0);
+  const target = document.getElementById(id);
+  if (target) target.classList.add('active');
 }
 
 function renderQuestion() {
@@ -646,11 +600,24 @@ function drawRadar(scores) {
 
 function startDiagnosis() {
   document.body.classList.add('diagnosis-started');
+  closeExplainModal();
   showEmailCapture();
-  const target = document.getElementById('emailScreen');
-  if (target) {
-    setTimeout(() => target.scrollIntoView({ behavior: 'smooth', block: 'start' }), 80);
-  }
+}
+
+function openExplainModal() {
+  const modal = document.getElementById('explainModal');
+  if (!modal) return;
+  modal.classList.add('active');
+  modal.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeExplainModal() {
+  const modal = document.getElementById('explainModal');
+  if (!modal) return;
+  modal.classList.remove('active');
+  modal.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
 }
 
 function toggleSharePanel() {
@@ -710,5 +677,17 @@ function shareResultTo(channel) {
     window.open(url, '_blank', 'noopener,noreferrer');
   }
 }
-</script><div class="divider"></div><footer class="footer"><div class="container"><div class="footer-grid"><div><div class="footer-brand"><div class="brand-lines"><span></span><span></span><span></span></div><div class="footer-title">Angelo Constanzo</div></div><div class="footer-copy">Entrenamiento humano para personas y empresas. Menos discurso. Más transformación observable.</div></div><div><div class="footer-group-title">Explorar</div><div class="footer-links"><a href="/persona/">Persona</a><a href="/empresa/">Empresa</a><a href="/betascan/">BetaScan</a><a href="/betagym/">BetaGym</a><a href="/acerca-de/">Acerca de</a></div></div><div class="footer-cta"><div class="footer-group-title">Conversemos</div><p>Si quieres mover algo de verdad, partamos por una conversación clara.</p><a href="https://wa.link/zyw1c4" target="_blank" rel="noopener noreferrer" class="btn btn-gold">Ir a WhatsApp</a></div></div><div class="footer-bottom"><span>© 2026 Angelo Constanzo — La vida que quieres no llega. Se entrena.</span><div class="footer-socials"><a class="social-link icon-only" href="https://www.youtube.com/@angeloconstanzo" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.4 3.5 12 3.5 12 3.5s-7.4 0-9.4.6A3 3 0 0 0 .5 6.2 31.8 31.8 0 0 0 0 12a31.8 31.8 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c2 .6 9.4.6 9.4.6s7.4 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.8 31.8 0 0 0 24 12a31.8 31.8 0 0 0-.5-5.8ZM9.6 15.7V8.3l6.4 3.7-6.4 3.7Z"/></svg></a><a class="social-link icon-only" href="https://www.instagram.com/angelo.constanzo" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2.2A2.8 2.8 0 0 0 4.2 7v10A2.8 2.8 0 0 0 7 19.8h10a2.8 2.8 0 0 0 2.8-2.8V7A2.8 2.8 0 0 0 17 4.2H7Zm10.5 1.7a1.3 1.3 0 1 1 0 2.6 1.3 1.3 0 0 1 0-2.6ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2.2A2.8 2.8 0 1 0 12 14.8 2.8 2.8 0 0 0 12 9.2Z"/></svg></a><a class="social-link icon-only" href="https://www.tiktok.com/@angelo.constanzo" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.8 2h2.8a4.8 4.8 0 0 0 4.4 4.4v2.8a7.4 7.4 0 0 1-4.4-1.4v8.1A6.9 6.9 0 1 1 10.7 9v2.9a4 4 0 1 0 4.1 4V2Z"/></svg></a><a class="social-link icon-only" href="https://www.linkedin.com/in/angeloconstanzo" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.9 3.5a1.7 1.7 0 1 1 0 3.5 1.7 1.7 0 0 1 0-3.5ZM3.4 8.6h3v12h-3v-12Zm5 0h2.9v1.7h.1c.4-.8 1.4-2 3.8-2 4 0 4.8 2.6 4.8 6v6.3h-3v-5.6c0-1.3 0-3.1-1.9-3.1s-2.2 1.5-2.2 3v5.7h-3v-12Z"/></svg></a></div></div></div></footer><script src="/assets/site.js"></script>
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeExplainModal();
+});
+document.getElementById('explainModal')?.addEventListener('click', (e) => {
+  if (e.target.id === 'explainModal') closeExplainModal();
+});
+</script><div class="divider"></div><footer class="footer"><div class="container"><div class="footer-grid"><div><div class="footer-brand"><div class="brand-lines"><span></span><span></span><span></span></div><div class="footer-title">Angelo Constanzo</div></div><div class="footer-copy">Entrenamiento humano para personas y empresas. Menos discurso. Más transformación observable.</div></div><div><div class="footer-group-title">Explorar</div><div class="footer-links"><a href="/persona/">Persona</a><a href="/empresa/">Empresa</a><a href="/betascan/">BetaScan</a><a href="/betagym/">BetaGym</a><a href="/acerca-de/">Acerca de</a></div></div><div class="footer-cta"><div class="footer-group-title">Conversemos</div><p>Si quieres mover algo de verdad, partamos por una conversación clara.</p><a href="https://wa.link/zyw1c4" target="_blank" rel="noopener noreferrer" class="btn btn-gold">Ir a WhatsApp</a></div></div><div class="footer-bottom"><span>© 2026 Angelo Constanzo — La vida que quieres no llega. Se entrena.</span><div class="footer-socials"><a class="social-link icon-only" href="https://www.youtube.com/@angeloconstanzo" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.4 3.5 12 3.5 12 3.5s-7.4 0-9.4.6A3 3 0 0 0 .5 6.2 31.8 31.8 0 0 0 0 12a31.8 31.8 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c2 .6 9.4.6 9.4.6s7.4 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.8 31.8 0 0 0 24 12a31.8 31.8 0 0 0-.5-5.8ZM9.6 15.7V8.3l6.4 3.7-6.4 3.7Z"/></svg></a><a class="social-link icon-only" href="https://www.instagram.com/angelo.constanzo" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2.2A2.8 2.8 0 0 0 4.2 7v10A2.8 2.8 0 0 0 7 19.8h10a2.8 2.8 0 0 0 2.8-2.8V7A2.8 2.8 0 0 0 17 4.2H7Zm10.5 1.7a1.3 1.3 0 1 1 0 2.6 1.3 1.3 0 0 1 0-2.6ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2.2A2.8 2.8 0 1 0 12 14.8 2.8 2.8 0 0 0 12 9.2Z"/></svg></a><a class="social-link icon-only" href="https://www.tiktok.com/@angelo.constanzo" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.8 2h2.8a4.8 4.8 0 0 0 4.4 4.4v2.8a7.4 7.4 0 0 1-4.4-1.4v8.1A6.9 6.9 0 1 1 10.7 9v2.9a4 4 0 1 0 4.1 4V2Z"/></svg></a><a class="social-link icon-only" href="https://www.linkedin.com/in/angeloconstanzo" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.9 3.5a1.7 1.7 0 1 1 0 3.5 1.7 1.7 0 0 1 0-3.5ZM3.4 8.6h3v12h-3v-12Zm5 0h2.9v1.7h.1c.4-.8 1.4-2 3.8-2 4 0 4.8 2.6 4.8 6v6.3h-3v-5.6c0-1.3 0-3.1-1.9-3.1s-2.2 1.5-2.2 3v5.7h-3v-12Z"/></svg></a></div></div></div></footer><script src="/assets/site.js">document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeExplainModal();
+});
+document.getElementById('explainModal')?.addEventListener('click', (e) => {
+  if (e.target.id === 'explainModal') closeExplainModal();
+});
+</script>
 </body></html>
