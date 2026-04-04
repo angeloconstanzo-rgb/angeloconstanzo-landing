@@ -1,3 +1,5 @@
+const SITE_ROOT=(document.body&&document.body.dataset&&document.body.dataset.root)||'';
+const toSite=(p)=>{ if(!p) return SITE_ROOT||'./'; if(/^https?:/.test(p)) return p; if(location.protocol==='file:'){ return SITE_ROOT + p.replace(/^\//,''); } return '/' + p.replace(/^\//,''); };
 document.addEventListener('DOMContentLoaded',()=>{
 
 /* ── Cursor dorado (solo desktop) ── */
@@ -57,10 +59,8 @@ document.querySelectorAll('[data-carousel]').forEach(carousel=>{
   const fields=document.getElementById('betagymFormFields');
   const gate=document.getElementById('betagymGateMessage');
   const syncGate=()=>{if(!doneField||!fields||!gate)return; if(doneField.value==='no'){fields.classList.add('hidden'); gate.classList.add('active');} else {fields.classList.remove('hidden'); gate.classList.remove('active');}};
-  if(doneField){doneField.addEventListener('change',()=>{if(doneField.value==='no'){window.location.href='/betascan/?next=betagym';return;} syncGate();});syncGate();}
+  if(doneField){doneField.addEventListener('change',()=>{if(doneField.value==='no'){window.location.href=toSite('betascan/?next=betagym');return;} syncGate();});syncGate();}
 
   const appForm=document.getElementById('betagymApplicationForm');
-  if(appForm){const stored = localStorage.getItem('betascan_result'); if(stored){try{const parsed=JSON.parse(stored); const resultField=document.getElementById('bg-betascan'); if(resultField && parsed.profile){resultField.value=`${parsed.profile} · Índice ${parsed.index}%`; } if(doneField && parsed.completed){doneField.value='si'; syncGate();}}catch(e){}} appForm.addEventListener('submit',function(e){e.preventDefault(); if(doneField && doneField.value==='no'){window.location.href='/betascan/?next=betagym'; return;} const existing=appForm.querySelector('.form-success'); if(existing) existing.remove(); const success=document.createElement('div'); success.className='form-success'; success.innerHTML='Tu postulación quedó montada en esta versión de revisión. El siguiente paso será conectar el envío real al sistema que definas, sin exponer credenciales en el front.'; appForm.appendChild(success);});}
+  if(appForm){const stored = localStorage.getItem('betascan_result'); if(stored){try{const parsed=JSON.parse(stored); const resultField=document.getElementById('bg-betascan'); if(resultField && parsed.profile){resultField.value=`${parsed.profile} · Índice ${parsed.index}%`; } if(doneField && parsed.completed){doneField.value='si'; syncGate();}}catch(e){}} appForm.addEventListener('submit',function(e){e.preventDefault(); if(doneField && doneField.value==='no'){window.location.href=toSite('betascan/?next=betagym'); return;} const existing=appForm.querySelector('.form-success'); if(existing) existing.remove(); const success=document.createElement('div'); success.className='form-success'; success.innerHTML='Tu postulación quedó montada en esta versión de revisión. El siguiente paso será conectar el envío real al sistema que definas, sin exponer credenciales en el front.'; appForm.appendChild(success);});}
 })();
-
-document.querySelectorAll('[data-toggle-box]').forEach(btn=>btn.addEventListener('click',()=>{const box=btn.closest('[data-box]'); if(box) box.classList.toggle('open');}));
