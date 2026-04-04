@@ -269,3 +269,24 @@ h3{font-size:clamp(19px,2vw,24px)}
 .page-betascan .stage-welcome-title{font-size:clamp(26px,3vw,34px);margin-bottom:12px}
 .page-betascan .intro-point{padding:12px 14px}
 .page-betascan .betascan-result-grid{gap:16px}
+
+
+/* Company boxes */
+.company-interest-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.company-interest-card{display:flex;flex-direction:column;gap:14px}
+.company-interest-card .service-top{display:grid;gap:12px}
+.company-expand{display:none;padding-top:8px;border-top:1px solid rgba(0,184,212,.18)}
+.company-expand.open{display:block;animation:fadeIn .22s ease}
+.company-toggle.active{box-shadow:0 0 0 1px rgba(0,184,212,.14),0 14px 40px rgba(0,184,212,.12)}
+@media (max-width:920px){.company-interest-grid{grid-template-columns:1fr}}
+
+/* BetaScan flow mode */
+.page-betascan #betascanShell{display:none}
+.page-betascan .flow-open{display:grid!important}
+.page-betascan.betascan-flow-mode header.brand-beta{display:none}
+.page-betascan.betascan-flow-mode .divider:first-of-type{display:none}
+.page-betascan.betascan-flow-mode #betascanShell{padding-top:28px}
+.page-betascan .betascan-stage#stageIntro{display:block}
+.page-betascan:not(.betascan-flow-mode) .betascan-stage#stageIntro{display:block}
+.page-betascan:not(.betascan-flow-mode) #stageQuestion,.page-betascan:not(.betascan-flow-mode) #stageResult{display:none!important}
+.page-betascan .betascan-shell.flow-open #stageQuestion,.page-betascan .betascan-shell.flow-open #stageResult{display:none}

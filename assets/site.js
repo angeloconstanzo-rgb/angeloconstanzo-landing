@@ -45,6 +45,15 @@ document.querySelectorAll('[data-carousel]').forEach(carousel=>{
   carousel.parentElement?.querySelector('[data-next]')?.addEventListener('click',()=>track.scrollBy({left:step(),behavior:'smooth'}));
 });
 
+  document.querySelectorAll('.company-toggle').forEach(btn=>btn.addEventListener('click',()=>{
+    const target=document.getElementById(btn.dataset.target);
+    if(!target) return;
+    const isOpen=target.classList.contains('open');
+    document.querySelectorAll('.company-expand.open').forEach(el=>el.classList.remove('open'));
+    document.querySelectorAll('.company-toggle.active').forEach(el=>el.classList.remove('active'));
+    if(!isOpen){ target.classList.add('open'); btn.classList.add('active'); }
+  }));
+
 });
 
 /* --- v12 interactions --- */
@@ -63,4 +72,26 @@ document.querySelectorAll('[data-carousel]').forEach(carousel=>{
 
   const appForm=document.getElementById('betagymApplicationForm');
   if(appForm){const stored = localStorage.getItem('betascan_result'); if(stored){try{const parsed=JSON.parse(stored); const resultField=document.getElementById('bg-betascan'); if(resultField && parsed.profile){resultField.value=`${parsed.profile} · Índice ${parsed.index}%`; } if(doneField && parsed.completed){doneField.value='si'; syncGate();}}catch(e){}} appForm.addEventListener('submit',function(e){e.preventDefault(); if(doneField && doneField.value==='no'){window.location.href=toSite('betascan/?next=betagym'); return;} const existing=appForm.querySelector('.form-success'); if(existing) existing.remove(); const success=document.createElement('div'); success.className='form-success'; success.innerHTML='Tu postulación quedó montada en esta versión de revisión. El siguiente paso será conectar el envío real al sistema que definas, sin exponer credenciales en el front.'; appForm.appendChild(success);});}
+
+  const betascanShell=document.getElementById('betascanShell');
+  const launchIntroBtn=document.getElementById('launchIntroBtn');
+  const backToHeroBtn=document.getElementById('backToHeroBtn');
+  const startLeadForm=document.getElementById('betascanLeadStart');
+  if(betascanShell && launchIntroBtn){
+    const openFlow=()=>{
+      document.body.classList.add('betascan-flow-mode');
+      betascanShell.classList.add('flow-open');
+      history.replaceState(null,'',location.pathname+'#diagnostico');
+      window.scrollTo({top:0,behavior:'auto'});
+    };
+    launchIntroBtn.addEventListener('click',openFlow);
+    backToHeroBtn?.addEventListener('click',()=>{
+      document.body.classList.remove('betascan-flow-mode');
+      betascanShell.classList.remove('flow-open');
+      history.replaceState(null,'',location.pathname);
+      window.scrollTo({top:0,behavior:'auto'});
+    });
+    if(location.hash==='#diagnostico'){ openFlow(); }
+    startLeadForm?.addEventListener('submit',()=>openFlow());
+  }
 })();
