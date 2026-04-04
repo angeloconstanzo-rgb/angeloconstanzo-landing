@@ -1,705 +1,122 @@
-<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>BetaScan — Angelo Constanzo</title><meta name="description" content="Diagnóstico inicial para entender qué entrenar primero."><link rel="stylesheet" href="/assets/site.css"><style>body{background:radial-gradient(circle at 100% 0%, rgba(111,90,159,.08), transparent 28%),radial-gradient(circle at 0% 15%, rgba(0,184,212,.08), transparent 22%),linear-gradient(180deg,#0A0A0A 0%,#111 100%)!important}.container{max-width:720px;margin:0 auto;padding:40px 24px 80px;position:relative;z-index:1}.screen{display:none;animation:fadeIn .5s ease}.screen.active{display:block}@keyframes fadeIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}.logo{font-size:13px;font-weight:700;letter-spacing:4px;color:var(--gold);text-transform:uppercase;margin-bottom:60px}.intro-badge{display:inline-block;border:1px solid var(--gold-border);color:var(--gold);font-size:11px;letter-spacing:3px;text-transform:uppercase;padding:6px 16px;margin-bottom:32px;border-radius:999px}#betascan-app h1{font-size:clamp(32px,6vw,52px);font-weight:700;line-height:1.05;margin-bottom:20px;letter-spacing:-1px}#betascan-app h1 span{color:var(--gold)}.intro-sub{font-size:16px;color:rgba(245,240,232,.65);line-height:1.7;max-width:520px;margin-bottom:40px}.capacidades-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:48px}.cap-chip{background:var(--gold-dim);border:1px solid var(--gold-border);padding:8px 10px;font-size:10px;font-weight:700;letter-spacing:.5px;color:var(--gold-light);text-align:center;line-height:1.3;border-radius:10px}.btn-primary,.btn-cta{background:var(--gold)!important;color:#0A0A0A!important;border:none;padding:16px 40px;font-family:'OpenSauceOne',Arial,sans-serif!important;font-size:14px;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:all .2s;border-radius:999px}.btn-primary:hover,.btn-cta:hover{background:var(--gold-light)!important;transform:translateY(-1px)}.time-note,.progress-count,.question-number,.likert-label,.analyzer-label,.score-max{color:var(--gray)!important}.email-form{max-width:480px}.email-form h2,.cta-title,.result-title{font-weight:700}.email-form p,.score-desc,.insight-text,.cta-sub{color:rgba(245,240,232,.6)!important}.field-group{margin-bottom:20px}.field-group label{display:block;font-size:11px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:8px}.field-group input{width:100%;background:var(--card);border:1px solid var(--gold-border);color:var(--white);padding:14px 18px;font-family:'OpenSauceOne',Arial,sans-serif;font-size:14px;outline:none;transition:border-color .2s;border-radius:12px}.field-group input:focus{border-color:var(--gold)}.field-group input::placeholder{color:rgba(245,240,232,.3)}.progress-wrap{margin-bottom:48px}.progress-meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}.progress-cap-name,.section-title,.cta-eyebrow,.result-name{font-size:11px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;font-weight:700}.progress-bar-bg,.analyzer-bar-bg{height:2px;background:rgba(201,168,76,.15);width:100%}.progress-bar-fill,.analyzer-bar-fill{height:2px;background:var(--gold);transition:width .4s ease}.question-text{font-size:clamp(18px,3vw,24px);font-weight:700;line-height:1.4;margin-bottom:36px;letter-spacing:-.3px}.likert-wrap{margin-bottom:40px}.likert-labels{display:flex;justify-content:space-between;margin-bottom:12px}.likert-options{display:flex;gap:10px}.likert-btn{flex:1;height:52px;background:var(--card);border:1px solid rgba(201,168,76,.2);color:rgba(245,240,232,.5);font-family:'OpenSauceOne',Arial,sans-serif;font-size:15px;font-weight:700;cursor:pointer;transition:all .2s;position:relative;border-radius:12px}.likert-btn:hover,.likert-btn.selected,.text-opt:hover,.text-opt.selected{background:var(--gold-dim);border-color:var(--gold);color:var(--gold-light)}.likert-btn.selected::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:2px;background:var(--gold)}.text-options{display:flex;flex-direction:column;gap:10px;margin-bottom:40px}.text-opt{background:var(--card);border:1px solid rgba(201,168,76,.2);padding:16px 20px;text-align:left;color:rgba(245,240,232,.7);font-family:'OpenSauceOne',Arial,sans-serif;font-size:14px;cursor:pointer;transition:all .2s;line-height:1.4;border-radius:14px}.text-opt.selected{padding-left:28px;position:relative;color:var(--white)}.text-opt.selected::before{content:'▸';color:var(--gold);position:absolute;left:12px;top:50%;transform:translateY(-50%)}.nav-btns{display:flex;gap:12px;align-items:center}.btn-back,.share-btn{background:transparent;border:1px solid rgba(245,240,232,.15);color:var(--gray);padding:14px 24px;font-family:'OpenSauceOne',Arial,sans-serif;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:all .2s;border-radius:999px}.btn-back:hover,.share-btn:hover{border-color:var(--gold-border);color:var(--white);background:var(--gold-dim)}#loadingScreen{text-align:center;padding:80px 0}.loader-text{font-size:13px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:32px}.analyzer{display:flex;flex-direction:column;gap:12px;max-width:360px;margin:0 auto}.analyzer-row{display:flex;align-items:center;gap:12px;opacity:0;animation:slideIn .4s ease forwards}@keyframes slideIn{from{opacity:0;transform:translateX(-10px)}to{opacity:1;transform:translateX(0)}}.result-header{margin-bottom:48px}.result-score-wrap{display:flex;align-items:center;gap:20px;padding:24px;background:var(--card);border:1px solid var(--gold-border);margin-bottom:40px;border-radius:20px}.score-circle{width:80px;height:80px;border:2px solid var(--gold);border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0}.score-number{font-size:26px;font-weight:700;color:var(--gold);line-height:1}.radar-container{display:flex;justify-content:center;margin-bottom:20px}.cap-bars{display:flex;flex-direction:column;gap:14px;margin-bottom:40px}.cap-bar-row{display:flex;flex-direction:column;gap:5px}.cap-bar-meta{display:flex;justify-content:space-between}.cap-bar-name{font-size:12px;font-weight:700;letter-spacing:.5px}.cap-bar-score{font-size:12px;color:var(--gold);font-weight:700}.cap-bar-bg{height:4px;background:rgba(201,168,76,.1);border-radius:2px}.cap-bar-fill{height:4px;border-radius:2px;background:var(--gold);width:0;transition:width 1.2s cubic-bezier(.4,0,.2,1)}.cap-bar-fill.weak{background:#7a5c1e}.cap-bar-fill.mid{background:#C9A84C}.cap-bar-fill.strong{background:var(--gold-light)}.insights-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:40px}.insight-card{background:var(--card);border:1px solid var(--gold-border);padding:20px;border-radius:18px}.insight-card.weak{border-color:rgba(122,92,30,.5)}.insight-tag{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:8px}.insight-card.weak .insight-tag{color:#7a5c1e}.insight-cap{font-size:14px;font-weight:700;margin-bottom:6px}.narrative-box{background:var(--card);border-left:3px solid var(--gold);padding:28px;margin-bottom:40px;border-radius:0 18px 18px 0}.narrative-box p{font-size:15px;line-height:1.8;color:rgba(245,240,232,.8);font-weight:400}.narrative-box strong{color:var(--gold);font-weight:700}.cta-block{background:linear-gradient(135deg,#111 0%,#0D0D0D 100%);border:1px solid var(--gold-border);padding:36px;text-align:center;margin-bottom:24px;border-radius:22px}@media (max-width:600px){.capacidades-grid{grid-template-columns:repeat(2,1fr)}.insights-grid{grid-template-columns:1fr}.likert-options{gap:6px}.likert-btn{height:44px;font-size:14px}}
-.landing-shell{display:grid;gap:28px}
-.landing-top-card{position:relative;display:grid;grid-template-columns:1.2fr .55fr;gap:24px;align-items:center;padding:30px 30px 28px;border:1px solid var(--gold-border);border-radius:30px;background:linear-gradient(135deg,rgba(255,255,255,.03),rgba(201,168,76,.05));overflow:hidden;box-shadow:var(--shadow)}
-.landing-top-card::before{content:'';position:absolute;inset:auto -10% -40% auto;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle, rgba(201,168,76,.16), transparent 62%);filter:blur(12px)}
-.landing-copy{position:relative;z-index:1}
-.landing-top-actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:20px}
-.landing-time{margin:0;color:rgba(245,240,232,.62);font-size:13px;letter-spacing:.04em;text-transform:uppercase}
-.btn-start{min-height:54px;padding:0 28px}
-.pulse-cta{animation:pulseGlow 2.2s ease-in-out infinite}
-@keyframes pulseGlow{0%,100%{box-shadow:0 0 0 0 rgba(201,168,76,.0)}50%{box-shadow:0 0 0 12px rgba(201,168,76,.06)}}
-.landing-orbit{position:relative;min-height:160px}
-.landing-orbit span{position:absolute;display:inline-flex;align-items:center;justify-content:center;padding:10px 16px;border-radius:999px;border:1px solid var(--gold-border);background:rgba(255,255,255,.03);color:var(--gold-light);font-size:12px;letter-spacing:.12em;text-transform:uppercase;animation:floatTag 5s ease-in-out infinite}
-.landing-orbit span:nth-child(1){top:16px;right:18px;animation-delay:0s}
-.landing-orbit span:nth-child(2){top:70px;left:10px;animation-delay:1s}
-.landing-orbit span:nth-child(3){bottom:8px;right:48px;animation-delay:2s}
-@keyframes floatTag{0%,100%{transform:translateY(0px)}50%{transform:translateY(-8px)}}
-.landing-explain{padding:6px 2px 0}
-.landing-label{display:inline-block;margin-bottom:12px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
-.landing-title{font-size:clamp(28px,4vw,44px);margin-bottom:14px}
-.landing-text{max-width:820px;color:rgba(245,240,232,.74);font-size:17px;line-height:1.9;margin-bottom:22px}
-.landing-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:22px}
-.landing-meta-card{padding:18px;border-radius:20px;border:1px solid rgba(201,168,76,.18);background:rgba(255,255,255,.02)}
-.landing-meta-card strong{display:block;margin-bottom:6px;color:var(--white);font-size:14px}
-.landing-meta-card span{display:block;color:rgba(245,240,232,.68);font-size:14px;line-height:1.6}
-.capacity-detail-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-.capacity-detail-card{padding:22px;border-radius:22px;border:1px solid rgba(201,168,76,.18);background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.015));transition:transform .22s ease,border-color .22s ease,background .22s ease}
-.capacity-detail-card:hover{transform:translateY(-3px);border-color:var(--gold-border);background:rgba(201,168,76,.05)}
-.capacity-emoji{font-size:24px;margin-bottom:12px}
-.capacity-detail-card h3{font-size:18px;margin-bottom:8px}
-.capacity-detail-card p{margin:0;color:rgba(245,240,232,.7);font-size:15px;line-height:1.75}
-.landing-bridge{padding-top:26px}
-.bridge-card{max-width:620px;padding:24px 24px 20px;border-radius:24px;border:1px solid rgba(201,168,76,.18);background:rgba(255,255,255,.02)}
-.bridge-label{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
-.bridge-card p{margin:0 0 18px;color:rgba(245,240,232,.7);line-height:1.8}
-body.diagnosis-started .landing-explain, body.diagnosis-started .landing-bridge{opacity:.52}
-.share-panel{display:none;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:18px}
-.share-panel.active{display:grid}
-.share-option{display:flex;align-items:center;justify-content:center;min-height:48px;padding:0 14px;border-radius:14px;border:1px solid rgba(201,168,76,.18);background:rgba(255,255,255,.02);color:var(--white);font-family:'OpenSauceOne',Arial,sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:all .18s ease}
-.share-option:hover{border-color:var(--gold-border);background:var(--gold-dim);color:var(--gold-light)}
-.share-hint{margin-top:10px;color:rgba(245,240,232,.58);font-size:13px;line-height:1.7}
-@media (max-width:900px){.landing-top-card{grid-template-columns:1fr}.landing-orbit{min-height:96px}.landing-meta,.capacity-detail-grid,.share-panel{grid-template-columns:1fr}}
-
-.hero-screen{display:block}
-.hero-panel{position:relative;display:grid;grid-template-columns:1.15fr .55fr;gap:24px;align-items:center;padding:34px 32px;border:1px solid var(--gold-border);border-radius:30px;background:linear-gradient(135deg,rgba(255,255,255,.03),rgba(201,168,76,.05));overflow:hidden;box-shadow:var(--shadow)}
-.hero-panel::before{content:'';position:absolute;inset:auto -10% -35% auto;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle, rgba(201,168,76,.14), transparent 62%);filter:blur(12px)}
-.hero-copy,.hero-orbit{position:relative;z-index:1}
-.hero-title{font-size:clamp(34px,5.2vw,58px);line-height:1.03;letter-spacing:-.04em;margin-bottom:14px}
-.hero-sub{max-width:560px;color:rgba(245,240,232,.72);font-size:17px;line-height:1.8;margin-bottom:18px}
-.hero-actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
-.hero-link{display:inline-flex;align-items:center;gap:10px;color:var(--white);font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;opacity:.86;background:none;border:none;padding:0;cursor:pointer;font-family:'OpenSauceOne',Arial,sans-serif}
-.hero-link:hover{color:var(--gold-light);opacity:1}
-.hero-time{margin:0;color:rgba(245,240,232,.56);font-size:12px;letter-spacing:.12em;text-transform:uppercase}
-.hero-orbit{min-height:170px}
-.hero-orbit span{position:absolute;display:inline-flex;align-items:center;justify-content:center;padding:10px 16px;border-radius:999px;border:1px solid var(--gold-border);background:rgba(255,255,255,.03);color:var(--gold-light);font-size:12px;letter-spacing:.12em;text-transform:uppercase;animation:floatTag 5s ease-in-out infinite}
-.hero-orbit span:nth-child(1){top:14px;right:10px}.hero-orbit span:nth-child(2){top:76px;left:4px;animation-delay:1s}.hero-orbit span:nth-child(3){bottom:8px;right:50px;animation-delay:2s}
-.hero-screen.hidden{display:none}
-.explain-modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;padding:24px;background:rgba(8,8,8,.72);backdrop-filter:blur(12px);z-index:70}
-.explain-modal.active{display:flex}
-.explain-dialog{width:min(980px,100%);max-height:min(88vh,920px);overflow:auto;padding:30px;border:1px solid var(--gold-border);border-radius:30px;background:linear-gradient(180deg,#111,#0b0b0b);box-shadow:0 24px 80px rgba(0,0,0,.42)}
-.dialog-top{display:flex;justify-content:space-between;gap:18px;align-items:flex-start;margin-bottom:18px}
-.dialog-top h2{margin-bottom:8px}
-.dialog-close{width:46px;height:46px;border-radius:50%;border:1px solid rgba(245,240,232,.14);background:transparent;color:var(--white);font-size:20px;cursor:pointer}
-.dialog-close:hover{border-color:var(--gold-border);background:var(--gold-dim);color:var(--gold-light)}
-.dialog-copy{max-width:760px;color:rgba(245,240,232,.76);line-height:1.85;margin-bottom:18px}
-.dialog-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0 22px}
-.dialog-meta .landing-meta-card{padding:18px}
-.dialog-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-.dialog-grid .capacity-detail-card{min-height:100%}
-.screen-shell{padding-top:10px}
-.result-top-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
-.cta-block .btn-cta{margin-bottom:14px;display:inline-flex}
-.share-panel{grid-template-columns:repeat(2,minmax(0,1fr))}
-@media (max-width:900px){.hero-panel{grid-template-columns:1fr}.dialog-meta,.dialog-grid,.share-panel{grid-template-columns:1fr}.hero-orbit{min-height:96px}}
-
-
-header .container.reveal{max-width:660px!important;padding-top:56px!important}
-.hero-panel{grid-template-columns:1fr!important;max-width:620px;margin:0 auto;padding:28px 28px 24px!important;min-height:auto!important}
-.hero-copy{text-align:center;max-width:none}
-.hero-title{font-size:clamp(34px,5.4vw,48px)!important;margin-bottom:14px!important}
-.hero-sub{font-size:15px!important;line-height:1.7!important;max-width:520px;margin:0 auto 18px!important}
-.hero-actions{justify-content:center}
-.hero-time{text-align:center;margin-top:6px}
-.hero-orbit{display:none!important}
-.screen-shell{padding-top:0!important}
-@media (max-width:640px){.hero-panel{padding:24px 18px 20px!important}.hero-title{font-size:clamp(30px,8vw,38px)!important}}
-
-</style></head><body><nav class="nav"><div class="container nav-inner"><a class="brand" href="/"><div class="brand-lines"><span></span><span></span><span></span></div><div class="brand-name">Angelo Constanzo</div></a><div class="nav-links"><a href="/persona/">Persona</a><a href="/empresa/">Empresa</a><a href="/betascan/" class="active">BetaScan</a><a href="/betagym/">BetaGym</a><a href="/acerca-de/">Acerca</a></div><a href="https://wa.link/zyw1c4" target="_blank" rel="noopener noreferrer" class="btn btn-gold">Hablemos</a></div></nav><header><div class="container reveal" style="padding-bottom:20px"><div id="betascan-app" class="screen-shell"><div id="heroScreen" class="hero-screen"><div class="hero-panel magnetic-card"><div class="hero-copy"><h1 class="hero-title">Descubre tu poder humano.</h1><p class="hero-sub">Un diagnóstico breve para entender dónde estás hoy realmente y qué conviene entrenar primero.</p><div class="hero-actions"><button class="btn btn-gold btn-start pulse-cta" onclick="startDiagnosis()">Comenzar mi diagnóstico</button><button class="hero-link" onclick="openExplainModal()" type="button">Ver cómo funciona</button></div><p class="hero-time">5–7 minutos · 16 preguntas · resultado inmediato</p></div><div class="hero-orbit" aria-hidden="true"><span>8 capacidades</span><span>claridad</span><span>acción</span></div></div></div><div id="emailScreen" class="screen"><div class="email-form"><h2>Primero,<br>¿cómo te llamamos?</h2><p>Tu resultado es personalizado. Lo recibirás también en tu correo con un análisis más claro y compartible.</p><div class="field-group"><label>Nombre</label><input type="text" id="userName" placeholder="Tu nombre" /></div><div class="field-group"><label>Email</label><input type="email" id="userEmail" placeholder="tu@email.com" /></div><div class="nav-btns"><button class="btn-back" onclick="goBackToHero()">← Volver</button><button class="btn-primary pulse-cta" onclick="startScan()">Comenzar diagnóstico</button></div></div></div><div id="questionScreen" class="screen"><div class="progress-wrap"><div class="progress-meta"><span class="progress-cap-name" id="progressCapName">—</span><span class="progress-count" id="progressCount">1 / 16</span></div><div class="progress-bar-bg"><div class="progress-bar-fill" id="progressFill" style="width:0%"></div></div></div><div class="question-number" id="questionNumber">PREGUNTA 01</div><div class="question-text" id="questionText">—</div><div id="answersContainer"></div><div class="nav-btns"><button class="btn-back" onclick="prevQuestion()">← Atrás</button></div></div><div id="loadingScreen" class="screen"><p class="loader-text">Analizando tu perfil...</p><div class="analyzer" id="analyzerRows"></div></div><div id="resultScreen" class="screen"><div class="result-header"><div class="result-name" id="resultName">—</div><div class="result-title" id="resultTitle">—</div><div class="result-top-actions"><button class="btn-back" onclick="restartDiagnosis()">↺ Repetir diagnóstico</button></div></div><div class="result-score-wrap"><div class="score-circle"><div class="score-number" id="scoreNumber">0</div><div class="score-max">/100</div></div><div class="score-text"><div class="score-label" id="scoreLabel">—</div><div class="score-desc" id="scoreDesc">—</div></div></div><div class="radar-section"><div class="section-title">Perfil de las 8 capacidades</div><div class="radar-container"><canvas id="radarCanvas" width="280" height="280"></canvas></div></div><div class="section-title">Detalle por capacidad</div><div class="cap-bars" id="capBars"></div><div class="section-title" style="margin-top:8px">Tu diagnóstico</div><div class="narrative-box"><p id="narrativeText">—</p></div><div class="section-title">Zonas de entrenamiento</div><div class="insights-grid" id="insightsGrid"></div><div class="cta-block"><div class="cta-eyebrow">Siguiente paso</div><div class="cta-title">Este no es tu techo. Es tu punto de partida.</div><div class="cta-sub">Lo importante aquí no es etiquetarte. Es darte una dirección más clara para decidir si hoy necesitas psicoterapia, coaching o postular a BetaGym.</div><a href="https://wa.link/o1dohs" target="_blank" rel="noopener noreferrer" class="btn-cta">Quiero ver mi siguiente paso</a><div class="share-hint" style="margin-top:14px">Si quieres postular a BetaGym, este diagnóstico funciona como requisito previo y te ayudará a ordenar mejor tu entrada.</div><button class="share-btn" onclick="toggleSharePanel()">↗ Compartir mi resultado</button><div id="sharePanel" class="share-panel"><button class="share-option" onclick="shareResultTo('native')">Compartir</button><button class="share-option" onclick="shareResultTo('whatsapp')">WhatsApp</button><button class="share-option" onclick="shareResultTo('linkedin')">LinkedIn</button><button class="share-option" onclick="shareResultTo('facebook')">Facebook</button><button class="share-option" onclick="shareResultTo('x')">X / Twitter</button><button class="share-option" onclick="shareResultTo('email')">Email</button><button class="share-option" onclick="shareResultTo('instagram')">Instagram</button><button class="share-option" onclick="shareResultTo('copy')">Copiar texto</button></div><div class="share-hint">En Instagram no existe un enlace web universal con texto precargado, así que el botón copia el mensaje y abre Instagram para que puedas pegarlo.</div></div></div></div></div></header><div id="explainModal" class="explain-modal" aria-hidden="true"><div class="explain-dialog"><div class="dialog-top"><div><div class="landing-label">Radiografía inicial</div><h2>Descubre qué está frenando de verdad tu cambio</h2><p class="dialog-copy">Este diagnóstico te ayuda a ver con más claridad cómo están hoy tus capacidades humanas. No busca etiquetarte. Busca mostrarte desde dónde estás operando y qué conviene entrenar primero.</p></div><button class="dialog-close" onclick="closeExplainModal()" aria-label="Cerrar">×</button></div><div class="dialog-meta"><div class="landing-meta-card"><strong>Tiempo estimado</strong><span>5–7 minutos</span></div><div class="landing-meta-card"><strong>Formato</strong><span>16 preguntas + resultado inmediato</span></div><div class="landing-meta-card"><strong>Objetivo</strong><span>Ver qué te conviene entrenar primero</span></div></div><div class="dialog-grid"><article class="capacity-detail-card"><div class="capacity-emoji">🔥</div><h3>Fuego Propio</h3><p>Tu capacidad de sostener deseo, motivación y ambición sin depender solo de la presión externa.</p></article><article class="capacity-detail-card"><div class="capacity-emoji">🌌</div><h3>Mundo Interior</h3><p>Qué tan conectado estás con lo que sientes, piensas y necesitas realmente.</p></article><article class="capacity-detail-card"><div class="capacity-emoji">🌿</div><h3>Raíz</h3><p>Tu estabilidad interna, autoconfianza y capacidad de mantenerte en pie incluso en contextos difíciles.</p></article><article class="capacity-detail-card"><div class="capacity-emoji">🤝</div><h3>Campo de Empatía</h3><p>Cómo conectas con otros, cuánto comprendes su experiencia y cómo impactas tus vínculos.</p></article><article class="capacity-detail-card"><div class="capacity-emoji">🧭</div><h3>Norte Vital</h3><p>La claridad que tienes respecto a dirección, sentido y decisiones importantes en tu vida.</p></article><article class="capacity-detail-card"><div class="capacity-emoji">✨</div><h3>Chispa Creativa</h3><p>Tu capacidad de generar ideas originales, conectar puntos inesperados y salir de lo obvio.</p></article><article class="capacity-detail-card"><div class="capacity-emoji">⚡</div><h3>Movimiento</h3><p>Qué tan capaz eres de pasar de la intención a la acción sin quedarte atrapado en la postergación.</p></article><article class="capacity-detail-card"><div class="capacity-emoji">💎</div><h3>Energía Vital</h3><p>La base de tu energía disponible: presencia, regulación y capacidad de sostener lo que quieres construir.</p></article></div></div></div><div class="divider"></div><script>
-const CAPACIDADES = [
-  {
-    id: 'fuego',
-    name: 'Fuego Propio',
-    emoji: '🔥',
-    desc: 'Tu motivación intrínseca y energía interna para actuar desde adentro, no desde el miedo o la presión externa.',
-    questions: [
-      {
-        text: '¿Con qué frecuencia sientes que actúas desde una motivación genuina, no por miedo o presión externa?',
-        type: 'likert',
-        labels: ['Casi nunca', 'Siempre']
-      },
-      {
-        text: 'Cuando termina tu jornada, ¿cómo te sientes habitualmente?',
-        type: 'text',
-        options: [
-          'Vacío/a, como si hubiera dado sin recibir nada',
-          'Neutral, ni bien ni mal',
-          'Con algo de energía, aunque cansado/a',
-          'Encendido/a, con ganas de hacer más'
-        ]
-      }
-    ]
-  },
-  {
-    id: 'mundo',
-    name: 'Mundo Interior',
-    emoji: '🌌',
-    desc: 'Tu capacidad de autoconocimiento, gestión emocional y presencia con lo que ocurre dentro de ti.',
-    questions: [
-      {
-        text: '¿Qué tan claramente puedes identificar qué estás sintiendo en el momento en que lo sientes?',
-        type: 'likert',
-        labels: ['Muy confuso', 'Muy claro']
-      },
-      {
-        text: 'Cuando algo te afecta emocionalmente en el trabajo, ¿qué sueles hacer?',
-        type: 'text',
-        options: [
-          'Lo guardo y sigo como si nada',
-          'Reacciono y a veces me arrepiento',
-          'Lo proceso después, solo/a',
-          'Lo identifico y decido cómo responder conscientemente'
-        ]
-      }
-    ]
-  },
-  {
-    id: 'raiz',
-    name: 'Raíz',
-    emoji: '🌿',
-    desc: 'Tu sentido de identidad sólida, arraigo y confianza interna independiente del contexto externo.',
-    questions: [
-      {
-        text: '¿En qué medida tu autoconfianza depende de la aprobación o reconocimiento de otros?',
-        type: 'likert',
-        labels: ['Dependo mucho', 'Soy autónomo/a']
-      },
-      {
-        text: 'Ante un cambio grande o una crisis, ¿cómo reacciona tu sentido de identidad?',
-        type: 'text',
-        options: [
-          'Me desestabilizo profundamente y tardo en recuperarme',
-          'Me cuesta, pero vuelvo eventualmente',
-          'Me adapto aunque con incomodidad',
-          'Me mantengo firme desde adentro'
-        ]
-      }
-    ]
-  },
-  {
-    id: 'empatia',
-    name: 'Campo de Empatía',
-    emoji: '🤝',
-    desc: 'Tu capacidad de conectar genuinamente con otros, escuchar profundamente y construir vínculos reales.',
-    questions: [
-      {
-        text: '¿Con qué facilidad logras que las personas se sientan realmente escuchadas y comprendidas contigo?',
-        type: 'likert',
-        labels: ['Muy difícil', 'Con mucha facilidad']
-      },
-      {
-        text: 'En una conversación difícil, ¿dónde suele ir tu atención principalmente?',
-        type: 'text',
-        options: [
-          'En pensar qué voy a responder',
-          'En mantener la calma',
-          'En entender lo que el otro realmente siente',
-          'En integrar lo que siento yo y lo que siente el otro'
-        ]
-      }
-    ]
-  },
-  {
-    id: 'norte',
-    name: 'Norte Vital',
-    emoji: '🧭',
-    desc: 'La claridad sobre tu propósito, dirección de vida y la capacidad de tomar decisiones alineadas con lo que más importa.',
-    questions: [
-      {
-        text: '¿Qué tan claro tienes hacia dónde quieres ir en tu vida en este momento?',
-        type: 'likert',
-        labels: ['Muy confuso', 'Muy claro']
-      },
-      {
-        text: 'Cuando debes tomar una decisión importante, ¿qué proceso sigues?',
-        type: 'text',
-        options: [
-          'Procrastino o dejo que otros decidan',
-          'Decido desde el miedo o la urgencia',
-          'Analizo bien, aunque me cuesta soltar el control',
-          'Conecto con mis valores y decido desde ahí'
-        ]
-      }
-    ]
-  },
-  {
-    id: 'chispa',
-    name: 'Chispa Creativa',
-    emoji: '✨',
-    desc: 'Tu capacidad de generar ideas originales, conectar puntos inesperados y encontrar soluciones fuera del camino trillado.',
-    questions: [
-      {
-        text: '¿Con qué frecuencia generas ideas o soluciones que sorprenden a otros o a ti mismo/a?',
-        type: 'likert',
-        labels: ['Casi nunca', 'Con frecuencia']
-      },
-      {
-        text: 'Cuando enfrentas un problema sin solución obvia, ¿qué ocurre en ti?',
-        type: 'text',
-        options: [
-          'Me bloqueo y busco que alguien me diga qué hacer',
-          'Sigo los pasos conocidos aunque no funcionen bien',
-          'Exploro alternativas, aunque con inseguridad',
-          'Me activo: los problemas difíciles me energizan'
-        ]
-      }
-    ]
-  },
-  {
-    id: 'movimiento',
-    name: 'Movimiento',
-    emoji: '⚡',
-    desc: 'Tu capacidad de pasar del pensamiento a la acción concreta, gestionar la inercia y ejecutar lo que importa.',
-    questions: [
-      {
-        text: '¿Qué tan bien logras convertir tus intenciones y planes en acciones concretas y sostenidas?',
-        type: 'likert',
-        labels: ['Muy mal', 'Muy bien']
-      },
-      {
-        text: 'Cuando tienes una meta importante, ¿cuál es tu patrón más frecuente?',
-        type: 'text',
-        options: [
-          'Arranco fuerte y me apago a la semana',
-          'Pienso mucho pero actúo poco',
-          'Avanzo en momentos, aunque no siempre constante',
-          'Construyo impulso sostenido hasta lograrlo'
-        ]
-      }
-    ]
-  },
-  {
-    id: 'energia',
-    name: 'Energía Vital',
-    emoji: '💎',
-    desc: 'La gestión consciente de tu energía física, mental y emocional para operar desde tu mejor versión.',
-    questions: [
-      {
-        text: '¿Qué tan bien gestionas tu energía a lo largo de la semana (sin llegar agotado/a al fin de semana)?',
-        type: 'likert',
-        labels: ['Muy mal', 'Muy bien']
-      },
-      {
-        text: 'Cuando sientes que tu energía está baja, ¿qué haces habitualmente?',
-        type: 'text',
-        options: [
-          'Sigo empujando hasta que el cuerpo me detiene',
-          'Me desconecto sin realmente recuperarme',
-          'Ajusto algo, aunque no siempre sé bien qué',
-          'Tengo prácticas concretas que me restauran'
-        ]
-      }
-    ]
-  }
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>BetaScan — Angelo Constanzo</title><meta name="description" content="Diagnóstico inicial para entender qué entrenar primero."><link rel="stylesheet" href="/assets/site.css"><style>
+body{background:radial-gradient(circle at 100% 0%, rgba(111,90,159,.08), transparent 28%),radial-gradient(circle at 0% 15%, rgba(0,184,212,.08), transparent 22%),linear-gradient(180deg,#0A0A0A 0%,#111 100%)!important}
+.container{max-width:860px;margin:0 auto;padding:40px 24px 80px;position:relative;z-index:1}
+.screen{display:none;animation:fadeIn .5s ease}.screen.active{display:block}@keyframes fadeIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.logo{font-size:13px;font-weight:700;letter-spacing:4px;color:var(--gold);text-transform:uppercase;margin-bottom:42px}.intro-badge{display:inline-block;border:1px solid var(--gold-border);color:var(--gold);font-size:11px;letter-spacing:3px;text-transform:uppercase;padding:6px 16px;margin-bottom:24px;border-radius:999px}
+#betascan-app h1{font-size:clamp(32px,6vw,56px);font-weight:700;line-height:1.02;margin-bottom:18px;letter-spacing:-1px}#betascan-app h1 span{color:var(--gold)}
+.intro-sub,.intro-copy,.question-helper,.score-desc,.small-copy{font-size:16px;color:rgba(245,240,232,.68);line-height:1.8}.intro-copy{margin-top:16px}
+.landing-meta{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:26px 0 24px}.meta-card{padding:18px;border-radius:18px;border:1px solid var(--gold-border);background:rgba(255,255,255,.03)}.meta-card strong{display:block;color:var(--gold-light);font-size:18px;margin-bottom:8px}.meta-card span{display:block;color:rgba(245,240,232,.66);font-size:13px;line-height:1.6}
+.question-card,.result-card{padding:26px;border:1px solid var(--gold-border);border-radius:28px;background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.015));box-shadow:var(--shadow)}
+.progress-wrap{margin-bottom:24px}.progress-meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}.progress-count,.question-number{color:rgba(245,240,232,.58);font-size:12px;letter-spacing:.14em;text-transform:uppercase}.progress-cap-name{font-size:11px;letter-spacing:.2em;color:var(--gold);text-transform:uppercase;font-weight:700}.progress-bar-bg{height:6px;background:rgba(201,168,76,.13);width:100%;border-radius:999px}.progress-bar-fill{height:6px;background:linear-gradient(90deg,var(--gold),var(--gold-light));transition:width .35s ease;border-radius:999px}
+.question-text{font-size:clamp(22px,3vw,30px);font-weight:700;line-height:1.45;margin:0 0 18px;letter-spacing:-.3px}.options{display:grid;gap:12px;margin:24px 0}.option-btn{background:var(--card);border:1px solid rgba(201,168,76,.25);padding:18px 18px 18px 20px;text-align:left;color:rgba(245,240,232,.76);font-family:'OpenSauceOne',Arial,sans-serif;font-size:14px;cursor:pointer;transition:all .2s;line-height:1.55;border-radius:16px}.option-btn strong{display:inline-block;color:var(--gold);margin-right:8px}.option-btn:hover,.option-btn.selected{background:var(--gold-dim);border-color:var(--gold);color:var(--white);transform:translateY(-1px)}
+.text-input{width:100%;background:rgba(255,255,255,.03);border:1px solid var(--gold-border);color:var(--white);padding:16px 18px;font-family:'OpenSauceOne',Arial,sans-serif;font-size:14px;outline:none;border-radius:16px;min-height:120px;resize:vertical}.text-input:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,168,76,.12)}
+.nav-btns{display:flex;gap:12px;align-items:center;justify-content:space-between}.left-actions{display:flex;gap:12px;align-items:center}.btn-back{background:transparent;border:1px solid rgba(245,240,232,.15);color:var(--gray);padding:14px 24px;font-family:'OpenSauceOne',Arial,sans-serif;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:all .2s;border-radius:999px}.btn-back:hover{border-color:var(--gold-border);color:var(--white);background:var(--gold-dim)}
+.result-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:22px}.score-circle{width:110px;height:110px;border:2px solid var(--gold);border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;margin-bottom:18px}.score-number{font-size:34px;font-weight:700;color:var(--gold);line-height:1}.score-max{font-size:12px;color:rgba(245,240,232,.58)}
+.cap-bars{display:flex;flex-direction:column;gap:14px}.cap-bar-row{display:flex;flex-direction:column;gap:5px}.cap-bar-meta{display:flex;justify-content:space-between;gap:14px}.cap-bar-name{font-size:12px;font-weight:700;letter-spacing:.4px}.cap-bar-score{font-size:12px;color:var(--gold);font-weight:700}.cap-bar-bg{height:6px;background:rgba(201,168,76,.1);border-radius:999px}.cap-bar-fill{height:6px;border-radius:999px;background:var(--gold);width:0;transition:width 1.2s cubic-bezier(.4,0,.2,1)}.cap-bar-fill.weak{background:#7a5c1e}.cap-bar-fill.mid{background:#C9A84C}.cap-bar-fill.strong{background:var(--gold-light)}
+.radar-wrap{padding:20px;border:1px solid var(--gold-border);border-radius:24px;background:rgba(255,255,255,.02)}#radarSvg{width:100%;height:auto;display:block}.radar-legend{display:grid;grid-template-columns:repeat(2,1fr);gap:8px 14px;margin-top:16px}.radar-legend div{font-size:12px;color:rgba(245,240,232,.68)}
+.profile-box,.priority-box,.capture-box{margin-top:22px;padding:22px;border-radius:22px;border:1px solid var(--gold-border);background:rgba(255,255,255,.02)}.profile-tag{display:inline-flex;padding:7px 12px;border-radius:999px;background:rgba(201,168,76,.12);color:var(--gold-light);font-size:11px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:12px}.symptom-list{list-style:none;padding:0;margin:16px 0;display:grid;gap:10px}.symptom-list li{position:relative;padding-left:18px;color:rgba(245,240,232,.76);line-height:1.65}.symptom-list li::before{content:'✓';position:absolute;left:0;color:var(--gold)}
+.priority-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.priority-item{padding:16px;border-radius:18px;background:rgba(255,255,255,.03);border:1px solid rgba(201,168,76,.16)}.priority-item strong{display:block;color:var(--gold-light);margin-bottom:8px}
+.capture-form{display:grid;gap:14px}.capture-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.capture-form input{width:100%;background:rgba(255,255,255,.03);border:1px solid var(--gold-border);color:var(--white);padding:14px 16px;border-radius:14px;font-family:'OpenSauceOne',Arial,sans-serif;font-size:14px;outline:none}.capture-form input:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,168,76,.12)}.inline-actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center}.recommendation-box{margin-top:22px;padding:22px;border-radius:22px;background:linear-gradient(135deg,rgba(201,168,76,.12),rgba(255,255,255,.02));border:1px solid var(--gold-border)}
+.share-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}.share-btn{background:transparent;border:1px solid rgba(245,240,232,.15);color:var(--gray);padding:12px 16px;font-family:'OpenSauceOne',Arial,sans-serif;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:all .2s;border-radius:999px}.share-btn:hover{border-color:var(--gold-border);color:var(--white);background:var(--gold-dim)}
+.notice-box{margin-top:20px;padding:16px 18px;border-radius:16px;border:1px dashed var(--gold-border);background:rgba(255,255,255,.02);color:rgba(245,240,232,.68);font-size:14px;line-height:1.7}
+@media (max-width:820px){.landing-meta,.priority-grid,.capture-grid,.result-grid{grid-template-columns:1fr}.nav-btns{flex-direction:column-reverse;align-items:stretch}.left-actions{justify-content:space-between}.meta-card strong{font-size:16px}}
+</style></head><body><div id="betascan-app" class="container"><div class="logo">Angelo Constanzo</div>
+<section id="landingScreen" class="screen active"><div class="intro-badge">BetaScan</div><div class="landing-shell"><div class="landing-top-card"><div class="landing-copy"><h1>No necesitas más información. <span>Necesitas ver qué está frenando tu cambio.</span></h1><p class="intro-sub">Este diagnóstico muestra cómo estás funcionando hoy en tus principales capacidades humanas. No busca etiquetarte. Busca ayudarte a decidir mejor tu siguiente paso.</p><p class="intro-copy">La especificación que me compartiste plantea un sistema por bloques, con cálculo de 8 capacidades, índice general, 15 perfiles y reporte con radar, prioridades y camino recomendado.</p><div class="landing-top-actions"><button id="startBtn" class="btn btn-gold pulse-cta btn-start">Comenzar diagnóstico</button><div class="landing-time">5–7 min · progreso guiado · resultado inmediato</div></div></div><div class="landing-orbit"><span>8 capacidades</span><span>15 perfiles</span><span>ruta sugerida</span></div></div><div class="landing-explain"><span class="landing-label">Lo que te llevas</span><h2 class="landing-title">Una radiografía inicial, no un test decorativo.</h2><p class="landing-text">Vas a ver tu mapa de capacidades, el perfil que más se parece a tu patrón actual, tus tres prioridades de entrenamiento y una recomendación de camino. El algoritmo de capacidades, perfiles y recomendación quedó modelado según tu documento técnico. </p><div class="landing-meta"><div class="meta-card"><strong>8</strong><span>capacidades calculadas como promedio de bloques.</span></div><div class="meta-card"><strong>15</strong><span>perfiles detectados con reglas IF/THEN.</span></div><div class="meta-card"><strong>40</strong><span>respuestas efectivas implementadas ahora: 38 cerradas + 2 abiertas.</span></div><div class="meta-card"><strong>1</strong><span>ruta sugerida para seguir: psico, coaching, Laboratorio Beta o BetaGym.</span></div></div><div class="notice-box">Respóndelo como estás hoy, no como te gustaría verte. Mientras más honesto seas, más útil te va a resultar.</div></div></div></section>
+<section id="questionScreen" class="screen"><div class="question-card"><div class="progress-wrap"><div class="progress-meta"><div class="progress-cap-name" id="progressBlockName">Bloque</div><div class="progress-count" id="progressCount">Pregunta 1 de 40</div></div><div class="progress-bar-bg"><div class="progress-bar-fill" id="progressBar"></div></div></div><div class="question-number" id="questionNumber">Pregunta 1</div><h2 class="question-text" id="questionText"></h2><p class="question-helper" id="questionHelper"></p><div id="optionsContainer"></div><div class="nav-btns"><div class="left-actions"><button id="prevBtn" class="btn-back" type="button">Atrás</button></div><button id="nextBtn" class="btn btn-gold" type="button">Siguiente</button></div></div></section>
+<section id="resultScreen" class="screen"><div class="result-card"><div class="eyebrow">Resultado BetaScan</div><h2 class="landing-title">Este no es tu techo. Es tu punto de partida.</h2><div class="result-grid"><div><div class="score-circle"><div class="score-number" id="overallScore">0</div><div class="score-max">Índice general</div></div><p class="score-desc" id="overallCopy"></p><div class="recommendation-box"><div class="profile-tag">Camino recomendado</div><h3 id="recommendationTitle">—</h3><p class="small-copy" id="recommendationText"></p><div class="inline-actions" style="margin-top:16px"><a id="recommendationLink" class="btn btn-gold" href="#">Ver siguiente paso</a><a id="betagymLink" class="btn btn-outline" href="/betagym/?from=betascan">Postular a BetaGym</a></div></div></div><div><div class="radar-wrap"><svg id="radarSvg" viewBox="0 0 360 360" aria-label="Radar de capacidades"></svg><div class="radar-legend" id="radarLegend"></div></div></div></div><div class="profile-box"><div class="profile-tag">Perfil principal</div><h3 id="profileName">—</h3><p class="small-copy" id="profileShort"></p><ul class="symptom-list" id="profileSymptoms"></ul><p class="small-copy" id="profileNarrative"></p><div id="secondaryWrap" style="display:none;margin-top:18px"><div class="profile-tag">Perfil secundario</div><h4 id="secondaryName"></h4><p class="small-copy" id="secondaryCopy"></p></div></div><div class="priority-box"><div class="profile-tag">Qué entrenar primero</div><div class="priority-grid" id="priorityGrid"></div><div class="notice-box" id="strengthNotice"></div></div><div class="capture-box"><div class="profile-tag">Si quieres seguir explorando tu transformación, déjanos tus datos</div><form class="capture-form" id="captureForm"><div class="capture-grid"><input id="captureName" type="text" placeholder="Nombre" required><input id="captureEmail" type="email" placeholder="Email" required></div><input id="capturePhone" type="tel" placeholder="Teléfono (opcional)"><div class="inline-actions"><button type="submit" class="btn btn-gold">Me interesa saber más</button><span class="small-copy">En esta versión de revisión el envío queda simulado para validar UX y datos.</span></div></form><div id="captureSuccess" class="notice-box" style="display:none"></div></div><div class="share-row"><button class="share-btn" data-share="whatsapp">Compartir en WhatsApp</button><button class="share-btn" data-share="linkedin">Compartir en LinkedIn</button><button class="share-btn" data-share="copy">Copiar resumen</button><button class="share-btn" id="restartBtn">Rehacer diagnóstico</button></div></div></section></div><script>
+const CHOICE_VALUES={A:90,B:70,C:50,D:20};
+const BLOCK_NAMES={1:'Fuego propio',2:'Mundo interior',3:'Raíz',4:'Campo de empatía',5:'Chispa creativa',6:'Movimiento',7:'Energía vital',8:'Norte vital',9:'Contexto personal'};
+const QUESTIONS=[
+{id:'Q1',block:1,type:'choice',text:'Cuando se presenta una oportunidad importante, ¿qué haces?',options:[['A','La persigo inmediatamente. Prefiero aprender en el camino'],['B','La analizo, pero me decido rápido'],['C','Espero a que otros me validen que es buena'],['D','Generalmente dejo pasar las oportunidades']]},
+{id:'Q2',block:1,type:'choice',text:'En una situación conflictiva, ¿eres quien enfrenta primero?',options:[['A','Enfrento directo. Es incómodo pero necesario'],['B','Lo abordo, pero encuentro el momento o la forma correcta'],['C','Intento que otros lo resuelvan primero'],['D','Lo evito lo máximo posible']]},
+{id:'Q3',block:1,type:'choice',text:'¿Te importa mucho lo que otros piensan cuando tomas decisiones importantes?',options:[['A','No. Mi norte es interno'],['B','Considero opiniones pero decido desde mí'],['C','Necesito aprobación para actuar con seguridad'],['D','Raramente actúo si hay desaprobación']]},
+{id:'Q4',block:1,type:'choice',text:'Cuando algo falla que tú iniciaste, ¿cómo reaccionas?',options:[['A','Responsabilidad total. Arreglo y aprendo'],['B','Asumo responsabilidad y busco mejorar'],['C','Me culpo pero en secreto culpo a otros'],['D','Es tan vergonzoso que prefiero no iniciar nada']]},
+{id:'Q5',block:1,type:'choice',text:'¿Cómo describirías tu capacidad de tomar decisiones bajo presión?',options:[['A','Rápido y seguro. Manejo la incertidumbre'],['B','Tomo decisiones pero con algo de duda'],['C','Me cuesta mucho. Prefiero certeza'],['D','Casi no puedo decidir bajo presión']]},
+{id:'Q6',block:2,type:'choice',text:'Cuando estás bajo presión, ¿reconoces rápidamente qué sientes?',options:[['A','Sí, inmediatamente. Sé si es miedo, frustración o enojo'],['B','A veces. Necesito un momento para conectar'],['C','Solo después. En el momento reacciono sin saber por qué'],['D','Raramente. Solo siento una reacción automática']]},
+{id:'Q7',block:2,type:'choice',text:'Cuando identificas una emoción difícil, ¿qué haces?',options:[['A','La proceso y actúo con claridad'],['B','La reconozco y busco entenderla'],['C','Intento ignorarla y continuar'],['D','Me consume y pierdo claridad']]},
+{id:'Q8',block:2,type:'choice',text:'¿Entiendes por qué reaccionas de ciertas formas?',options:[['A','Entiendo bien. Veo el patrón y su origen'],['B','Entiendo bastante. Veo el patrón'],['C','Algo confuso. Sé qué, pero no por qué'],['D','No. Simplemente reacciono']]},
+{id:'Q9',block:2,type:'choice',text:'¿Tienes herramientas para calmarte cuando estás muy activado o activada?',options:[['A','Sí, varias. Respiración, movimiento, reflexión'],['B','Tengo algunas pero no siempre funcionan'],['C','Intento pero raramente logro calmarme'],['D','No. Soy dominado o dominada por la emoción']]},
+{id:'Q10',block:2,type:'choice',text:'¿Qué tan consciente eres de tus patrones emocionales?',options:[['A','Muy consciente. Los veo claramente'],['B','Bastante. Reconozco la mayoría'],['C','Algo. Algunos me sorprenden'],['D','Poco. Me descubren los demás']]},
+{id:'Q11',block:2,type:'choice',text:'¿Puedes estar con una emoción incómoda sin que te controle?',options:[['A','Sí. Puedo estar con ella sin reaccionar'],['B','Generalmente. Aunque a veces me controla'],['C','Raramente. La emoción me domina'],['D','No. Me controla completamente']]},
+{id:'Q12',block:3,type:'choice',text:'¿Sientes que tienes un lugar seguro donde puedes ser tú mismo?',options:[['A','Completamente. Existen personas o espacios donde bajo la guardia'],['B','Bastante. Pero con ciertas reservas'],['C','Poco. Siempre algo a la defensiva'],['D','No. Estoy siempre alerta']]},
+{id:'Q13',block:3,type:'choice',text:'¿Puedes estar en riesgo o incertidumbre sin que se desmorone tu estructura?',options:[['A','Sí. La incertidumbre es parte de la vida'],['B','Más o menos. Depende del riesgo'],['C','Me cuesta. Necesito control'],['D','No. Me paraliza']]},
+{id:'Q14',block:3,type:'choice',text:'¿Confías en ti mismo o misma en situaciones difíciles?',options:[['A','Completamente. Sé que puedo manejar'],['B','Bastante'],['C','A veces dudo de mí'],['D','Raramente confío en mi capacidad']]},
+{id:'Q15',block:3,type:'choice',text:'¿Tienes una base emocional estable o cambias mucho según circunstancias?',options:[['A','Base estable. Las circunstancias no me mueven'],['B','Bastante estable'],['C','Variable. Dependo bastante del contexto'],['D','Muy variable. Sin estructura constante']]},
+{id:'Q16',block:4,type:'choice',text:'¿Eres capaz de entender emociones de otros sin absorber esas emociones?',options:[['A','Sí. Empatía clara sin confundirme con el otro'],['B','Generalmente. A veces me involucro'],['C','Frecuentemente me absorbo'],['D','Siempre me pierdo en las emociones de otros']]},
+{id:'Q17',block:4,type:'choice',text:'¿Tus relaciones son profundas o superficiales?',options:[['A','Profundas. Conexión real'],['B','Mix. Algunas profundas, otras superficiales'],['C','Generalmente superficiales'],['D','No logro conexión real']]},
+{id:'Q18',block:4,type:'choice',text:'¿Cómo es tu capacidad de escucha?',options:[['A','Escucho genuinamente. Entiendo lo que la persona realmente dice'],['B','Escucho bien pero a veces me distraigo'],['C','Escucho pero a veces pienso en mi respuesta'],['D','Me cuesta escuchar sin pensar en mí']]},
+{id:'Q19',block:4,type:'choice',text:'¿Puedes sentir alegría con otros en sus éxitos?',options:[['A','Completamente. Su alegría es mi alegría'],['B','Bastante. Aunque a veces aparece envidia'],['C','A veces. Depende de la situación'],['D','Me cuesta. Prefiero que sea yo quien celebre']]},
+{id:'Q20',block:4,type:'choice',text:'¿Tienes capacidad de estar presente con alguien en su dolor?',options:[['A','Sí. Puedo estar con ellos sin arreglarlo'],['B','Generalmente. Aunque a veces quiero solucionarlo'],['C','Me cuesta estar sin intentar resolver'],['D','Prefiero no estar en su dolor']]},
+{id:'Q21',block:5,type:'choice',text:'Cuando un plan falla, ¿improvisas o necesitas un nuevo plan?',options:[['A','Improviso rápidamente y adapto'],['B','Busco alternativas rápido'],['C','Necesito tiempo para replanificar'],['D','Me cuesta adaptarme']]},
+{id:'Q22',block:5,type:'choice',text:'¿Eres capaz de ver múltiples soluciones a un problema?',options:[['A','Veo múltiples opciones y elijo estratégicamente'],['B','Veo varias pero tengo preferencia'],['C','Busco la única solución correcta'],['D','Me paralizo buscando la solución perfecta']]},
+{id:'Q23',block:5,type:'choice',text:'¿Qué tan flexible eres ante nuevas ideas?',options:[['A','Muy flexible. Absorbo rápido y adapto'],['B','Bastante. Aunque a veces me resisto'],['C','Algo resistente. Prefiero lo conocido'],['D','Poco flexible. Me cuesta cambiar']]},
+{id:'Q24',block:5,type:'choice',text:'¿Tienes capacidad de innovación o repites patrones?',options:[['A','Innovo constantemente. Busco nuevas formas'],['B','A veces innovo, a veces repito'],['C','Generalmente repito lo que funciona'],['D','Siempre repito. No innovo']]},
+{id:'Q25',block:6,type:'choice',text:'De la idea a la acción, ¿cuánto tiempo normalmente pasa?',options:[['A','Días. Actúo rápido'],['B','Una o dos semanas'],['C','Semanas a meses'],['D','Las ideas se pierden en el camino']]},
+{id:'Q26',block:6,type:'choice',text:'¿Procrastinas o actúas?',options:[['A','Muy rara vez procrastino'],['B','A veces procrastino pero me corrijo'],['C','Frecuentemente procrastino'],['D','La procrastinación es mi patrón']]},
+{id:'Q27',block:6,type:'choice',text:'¿Terminas lo que empiezas?',options:[['A','Casi siempre. Soy completador'],['B','La mayoría de las veces'],['C','A veces. Algunas cosas quedan incompletas'],['D','Raramente termino lo que empiezo']]},
+{id:'Q28',block:6,type:'choice',text:'¿Cómo es tu velocidad de respuesta a oportunidades?',options:[['A','Rápida. Capturo el momento'],['B','Normal. Respondo en tiempo adecuado'],['C','Lenta. A veces pierdo oportunidades'],['D','Muy lenta. Las oportunidades pasan']]},
+{id:'Q29',block:6,type:'choice',text:'¿Tu ritmo es consistente o variable?',options:[['A','Consistente. Mantengo ritmo'],['B','Generalmente consistente'],['C','Variable. Depende del contexto'],['D','Muy variable. Impredecible']]},
+{id:'Q30',block:7,type:'choice',text:'¿Cuántos días de la última semana te levantaste con energía?',options:[['A','6 o 7 días'],['B','4 o 5 días'],['C','2 o 3 días'],['D','0 o 1 día']]},
+{id:'Q31',block:7,type:'choice',text:'¿Sientes que tu energía se gasta en cosas que importan o en apagar incendios?',options:[['A','En cosas que importan. Energía donde quiero'],['B','Mix. 60-40 entre importante y urgente'],['C','Mostly urgencia. Pocas veces en lo importante'],['D','Todo es urgencia. No hay tiempo para lo importante']]},
+{id:'Q32',block:7,type:'choice',text:'¿Tienes actividades que te recargan y las haces regularmente?',options:[['A','Sí, varias. Las hago regularmente'],['B','Tengo, pero no tan regularmente'],['C','Raramente. Poco tiempo'],['D','Casi nunca. No tengo tiempo']]},
+{id:'Q33',block:7,type:'choice',text:'Sé honesto: ¿estarías en modo “quemado” o en modo “flow”?',options:[['A','Flow. Sostenible'],['B','Bastante sostenible'],['C','A veces quemado. Temporadas duras'],['D','Definitivamente quemado']]},
+{id:'Q34',block:7,type:'choice',text:'¿Tu cuerpo te dice que estás cansado o que tienes energía?',options:[['A','Tengo energía. Me siento vivo'],['B','Bastante energía'],['C','Algo cansado. Recuperable'],['D','Muy cansado. Crónico']]},
+{id:'Q35',block:8,type:'choice',text:'¿Tienes claridad de hacia dónde vas en tu vida?',options:[['A','Muy claro. Sé exactamente qué quiero'],['B','Bastante claro. Tengo una dirección'],['C','Algo confuso. Idea general pero sin detalle'],['D','Sin claridad. Voy día a día']]},
+{id:'Q36',block:8,type:'choice',text:'¿Estás viviendo tu vida o la vida que otros esperaban?',options:[['A','Mi vida. Mis decisiones'],['B','Mayoría mía, pero con compromisos'],['C','Mix. Parte mía, parte lo esperado'],['D','Mayormente lo esperado']]},
+{id:'Q37',block:8,type:'choice',text:'¿Hay libertad en tus principales decisiones?',options:[['A','Libertad. Elijo desde mí'],['B','Bastante libertad'],['C','Limitada. Condiciones externas pesan'],['D','Ninguna. Estoy atrapado o atrapada']]},
+{id:'Q38',block:8,type:'choice',text:'¿Tu día a día tiene significado o es solo cumplimiento?',options:[['A','Significado. Lo que hago importa'],['B','Bastante significado'],['C','Algo de significado'],['D','Poco. Es cumplimiento']]},
+{id:'Q39',block:9,type:'text',text:'¿Hay algo que no se capturó en estas preguntas y sea importante sobre ti?',helper:'Esto se almacena como contexto adicional y no entra al scoring.'},
+{id:'Q40',block:9,type:'text',text:'En una frase: ¿Cuál es tu mayor desafío ahora?',helper:'Esto se usa como reto actual y como contexto narrativo.'}
 ];
-
-// Flatten questions
-const ALL_QUESTIONS = [];
-CAPACIDADES.forEach(cap => {
-  cap.questions.forEach(q => {
-    ALL_QUESTIONS.push({ ...q, capId: cap.id, capName: cap.name, capEmoji: cap.emoji });
-  });
-});
-
-const TOTAL = ALL_QUESTIONS.length;
-let currentQ = 0;
-let answers = {};
-let userName = '';
-let userEmail = '';
-
-function showEmailCapture() {
-  document.getElementById('heroScreen')?.classList.add('hidden');
-  showScreen('emailScreen');
-  const input = document.getElementById('userName');
-  if (input) setTimeout(() => input.focus(), 60);
-}
-
-function goBackToHero() {
-  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-  document.getElementById('heroScreen')?.classList.remove('hidden');
-}
-
-function restartDiagnosis() {
-  currentQ = 0;
-  answers = {};
-  document.getElementById('sharePanel')?.classList.remove('active');
-  goBackToHero();
-}
-
-function startScan() {
-  userName = document.getElementById('userName').value.trim() || 'Beta';
-  userEmail = document.getElementById('userEmail').value.trim();
-  currentQ = 0;
-  answers = {};
-  showScreen('questionScreen');
-  renderQuestion();
-}
-
-function showScreen(id) {
-  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-  const target = document.getElementById(id);
-  if (target) target.classList.add('active');
-}
-
-function renderQuestion() {
-  const q = ALL_QUESTIONS[currentQ];
-  document.getElementById('progressCapName').textContent = `${q.capEmoji} ${q.capName}`;
-  document.getElementById('progressCount').textContent = `${currentQ + 1} / ${TOTAL}`;
-  document.getElementById('progressFill').style.width = `${((currentQ) / TOTAL) * 100}%`;
-  document.getElementById('questionNumber').textContent = `PREGUNTA ${String(currentQ + 1).padStart(2, '0')}`;
-  document.getElementById('questionText').textContent = q.text;
-
-  const container = document.getElementById('answersContainer');
-  container.innerHTML = '';
-
-  if (q.type === 'likert') {
-    const wrap = document.createElement('div');
-    wrap.className = 'likert-wrap';
-    const labels = document.createElement('div');
-    labels.className = 'likert-labels';
-    labels.innerHTML = `<span class="likert-label">${q.labels[0]}</span><span class="likert-label">${q.labels[1]}</span>`;
-    const opts = document.createElement('div');
-    opts.className = 'likert-options';
-    [1, 2, 3, 4, 5].forEach(v => {
-      const btn = document.createElement('button');
-      btn.className = 'likert-btn';
-      btn.textContent = v;
-      if (answers[currentQ] === v) btn.classList.add('selected');
-      btn.onclick = () => selectAnswer(v, btn, '.likert-btn');
-      opts.appendChild(btn);
-    });
-    wrap.appendChild(labels);
-    wrap.appendChild(opts);
-    container.appendChild(wrap);
-  } else {
-    const wrap = document.createElement('div');
-    wrap.className = 'text-options';
-    q.options.forEach((opt, i) => {
-      const btn = document.createElement('button');
-      btn.className = 'text-opt';
-      btn.textContent = opt;
-      if (answers[currentQ] === i + 1) btn.classList.add('selected');
-      btn.onclick = () => selectAnswer(i + 1, btn, '.text-opt');
-      wrap.appendChild(btn);
-    });
-    container.appendChild(wrap);
-  }
-}
-
-function selectAnswer(val, el, selector) {
-  document.querySelectorAll(selector).forEach(b => b.classList.remove('selected'));
-  el.classList.add('selected');
-  answers[currentQ] = val;
-  setTimeout(() => nextQuestion(), 350);
-}
-
-function nextQuestion() {
-  if (answers[currentQ] === undefined) return;
-  if (currentQ < TOTAL - 1) {
-    currentQ++;
-    renderQuestion();
-  } else {
-    showLoading();
-  }
-}
-
-function prevQuestion() {
-  if (currentQ > 0) {
-    currentQ--;
-    renderQuestion();
-  } else {
-    showScreen('emailScreen');
-  }
-}
-
-function showLoading() {
-  showScreen('loadingScreen');
-  const rows = document.getElementById('analyzerRows');
-  rows.innerHTML = '';
-  CAPACIDADES.forEach((cap, i) => {
-    const row = document.createElement('div');
-    row.className = 'analyzer-row';
-    row.style.animationDelay = `${i * 0.15}s`;
-    row.innerHTML = `
-      <span class="analyzer-label">${cap.emoji} ${cap.name}</span>
-      <div class="analyzer-bar-bg"><div class="analyzer-bar-fill" id="abar_${cap.id}"></div></div>
-    `;
-    rows.appendChild(row);
-    setTimeout(() => {
-      const score = calcCapScore(cap.id);
-      document.getElementById(`abar_${cap.id}`).style.width = `${score}%`;
-    }, i * 150 + 400);
-  });
-  setTimeout(() => showResults(), 3200);
-}
-
-function calcCapScore(capId) {
-  const qIndices = ALL_QUESTIONS.map((q, i) => q.capId === capId ? i : -1).filter(i => i >= 0);
-  let total = 0;
-  qIndices.forEach(i => { total += (answers[i] || 1); });
-  return Math.round((total / (qIndices.length * 5)) * 100);
-}
-
-function showResults() {
-  const scores = {};
-  CAPACIDADES.forEach(cap => { scores[cap.id] = calcCapScore(cap.id); });
-  const globalScore = Math.round(Object.values(scores).reduce((a, b) => a + b, 0) / 8);
-
-  showScreen('resultScreen');
-
-  document.getElementById('resultName').textContent = `Diagnóstico de ${userName}`;
-  document.getElementById('scoreNumber').textContent = globalScore;
-
-  let scoreLabel, scoreDesc, titleText;
-  if (globalScore >= 80) {
-    scoreLabel = 'Poder Humano Activado';
-    scoreDesc = 'Tus capacidades están altamente desarrolladas. El reto ahora es mantener y profundizar.';
-    titleText = 'Estás operando desde tu mejor versión';
-  } else if (globalScore >= 60) {
-    scoreLabel = 'En Desarrollo';
-    scoreDesc = 'Tienes una base sólida con áreas claras de crecimiento. El potencial está, falta entrenamiento.';
-    titleText = 'Tu potencial humano está despertando';
-  } else if (globalScore >= 40) {
-    scoreLabel = 'Modo Supervivencia';
-    scoreDesc = 'Estás funcionando por inercia. Hay capacidades dormidas que al activarlas cambian todo.';
-    titleText = 'Hay capacidades tuyas que están dormidas';
-  } else {
-    scoreLabel = 'Zona de Transformación';
-    scoreDesc = 'Este diagnóstico es el primer paso. El camino está claro y empieza ahora.';
-    titleText = 'Estás ante una oportunidad de transformación real';
-  }
-
-  document.getElementById('scoreLabel').textContent = scoreLabel;
-  document.getElementById('scoreDesc').textContent = scoreDesc;
-  document.getElementById('resultTitle').textContent = titleText;
-
-  // RADAR
-  drawRadar(scores);
-
-  // BARS
-  const capBars = document.getElementById('capBars');
-  capBars.innerHTML = '';
-  CAPACIDADES.forEach(cap => {
-    const s = scores[cap.id];
-    const level = s < 50 ? 'weak' : s < 75 ? 'mid' : 'strong';
-    const row = document.createElement('div');
-    row.className = 'cap-bar-row';
-    row.innerHTML = `
-      <div class="cap-bar-meta">
-        <span class="cap-bar-name">${cap.emoji} ${cap.name}</span>
-        <span class="cap-bar-score">${s}%</span>
-      </div>
-      <div class="cap-bar-bg"><div class="cap-bar-fill ${level}" data-width="${s}"></div></div>
-    `;
-    capBars.appendChild(row);
-  });
-  setTimeout(() => {
-    document.querySelectorAll('.cap-bar-fill').forEach(el => {
-      el.style.width = el.dataset.width + '%';
-    });
-  }, 100);
-
-  // NARRATIVE
-  const sorted = Object.entries(scores).sort((a, b) => b[1] - a[1]);
-  const topCap = CAPACIDADES.find(c => c.id === sorted[0][0]);
-  const weakCap = CAPACIDADES.find(c => c.id === sorted[sorted.length - 1][0]);
-  const narratives = buildNarrative(userName, globalScore, topCap, weakCap, scores);
-  document.getElementById('narrativeText').innerHTML = narratives;
-
-  // INSIGHTS
-  const insightsGrid = document.getElementById('insightsGrid');
-  insightsGrid.innerHTML = '';
-  const top2 = sorted.slice(0, 2).map(([id]) => CAPACIDADES.find(c => c.id === id));
-  const weak2 = sorted.slice(-2).map(([id]) => CAPACIDADES.find(c => c.id === id));
-  top2.forEach(cap => {
-    insightsGrid.innerHTML += `
-      <div class="insight-card">
-        <div class="insight-tag">✦ Fortaleza</div>
-        <div class="insight-cap">${cap.emoji} ${cap.name}</div>
-        <div class="insight-text">${cap.desc}</div>
-      </div>`;
-  });
-  weak2.forEach(cap => {
-    insightsGrid.innerHTML += `
-      <div class="insight-card weak">
-        <div class="insight-tag">▲ Zona de Entrenamiento</div>
-        <div class="insight-cap">${cap.emoji} ${cap.name}</div>
-        <div class="insight-text">${cap.desc}</div>
-      </div>`;
-  });
-}
-
-function buildNarrative(name, score, topCap, weakCap, scores) {
-  const introMap = {
-    fuego: `${name}, lo que más llama la atención en tu perfil es que tu <strong>Fuego Propio</strong> está encendido`,
-    mundo: `${name}, tu perfil revela un <strong>Mundo Interior</strong> en desarrollo que ya opera como un recurso`,
-    raiz: `${name}, tu capacidad de mantenerte en pie desde adentro — tu <strong>Raíz</strong> — es tu principal activo`,
-    empatia: `${name}, tu <strong>Campo de Empatía</strong> es uno de tus activos más poderosos`,
-    norte: `${name}, tienes un <strong>Norte Vital</strong> que ya funciona como brújula`,
-    chispa: `${name}, tu <strong>Chispa Creativa</strong> es lo que te distingue del promedio`,
-    movimiento: `${name}, tu capacidad de <strong>Movimiento</strong> — de pasar del pensamiento a la acción — está activada`,
-    energia: `${name}, tu gestión de <strong>Energía Vital</strong> te da una base sobre la cual todo lo demás se construye`
-  };
-
-  const weakMap = {
-    fuego: `La zona que más necesita entrenamiento es tu <strong>motivación intrínseca</strong>: estás operando más desde el deber que desde el deseo.`,
-    mundo: `Tu <strong>Mundo Interior</strong> aún no es un aliado completo: hay emociones que procesan sin tu permiso consciente.`,
-    raiz: `Tu <strong>Raíz</strong> está buscando consolidarse: la autoconfianza depende más de lo externo de lo que te gustaría.`,
-    empatia: `Tu <strong>Campo de Empatía</strong> tiene espacio de crecimiento: conectar profundamente con otros requiere más entrenamiento.`,
-    norte: `Tu <strong>Norte Vital</strong> está borroso en este momento: tomar decisiones sin brújula clara genera desgaste invisible.`,
-    chispa: `Tu <strong>Chispa Creativa</strong> está subutilizada: hay un potencial generativo en ti que aún no se ha activado.`,
-    movimiento: `El paso de idea a acción — el <strong>Movimiento</strong> — es donde más energía se pierde en tu perfil actual.`,
-    energia: `Tu <strong>Energía Vital</strong> es la base que necesita atención: sin ese cimiento, todo lo demás opera a menos del 100%.`
-  };
-
-  return `${introMap[topCap.id]}. ${weakMap[weakCap.id]} <br><br>Tu puntaje de <strong>${score}/100</strong> no es una calificación — es un punto de partida. Estas capacidades no son rasgos fijos: son músculos. Y los músculos se entrenan.`;
-}
-
-function drawRadar(scores) {
-  const canvas = document.getElementById('radarCanvas');
-  const ctx = canvas.getContext('2d');
-  const cx = 140, cy = 140, radius = 100;
-  const N = 8;
-  const keys = ['fuego', 'mundo', 'raiz', 'empatia', 'norte', 'chispa', 'movimiento', 'energia'];
-  const emojis = ['🔥', '🌌', '🌿', '🤝', '🧭', '✨', '⚡', '💎'];
-
-  ctx.clearRect(0, 0, 280, 280);
-
-  // Grid
-  for (let r = 1; r <= 5; r++) {
-    ctx.beginPath();
-    for (let i = 0; i < N; i++) {
-      const angle = (Math.PI * 2 * i / N) - Math.PI / 2;
-      const x = cx + (radius * r / 5) * Math.cos(angle);
-      const y = cy + (radius * r / 5) * Math.sin(angle);
-      i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
-    }
-    ctx.closePath();
-    ctx.strokeStyle = 'rgba(201,168,76,0.12)';
-    ctx.lineWidth = 1;
-    ctx.stroke();
-  }
-
-  // Axes
-  for (let i = 0; i < N; i++) {
-    const angle = (Math.PI * 2 * i / N) - Math.PI / 2;
-    ctx.beginPath();
-    ctx.moveTo(cx, cy);
-    ctx.lineTo(cx + radius * Math.cos(angle), cy + radius * Math.sin(angle));
-    ctx.strokeStyle = 'rgba(201,168,76,0.2)';
-    ctx.stroke();
-  }
-
-  // Data
-  ctx.beginPath();
-  keys.forEach((k, i) => {
-    const angle = (Math.PI * 2 * i / N) - Math.PI / 2;
-    const r = (scores[k] / 100) * radius;
-    const x = cx + r * Math.cos(angle);
-    const y = cy + r * Math.sin(angle);
-    i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
-  });
-  ctx.closePath();
-  ctx.fillStyle = 'rgba(201,168,76,0.2)';
-  ctx.fill();
-  ctx.strokeStyle = '#C9A84C';
-  ctx.lineWidth = 2;
-  ctx.stroke();
-
-  // Dots
-  keys.forEach((k, i) => {
-    const angle = (Math.PI * 2 * i / N) - Math.PI / 2;
-    const r = (scores[k] / 100) * radius;
-    const x = cx + r * Math.cos(angle);
-    const y = cy + r * Math.sin(angle);
-    ctx.beginPath();
-    ctx.arc(x, y, 4, 0, Math.PI * 2);
-    ctx.fillStyle = '#C9A84C';
-    ctx.fill();
-  });
-
-  // Labels
-  ctx.font = '13px Poppins, sans-serif';
-  ctx.textAlign = 'center';
-  ctx.textBaseline = 'middle';
-  emojis.forEach((emoji, i) => {
-    const angle = (Math.PI * 2 * i / N) - Math.PI / 2;
-    const lx = cx + (radius + 22) * Math.cos(angle);
-    const ly = cy + (radius + 22) * Math.sin(angle);
-    ctx.fillText(emoji, lx, ly);
-  });
-}
-
-
-function startDiagnosis() {
-  document.body.classList.add('diagnosis-started');
-  closeExplainModal();
-  showEmailCapture();
-}
-
-function openExplainModal() {
-  const modal = document.getElementById('explainModal');
-  if (!modal) return;
-  modal.classList.add('active');
-  modal.setAttribute('aria-hidden', 'false');
-  document.body.style.overflow = 'hidden';
-}
-
-function closeExplainModal() {
-  const modal = document.getElementById('explainModal');
-  if (!modal) return;
-  modal.classList.remove('active');
-  modal.setAttribute('aria-hidden', 'true');
-  document.body.style.overflow = '';
-}
-
-function toggleSharePanel() {
-  const panel = document.getElementById('sharePanel');
-  if (!panel) return;
-  panel.classList.toggle('active');
-  if (panel.classList.contains('active')) {
-    setTimeout(() => panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 60);
-  }
-}
-
-function buildSharePayload() {
-  const score = document.getElementById('scoreNumber').textContent;
-  const title = document.getElementById('resultTitle').textContent || 'Mi resultado BetaScan';
-  const url = window.location.origin + window.location.pathname;
-  const text = `Hice el BetaScan de Angelo Constanzo y obtuve ${score}/100. ${title}. Haz el tuyo aquí: ${url}`;
-  return { score, title, url, text };
-}
-
-function shareResultTo(channel) {
-  const payload = buildSharePayload();
-  const encodedText = encodeURIComponent(payload.text);
-  const encodedUrl = encodeURIComponent(payload.url);
-  const encodedSubject = encodeURIComponent('Mi resultado BetaScan');
-  const routes = {
-    whatsapp: `https://wa.me/?text=${encodedText}`,
-    linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`,
-    facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}&quote=${encodedText}`,
-    x: `https://twitter.com/intent/tweet?text=${encodedText}`,
-    email: `mailto:?subject=${encodedSubject}&body=${encodedText}`
-  };
-
-  if (channel === 'native') {
-    if (navigator.share) {
-      navigator.share({ title: 'Mi resultado BetaScan', text: payload.text, url: payload.url });
-    } else {
-      shareResultTo('copy');
-    }
-    return;
-  }
-
-  if (channel === 'copy') {
-    navigator.clipboard.writeText(payload.text).then(() => alert('Resultado copiado para compartir.'));
-    return;
-  }
-
-  if (channel === 'instagram') {
-    navigator.clipboard.writeText(payload.text).then(() => {
-      window.open('https://www.instagram.com/', '_blank', 'noopener,noreferrer');
-      alert('Copiamos el texto. Pégalo en tu historia, DM o publicación de Instagram.');
-    });
-    return;
-  }
-
-  const url = routes[channel];
-  if (url) {
-    window.open(url, '_blank', 'noopener,noreferrer');
-  }
-}
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') closeExplainModal();
-});
-document.getElementById('explainModal')?.addEventListener('click', (e) => {
-  if (e.target.id === 'explainModal') closeExplainModal();
-});
-</script><div class="divider"></div><footer class="footer"><div class="container"><div class="footer-grid"><div><div class="footer-brand"><div class="brand-lines"><span></span><span></span><span></span></div><div class="footer-title">Angelo Constanzo</div></div><div class="footer-copy">Entrenamiento humano para personas y empresas. Menos discurso. Más transformación observable.</div></div><div><div class="footer-group-title">Explorar</div><div class="footer-links"><a href="/persona/">Persona</a><a href="/empresa/">Empresa</a><a href="/betascan/">BetaScan</a><a href="/betagym/">BetaGym</a><a href="/acerca-de/">Acerca de</a></div></div><div class="footer-cta"><div class="footer-group-title">Conversemos</div><p>Si quieres mover algo de verdad, partamos por una conversación clara.</p><a href="https://wa.link/zyw1c4" target="_blank" rel="noopener noreferrer" class="btn btn-gold">Ir a WhatsApp</a></div></div><div class="footer-bottom"><span>© 2026 Angelo Constanzo — La vida que quieres no llega. Se entrena.</span><div class="footer-socials"><a class="social-link icon-only" href="https://www.youtube.com/@angeloconstanzo" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.4 3.5 12 3.5 12 3.5s-7.4 0-9.4.6A3 3 0 0 0 .5 6.2 31.8 31.8 0 0 0 0 12a31.8 31.8 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c2 .6 9.4.6 9.4.6s7.4 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.8 31.8 0 0 0 24 12a31.8 31.8 0 0 0-.5-5.8ZM9.6 15.7V8.3l6.4 3.7-6.4 3.7Z"/></svg></a><a class="social-link icon-only" href="https://www.instagram.com/angelo.constanzo" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2.2A2.8 2.8 0 0 0 4.2 7v10A2.8 2.8 0 0 0 7 19.8h10a2.8 2.8 0 0 0 2.8-2.8V7A2.8 2.8 0 0 0 17 4.2H7Zm10.5 1.7a1.3 1.3 0 1 1 0 2.6 1.3 1.3 0 0 1 0-2.6ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2.2A2.8 2.8 0 1 0 12 14.8 2.8 2.8 0 0 0 12 9.2Z"/></svg></a><a class="social-link icon-only" href="https://www.tiktok.com/@angelo.constanzo" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.8 2h2.8a4.8 4.8 0 0 0 4.4 4.4v2.8a7.4 7.4 0 0 1-4.4-1.4v8.1A6.9 6.9 0 1 1 10.7 9v2.9a4 4 0 1 0 4.1 4V2Z"/></svg></a><a class="social-link icon-only" href="https://www.linkedin.com/in/angeloconstanzo" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.9 3.5a1.7 1.7 0 1 1 0 3.5 1.7 1.7 0 0 1 0-3.5ZM3.4 8.6h3v12h-3v-12Zm5 0h2.9v1.7h.1c.4-.8 1.4-2 3.8-2 4 0 4.8 2.6 4.8 6v6.3h-3v-5.6c0-1.3 0-3.1-1.9-3.1s-2.2 1.5-2.2 3v5.7h-3v-12Z"/></svg></a></div></div></div></footer><script src="/assets/site.js">document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') closeExplainModal();
-});
-document.getElementById('explainModal')?.addEventListener('click', (e) => {
-  if (e.target.id === 'explainModal') closeExplainModal();
-});
-</script>
-</body></html>
+const PROFILES={
+1:{name:'Éxito sin confianza',short:'Tienes éxito, pero no confías en ti.',color:'#FF6B6B',symptoms:['Te exiges mucho pero por dentro dudas.','Mueves cosas, pero el sostén interno no acompaña.','Tus logros no siempre se traducen en tranquilidad.','La acción aparece antes que la confianza.','El cuerpo puede vivir en alerta aunque avances.']},
+2:{name:'El complaciente',short:'Sientes mucho, ayudas sin límites y eso te agota.',color:'#4ECDC4',symptoms:['Te cuesta priorizarte sin culpa.','A veces ayudas de más y te postergas.','Tu empatía supera tu fuego propio.','Se te vuelve difícil poner límites claros.','Puedes terminar agotado por sostener a otros.']},
+3:{name:'La parálisis perfecta',short:'Analizas todo, pero no actúas.',color:'#95E1D3',symptoms:['Tienes conciencia, pero poca salida a la acción.','Necesitas entenderlo todo antes de moverte.','La creatividad queda atrapada en el análisis.','Te cuesta convertir claridad en ejecución.','El exceso de pensamiento puede congelarte.']},
+4:{name:'La inconsistencia',short:'Empiezas todo, terminas nada.',color:'#F38181',symptoms:['La intención aparece, pero el ritmo no se sostiene.','Tu fuego existe, pero la base se cae.','El entusiasmo inicial no garantiza continuidad.','Te cuesta cerrar ciclos.','El contexto pesa demasiado en tu capacidad de avanzar.']},
+5:{name:'El buscador de aprobación',short:'Tu valor depende demasiado de la opinión de otros.',color:'#FFD93D',symptoms:['Te afecta más de lo que quisieras la validación externa.','Tus decisiones pierden fuerza cuando hay desaprobación.','Puedes sobreadaptarte para no incomodar.','La energía se va en quedar bien.','La identidad propia necesita más respaldo interno.']},
+6:{name:'El acorazado',short:'Proteges tu corazón excesivamente.',color:'#6BCB77',symptoms:['El control emocional se volvió armadura.','Escuchas poco lo que sientes o lo que el otro necesita.','El rendimiento tapa la vulnerabilidad.','La conexión profunda se vuelve difícil.','La fuerza se usa para no abrirte.']},
+7:{name:'El controlador',short:'Controlas porque tienes miedo.',color:'#4D96FF',symptoms:['Tu fuego es alto, pero te cuesta soltar.','La incertidumbre te pone rígido.','Lo nuevo amenaza tu sensación de orden.','La creatividad queda restringida por el miedo.','El control aparece como defensa.']},
+8:{name:'El retirado',short:'Te retiras para no sufrir rechazo.',color:'#A8DADC',symptoms:['Te cuesta exponerte.','Cuando algo duele, te repliegas.','La desconfianza te quita presencia.','Conectar se vuelve riesgoso.','El alejamiento protege, pero también te aísla.']},
+9:{name:'El reactivo',short:'Tus emociones dominan demasiado la escena.',color:'#FF85A1',symptoms:['Sientes intensamente, pero te cuesta regularte.','La empatía sin raíz te deja muy expuesto.','La emoción manda más que la decisión.','Puedes absorber demasiado del entorno.','El sistema interno necesita más contención.']},
+10:{name:'El que no se merece',short:'Logras, pero saboteas tu propio éxito.',color:'#C299FF',symptoms:['Tu acción supera tu sensación de merecimiento.','Avanzas, pero luego retrocedes o minimizas lo logrado.','Hay poca raíz sosteniendo el movimiento.','Puedes abrir oportunidades y después cerrarlas tú mismo.','El éxito no termina de sentirse tuyo.']},
+11:{name:'El apático',short:'Estás profundamente cansado existencialmente.',color:'#B8B8B8',symptoms:['La energía está muy baja.','El norte se siente confuso o lejano.','Te cuesta activar fuego propio.','La vida cotidiana pesa demasiado.','Necesitas recuperar vitalidad antes de exigir más.']},
+12:{name:'El perdido',short:'No sabes quién eres sin otros.',color:'#E8E8E8',symptoms:['Falta dirección interna.','La raíz es débil.','Tu identidad se vuelve difusa frente al entorno.','Te cuesta elegir desde ti.','El día a día se vive más por arrastre que por decisión.']},
+13:{name:'El rígido',short:'Miedo a lo nuevo, seguridad en lo conocido.',color:'#7F7F7F',symptoms:['La seguridad se volvió estrecha.','Te cuesta improvisar o explorar nuevas rutas.','El movimiento cae cuando no hay certeza.','La creatividad está muy contraída.','Lo conocido pesa más que lo posible.']},
+14:{name:'El quemado',short:'Completamente agotado.',color:'#D32F2F',symptoms:['La energía está en zona crítica.','El sistema interno perdió sostén.','Te cuesta regularte y sostenerte.','Tu cuerpo y tu mente muestran desgaste.','Lo prioritario hoy es recuperar base.']},
+15:{name:'La víctima',short:'La vida te pasa a ti; te cuesta sentirte agente.',color:'#F57C00',symptoms:['El fuego propio está muy bajo.','El norte vital también.','La empatía alta puede hacerte cargar demasiado.','Te cuesta sentir que decides tu vida.','Necesitas recuperar agencia.']}
+};
+const state={index:0,answers:{},results:null};
+const els={landing:document.getElementById('landingScreen'),question:document.getElementById('questionScreen'),result:document.getElementById('resultScreen'),progressBar:document.getElementById('progressBar'),progressCount:document.getElementById('progressCount'),progressBlockName:document.getElementById('progressBlockName'),questionNumber:document.getElementById('questionNumber'),questionText:document.getElementById('questionText'),questionHelper:document.getElementById('questionHelper'),optionsContainer:document.getElementById('optionsContainer'),prevBtn:document.getElementById('prevBtn'),nextBtn:document.getElementById('nextBtn')};
+function showScreen(name){['landing','question','result'].forEach(k=>els[k].classList.remove('active')); els[name].classList.add('active'); window.scrollTo({top:0,behavior:'smooth'});} 
+function renderQuestion(){const q=QUESTIONS[state.index]; const answered=state.answers[q.id]; els.progressBar.style.width=((state.index)/QUESTIONS.length*100)+'%'; els.progressCount.textContent=`Pregunta ${state.index+1} de ${QUESTIONS.length}`; els.progressBlockName.textContent=BLOCK_NAMES[q.block]; els.questionNumber.textContent='Paso '+(state.index+1); els.questionText.textContent=q.text; els.questionHelper.textContent=q.helper || (q.type==='choice'?'Elige la opción que más se parece a cómo estás hoy.':'Respóndelo con honestidad. Esto no se puntúa, pero sí ayuda a entender el contexto.'); els.optionsContainer.innerHTML='';
+ if(q.type==='choice'){const wrap=document.createElement('div'); wrap.className='options'; q.options.forEach(([key,label])=>{const btn=document.createElement('button'); btn.type='button'; btn.className='option-btn'+(answered===key?' selected':''); btn.innerHTML=`<strong>${key}</strong>${label}`; btn.onclick=()=>{state.answers[q.id]=key; renderQuestion();}; wrap.appendChild(btn);}); els.optionsContainer.appendChild(wrap);} else {const ta=document.createElement('textarea'); ta.className='text-input'; ta.value=answered||''; ta.placeholder=q.id==='Q39'?'Escribe lo que sientas que faltó en el mapa…':'Escribe tu mayor desafío actual…'; ta.oninput=e=>state.answers[q.id]=e.target.value; els.optionsContainer.appendChild(ta);} els.prevBtn.style.visibility=state.index===0?'hidden':'visible'; els.nextBtn.textContent=state.index===QUESTIONS.length-1?'Ver resultado':'Siguiente'; }
+function canAdvance(){const q=QUESTIONS[state.index]; if(q.type==='choice') return !!state.answers[q.id]; return !!(state.answers[q.id]||'').trim();}
+function blockAvg(ids){const vals=ids.map(id=>CHOICE_VALUES[state.answers[id]]||0); return Math.round(vals.reduce((a,b)=>a+b,0)/ids.length);} 
+function computeResults(){const caps={fuego_propio:blockAvg(['Q1','Q2','Q3','Q4','Q5']),mundo_interior:blockAvg(['Q6','Q7','Q8','Q9','Q10','Q11']),raiz:blockAvg(['Q12','Q13','Q14','Q15']),campo_empatia:blockAvg(['Q16','Q17','Q18','Q19','Q20']),chispa_creativa:blockAvg(['Q21','Q22','Q23','Q24']),movimiento:blockAvg(['Q25','Q26','Q27','Q28','Q29']),energia_vital:blockAvg(['Q30','Q31','Q32','Q33','Q34']),norte_vital:blockAvg(['Q35','Q36','Q37','Q38'])}; const index=Math.round(Object.values(caps).reduce((a,b)=>a+b,0)/8);
+ const map={FP:caps.fuego_propio,MI:caps.mundo_interior,R:caps.raiz,CE:caps.campo_empatia,CC:caps.chispa_creativa,MO:caps.movimiento,EV:caps.energia_vital,NV:caps.norte_vital};
+ function primary(){ if(map.FP<45&&map.MO>60&&map.R<50) return 1; if(map.FP<45&&map.CE>70&&map.MO<50) return 2; if(map.MI>70&&map.MO<40&&map.CC<45) return 3; if(map.MO<45&&map.FP>55&&map.R<40) return 4; if(map.FP<45&&map.CE>65&&map.EV>50) return 5; if(map.MI<45&&map.CE<50&&map.FP>65) return 6; if(map.FP>70&&map.CC<40&&map.R<45) return 7; if(map.FP<45&&map.R<40&&map.CE<50) return 8; if(map.MI<50&&map.CE>70&&map.R<40) return 9; if(map.R<45&&map.FP<40&&map.MO>60) return 10; if(map.EV<35&&map.NV<40&&map.FP<40) return 11; if(map.FP<40&&map.R<40&&map.NV<40) return 12; if(map.CC<35&&map.MO<40&&map.R>65) return 13; if(map.EV<35&&map.R<45&&map.MI<50) return 14; if(map.FP<35&&map.NV<35&&map.CE>70) return 15; return null; }
+ function matchScore(id){const checks={1:[[45,'lt','FP'],[60,'gt','MO'],[50,'lt','R']],2:[[45,'lt','FP'],[70,'gt','CE'],[50,'lt','MO']],3:[[70,'gt','MI'],[40,'lt','MO'],[45,'lt','CC']],4:[[45,'lt','MO'],[55,'gt','FP'],[40,'lt','R']],5:[[45,'lt','FP'],[65,'gt','CE'],[50,'gt','EV']],6:[[45,'lt','MI'],[50,'lt','CE'],[65,'gt','FP']],7:[[70,'gt','FP'],[40,'lt','CC'],[45,'lt','R']],8:[[45,'lt','FP'],[40,'lt','R'],[50,'lt','CE']],9:[[50,'lt','MI'],[70,'gt','CE'],[40,'lt','R']],10:[[45,'lt','R'],[40,'lt','FP'],[60,'gt','MO']],11:[[35,'lt','EV'],[40,'lt','NV'],[40,'lt','FP']],12:[[40,'lt','FP'],[40,'lt','R'],[40,'lt','NV']],13:[[35,'lt','CC'],[40,'lt','MO'],[65,'gt','R']],14:[[35,'lt','EV'],[45,'lt','R'],[50,'lt','MI']],15:[[35,'lt','FP'],[35,'lt','NV'],[70,'gt','CE']]}; const vals={FP:map.FP,MI:map.MI,R:map.R,CE:map.CE,CC:map.CC,MO:map.MO,EV:map.EV,NV:map.NV}; const arr=checks[id]; let hits=0; arr.forEach(([threshold,dir,key])=>{if((dir==='lt'&&vals[key]<threshold)||(dir==='gt'&&vals[key]>threshold)) hits++;}); return hits/arr.length; }
+ const p=primary() || Object.keys(PROFILES).map(Number).sort((a,b)=>matchScore(b)-matchScore(a))[0]; const second=Object.keys(PROFILES).map(Number).filter(id=>id!==p).map(id=>[id,matchScore(id)]).sort((a,b)=>b[1]-a[1])[0]; const sec=second&&second[1]>=0.67?second[0]:null;
+ let recommendation={title:'Laboratorio Beta o Coaching',text:'Tu resultado muestra potencial disponible, pero todavía con zonas que conviene ordenar antes de entrar a un entrenamiento más exigente.',link:'/persona/'};
+ if(index<30) recommendation={title:'Psicoterapia',text:'La prioridad hoy parece ser recuperar base, regulación y sostén interno antes de exigir más rendimiento o estructura.',link:'/persona/'};
+ else if(index<45) recommendation={title:'Psicoterapia o Coaching',text:'Hay señales de que primero conviene estabilizar algunas áreas críticas y luego ordenar acción y dirección.',link:'/persona/'};
+ else if(index<60) recommendation={title:'Laboratorio Beta o Coaching',text:'Hay varias capacidades disponibles, pero todavía con focos específicos que conviene trabajar de manera guiada.',link:'/persona/'};
+ else if(index<75) recommendation={title:'BetaGym',text:'Tu mapa sugiere que podrías aprovechar bien un proceso de entrenamiento más progresivo, práctico y exigente.',link:'/betagym/?from=betascan'};
+ else recommendation={title:'BetaGym preventivo (mantenimiento)',text:'Tu estructura aparece bastante equilibrada. El foco sería mantener, refinar y expandir capacidades.',link:'/betagym/?from=betascan'};
+ return {caps,index,primary:p,secondary:sec,recommendation}; }
+function capLabel(v){if(v>=80) return 'Muy fuerte'; if(v>=60) return 'Bastante equilibrada'; if(v>=40) return 'Algo débil, necesita atención'; return 'Muy débil, prioridad alta';}
+function capNarrative(name,v){const t=capLabel(v); const msgs={fuego_propio:'Habla de tu capacidad de decidir desde ti y no desde aprobación externa.',mundo_interior:'Habla de tu capacidad de reconocer, procesar y regular tus emociones.',raiz:'Habla de tu seguridad interna cuando hay incertidumbre.',campo_empatia:'Habla de cómo conectas con otros sin perderte en ellos.',chispa_creativa:'Habla de tu flexibilidad para improvisar, adaptarte e innovar.',movimiento:'Habla de qué tan rápido conviertes intención en acción.',energia_vital:'Habla de tu capacidad de sostener fuerza sin vivir quemado.',norte_vital:'Habla de tu claridad para saber qué importa y vivir en función de eso.'}; return `${t}. ${msgs[name]}`;}
+function drawRadar(caps){const labels=[['Fuego propio',caps.fuego_propio],['Mundo interior',caps.mundo_interior],['Raíz',caps.raiz],['Campo de empatía',caps.campo_empatia],['Chispa creativa',caps.chispa_creativa],['Movimiento',caps.movimiento],['Energía vital',caps.energia_vital],['Norte vital',caps.norte_vital]]; const svg=document.getElementById('radarSvg'); const legend=document.getElementById('radarLegend'); legend.innerHTML=''; const cx=180, cy=180, r=118; const rings=[25,50,75,100].map(p=>{const rr=r*(p/100); let pts=''; for(let i=0;i<labels.length;i++){const angle=(-Math.PI/2)+(i*(Math.PI*2/labels.length)); pts += `${cx+Math.cos(angle)*rr},${cy+Math.sin(angle)*rr} `;} return `<polygon points="${pts.trim()}" fill="none" stroke="rgba(201,168,76,.16)" stroke-width="1"/>`;}).join(''); let axes=''; let poly=''; labels.forEach(([label,val],i)=>{const angle=(-Math.PI/2)+(i*(Math.PI*2/labels.length)); const x=cx+Math.cos(angle)*r, y=cy+Math.sin(angle)*r; axes += `<line x1="${cx}" y1="${cy}" x2="${x}" y2="${y}" stroke="rgba(201,168,76,.2)" stroke-width="1"/>`; const px=cx+Math.cos(angle)*r*(val/100), py=cy+Math.sin(angle)*r*(val/100); poly += `${px},${py} `; const lx=cx+Math.cos(angle)*(r+26), ly=cy+Math.sin(angle)*(r+26); axes += `<text x="${lx}" y="${ly}" fill="rgba(245,240,232,.68)" font-size="10" text-anchor="middle">${label}</text>`; const cls=val<40?'weak':val<60?'mid':'strong'; legend.innerHTML += `<div><strong style="color:var(--gold-light)">${label}</strong><br>${val}% · ${capLabel(val)}</div>`;}); svg.innerHTML=`<rect x="0" y="0" width="360" height="360" fill="transparent"></rect>${rings}${axes}<polygon points="${poly.trim()}" fill="rgba(201,168,76,.16)" stroke="var(--gold)" stroke-width="2"/>`; }
+function renderResults(){const r=state.results; const profile=PROFILES[r.primary]; document.getElementById('overallScore').textContent=r.index; document.getElementById('overallCopy').textContent='Tu índice general es una síntesis de tus 8 capacidades. No define quién eres; solo muestra cómo estás hoy.'; document.getElementById('recommendationTitle').textContent=r.recommendation.title; document.getElementById('recommendationText').textContent=r.recommendation.text; document.getElementById('recommendationLink').href=r.recommendation.link; document.getElementById('profileName').textContent=profile.name; document.getElementById('profileShort').textContent=profile.short; document.getElementById('profileNarrative').textContent=`Tu contexto escrito habla de “${(state.answers.Q40||'lo que hoy te cuesta sostener').slice(0,90)}”. Este patrón parece estar alineado con cómo estás combinando fuego propio, regulación, base interna y capacidad de sostener tu energía.`; const symptoms=document.getElementById('profileSymptoms'); symptoms.innerHTML=''; profile.symptoms.forEach(s=>{const li=document.createElement('li'); li.textContent=s; symptoms.appendChild(li);}); const secWrap=document.getElementById('secondaryWrap'); if(r.secondary){const sp=PROFILES[r.secondary]; secWrap.style.display='block'; document.getElementById('secondaryName').textContent=sp.name; document.getElementById('secondaryCopy').textContent=`Además de tu patrón principal, aparece una sobreposición con “${sp.name}”, lo que sugiere que tu cambio también se cruza con ${sp.short.toLowerCase()}`;} else secWrap.style.display='none';
+ drawRadar(r.caps);
+ const capOrder=Object.entries(r.caps).sort((a,b)=>a[1]-b[1]); const priorityGrid=document.getElementById('priorityGrid'); priorityGrid.innerHTML=''; capOrder.slice(0,3).forEach(([k,v],i)=>{const item=document.createElement('div'); item.className='priority-item'; item.innerHTML=`<strong>Prioridad ${i+1}: ${k.replace('_',' ')}</strong><div class="small-copy">Actual: ${v}% · Objetivo sugerido: ${Math.min(v+18,82)}%</div><div class="small-copy" style="margin-top:8px">${capNarrative(k,v)}</div>`; priorityGrid.appendChild(item);}); const strong=Object.entries(r.caps).filter(([,v])=>v>65).map(([k])=>k.replace('_',' ')); document.getElementById('strengthNotice').textContent=strong.length?`Capacidades que ya tienes relativamente disponibles: ${strong.join(', ')}.`:'Hoy el foco está más en recuperar base que en expandir fortalezas.';
+ const bars=document.createElement('div'); bars.className='cap-bars'; Object.entries(r.caps).forEach(([k,v])=>{const row=document.createElement('div'); row.className='cap-bar-row'; row.innerHTML=`<div class="cap-bar-meta"><span class="cap-bar-name">${k.replace('_',' ')}</span><span class="cap-bar-score">${v}%</span></div><div class="cap-bar-bg"><div class="cap-bar-fill ${v<40?'weak':v<60?'mid':'strong'}" style="width:${v}%"></div></div>`; bars.appendChild(row);}); const existing=document.getElementById('barsMount'); if(existing) existing.remove(); bars.id='barsMount'; document.querySelector('.priority-box').before(bars);
+ localStorage.setItem('betascan_result', JSON.stringify({index:r.index, profile:profile.name, caps:r.caps, completed:true, at:new Date().toISOString()})); showScreen('result'); }
+function goNext(){if(!canAdvance()) return; if(state.index===QUESTIONS.length-1){state.results=computeResults(); renderResults(); return;} state.index++; renderQuestion();}
+function goPrev(){if(state.index>0){state.index--; renderQuestion();}}
+document.getElementById('startBtn').addEventListener('click',()=>{showScreen('question'); renderQuestion();}); els.nextBtn.addEventListener('click',goNext); els.prevBtn.addEventListener('click',goPrev); document.getElementById('restartBtn').addEventListener('click',()=>{state.index=0; state.answers={}; state.results=null; showScreen('landing');});
+document.getElementById('captureForm').addEventListener('submit',function(e){e.preventDefault(); const name=document.getElementById('captureName').value.trim(); const email=document.getElementById('captureEmail').value.trim(); const phone=document.getElementById('capturePhone').value.trim(); const s=document.getElementById('captureSuccess'); s.style.display='block'; s.textContent=`Quedó simulada la captura de ${name||'este lead'} (${email}). En la siguiente etapa se conecta el envío real al sistema de email marketing que definas.`; if(phone) s.textContent += ` Teléfono registrado: ${phone}.`;});
+document.querySelectorAll('[data-share]').forEach(btn=>btn.addEventListener('click',()=>{const profile=PROFILES[state.results.primary]; const text=`Hice BetaScan y mi perfil principal fue “${profile.name}”. Índice general: ${state.results.index}%.`; const share=btn.dataset.share; if(share==='whatsapp') window.open(`https://wa.me/?text=${encodeURIComponent(text+' '+window.location.origin+'/betascan/')}`,'_blank'); else if(share==='linkedin') window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.origin+'/betascan/')}`,'_blank'); else navigator.clipboard.writeText(text);}));
+// if user comes from betagym and already has a stored result, bring CTA into view after finishing
+const nextParam=new URLSearchParams(window.location.search).get('next');
+</script></body></html>
