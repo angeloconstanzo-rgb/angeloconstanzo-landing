@@ -45,3 +45,21 @@ document.querySelectorAll('[data-carousel]').forEach(carousel=>{
 });
 
 });
+
+/* --- v12 interactions --- */
+(function(){
+  const openModal=(id)=>{const modal=document.getElementById(id);if(modal){modal.classList.add('open');modal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';}};
+  const closeModal=(modal)=>{if(modal){modal.classList.remove('open');modal.setAttribute('aria-hidden','true');document.body.style.overflow='';}};
+  document.querySelectorAll('[data-modal-target]').forEach(btn=>btn.addEventListener('click',()=>openModal(btn.getAttribute('data-modal-target'))));
+  document.querySelectorAll('[data-modal-close]').forEach(el=>el.addEventListener('click',()=>closeModal(el.closest('.modal-shell'))));
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'){document.querySelectorAll('.modal-shell.open').forEach(closeModal);}});
+
+  const doneField=document.getElementById('bg-done');
+  const fields=document.getElementById('betagymFormFields');
+  const gate=document.getElementById('betagymGateMessage');
+  const syncGate=()=>{if(!doneField||!fields||!gate)return; if(doneField.value==='no'){fields.classList.add('hidden'); gate.classList.add('active');} else {fields.classList.remove('hidden'); gate.classList.remove('active');}};
+  if(doneField){doneField.addEventListener('change',syncGate);syncGate();}
+
+  const appForm=document.getElementById('betagymApplicationForm');
+  if(appForm){appForm.addEventListener('submit',function(e){e.preventDefault(); if(doneField && doneField.value==='no'){window.location.href='/betascan/'; return;} const existing=appForm.querySelector('.form-success'); if(existing) existing.remove(); const success=document.createElement('div'); success.className='form-success'; success.innerHTML='Tu postulación quedó montada en esta versión de revisión. El siguiente paso será conectar el envío real al sistema que definas, sin exponer credenciales en el front.'; appForm.appendChild(success); appForm.reset(); if(doneField) doneField.value=''; syncGate();});}
+})();
