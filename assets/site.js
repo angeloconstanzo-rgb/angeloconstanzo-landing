@@ -63,3 +63,47 @@ document.querySelectorAll('[data-carousel]').forEach(carousel=>{
   const appForm=document.getElementById('betagymApplicationForm');
   if(appForm){const stored = localStorage.getItem('betascan_result'); if(stored){try{const parsed=JSON.parse(stored); const resultField=document.getElementById('bg-betascan'); if(resultField && parsed.profile){resultField.value=`${parsed.profile} · Índice ${parsed.index}%`; } if(doneField && parsed.completed){doneField.value='si'; syncGate();}}catch(e){}} appForm.addEventListener('submit',function(e){e.preventDefault(); if(doneField && doneField.value==='no'){window.location.href='/betascan/?next=betagym'; return;} const existing=appForm.querySelector('.form-success'); if(existing) existing.remove(); const success=document.createElement('div'); success.className='form-success'; success.innerHTML='Tu postulación quedó montada en esta versión de revisión. El siguiente paso será conectar el envío real al sistema que definas, sin exponer credenciales en el front.'; appForm.appendChild(success);});}
 })();
+
+
+// v14 betagym gating and prefill
+(function(){
+  const done=document.getElementById('bg-done');
+  const fields=document.getElementById('betagymFormFields');
+  const gate=document.getElementById('betagymGateMessage');
+  const resultInput=document.getElementById('bg-betascan');
+  const form=document.getElementById('betagymApplicationForm');
+  const readStored=()=>{try{return JSON.parse(localStorage.getItem('betascan_result')||'null')}catch(e){return null}};
+  const stored=readStored();
+  const params=new URLSearchParams(window.location.search);
+  if(done&&fields&&gate){
+    if((stored&&stored.completed)||params.get('from')==='betascan'){
+      done.value='si';
+      fields.style.display='block';
+      gate.style.display='none';
+      if(resultInput&&stored){resultInput.value=`${stored.profile} · ${stored.index}%`;}
+    } else {
+      fields.style.display='none';
+      gate.style.display='none';
+    }
+    done.addEventListener('change',()=>{
+      if(done.value==='no'){ window.location.href='/betascan/?next=betagym'; return; }
+      if(done.value==='si'){
+        fields.style.display='block';
+        gate.style.display='none';
+        if(resultInput&&stored&&!resultInput.value){resultInput.value=`${stored.profile} · ${stored.index}%`;}
+      } else {
+        fields.style.display='none';
+        gate.style.display='none';
+      }
+    });
+  }
+  if(form){
+    form.addEventListener('submit',function(e){
+      e.preventDefault();
+      const ok=document.querySelector('input[name="mailing_ok"]:checked')?.value || 'no';
+      let note=form.querySelector('.submission-note');
+      if(!note){ note=document.createElement('div'); note.className='small-copy submission-note'; note.style.marginTop='12px'; form.appendChild(note); }
+      note.textContent=`Postulación simulada para revisión. Consentimiento mailing: ${ok==='si'?'sí':'no'}.`;
+    });
+  }
+})();
