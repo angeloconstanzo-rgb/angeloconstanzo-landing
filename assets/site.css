@@ -281,12 +281,20 @@ h3{font-size:clamp(19px,2vw,24px)}
 @media (max-width:920px){.company-interest-grid{grid-template-columns:1fr}}
 
 /* BetaScan flow mode */
+
+.page-persona .mini-process{border-color:rgba(111,90,159,.28)!important;background:rgba(111,90,159,.08)!important}
+.page-persona .mini-process strong{color:#9f89d3!important}
+.page-home .btn-gold,.page-home .btn-primary{background:linear-gradient(90deg,#8E78C4 0%, #55D9EB 48%, #E8C96A 100%)!important;color:#0A0A0A!important;border:0!important}
+.page-home .btn-outline,.page-home .btn-secondary{border-color:rgba(255,255,255,.18)!important;background:rgba(255,255,255,.04)!important}
+.page-home .eyebrow,.page-home .text-gold,.page-home .text-cyan,.page-home .mixed-accent{background:linear-gradient(90deg,#8E78C4 0%, #55D9EB 48%, #E8C96A 100%);-webkit-background-clip:text;background-clip:text;color:transparent!important}
+.page-home .card{border-image:linear-gradient(90deg,rgba(111,90,159,.45),rgba(0,184,212,.45),rgba(201,168,76,.45)) 1}
+.page-home .card-icon,.page-home .badge,.page-home .social-link{background:linear-gradient(180deg,rgba(111,90,159,.10),rgba(0,184,212,.08),rgba(201,168,76,.10))!important;border-color:rgba(255,255,255,.16)!important;color:var(--white)!important}
+.page-home .footer .btn-gold{background:linear-gradient(90deg,#8E78C4 0%, #55D9EB 48%, #E8C96A 100%)!important}
 .page-betascan #betascanShell{display:none}
-.page-betascan .flow-open{display:grid!important}
-.page-betascan.betascan-flow-mode header.brand-beta{display:none}
-.page-betascan.betascan-flow-mode .divider:first-of-type{display:none}
-.page-betascan.betascan-flow-mode #betascanShell{padding-top:28px}
-.page-betascan .betascan-stage#stageIntro{display:block}
-.page-betascan:not(.betascan-flow-mode) .betascan-stage#stageIntro{display:block}
+.page-betascan.betascan-flow-mode #betascanShell{display:grid!important;padding-top:28px}
+.page-betascan .betascan-shell .betascan-stage{display:none!important}
+.page-betascan .betascan-shell .betascan-stage.active{display:block!important}
+.page-betascan .betascan-shell.flow-open .betascan-stage.active{display:block!important}
+.page-betascan .betascan-shell.flow-open .betascan-stage:not(.active){display:none!important}
 .page-betascan:not(.betascan-flow-mode) #stageQuestion,.page-betascan:not(.betascan-flow-mode) #stageResult{display:none!important}
-.page-betascan .betascan-shell.flow-open #stageQuestion,.page-betascan .betascan-shell.flow-open #stageResult{display:none}
+.page-betascan .stage-welcome-title{font-size:clamp(24px,2.6vw,30px);margin-bottom:12px}

@@ -81,6 +81,8 @@ document.querySelectorAll('[data-carousel]').forEach(carousel=>{
     const openFlow=()=>{
       document.body.classList.add('betascan-flow-mode');
       betascanShell.classList.add('flow-open');
+      document.querySelectorAll('#betascanShell .betascan-stage').forEach(el=>el.classList.remove('active'));
+      const intro=document.getElementById('stageIntro'); if(intro) intro.classList.add('active');
       history.replaceState(null,'',location.pathname+'#diagnostico');
       window.scrollTo({top:0,behavior:'auto'});
     };
@@ -92,6 +94,5 @@ document.querySelectorAll('[data-carousel]').forEach(carousel=>{
       window.scrollTo({top:0,behavior:'auto'});
     });
     if(location.hash==='#diagnostico'){ openFlow(); }
-    startLeadForm?.addEventListener('submit',()=>openFlow());
   }
 })();
