@@ -99,3 +99,21 @@ document.querySelectorAll('[data-carousel]').forEach(carousel=>{
 })();
 
 (function(){const rot=document.querySelector('.home-photo-rotator'); if(!rot) return; const imgs=[...rot.querySelectorAll('img')]; let i=0; setInterval(()=>{imgs[i].classList.remove('active'); i=(i+1)%imgs.length; imgs[i].classList.add('active');}, 2600);})();
+
+/* v37 dialog support */
+(function(){
+  document.querySelectorAll('[data-dialog-target]').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const dlg=document.getElementById(btn.dataset.dialogTarget);
+      if(dlg && typeof dlg.showModal==='function') dlg.showModal();
+    });
+  });
+  document.querySelectorAll('[data-dialog-close]').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const dlg=btn.closest('dialog'); if(dlg) dlg.close();
+    });
+  });
+  document.querySelectorAll('dialog.case-dialog').forEach(dlg=>{
+    dlg.addEventListener('click',e=>{ const rect=dlg.getBoundingClientRect(); const inside=e.clientX>=rect.left&&e.clientX<=rect.right&&e.clientY>=rect.top&&e.clientY<=rect.bottom; if(!inside) dlg.close(); });
+  });
+})();

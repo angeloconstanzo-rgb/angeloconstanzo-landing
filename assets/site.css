@@ -835,3 +835,58 @@ h3{font-size:clamp(19px,2vw,24px)}
   .page-company .metrics-columns.three-col,.page-beta .goal-list,.page-beta .benefit-list,.page-beta .journey-ladder.uniform{grid-template-columns:1fr}
   .page-company .company-system-steps .system-step{min-height:auto}
 }
+
+/* v37 final fixes */
+.home-photo-rotator img{object-position:center center}
+.page-company .company-hero-note{position:relative;isolation:isolate;background:#101216}
+.page-company .company-hero-note .hero-blur-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;filter:blur(8px) saturate(.92);transform:scale(1.08);opacity:.38;z-index:0}
+.page-company .company-hero-note::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,14,18,.45),rgba(12,14,18,.86));z-index:0}
+.page-company .company-hero-note-inner{position:relative;z-index:1;backdrop-filter:blur(2px)}
+
+/* company case dialogs */
+.page-company .case-open-btn{margin-top:14px;padding:11px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05);color:var(--white);cursor:pointer;font:inherit}
+.page-company .case-open-btn:hover{transform:translateY(-1px);background:rgba(255,255,255,.08)}
+.page-company .case-dialog{width:min(1100px,calc(100% - 32px));border:none;padding:0;background:transparent}
+.page-company .case-dialog::backdrop{background:rgba(0,0,0,.72);backdrop-filter:blur(3px)}
+.page-company .case-dialog-card{padding:26px;border-radius:28px;border:1px solid rgba(255,255,255,.1);background:linear-gradient(180deg,#13161a,#0d0f12);box-shadow:var(--shadow);display:grid;gap:16px}
+.page-company .case-dialog-card.purple{box-shadow:0 22px 60px rgba(123,92,208,.18)}
+.page-company .case-dialog-card.cyan{box-shadow:0 22px 60px rgba(92,197,222,.18)}
+.page-company .case-dialog-card.gold{box-shadow:0 22px 60px rgba(226,194,111,.14)}
+.page-company .case-dialog-close{justify-self:end;width:40px;height:40px;border-radius:999px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05);color:var(--white);font-size:24px;line-height:1;cursor:pointer}
+.page-company .case-dialog .metrics-columns.three-col{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.page-company .case-card .copy{min-height:9.8em}
+
+/* better company system icons */
+.page-company .company-system-steps .system-step .system-orb{width:82px;height:82px;border-radius:26px;position:relative;overflow:hidden;background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.03));border:1px solid rgba(255,255,255,.12);box-shadow:0 14px 34px rgba(0,0,0,.18), inset 0 1px 0 rgba(255,255,255,.06)}
+.page-company .company-system-steps .system-step .system-orb::before{content:'';position:absolute;left:18px;right:18px;top:14px;bottom:14px;border-radius:16px;background:linear-gradient(180deg,rgba(10,12,16,.98),rgba(22,24,28,.86));border:1px solid rgba(255,255,255,.06);z-index:2}
+.page-company .company-system-steps .system-step .system-orb::after{content:'';position:absolute;left:18px;right:18px;border-radius:12px 12px 14px 14px;z-index:3;bottom:18px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.10)}
+.page-company .company-system-steps .system-step.purple .system-orb::after{top:50px;background:linear-gradient(180deg,rgba(145,110,255,.98),rgba(145,110,255,.36))}
+.page-company .company-system-steps .system-step.cyan .system-orb::after{top:38px;background:linear-gradient(180deg,rgba(115,214,255,.98),rgba(115,214,255,.34))}
+.page-company .company-system-steps .system-step.gold .system-orb::after{top:18px;background:linear-gradient(180deg,rgba(226,194,111,.98),rgba(226,194,111,.34))}
+.page-company .company-system-steps .system-step .system-orb .orb-frame{display:none}
+
+/* betagym hero sizing and project spacing */
+.page-beta .beta-hero-grid{align-items:stretch}
+.page-beta .beta-hero-visual{aspect-ratio:auto;min-height:100%;max-height:none;height:auto}
+.page-beta .beta-hero-visual img{height:100%;min-height:100%;object-fit:cover;object-position:center center}
+.page-beta .beta-project-shell-v2{gap:26px;align-items:start}
+.page-beta .beta-project-copy{position:static !important;padding:24px;border-radius:24px}
+.page-beta .beta-project-copy h2{font-size:clamp(34px,3.2vw,44px);line-height:1.06}
+.page-beta .beta-project-copy .copy{margin-top:8px;max-width:56ch}
+.page-beta .project-widget.v2{margin-top:2px;padding:24px 24px 22px;display:grid;gap:16px}
+.page-beta .project-top.compact{display:grid;gap:8px}
+.page-beta .project-top.compact h3{margin:0;font-size:24px;line-height:1.18}
+.page-beta .project-divider{margin:2px 0 0}
+.page-beta .goal-list,.page-beta .benefit-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.page-beta .mini-widget{padding:16px 14px;border-radius:18px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);display:grid;gap:6px}
+.page-beta .journey-ladder.uniform{grid-template-columns:repeat(6,minmax(0,1fr));gap:14px;align-items:stretch}
+.page-beta .journey-ladder.uniform .journey-node{min-height:168px}
+
+@media (max-width:1100px){
+  .page-company .case-dialog .metrics-columns.three-col,.page-beta .goal-list,.page-beta .benefit-list,.page-beta .journey-ladder.uniform{grid-template-columns:1fr 1fr}
+}
+@media (max-width:760px){
+  .page-company .case-dialog{width:min(100% - 20px,1100px)}
+  .page-company .case-dialog .metrics-columns.three-col,.page-beta .goal-list,.page-beta .benefit-list,.page-beta .journey-ladder.uniform{grid-template-columns:1fr}
+  .page-beta .beta-hero-visual{min-height:320px}
+}
