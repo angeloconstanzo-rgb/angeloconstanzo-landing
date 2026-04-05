@@ -97,3 +97,5 @@ document.querySelectorAll('[data-carousel]').forEach(carousel=>{
     if(location.hash==='#diagnostico'){ openFlow(); }
   }
 })();
+
+(function(){const rot=document.querySelector('.home-photo-rotator'); if(!rot) return; const imgs=[...rot.querySelectorAll('img')]; let i=0; setInterval(()=>{imgs[i].classList.remove('active'); i=(i+1)%imgs.length; imgs[i].classList.add('active');}, 2600);})();

@@ -772,3 +772,66 @@ h3{font-size:clamp(19px,2vw,24px)}
   .page-beta .beta-hero-visual{aspect-ratio:1.2/1;max-height:none}
   .page-company .company-system-steps .system-step{min-height:auto}
 }
+
+/* v36 final requested fixes */
+.home-photo-visual{position:relative;overflow:hidden;min-height:420px;border-radius:32px;border:1px solid rgba(255,255,255,.08);background:#0f0f11}
+.home-photo-rotator{position:absolute;inset:0}
+.home-photo-rotator img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .8s ease, transform 2s ease;transform:scale(1.03)}
+.home-photo-rotator img.active{opacity:.9;transform:scale(1)}
+.home-photo-visual::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,8,10,.08),rgba(8,8,10,.48) 55%, rgba(8,8,10,.78));}
+.home-photo-visual .visual-copy{position:absolute;left:28px;right:28px;bottom:24px;z-index:2;background:rgba(8,8,10,.4);backdrop-filter:blur(10px);padding:18px 20px;border-radius:20px;border:1px solid rgba(255,255,255,.08)}
+.page-company .problem-closing-banner{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start;padding:18px 20px;background:rgba(255,255,255,.025);border:1px solid rgba(102,220,235,.18)}
+.page-company .problem-closing-banner::before{content:'↗';display:grid;place-items:center;width:36px;height:36px;border-radius:12px;background:rgba(102,220,235,.12);color:var(--cyan);font-weight:800}
+.page-company .problem-closing-banner p{font-size:15px;line-height:1.55}
+.page-company .company-system-steps .system-step{min-height:236px;padding:24px 18px 20px;background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.015));}
+.page-company .company-system-steps .system-step .system-orb{width:72px;height:72px;border-radius:22px;position:relative;overflow:hidden;background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.12);box-shadow:0 12px 24px rgba(0,0,0,.16)}
+.page-company .company-system-steps .system-step .system-orb::before{content:'';position:absolute;inset:12px;border-radius:14px;background:rgba(10,10,10,.78);border:1px solid rgba(255,255,255,.08)}
+.page-company .company-system-steps .system-step .system-orb::after{content:'';position:absolute;left:16px;right:16px;bottom:16px;border-radius:10px 10px 8px 8px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.1)}
+.page-company .company-system-steps .system-step.purple .system-orb::after{top:44px;background:linear-gradient(180deg,rgba(145,110,255,.96),rgba(145,110,255,.32))}
+.page-company .company-system-steps .system-step.cyan .system-orb::after{top:30px;background:linear-gradient(180deg,rgba(115,214,255,.96),rgba(115,214,255,.32))}
+.page-company .company-system-steps .system-step.gold .system-orb::after{top:16px;background:linear-gradient(180deg,rgba(226,194,111,.98),rgba(226,194,111,.36))}
+.page-company .company-system-steps .system-step h3{font-size:19px}
+.page-company .company-system-steps .system-step .copy{font-size:14px;line-height:1.5;max-width:26ch}
+.page-company .cases-frame{padding:30px 28px 28px}
+.page-company .case-card{display:grid;gap:14px;align-content:start}
+.page-company .case-card .copy{line-height:1.58}
+.page-company details.case-metrics{margin-top:4px;border-top:1px solid rgba(255,255,255,.08);padding-top:12px}
+.page-company details.case-metrics summary{cursor:pointer;list-style:none;display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:999px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:rgba(245,240,232,.82)}
+.page-company details.case-metrics summary::-webkit-details-marker{display:none}
+.page-company details.case-metrics summary::after{content:'+';font-size:16px;line-height:1;color:rgba(245,240,232,.7)}
+.page-company details.case-metrics[open] summary::after{content:'−'}
+.page-company details.case-metrics .metrics-columns{margin-top:14px}
+.page-company .metrics-columns.three-col{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;align-items:stretch}
+.page-company .metrics-columns.three-col .metric-box{min-height:212px;padding:15px 14px 14px;display:flex;flex-direction:column;justify-content:flex-start}
+.page-company .metrics-columns.three-col .metric-box .metric-title{min-height:28px}
+.page-company .metrics-columns.three-col .metric-box blockquote{font-size:14px;line-height:1.55}
+.page-company .metrics-columns.three-col .metric-list li{font-size:13.5px;line-height:1.42}
+.page-company .metrics-columns.three-col .quote-role{margin-top:auto;padding-top:10px}
+.page-beta .beta-hero-grid{grid-template-columns:1fr 1fr;gap:24px;align-items:start}
+.page-beta .beta-hero-visual{aspect-ratio:1/1;max-height:440px}
+.page-beta .beta-hero-visual img{width:100%;height:100%;object-fit:cover}
+.page-beta .beta-project-shell-v2{grid-template-columns:1fr 1fr;gap:20px;align-items:start}
+.page-beta .beta-project-copy{position:static;max-width:none;padding:22px;border-radius:24px;border:1px solid rgba(255,255,255,.08);background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.015))}
+.page-beta .beta-project-copy h2{display:grid;gap:6px}
+.page-beta .beta-project-copy .copy{max-width:50ch}
+.page-beta .project-widget.v2{padding:22px 22px 20px}
+.page-beta .goal-list,.page-beta .benefit-list{grid-template-columns:1fr;gap:10px}
+.page-beta .mini-widget{min-height:auto}
+.page-beta .beta-definition-shell{grid-template-columns:1.25fr .75fr;gap:18px;align-items:stretch}
+.page-beta .definition-main{display:grid;align-content:start;gap:14px;padding:26px;border-radius:24px;border:1px solid rgba(255,255,255,.08);background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.015))}
+.page-beta .definition-main h2{font-size:clamp(38px,4vw,50px);line-height:1.06}
+.page-beta .definition-side{display:grid;gap:14px;align-content:start}
+.page-beta .mini-fact{min-height:178px;display:grid;align-content:start;gap:10px}
+.page-beta .journey-ladder.uniform{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.page-beta .journey-ladder.uniform .journey-node{min-height:190px}
+@media (max-width:1100px){
+  .home-photo-visual{min-height:360px}
+  .page-beta .beta-hero-grid,.page-beta .beta-project-shell-v2,.page-beta .beta-definition-shell{grid-template-columns:1fr}
+  .page-beta .goal-list,.page-beta .benefit-list,.page-beta .journey-ladder.uniform{grid-template-columns:1fr 1fr}
+}
+@media (max-width:760px){
+  .home-photo-visual{min-height:300px}
+  .home-photo-visual .visual-copy{left:16px;right:16px;bottom:16px}
+  .page-company .metrics-columns.three-col,.page-beta .goal-list,.page-beta .benefit-list,.page-beta .journey-ladder.uniform{grid-template-columns:1fr}
+  .page-company .company-system-steps .system-step{min-height:auto}
+}
