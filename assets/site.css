@@ -680,3 +680,55 @@ h3{font-size:clamp(19px,2vw,24px)}
 .page-company .validation-visual-grid img:nth-child(2){grid-column:2;grid-row:1}
 @media (max-width:1100px){.company-hero-note{min-height:320px}.company-hero-note strong{font-size:24px}}
 @media (max-width:760px){.page-company .metrics-columns.three-col{grid-template-columns:1fr}.page-company .metrics-columns.three-col .metric-box{min-height:auto}.company-hero-note{min-height:auto}.company-hero-note-inner{max-width:none}}
+
+
+/* v34 refinements */
+
+.page-company .problem-closing-banner{margin-top:20px;padding:16px 18px;border-radius:18px;border:1px solid rgba(102,220,235,.16);background:linear-gradient(90deg,rgba(102,220,235,.08),rgba(255,255,255,.02));}
+.page-company .problem-closing-banner p{margin:0;font-size:16px;line-height:1.6;color:rgba(245,240,232,.82)}
+.page-company .problem-closing-banner strong{font-size:16px;color:var(--white)}
+.page-company .company-system-steps{align-items:stretch}
+.page-company .company-system-steps .system-step{padding:22px 18px 20px;text-align:center;display:grid;justify-items:center;gap:10px}
+.page-company .company-system-steps .system-step h3{margin:0;font-size:20px}
+.page-company .company-system-steps .system-step .copy{max-width:28ch;margin:0 auto}
+.page-company .company-system-steps .system-step .system-orb{width:72px;height:72px;position:relative;margin:0 auto 8px}
+.page-company .company-system-steps .system-step .system-orb::after{content:'';position:absolute;inset:14px;border-radius:50%;background:rgba(12,12,12,.88)}
+.page-company .company-system-steps .system-step .system-orb::before{content:'';position:absolute;inset:26px;border-radius:50%;background:rgba(255,255,255,.16);z-index:2}
+.page-company .company-system-steps .system-step.purple .system-orb{background:conic-gradient(var(--purple) 0 25%, rgba(255,255,255,.08) 25% 100%);box-shadow:0 10px 28px rgba(142,120,196,.18)}
+.page-company .company-system-steps .system-step.cyan .system-orb{background:conic-gradient(var(--cyan) 0 50%, rgba(255,255,255,.08) 50% 100%);box-shadow:0 10px 28px rgba(102,220,235,.18)}
+.page-company .company-system-steps .system-step.gold .system-orb{background:conic-gradient(var(--gold) 0 100%, rgba(255,255,255,.08) 100%);box-shadow:0 10px 28px rgba(226,194,111,.18)}
+.page-company .cases-frame{padding:28px;border-radius:28px;border:1px solid rgba(102,220,235,.12);background:linear-gradient(180deg,rgba(18,20,24,.92),rgba(12,12,12,.96))}
+.page-company .cases-frame-header{margin-bottom:18px;padding-bottom:18px;border-bottom:1px solid rgba(255,255,255,.08)}
+.page-company .cases-grid.case-columns{align-items:start}
+.page-company .case-card{padding:20px 18px 18px;overflow:hidden}
+.page-company .case-card .copy{min-height:auto}
+.page-company .metrics-columns.three-col{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;align-items:stretch}
+.page-company .metrics-columns.three-col .metric-box{min-height:238px;padding:14px;display:flex;flex-direction:column;justify-content:flex-start}
+.page-company .metrics-columns.three-col .metric-box .metric-title{min-height:32px}
+.page-company .metrics-columns.three-col .metric-box blockquote{font-size:14px;line-height:1.55}
+.page-company .metrics-columns.three-col .metric-box .quote-role{margin-top:auto;padding-top:12px}
+.page-company .metrics-columns.three-col .metric-list li{padding-left:14px;font-size:14px;line-height:1.45}
+.page-company .metrics-columns.three-col .metric-list li::before{top:0}
+.page-beta .beta-definition-shell{grid-template-columns:1.15fr .85fr;gap:16px;align-items:start}
+.page-beta .definition-main{padding:26px 24px}
+.page-beta .definition-main h2{font-size:clamp(34px,3vw,42px)}
+.page-beta .definition-side{grid-template-columns:1fr;align-content:start}
+.page-beta .mini-fact{padding:18px}
+.page-beta .beta-project-shell-v2{grid-template-columns:1fr;gap:16px}
+.page-beta .beta-project-copy{max-width:820px}
+.page-beta .project-widget.v2{padding:20px}
+.page-beta .project-top.compact h3{font-size:24px;line-height:1.15;margin:0}
+.page-beta .goal-list,.page-beta .benefit-list{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.page-beta .mini-widget{padding:16px 14px;border-radius:18px;background:rgba(255,255,255,.035);border:1px solid rgba(226,194,111,.18)}
+.page-beta .journey-ladder.uniform{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;align-items:stretch}
+.page-beta .journey-ladder.uniform .journey-node{min-height:180px;padding:18px 14px;border-radius:22px;border:1px solid rgba(226,194,111,.18);background:linear-gradient(180deg,rgba(226,194,111,.12),rgba(255,255,255,.02));display:grid;align-content:start;gap:10px}
+.page-beta .journey-ladder.uniform .journey-node::after{display:none}
+.page-beta .journey-ladder.uniform .journey-mini{display:grid;place-items:center;width:34px;height:34px;border-radius:999px;background:rgba(10,10,10,.68);border:1px solid rgba(255,255,255,.1)}
+@media (max-width:1100px){
+  .page-company .metrics-columns.three-col,.page-beta .journey-ladder.uniform,.page-beta .goal-list,.page-beta .benefit-list{grid-template-columns:1fr 1fr}
+  .page-beta .beta-definition-shell{grid-template-columns:1fr}
+}
+@media (max-width:760px){
+  .page-company .metrics-columns.three-col,.page-beta .journey-ladder.uniform,.page-beta .goal-list,.page-beta .benefit-list{grid-template-columns:1fr}
+  .page-company .metrics-columns.three-col .metric-box{min-height:auto}
+}
