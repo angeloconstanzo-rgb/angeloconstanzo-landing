@@ -184,7 +184,7 @@ header .copy.lead.page-hero-lead, header .copy.lead.section-intro{font-size:clam
 .brand-mixed .badge:nth-child(1){border-color:rgba(111,90,159,.32);background:rgba(111,90,159,.12);color:#b7a7db}
 .brand-mixed .badge:nth-child(2){border-color:rgba(0,184,212,.32);background:rgba(0,184,212,.12);color:#8ceaf5}
 .brand-mixed .badge:nth-child(3),.brand-mixed .badge:nth-child(4){border-color:rgba(201,168,76,.32);background:rgba(201,168,76,.12);color:var(--gold-light)}
-.brand-mixed .mixed-accent{background:linear-gradient(90deg,#8E78C4 0%, #55D9EB 48%, #E8C96A 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.mixed-accent{background:linear-gradient(90deg,#8E78C4 0%, #55D9EB 48%, #E8C96A 100%);-webkit-background-clip:text;background-clip:text;color:transparent}.brand-mixed .mixed-accent{background:linear-gradient(90deg,#8E78C4 0%, #55D9EB 48%, #E8C96A 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
 .index-hero h1{font-size:clamp(34px,4.7vw,50px)}
 .index-hero .line+.line{margin-top:8px}
 
@@ -306,3 +306,18 @@ h3{font-size:clamp(19px,2vw,24px)}
 .page-betascan.betascan-flow-mode > .divider:first-of-type{display:none!important}
 .page-betascan .betascan-shell{min-height:0}
 .page-betascan.betascan-flow-mode .betascan-shell{padding-top:10px}
+
+
+/* v23 betascan compact intro */
+.page-betascan .betascan-intro-card{padding:18px 20px!important;max-width:760px;margin:0 auto}
+.page-betascan .betascan-intro-card .stage-welcome-title{font-size:clamp(20px,2.2vw,24px)!important;margin-bottom:8px;line-height:1.2}
+.page-betascan .betascan-intro-card .copy{font-size:14px;line-height:1.6;margin-bottom:0}
+.page-betascan .betascan-intro-card .intro-points{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:14px}
+.page-betascan .betascan-intro-card .intro-point{padding:10px 12px;border-radius:14px}
+.page-betascan .betascan-intro-card .intro-point strong{font-size:11px;margin-bottom:4px}
+.page-betascan .betascan-intro-card .capture-inline{margin-top:14px}
+.page-betascan .betascan-intro-card .capture-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.page-betascan .betascan-intro-card input{padding:12px 14px;font-size:14px}
+.page-betascan .betascan-intro-card .betascan-floating-actions{margin-top:14px}
+.page-betascan .betascan-intro-card .btn{min-height:44px;padding:0 18px}
+@media (max-width:920px){.page-betascan .betascan-intro-card .intro-points,.page-betascan .betascan-intro-card .capture-grid{grid-template-columns:1fr}}
