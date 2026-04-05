@@ -1640,3 +1640,227 @@ html{scroll-padding-top:80px}
   .index-hero .reveal.visible{animation:none}
   .index-hero > .container{padding:0}
 }
+
+
+/* ===== v42b — fixes hero mobile + slider desktop ===== */
+
+/* ── FIX 1: Hero home mobile — botones visibles sobre la foto ── */
+@media(max-width:760px){
+  /* Botones del hero sobre imagen necesitan colores sólidos legibles */
+  .index-hero .hero-actions .btn-purple,
+  .index-hero .hero-actions a[href*="persona"]{
+    background:rgba(111,90,159,.82)!important;
+    border:1px solid rgba(111,90,159,.6)!important;
+    color:#fff!important;
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+  }
+  .index-hero .hero-actions .btn-cyan,
+  .index-hero .hero-actions a[href*="empresa"]{
+    background:rgba(0,184,212,.82)!important;
+    border:1px solid rgba(0,184,212,.6)!important;
+    color:#fff!important;
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+  }
+  /* Lead text legible sobre la foto */
+  .index-hero .copy.lead{
+    color:rgba(245,240,232,.95)!important;
+    text-shadow:0 1px 8px rgba(0,0,0,.55);
+  }
+  /* H1 sobre la foto */
+  .index-hero h1{
+    text-shadow:0 2px 12px rgba(0,0,0,.4);
+  }
+  /* Más overlay oscuro en el hero para asegurar legibilidad */
+  .home-photo-visual::before{
+    background:linear-gradient(
+      180deg,
+      rgba(6,6,8,.32) 0%,
+      rgba(6,6,8,.55) 40%,
+      rgba(6,6,8,.88) 100%
+    )!important;
+  }
+}
+
+/* ── FIX 2: Case slider desktop — altura dinámica, sin recortes ── */
+
+/* Reemplazar el sistema position:absolute por uno que respeta altura real */
+.case-slider-viewport{
+  position:relative;
+  min-height:0;        /* eliminamos el min-height fijo */
+}
+
+/* El slide inactivo: fuera del flujo con position absolute SOLO cuando hay otro activo */
+.case-slide{
+  position:absolute;
+  inset:0;
+  opacity:0;
+  pointer-events:none;
+  transform:translateX(30px);
+  transition:opacity .3s ease, transform .3s ease;
+  padding:28px;
+  border-radius:28px;
+  border:1px solid rgba(255,255,255,.1);
+  background:linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.018));
+  box-shadow:0 24px 80px rgba(0,0,0,.32);
+  /* altura mínima para que el viewport no colapse */
+  min-height:420px;
+}
+
+/* El slide ACTIVO: vuelve al flujo normal para dar altura real al viewport */
+.case-slide.is-active{
+  position:relative;   /* ← clave: sale del absolute, da su altura al padre */
+  inset:auto;
+  opacity:1;
+  pointer-events:auto;
+  transform:translateX(0);
+  min-height:0;
+}
+
+/* El viewport toma la altura del slide activo */
+.case-slider-viewport{
+  overflow:hidden;
+}
+
+/* Los slides inactivos se superponen absolutamente al viewport para la transición */
+/* Necesitamos un wrapper de posicionamiento */
+.case-slider-inner{
+  position:relative;
+}
+.case-slider-inner .case-slide:not(.is-active){
+  position:absolute;
+  inset:0;
+  min-height:0;
+}
+
+/* Navegación alineada al centro vertical del viewport */
+.case-slider{
+  align-items:start;  /* en vez de center, para que el contenido largo no empuje las flechas */
+}
+.case-slider-nav{
+  position:sticky;
+  top:50%;
+  margin-top:calc(50px);  /* offset para centrar visualmente */
+}
+
+/* Métricas: columnas con altura uniforme */
+.case-metrics-grid{
+  align-items:stretch;
+}
+.case-metrics-grid .metric-box{
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+}
+.case-metrics-grid .metric-box .metric-list{
+  flex:1;
+}
+.case-metrics-grid .metric-box blockquote{
+  flex:1;
+  font-size:15px;
+  line-height:1.6;
+  font-style:italic;
+  color:rgba(245,240,232,.88);
+}
+
+/* ── FIX 3: Mobile arrow hint en el slider de casos ── */
+@media(max-width:768px){
+  /* El case-slider-viewport ya tiene display:block para slide activo */
+  /* Agregar indicador de swipe */
+  .case-slider-footer{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:10px;
+    margin-top:16px;
+  }
+  .case-swipe-hint{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    font-size:12px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:rgba(245,240,232,.45);
+  }
+  .case-swipe-hint svg{
+    width:18px;height:18px;
+    fill:none;
+    stroke:rgba(245,240,232,.45);
+    stroke-width:1.5;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+  }
+}
+@media(min-width:769px){
+  .case-swipe-hint{display:none}
+}
+
+/* ── FIX 4: Authority carousel — arrow hint más visible en mobile ── */
+@media(max-width:760px){
+  /* Fade de peek más pronunciado */
+  .authority-carousel{
+    position:relative;
+  }
+  .authority-carousel::after{
+    content:'';
+    position:absolute;
+    right:0;top:0;bottom:0;
+    width:60px;
+    background:linear-gradient(90deg,transparent,rgba(10,10,10,.85));
+    pointer-events:none;
+    border-radius:0 28px 28px 0;
+    z-index:2;
+  }
+  /* Flecha visual dentro del fade */
+  .authority-carousel::before{
+    content:'›';
+    position:absolute;
+    right:12px;
+    top:50%;
+    transform:translateY(-50%);
+    z-index:3;
+    font-size:28px;
+    color:rgba(245,240,232,.7);
+    pointer-events:none;
+    animation:peekBounce 1.8s ease-in-out infinite;
+  }
+  @keyframes peekBounce{
+    0%,100%{transform:translateY(-50%) translateX(0)}
+    50%{transform:translateY(-50%) translateX(4px)}
+  }
+}
+
+
+/* case-slider-inner: contiene slides con posicionamiento correcto */
+.case-slider-inner{
+  position:relative;
+  /* altura = altura del slide activo (que está en flujo normal) */
+}
+.case-slider-inner .case-slide:not(.is-active){
+  position:absolute;
+  inset:0;
+  min-height:0;
+  height:100%;
+}
+
+/* Mobile: restablecer correctamente con inner wrapper */
+@media(max-width:768px){
+  .case-slider-viewport{min-height:0!important;height:auto!important}
+  .case-slider-inner{position:relative}
+  .case-slide{
+    position:relative!important;
+    inset:auto!important;
+    opacity:1!important;
+    transform:none!important;
+    pointer-events:auto!important;
+    display:none;
+    min-height:0!important;
+  }
+  .case-slide.is-active{display:block!important;position:relative!important}
+  .case-slider-inner .case-slide:not(.is-active){
+    position:absolute!important;
+    display:none!important;
+  }
+}
