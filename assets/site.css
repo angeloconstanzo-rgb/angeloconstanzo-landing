@@ -401,3 +401,65 @@ h3{font-size:clamp(19px,2vw,24px)}
 .page-beta .flow-panel .process-num{box-shadow:0 0 0 8px rgba(201,168,76,.08)}
 @media (max-width:1024px){.page-beta .problem-grid.beta-wow,.page-beta .capability-grid,.page-beta .project-widget .intro-list{grid-template-columns:1fr 1fr}}
 @media (max-width:760px){.page-company .problem-grid,.page-beta .problem-grid.beta-wow,.page-beta .capability-grid,.page-beta .project-widget .intro-list,.page-beta .project-widget .project-cards{grid-template-columns:1fr}.page-beta .flow-panel .process-track::before{display:none}.page-beta .flow-panel .process-step:nth-child(odd),.page-beta .flow-panel .process-step:nth-child(even){transform:none}.page-company .cases-frame{padding:18px}}
+
+
+/* v28 refinements */
+.page-company .stack-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.page-company .stack-chip{min-height:132px;border-color:rgba(115,214,255,.16);background:linear-gradient(180deg,rgba(115,214,255,.08),rgba(255,255,255,.02));box-shadow:0 12px 28px rgba(0,0,0,.14)}
+.page-company .stack-chip strong,.page-company .stack-chip span{display:block}
+.page-company .note-inline{grid-column:1/-1;padding:18px 20px;border-radius:18px;background:rgba(115,214,255,.08);border:1px solid rgba(115,214,255,.16);font-size:16px;line-height:1.55;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.page-company .note-inline span,.page-company .note-inline strong,.page-company .note-inline em{font-size:inherit}
+.page-company .note-inline em{font-style:normal;color:rgba(245,240,232,.74)}
+.page-company .system-step .system-orb{width:42px;height:42px;border-radius:999px;display:grid;place-items:center;font-weight:800;font-size:15px}
+.page-company .system-step.purple .system-orb{background:rgba(145,110,255,.18);border:1px solid rgba(145,110,255,.35);color:#c7b6ff}
+.page-company .system-step.cyan .system-orb{background:rgba(115,214,255,.16);border:1px solid rgba(115,214,255,.34);color:#8de5ff}
+.page-company .system-step.gold .system-orb{background:rgba(226,194,111,.16);border:1px solid rgba(226,194,111,.34);color:#f2d382}
+.page-company .cases-frame{padding:28px;border-radius:28px;background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.015));border:1px solid rgba(115,214,255,.12)}
+.page-company .cases-frame-header{margin-bottom:18px}
+.page-company .cases-intro{max-width:760px;color:rgba(245,240,232,.72)}
+.page-company .case-columns{align-items:start}
+.page-company .case-card{height:auto;display:flex;flex-direction:column;gap:16px}
+.page-company .case-head{display:grid;gap:10px}
+.page-company .case-tone{height:4px;border-radius:999px;width:84px;display:block}
+.page-company .case-tone.case-purple{background:linear-gradient(90deg,#9068ff,#b79cff)}
+.page-company .case-tone.case-blue{background:linear-gradient(90deg,#3fd7ff,#7ee6ff)}
+.page-company .case-tone.case-gold{background:linear-gradient(90deg,#dfbe69,#f0d592)}
+.page-company .case-red{background:linear-gradient(90deg,#9068ff,#b79cff)!important}
+.page-company .metrics-columns{display:grid;grid-template-columns:1fr;gap:12px}
+.page-company .metric-box{min-height:unset}
+.page-company .company-interest-grid{margin-top:10px}
+.page-company .company-interest-card{border-color:rgba(115,214,255,.14)}
+.page-company .company-interest-card .btn-outline{border-color:rgba(115,214,255,.22);color:#8de5ff}
+
+.page-beta .beta-identity-shell{display:grid;grid-template-columns:1.2fr .8fr;gap:18px;align-items:stretch}
+.page-beta .identity-main-card{padding:28px;border-radius:28px;border:1px solid rgba(226,194,111,.22);background:linear-gradient(180deg,rgba(226,194,111,.12),rgba(255,255,255,.02));box-shadow:0 16px 40px rgba(0,0,0,.16)}
+.page-beta .identity-main-card h2{font-size:36px;line-height:1.08;margin:8px 0 12px}
+.page-beta .identity-badge{display:inline-flex;padding:8px 12px;border-radius:999px;background:rgba(226,194,111,.14);border:1px solid rgba(226,194,111,.28);color:#e2c26f;font-weight:700;font-size:13px}
+.page-beta .identity-side{display:grid;grid-template-rows:1fr 1fr;gap:18px}
+.page-beta .identity-side-card{display:grid;align-content:start;gap:10px}
+.page-beta .project-widget .project-top{display:grid;gap:12px}
+.page-beta .project-widget .project-top h3{margin:0}
+.page-beta .flow-panel .journey-path{display:grid;grid-template-columns:repeat(6,minmax(120px,1fr));gap:14px;align-items:end;position:relative;padding-top:20px}
+.page-beta .flow-panel .journey-path::before{content:"";position:absolute;left:3%;right:3%;top:42px;height:2px;background:linear-gradient(90deg,rgba(226,194,111,.12),rgba(226,194,111,.45),rgba(226,194,111,.12));}
+.page-beta .flow-panel .journey-path .process-step{position:relative;z-index:1;min-height:150px;padding:18px 16px;border-radius:24px;background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.015));border:1px solid rgba(226,194,111,.14);display:grid;gap:8px;align-content:start}
+.page-beta .flow-panel .journey-path .process-step:nth-child(1){transform:translateY(22px) scale(.92)}
+.page-beta .flow-panel .journey-path .process-step:nth-child(2){transform:translateY(14px) scale(.95)}
+.page-beta .flow-panel .journey-path .process-step:nth-child(3){transform:translateY(8px) scale(.98)}
+.page-beta .flow-panel .journey-path .process-step:nth-child(4){transform:translateY(0) scale(1)}
+.page-beta .flow-panel .journey-path .process-step:nth-child(5){transform:translateY(-8px) scale(1.02)}
+.page-beta .flow-panel .journey-path .process-step:nth-child(6){transform:translateY(-16px) scale(1.04);background:linear-gradient(180deg,rgba(226,194,111,.16),rgba(255,255,255,.03));box-shadow:0 18px 38px rgba(0,0,0,.18)}
+.page-beta .flow-panel .journey-path .process-num{background:rgba(226,194,111,.16);border:1px solid rgba(226,194,111,.34)}
+@media (max-width:1024px){
+  .page-company .stack-grid{grid-template-columns:1fr 1fr}
+  .page-beta .beta-identity-shell{grid-template-columns:1fr}
+  .page-beta .identity-side{grid-template-columns:1fr 1fr;grid-template-rows:none}
+  .page-beta .flow-panel .journey-path{grid-template-columns:repeat(3,1fr)}
+  .page-beta .flow-panel .journey-path::before{display:none}
+}
+@media (max-width:760px){
+  .page-company .stack-grid{grid-template-columns:1fr}
+  .page-beta .identity-side{grid-template-columns:1fr}
+  .page-beta .flow-panel .journey-path{grid-template-columns:1fr}
+  .page-beta .flow-panel .journey-path .process-step{transform:none !important}
+  .page-beta .identity-main-card h2{font-size:30px}
+}
