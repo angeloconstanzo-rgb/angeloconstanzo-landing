@@ -133,3 +133,23 @@ document.querySelectorAll('.case-dialog-close').forEach(btn=>{
     if(dlg) dlg.close();
   });
 });
+
+
+/* Company case slider */
+document.querySelectorAll('[data-case-slider]').forEach(slider=>{
+  const slides = Array.from(slider.querySelectorAll('[data-slide]'));
+  const dotsWrap = slider.parentElement.querySelector('[data-case-dots]');
+  const dots = dotsWrap ? Array.from(dotsWrap.querySelectorAll('button')) : [];
+  const prev = slider.querySelector('.case-slider-nav.prev');
+  const next = slider.querySelector('.case-slider-nav.next');
+  if(!slides.length) return;
+  let current = 0;
+  const render = ()=>{
+    slides.forEach((s,i)=>s.classList.toggle('is-active', i===current));
+    dots.forEach((d,i)=>d.classList.toggle('is-active', i===current));
+  };
+  prev && prev.addEventListener('click', ()=>{ current = (current-1+slides.length)%slides.length; render(); });
+  next && next.addEventListener('click', ()=>{ current = (current+1)%slides.length; render(); });
+  dots.forEach((d,i)=>d.addEventListener('click', ()=>{ current=i; render(); }));
+  render();
+});

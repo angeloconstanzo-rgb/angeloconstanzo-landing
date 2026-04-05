@@ -1276,3 +1276,174 @@ dialog.case-dialog{
     padding: 22px;
   }
 }
+
+
+/* ===== v41 targeted fixes ===== */
+
+/* Company hero image clarity */
+.company-hero-note img.hero-blur-photo{
+  opacity: .52 !important;
+  filter: blur(1.6px) saturate(1.05) brightness(.92);
+  object-position: center 28%;
+}
+.company-hero-note-inner{
+  background: linear-gradient(180deg, rgba(4,8,12,.26), rgba(4,8,12,.58)) !important;
+  border-color: rgba(255,255,255,.14) !important;
+}
+
+/* Company case slider */
+.company-cases-slider-shell{
+  padding: 34px;
+}
+.case-slider{
+  display:grid;
+  grid-template-columns: 52px 1fr 52px;
+  gap: 18px;
+  align-items:center;
+  margin-top: 18px;
+}
+.case-slider-nav{
+  width: 52px;
+  height: 52px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.04);
+  color: var(--white);
+  font-size: 32px;
+  line-height: 1;
+  display:grid;
+  place-items:center;
+  cursor:pointer;
+  transition: transform .18s ease, background .18s ease, border-color .18s ease;
+}
+.case-slider-nav:hover{
+  transform: translateY(-1px);
+  background: rgba(255,255,255,.07);
+  border-color: rgba(255,255,255,.22);
+}
+.case-slider-viewport{
+  position:relative;
+  min-height: 430px;
+}
+.case-slide{
+  position:absolute;
+  inset:0;
+  opacity:0;
+  pointer-events:none;
+  transform: translateX(30px);
+  transition: opacity .3s ease, transform .3s ease;
+  padding: 28px;
+  border-radius: 28px;
+  border: 1px solid rgba(255,255,255,.1);
+  background: linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.018));
+  box-shadow: 0 24px 80px rgba(0,0,0,.32);
+}
+.case-slide.is-active{
+  opacity:1;
+  pointer-events:auto;
+  transform: translateX(0);
+}
+.case-slide.purple{ box-shadow: 0 24px 80px rgba(111,90,159,.14); }
+.case-slide.cyan{ box-shadow: 0 24px 80px rgba(0,184,212,.16); }
+.case-slide.gold{ box-shadow: 0 24px 80px rgba(201,168,76,.14); }
+.case-slide-head{ display:grid; gap:10px; margin-bottom: 16px; }
+.case-slide-head h3{ font-size: clamp(28px, 3vw, 38px); line-height: 1.02; max-width: 16ch; margin: 0; }
+.case-slide-body{
+  display:grid;
+  grid-template-columns: .82fr 1.18fr;
+  gap: 22px;
+  align-items:start;
+}
+.case-story-col .copy{ font-size: 17px; max-width: 34ch; }
+.case-metrics-grid{
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 14px;
+}
+.case-metrics-grid .metric-box{
+  min-height: 100%;
+  padding: 18px;
+  border-radius: 20px;
+  background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+  border: 1px solid rgba(255,255,255,.1);
+}
+.case-slider-footer{
+  display:flex;
+  justify-content:center;
+  margin-top: 20px;
+}
+.case-slider-dots{
+  display:flex;
+  gap:10px;
+}
+.case-slider-dots button{
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  border: none;
+  padding:0;
+  background: rgba(255,255,255,.2);
+  cursor:pointer;
+}
+.case-slider-dots button.is-active{ background: var(--cyan); }
+
+/* hide old dialogs if any remain */
+.case-dialog{ display:none !important; }
+
+/* Betagym hero image height to CTA level */
+.page-beta .beta-hero-grid{
+  align-items:start !important;
+}
+.page-beta .beta-hero-visual{
+  min-height: 0 !important;
+  height: 410px !important;
+  max-height: 410px !important;
+  align-self:start;
+}
+.page-beta .beta-hero-visual img{
+  height: 100% !important;
+  min-height: 0 !important;
+  object-fit: cover;
+  object-position: center 42%;
+}
+@media (max-width: 1024px){
+  .case-slider{
+    grid-template-columns: 44px 1fr 44px;
+  }
+  .case-slider-nav{
+    width:44px;height:44px;font-size:28px;
+  }
+  .case-slide{
+    padding: 22px;
+  }
+  .case-slide-body{
+    grid-template-columns: 1fr;
+  }
+  .case-metrics-grid{
+    grid-template-columns: 1fr;
+  }
+  .case-slider-viewport{
+    min-height: 760px;
+  }
+}
+@media (max-width: 768px){
+  .company-cases-slider-shell{
+    padding: 22px;
+  }
+  .case-slider{
+    grid-template-columns: 1fr;
+  }
+  .case-slider-nav{
+    display:none;
+  }
+  .case-slide-head h3{
+    max-width: none;
+  }
+  .case-slider-viewport{
+    min-height: 820px;
+  }
+  .page-beta .beta-hero-visual{
+    height: 320px !important;
+    max-height: 320px !important;
+  }
+}
