@@ -333,3 +333,18 @@ h3{font-size:clamp(19px,2vw,24px)}
 .beta-identity-grid{grid-template-columns:repeat(3,1fr)}.project-widget{padding:24px;border-radius:24px;border:1px solid rgba(201,168,76,.26);background:linear-gradient(180deg,rgba(201,168,76,.12),rgba(255,255,255,.02));box-shadow:var(--shadow)}.project-badge{display:inline-flex;padding:7px 12px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-light)}.project-top h3{margin:12px 0 16px}.project-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.mini-widget{padding:16px;border-radius:16px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.04);display:grid;gap:6px}.mini-widget strong{font-size:14px}.mini-widget span{color:rgba(245,240,232,.68);line-height:1.5}.cards-4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.capability-tile{padding:18px;border-radius:18px;border:1px solid rgba(201,168,76,.22);background:rgba(255,255,255,.03);display:flex;align-items:center;justify-content:center;text-align:center;min-height:96px;font-weight:700;line-height:1.35}.flow-panel{padding:30px;border-radius:28px;border:1px solid rgba(201,168,76,.22);background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.015));box-shadow:var(--shadow)}.process-track{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin-top:22px}.process-step{padding:18px 16px;border-radius:18px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);display:grid;gap:8px}.process-step strong{font-size:14px;line-height:1.4}.process-step span{color:rgba(245,240,232,.66);font-size:13px;line-height:1.5}.process-num{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:rgba(201,168,76,.16);border:1px solid rgba(201,168,76,.34);color:var(--gold-light);font-weight:700}
 @media (max-width:1024px){.system-steps,.case-columns,.problem-grid,.beta-identity-grid,.cards-4,.process-track,.project-cards{grid-template-columns:1fr 1fr}.metrics-columns{grid-template-columns:1fr}}
 @media (max-width:760px){.system-steps,.case-columns,.problem-grid,.beta-identity-grid,.cards-4,.process-track,.project-cards{grid-template-columns:1fr}.system-panel,.flow-panel,.project-widget{padding:22px}.case-card{padding:18px}.case-head h3{font-size:20px}}
+
+/* v25 empresa widgets */
+.stack-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.stack-chip{padding:14px;border-radius:16px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03)}
+.note-inline{grid-column:1/-1;margin-top:8px}
+.system-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px}
+.system-step{padding:16px;border-radius:16px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03)}
+.case-columns{grid-template-columns:repeat(3,1fr)}
+.metrics-columns{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.metric-box{padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03)}
+.company-interest-grid{grid-template-columns:repeat(3,1fr)}
+.company-expand{display:none}
+.company-expand.open{display:block}
+.company-toggle.active+ .company-expand{display:block}
+@media(max-width:900px){.case-columns,.metrics-columns,.system-steps,.company-interest-grid,.stack-grid{grid-template-columns:1fr}}
