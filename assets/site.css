@@ -298,3 +298,11 @@ h3{font-size:clamp(19px,2vw,24px)}
 .page-betascan .betascan-shell.flow-open .betascan-stage:not(.active){display:none!important}
 .page-betascan:not(.betascan-flow-mode) #stageQuestion,.page-betascan:not(.betascan-flow-mode) #stageResult{display:none!important}
 .page-betascan .stage-welcome-title{font-size:clamp(24px,2.6vw,30px);margin-bottom:12px}
+
+
+/* v22 fixes */
+.index-hero .reveal{opacity:1!important;transform:none!important}
+.page-betascan.betascan-flow-mode > header.brand-beta,
+.page-betascan.betascan-flow-mode > .divider:first-of-type{display:none!important}
+.page-betascan .betascan-shell{min-height:0}
+.page-betascan.betascan-flow-mode .betascan-shell{padding-top:10px}

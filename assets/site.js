@@ -82,16 +82,17 @@ document.querySelectorAll('[data-carousel]').forEach(carousel=>{
       document.body.classList.add('betascan-flow-mode');
       betascanShell.classList.add('flow-open');
       document.querySelectorAll('#betascanShell .betascan-stage').forEach(el=>el.classList.remove('active'));
-      const intro=document.getElementById('stageIntro'); if(intro) intro.classList.add('active');
+      const intro=document.getElementById('stageIntro');
+      if(intro) intro.classList.add('active');
       history.replaceState(null,'',location.pathname+'#diagnostico');
-      window.scrollTo({top:0,behavior:'auto'});
+      requestAnimationFrame(()=>window.scrollTo({top:0,behavior:'auto'}));
     };
-    launchIntroBtn.addEventListener('click',openFlow);
+    launchIntroBtn.addEventListener('click',e=>{e.preventDefault(); openFlow();});
     backToHeroBtn?.addEventListener('click',()=>{
       document.body.classList.remove('betascan-flow-mode');
       betascanShell.classList.remove('flow-open');
       history.replaceState(null,'',location.pathname);
-      window.scrollTo({top:0,behavior:'auto'});
+      requestAnimationFrame(()=>window.scrollTo({top:0,behavior:'auto'}));
     });
     if(location.hash==='#diagnostico'){ openFlow(); }
   }
