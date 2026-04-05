@@ -890,3 +890,12 @@ h3{font-size:clamp(19px,2vw,24px)}
   .page-company .case-dialog .metrics-columns.three-col,.page-beta .goal-list,.page-beta .benefit-list,.page-beta .journey-ladder.uniform{grid-template-columns:1fr}
   .page-beta .beta-hero-visual{min-height:320px}
 }
+
+/* v38 final touch-ups */
+.page-beta .beta-hero-visual{max-height:360px}
+.page-beta .beta-hero-grid > div:first-child{max-width:720px}
+.page-company .case-dialog-card .metrics-columns.three-col{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.page-company .case-dialog-card .metric-box{display:flex;flex-direction:column;gap:8px;min-height:220px}
+.page-company .case-dialog-card .metric-title{min-height:28px}
+.page-company .case-dialog-card blockquote{font-size:14px}
+.home-photo-visual img{object-position:center center}
