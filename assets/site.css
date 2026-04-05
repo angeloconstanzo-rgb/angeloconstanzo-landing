@@ -1447,3 +1447,196 @@ dialog.case-dialog{
     max-height: 320px !important;
   }
 }
+
+
+/* ===== v42 mobile UX overhaul ===== */
+
+/* ── 1. HAMBURGER NAV ── */
+.nav-hamburger{display:none;width:44px;height:44px;border:none;background:none;cursor:pointer;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:0;border-radius:10px;transition:background .18s}
+.nav-hamburger:hover{background:rgba(255,255,255,.06)}
+.nav-hamburger span{display:block;width:22px;height:2px;border-radius:999px;background:var(--white);transition:transform .28s cubic-bezier(.16,1,.3,1),opacity .18s ease}
+.nav-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.nav-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+.nav-drawer{position:fixed;inset:0;z-index:58;pointer-events:none}
+.nav-drawer-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.58);opacity:0;transition:opacity .28s ease;backdrop-filter:blur(4px)}
+.nav-drawer-panel{position:absolute;top:0;right:0;width:min(280px,80vw);height:100%;background:rgba(12,12,14,.97);border-left:1px solid var(--line);padding:88px 28px 36px;display:flex;flex-direction:column;gap:6px;transform:translateX(100%);transition:transform .32s cubic-bezier(.16,1,.3,1)}
+.nav-drawer.open{pointer-events:auto}
+.nav-drawer.open .nav-drawer-backdrop{opacity:1}
+.nav-drawer.open .nav-drawer-panel{transform:translateX(0)}
+.nav-drawer-panel a{display:flex;align-items:center;min-height:52px;padding:0 16px;border-radius:14px;font-size:16px;font-weight:700;letter-spacing:.04em;color:rgba(245,240,232,.75);transition:color .18s,background .18s}
+.nav-drawer-panel a:hover,.nav-drawer-panel a.active{color:var(--white);background:rgba(255,255,255,.06)}
+.nav-drawer-panel a.active{color:var(--gold-light)}
+.nav-drawer-cta{margin-top:auto;padding-top:20px;border-top:1px solid var(--line)}
+.nav-drawer-cta .btn{width:100%;justify-content:center;min-height:52px;font-size:14px}
+
+/* ── 2. NAV MOBILE LAYOUT ── */
+@media(max-width:760px){
+  .nav-inner{grid-template-columns:1fr auto;min-height:64px;padding:0}
+  .nav-links{display:none}
+  .nav > .container > a.btn{display:none}
+  .nav-hamburger{display:flex}
+}
+
+/* ── 3. HERO MOBILE: foto como background ── */
+@media(max-width:760px){
+  .hero-grid{position:relative;grid-template-columns:1fr;min-height:92vw;max-height:520px;overflow:hidden;border-radius:24px;padding:32px 24px 28px}
+  .hero-grid .hero-visual.home-photo-visual,
+  .home-photo-visual{position:absolute!important;inset:0!important;min-height:0!important;border-radius:24px!important;z-index:0}
+  .home-photo-visual::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,8,10,.28) 0%,rgba(8,8,10,.62) 55%,rgba(8,8,10,.86) 100%);z-index:1;pointer-events:none}
+  .home-photo-visual .visual-copy{display:none}
+  .hero-grid > div:first-child{position:relative;z-index:2;display:flex;flex-direction:column;gap:0}
+  .hero-grid h1{font-size:30px!important;line-height:1.08}
+  .hero-actions{flex-direction:column;gap:10px;margin-top:20px}
+  .hero-actions .btn{width:100%;min-height:50px;font-size:13px}
+  .copy.lead{font-size:14px!important;line-height:1.65}
+}
+
+/* ── 4. SECTION PADDING REDUCIDO EN MOBILE ── */
+@media(max-width:760px){
+  header,section{padding:36px 0}
+  .index-hero{padding:0!important}
+}
+
+/* ── 5. STATS GRID 2 COLUMNAS EN MOBILE ── */
+@media(max-width:760px){
+  .stats-grid{grid-template-columns:1fr 1fr;gap:12px}
+  .stats-grid .stat:last-child{grid-column:1/-1}
+  .stat-number{font-size:clamp(26px,8vw,40px)}
+  .stat-label{font-size:12px}
+}
+
+/* ── 6. AUTHORITY CAROUSEL DOTS EN MOBILE ── */
+.carousel-dots{display:none;gap:8px;justify-content:center;margin-top:14px}
+.carousel-dot{width:8px;height:8px;border-radius:50%;border:none;padding:0;cursor:pointer;background:rgba(255,255,255,.22);transition:background .18s,transform .18s}
+.carousel-dot.active{background:var(--gold);transform:scale(1.25)}
+@media(max-width:760px){
+  .carousel-dots{display:flex}
+  .carousel-controls{display:none}
+  .authority-track{gap:12px}
+  .authority-slide{min-width:88vw}
+}
+
+/* ── 7. BETASCAN CASE SLIDER: altura dinámica ── */
+@media(max-width:768px){
+  .case-slider-viewport{min-height:0!important;height:auto!important;position:relative}
+  .case-slide{position:relative!important;inset:auto!important;opacity:1!important;transform:none!important;pointer-events:auto!important;display:none}
+  .case-slide.is-active{display:block}
+  .case-slider{grid-template-columns:1fr;gap:0}
+  .case-slider-nav{display:none}
+  .case-slide-body{grid-template-columns:1fr;gap:16px}
+  .case-metrics-grid{grid-template-columns:1fr 1fr;gap:10px}
+  .case-slide-head h3{font-size:clamp(22px,6vw,30px);max-width:none}
+}
+@media(max-width:480px){
+  .case-metrics-grid{grid-template-columns:1fr}
+}
+
+/* ── 8. BETASCAN INTRO-POINTS BREAKPOINT INTERMEDIO ── */
+@media(max-width:920px) and (min-width:541px){
+  .betascan-intro-card .intro-points,
+  .page-betascan .betascan-intro-card .intro-points{grid-template-columns:1fr 1fr!important}
+}
+@media(max-width:540px){
+  .betascan-intro-card .intro-points,
+  .page-betascan .betascan-intro-card .intro-points{grid-template-columns:1fr!important}
+}
+
+/* ── 9. BODY COPY 15px EN MOBILE ── */
+@media(max-width:760px){
+  .copy{font-size:15px;line-height:1.72}
+  .copy p{margin-bottom:12px}
+}
+
+/* ── 10. BOTÓN WHATSAPP FLOTANTE EN MOBILE ── */
+.wa-fab{display:none}
+@media(max-width:760px){
+  .wa-fab{display:flex;align-items:center;gap:10px;position:fixed;bottom:22px;right:18px;z-index:999;background:var(--gold);color:#0A0A0A;border-radius:999px;padding:0 18px 0 14px;min-height:50px;font-size:13px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;box-shadow:0 8px 28px rgba(201,168,76,.38);transition:transform .2s cubic-bezier(.16,1,.3,1),box-shadow .2s ease;text-decoration:none;border:none;cursor:pointer;white-space:nowrap}
+  .wa-fab:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(201,168,76,.48)}
+  .wa-fab svg{width:20px;height:20px;fill:#0A0A0A;flex-shrink:0}
+  .wa-fab.hidden{opacity:0;pointer-events:none;transform:translateY(10px)}
+  body{padding-bottom:80px}
+}
+
+/* ── 11. FOOTER SIMPLIFICADO EN MOBILE ── */
+@media(max-width:760px){
+  .footer-grid{grid-template-columns:1fr}
+  .footer-grid > div:nth-child(2){display:none}
+  .footer-cta{background:none;border:none;padding:0}
+  .footer-cta p{display:none}
+  .footer-bottom{flex-direction:column;align-items:flex-start;gap:12px}
+  .footer-bottom .footer-socials .social-link span{display:inline}
+  .footer-socials{flex-wrap:wrap;gap:8px}
+}
+
+/* ── 12. TARGETS TÁCTILES MÍNIMO 44px ── */
+@media(max-width:760px){
+  .btn{min-height:50px;padding:0 20px}
+  a,button{-webkit-tap-highlight-color:rgba(201,168,76,.18)}
+  .social-link{min-height:50px;min-width:50px}
+  .accordion-card summary{min-height:52px}
+  .option-btn{padding:20px 18px}
+  .company-toggle{min-height:50px}
+}
+
+/* ── 13. PROFILE IMAGE EN MOBILE (acerca-de) ── */
+@media(max-width:760px){
+  .profile-wrap{margin-top:6px;border-radius:20px}
+  .profile-wrap img{aspect-ratio:3/2;object-position:center 15%}
+}
+
+/* ── 14. BETAGYM HERO ── */
+@media(max-width:760px){
+  .page-beta .beta-hero-grid{grid-template-columns:1fr}
+  .page-beta .beta-hero-visual{height:240px!important;max-height:240px!important;min-height:0!important;border-radius:20px;overflow:hidden}
+}
+
+/* ── 15. BETASCAN CAPTURE GRID 1 COLUMNA SIEMPRE EN MOBILE ── */
+@media(max-width:760px){
+  .capture-grid,.interest-grid,.capture-inline .capture-grid{grid-template-columns:1fr!important}
+  .betascan-result-grid{grid-template-columns:1fr!important}
+}
+
+/* ── 16. MODALES PANTALLA COMPLETA EN MOBILE ── */
+@media(max-width:760px){
+  .modal-panel{width:100%!important;margin:auto 0 0!important;border-radius:24px 24px 0 0;max-height:90vh;overflow:auto;padding:24px 20px 36px}
+  .modal-backdrop{align-items:flex-end;display:flex}
+}
+
+/* ── 17. SWIPE HINT CAROUSEL ── */
+@media(max-width:760px){
+  .authority-track{padding-right:40px}
+  .authority-carousel::after{content:'';position:absolute;right:0;top:0;bottom:0;width:48px;background:linear-gradient(90deg,transparent,rgba(10,10,10,.7));pointer-events:none;border-radius:0 28px 28px 0}
+}
+
+/* ── 18. COMPANY/PERSONA HERO MOBILE ── */
+@media(max-width:760px){
+  .company-hero-grid,.beta-hero-grid{grid-template-columns:1fr}
+  .company-hero-note{min-height:220px}
+  .company-hero-overlay,.beta-hero-overlay{padding:14px 16px}
+  .company-hero-overlay strong,.beta-hero-overlay strong{font-size:18px}
+}
+
+/* ── SCROLL PADDING ACCOUNT FOR STICKY NAV ── */
+html{scroll-padding-top:80px}
+
+
+/* ── Touch action hints ── */
+@media(max-width:760px){
+  .case-slider-viewport{touch-action:pan-y;-webkit-user-select:none;user-select:none}
+  .authority-track{touch-action:pan-x;-webkit-overflow-scrolling:touch}
+  .betascan-question-card .options{touch-action:pan-y}
+}
+
+/* ── Reduce nav padding on very small screens ── */
+@media(max-width:380px){
+  .container{width:calc(100% - 20px)}
+  .brand-name{font-size:18px}
+}
+
+/* ── Ensure hero-grid index does not clip on mobile ── */
+@media(max-width:760px){
+  .index-hero .reveal.visible{animation:none}
+  .index-hero > .container{padding:0}
+}
