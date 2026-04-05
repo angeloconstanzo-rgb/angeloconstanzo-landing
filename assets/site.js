@@ -117,3 +117,19 @@ document.querySelectorAll('[data-carousel]').forEach(carousel=>{
     dlg.addEventListener('click',e=>{ const rect=dlg.getBoundingClientRect(); const inside=e.clientX>=rect.left&&e.clientX<=rect.right&&e.clientY>=rect.top&&e.clientY<=rect.bottom; if(!inside) dlg.close(); });
   });
 })();
+
+/* FIX dialogs */
+document.querySelectorAll('dialog.case-dialog').forEach(dlg=>{
+  dlg.addEventListener('click',e=>{
+    const rect = dlg.getBoundingClientRect();
+    const inside = (e.clientX >= rect.left && e.clientX <= rect.right &&
+                    e.clientY >= rect.top && e.clientY <= rect.bottom);
+    if(!inside) dlg.close();
+  });
+});
+document.querySelectorAll('.case-dialog-close').forEach(btn=>{
+  btn.addEventListener('click', e=>{
+    const dlg = btn.closest('dialog');
+    if(dlg) dlg.close();
+  });
+});
