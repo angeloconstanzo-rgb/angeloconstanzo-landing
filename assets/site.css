@@ -348,3 +348,56 @@ h3{font-size:clamp(19px,2vw,24px)}
 .company-expand.open{display:block}
 .company-toggle.active+ .company-expand{display:block}
 @media(max-width:900px){.case-columns,.metrics-columns,.system-steps,.company-interest-grid,.stack-grid{grid-template-columns:1fr}}
+
+
+/* v27 refinements */
+.page-company .problem-grid{grid-template-columns:repeat(4,1fr);align-items:stretch}
+.page-company .problem-chip{min-height:138px;border-color:rgba(102,220,235,.22);background:linear-gradient(180deg,rgba(102,220,235,.10),rgba(255,255,255,.02));box-shadow:0 18px 38px rgba(0,0,0,.18), inset 0 1px 0 rgba(255,255,255,.05)}
+.page-company .problem-chip strong{font-size:17px;line-height:1.25}
+.page-company .problem-chip span{font-size:14px}
+.page-company .system-step{position:relative;overflow:hidden;min-height:188px}
+.page-company .system-step::after{content:"";position:absolute;inset:auto -30% -48% auto;width:160px;height:160px;border-radius:50%;filter:blur(0);opacity:.14}
+.page-company .system-step.purple{border-color:rgba(142,120,196,.35);background:linear-gradient(180deg,rgba(142,120,196,.18),rgba(255,255,255,.03))}
+.page-company .system-step.purple .card-icon{background:rgba(142,120,196,.18);border:1px solid rgba(142,120,196,.34);color:#cabcf0}
+.page-company .system-step.purple::after{background:radial-gradient(circle,#8E78C4 0%,rgba(142,120,196,0) 68%)}
+.page-company .system-step.cyan{border-color:rgba(102,220,235,.35);background:linear-gradient(180deg,rgba(102,220,235,.16),rgba(255,255,255,.03))}
+.page-company .system-step.cyan .card-icon{background:rgba(102,220,235,.18);border:1px solid rgba(102,220,235,.34);color:#c8f6ff}
+.page-company .system-step.cyan::after{background:radial-gradient(circle,#66dceb 0%,rgba(102,220,235,0) 68%)}
+.page-company .system-step.gold{border-color:rgba(226,194,111,.35);background:linear-gradient(180deg,rgba(226,194,111,.16),rgba(255,255,255,.03))}
+.page-company .system-step.gold .card-icon{background:rgba(226,194,111,.18);border:1px solid rgba(226,194,111,.34);color:#f1dfab}
+.page-company .system-step.gold::after{background:radial-gradient(circle,#e2c26f 0%,rgba(226,194,111,0) 68%)}
+.page-company .cases-frame{padding:24px;border-radius:30px;border:1px solid rgba(102,220,235,.20);background:linear-gradient(180deg,rgba(102,220,235,.06),rgba(255,255,255,.02));box-shadow:var(--shadow)}
+.page-company .cases-frame-header{display:grid;gap:8px;margin-bottom:18px}
+.page-company .cases-frame-header .eyebrow{margin-bottom:0}
+.page-company .case-card.purple{border-color:rgba(142,120,196,.28);background:linear-gradient(180deg,rgba(142,120,196,.12),rgba(255,255,255,.02))}
+.page-company .case-card.cyan{border-color:rgba(102,220,235,.28);background:linear-gradient(180deg,rgba(102,220,235,.12),rgba(255,255,255,.02))}
+.page-company .case-card.gold{border-color:rgba(226,194,111,.28);background:linear-gradient(180deg,rgba(226,194,111,.12),rgba(255,255,255,.02))}
+.page-company .case-card .metric-box{min-height:100%}
+.page-company .case-card .metric-box:nth-child(1){background:rgba(255,255,255,.035)}
+.page-company .case-card .metric-box:nth-child(2){background:rgba(255,255,255,.028)}
+.page-company .case-card .metric-box:nth-child(3){background:rgba(255,255,255,.022)}
+.page-company .case-card.purple .pill{border-color:rgba(142,120,196,.26);background:rgba(142,120,196,.12)}
+.page-company .case-card.cyan .pill{border-color:rgba(102,220,235,.26);background:rgba(102,220,235,.12)}
+.page-company .case-card.gold .pill{border-color:rgba(226,194,111,.26);background:rgba(226,194,111,.12)}
+.page-company .system-bridge{margin-top:20px;padding:16px 18px;border-radius:18px;border:1px solid rgba(102,220,235,.22);background:linear-gradient(90deg,rgba(142,120,196,.10),rgba(102,220,235,.08),rgba(226,194,111,.10))}
+.page-company .system-bridge strong{font-size:16px;color:#fff}
+.page-beta .problem-grid.beta-wow{grid-template-columns:repeat(4,1fr)}
+.page-beta .problem-grid.beta-wow .problem-chip{position:relative;overflow:hidden;min-height:150px;border-color:rgba(226,194,111,.22);background:linear-gradient(180deg,rgba(226,194,111,.12),rgba(255,255,255,.02));box-shadow:0 14px 34px rgba(0,0,0,.16)}
+.page-beta .problem-grid.beta-wow .problem-chip::after{content:"";position:absolute;right:-26px;top:-26px;width:86px;height:86px;border-radius:50%;background:radial-gradient(circle,rgba(226,194,111,.26),rgba(226,194,111,0) 72%);animation:floatGlow 4.8s ease-in-out infinite}
+.page-beta .problem-grid.beta-wow .chip-icon{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;background:rgba(255,255,255,.06);border:1px solid rgba(226,194,111,.24);font-size:20px}
+@keyframes floatGlow{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+.page-beta .beta-identity-grid .card{min-height:218px}
+.page-beta .project-widget .project-cards{grid-template-columns:repeat(3,1fr)}
+.page-beta .project-widget .intro-list{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:14px 0 16px}
+.page-beta .project-widget .intro-list .mini-widget{background:rgba(255,255,255,.05)}
+.page-beta .capability-grid{grid-template-columns:repeat(4,1fr)}
+.page-beta .capability-tile{gap:8px;display:grid;align-content:center;justify-items:center;padding:16px 12px;min-height:108px}
+.page-beta .capability-tile .cap-icon{font-size:22px;line-height:1}
+.page-beta .flow-panel .process-track{position:relative;grid-template-columns:repeat(6,1fr)}
+.page-beta .flow-panel .process-track::before{content:"";position:absolute;left:32px;right:32px;top:34px;height:2px;background:linear-gradient(90deg,rgba(226,194,111,.18),rgba(226,194,111,.55),rgba(226,194,111,.18));z-index:0}
+.page-beta .flow-panel .process-step{position:relative;z-index:1;min-height:164px}
+.page-beta .flow-panel .process-step:nth-child(odd){transform:translateY(-4px)}
+.page-beta .flow-panel .process-step:nth-child(even){transform:translateY(8px)}
+.page-beta .flow-panel .process-num{box-shadow:0 0 0 8px rgba(201,168,76,.08)}
+@media (max-width:1024px){.page-beta .problem-grid.beta-wow,.page-beta .capability-grid,.page-beta .project-widget .intro-list{grid-template-columns:1fr 1fr}}
+@media (max-width:760px){.page-company .problem-grid,.page-beta .problem-grid.beta-wow,.page-beta .capability-grid,.page-beta .project-widget .intro-list,.page-beta .project-widget .project-cards{grid-template-columns:1fr}.page-beta .flow-panel .process-track::before{display:none}.page-beta .flow-panel .process-step:nth-child(odd),.page-beta .flow-panel .process-step:nth-child(even){transform:none}.page-company .cases-frame{padding:18px}}
