@@ -1864,3 +1864,68 @@ html{scroll-padding-top:80px}
     display:none!important;
   }
 }
+
+
+/* ===== v42c — botones hero desktop + foto no cortada ===== */
+
+/* ── Botones hero: restaurar colores purple/cyan en desktop ──
+   .page-home sobreescribe .btn-gold y .btn-outline con !important
+   pero no toca btn-purple ni btn-cyan — el problema viene de que
+   el CSS base los define con muy poca opacidad (.14). Los hacemos
+   más sólidos y visibles en el contexto del hero.                  */
+.index-hero .hero-actions .btn-purple {
+  background: rgba(111, 90, 159, .72) !important;
+  border-color: rgba(111, 90, 159, .55) !important;
+  color: #fff !important;
+}
+.index-hero .hero-actions .btn-purple:hover {
+  background: rgba(111, 90, 159, .88) !important;
+  box-shadow: 0 8px 28px rgba(111,90,159,.32) !important;
+}
+.index-hero .hero-actions .btn-cyan {
+  background: rgba(0, 184, 212, .72) !important;
+  border-color: rgba(0, 184, 212, .55) !important;
+  color: #fff !important;
+}
+.index-hero .hero-actions .btn-cyan:hover {
+  background: rgba(0, 184, 212, .88) !important;
+  box-shadow: 0 8px 28px rgba(0,184,212,.32) !important;
+}
+
+/* ── Foto hero: mostrar cara, no el pecho ──
+   authority-1.jpg es el primer slide activo — Angelo con micrófono.
+   La cara está en la parte superior de la imagen.
+   object-position: center top la muestra correctamente.             */
+.home-photo-rotator img {
+  object-position: center 8% !important;
+}
+/* Segundo slide (authority-1.jpg en el rotador) */
+.home-photo-rotator img:nth-child(2) {
+  object-position: center 12% !important;
+}
+
+/* En desktop el visual tiene min-height:380px con aspect-ratio variable.
+   Asegurar que la imagen llene bien sin corte horizontal.            */
+.home-photo-visual {
+  min-height: 440px;
+}
+.home-photo-visual .home-photo-rotator img {
+  object-fit: cover;
+  object-position: center 8% !important;
+}
+
+
+
+/* ===== v42c patch 2 — encuadre correcto por imagen ===== */
+
+/* authority-1 (primer slide): Angelo con micrófono en escenario
+   La cara está aprox en el 20% superior de la imagen              */
+.home-photo-rotator img:nth-child(1) {
+  object-position: center 15% !important;
+}
+/* company-live-1 (segundo slide): Angelo frente a audiencia
+   Imagen más horizontal, encuadre central funciona bien            */
+.home-photo-rotator img:nth-child(2) {
+  object-position: center 18% !important;
+}
+
