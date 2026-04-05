@@ -463,3 +463,48 @@ h3{font-size:clamp(19px,2vw,24px)}
   .page-beta .flow-panel .journey-path .process-step{transform:none !important}
   .page-beta .identity-main-card h2{font-size:30px}
 }
+
+
+/* v29 company and betagym refinements */
+.page-company .stack-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;align-items:stretch}
+.page-company .problem-summary{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.page-company .problem-summary span{padding:12px 16px;border-radius:14px;background:rgba(255,255,255,.04);border:1px solid rgba(102,220,235,.16);font-size:14px;color:rgba(245,240,232,.82)}
+.page-company .problem-summary span:nth-child(2){color:#fff;font-weight:700}
+.page-company .system-step{padding-top:18px}
+.page-company .system-step h3{margin-top:12px}
+.page-company .system-step .system-orb{font-size:20px;line-height:1}
+.page-company .cases-frame{padding:28px;border:1px solid rgba(102,220,235,.16);background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.015))}
+.page-company .cases-frame-header{margin-bottom:18px;padding:0 4px 8px;border-bottom:1px solid rgba(255,255,255,.08)}
+.page-company .cases-grid.case-columns{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:start}
+.page-company .case-card{display:grid;gap:14px;height:100%;min-width:0}
+.page-company .case-head{display:grid;gap:10px}
+.page-company .case-card .copy{min-height:88px}
+.page-company .metrics-columns{display:grid;grid-template-columns:1fr;gap:10px}
+.page-company .metric-box{min-width:0}
+.page-company .case-tone{height:4px;border-radius:999px;width:72px}
+.page-company .case-purple{background:linear-gradient(90deg,#8E78C4,#b7a4e2)}
+.page-company .case-blue{background:linear-gradient(90deg,#66dceb,#a8f0ff)}
+.page-company .case-gold{background:linear-gradient(90deg,#dcb85c,#f0dd9a)}
+
+.page-beta .beta-insight-wrap{display:grid;gap:18px}
+.page-beta .beta-insight-copy{max-width:860px}
+.page-beta .beta-insight-copy h2{margin-bottom:10px}
+.page-beta .problem-grid.beta-wow{grid-template-columns:repeat(4,minmax(0,1fr));margin-top:4px}
+.page-beta .problem-grid.beta-wow .problem-chip.emphasis{border-color:rgba(226,194,111,.34);background:linear-gradient(180deg,rgba(226,194,111,.18),rgba(255,255,255,.03))}
+.page-beta .beta-identity-shell{display:grid;grid-template-columns:1.4fr .9fr;gap:18px;align-items:stretch}
+.page-beta .identity-main-card{padding:30px;border-radius:24px;border:1px solid rgba(226,194,111,.24);background:linear-gradient(180deg,rgba(226,194,111,.10),rgba(255,255,255,.02));display:grid;gap:10px}
+.page-beta .identity-main-card h2{font-size:clamp(30px,3.2vw,42px);line-height:1.08;margin:0}
+.page-beta .identity-side{display:grid;gap:14px}
+.page-beta .identity-side-card.compact{padding:18px;gap:8px}
+.page-beta .identity-side-card.compact h3{font-size:18px;margin:0}
+.page-beta .project-widget{padding:24px 24px 22px}
+.page-beta .project-widget .intro-list,.page-beta .project-widget .project-cards{grid-template-columns:repeat(3,minmax(0,1fr))}
+.page-beta .flow-panel{overflow:hidden}
+.page-beta .journey-path{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;position:relative}
+.page-beta .journey-path::before{display:none !important}
+.page-beta .journey-path .process-step{position:relative;padding:18px 14px 18px 18px;min-height:122px}
+.page-beta .journey-path .process-step:not(:last-child)::after{content:'➜';position:absolute;right:-10px;top:50%;transform:translateY(-50%);color:rgba(226,194,111,.55);font-size:20px;z-index:2}
+.page-beta .journey-path .process-step strong{font-size:14px}
+.page-beta .journey-path .process-step span{font-size:13px}
+@media (max-width:1024px){.page-company .stack-grid,.page-company .cases-grid.case-columns,.page-beta .problem-grid.beta-wow,.page-beta .beta-identity-shell,.page-beta .project-widget .intro-list,.page-beta .project-widget .project-cards,.page-beta .journey-path{grid-template-columns:1fr 1fr}.page-beta .journey-path .process-step:nth-child(2n)::after{display:none}}
+@media (max-width:760px){.page-company .stack-grid,.page-company .cases-grid.case-columns,.page-beta .problem-grid.beta-wow,.page-beta .beta-identity-shell,.page-beta .project-widget .intro-list,.page-beta .project-widget .project-cards,.page-beta .journey-path{grid-template-columns:1fr}.page-beta .journey-path .process-step::after{display:none}.page-beta .identity-main-card h2{font-size:30px}.page-company .problem-summary{display:grid;grid-template-columns:1fr}.page-company .case-card .copy{min-height:auto}}
