@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><title>LeaderScan — Angelo Constanzo</title><meta content="Diagnóstico de liderazgo para ver qué comportamientos están frenando tu impacto real." name="description"/><link href="../assets/site.css" rel="stylesheet"/></head>
+<body data-wa-personal="https://wa.link/zyw1c4" class="company-page page-leaderscan" data-root="../">
+
+<nav class="nav"><div class="container nav-inner">
+  <a class="brand" href="../"><div class="brand-lines"><span></span><span></span><span></span></div><div class="brand-name">Angelo Constanzo</div></a>
+  <div class="nav-links">
+    <a href="../">Inicio</a>
+    <a href="../persona/">Persona</a>
+    <a href="../empresa/">Empresa</a>
+    <a href="../betascan/">BetaScan</a>
+    <a class="active" href="../leaderscan/">LeaderScan</a>
+    <a href="../acerca-de/">Acerca</a>
+  </div>
+  <a class="btn btn-cyan" href="https://wa.link/zyw1c4" rel="noopener noreferrer" target="_blank">Hablar primero</a>
+</div></nav>
+
+<!-- HERO -->
+<header class="brand-company">
+  <div class="container reveal">
+    <h1 class="page-hero-title compact">
+      <span class="line">No sabes si estás liderando</span>
+      <span class="line text-cyan">o solo gestionando.</span>
+    </h1>
+    <div class="copy lead page-hero-lead">
+      <p>Hay una diferencia enorme entre tener un cargo y liderar de verdad.</p>
+      <p>LeaderScan mide tus comportamientos reales de liderazgo y te muestra dónde está la brecha.</p>
+    </div>
+    <!-- Mode selector -->
+    <div id="modeSelector" class="hero-actions" style="gap:12px;flex-wrap:wrap">
+      <button class="btn btn-cyan" id="btnLite" type="button">LeaderScan Lite — gratis</button>
+      <button class="btn btn-outline" id="btnPro" type="button">LeaderScan Pro — tengo código</button>
+    </div>
+  </div>
+</header>
+
+<div class="divider"></div>
+
+<!-- SHELL -->
+<section class="brand-company">
+<div class="container leaderscan-shell" id="leaderScanShell">
+
+  <!-- ══════════════════════════════════════════════
+       LITE FLOW
+  ═══════════════════════════════════════════════ -->
+
+  <!-- LITE: Intro -->
+  <div class="betascan-stage" id="liteStageIntro">
+    <div class="card betascan-intro-card">
+      <h2 class="stage-welcome-title">LeaderScan Lite</h2>
+      <p class="copy">20 preguntas conductuales. Entre 4 y 6 minutos. Resultado inmediato.</p>
+      <div class="intro-points">
+        <div class="intro-point"><strong>Qué mide</strong><span class="copy" style="margin:0">6 dimensiones críticas de liderazgo conductual.</span></div>
+        <div class="intro-point"><strong>Cómo responder</strong><span class="copy" style="margin:0">Desde cómo te comportas hoy, no desde cómo quisieras.</span></div>
+        <div class="intro-point"><strong>Al final</strong><span class="copy" style="margin:0">Tu perfil de liderazgo y un camino claro de trabajo.</span></div>
+      </div>
+      <form class="capture-inline" id="liteLeadForm">
+        <div class="capture-grid">
+          <input id="liteName" placeholder="Nombre" required type="text"/>
+          <input id="liteEmail" placeholder="Email" required type="email"/>
+          <input id="liteRole" placeholder="Cargo actual" required type="text"/>
+        </div>
+        <div class="betascan-floating-actions">
+          <button class="btn btn-cyan" id="liteStartBtn" type="submit">Comenzar diagnóstico</button>
+          <button class="btn btn-outline" id="liteBackBtn" type="button">Volver</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- LITE: Question -->
+  <div class="betascan-stage" id="liteStageQuestion">
+    <div class="betascan-question-card">
+      <div class="betascan-question-meta">
+        <div class="betascan-progress-caption" id="liteProgressCount">Pregunta 1 de 20</div>
+        <div class="betascan-progress-topic" id="liteProgressTopic">Dirección</div>
+      </div>
+      <div class="progress-bar-bg" style="margin-bottom:20px">
+        <div class="progress-bar-fill" id="liteProgressFill" style="width:0%"></div>
+      </div>
+      <h2 class="betascan-question-text" id="liteQuestionText"></h2>
+      <p class="copy" id="liteQuestionHelper" style="margin:0 0 16px"></p>
+      <div class="options" id="liteOptionsWrap"></div>
+      <div class="nav-btns" style="margin-top:26px">
+        <div class="left-actions"><button class="btn-back" id="litePrevBtn" type="button">Atrás</button></div>
+        <button class="btn btn-cyan" id="liteNextBtn" type="button">Siguiente</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- LITE: Result -->
+  <div class="betascan-stage" id="liteStageResult">
+    <div class="betascan-result-grid">
+      <div class="result-card">
+        <div class="score-tile">
+          <div class="score-disc"><strong id="liteScoreNumber">0</strong><span>índice liderazgo</span></div>
+          <div>
+            <div class="eyebrow" style="margin-bottom:8px">Tu diagnóstico inicial</div>
+            <h2 style="font-size:clamp(24px,3vw,36px);margin-bottom:10px">Este es tu punto de partida real.</h2>
+            <p class="copy" style="margin:0">No lo que crees que eres como líder. Lo que muestran tus comportamientos.</p>
+          </div>
+        </div>
+        <div class="meter-list" id="liteMeters" style="margin-top:22px"></div>
+      </div>
+      <div class="result-card">
+        <div class="result-tag">Perfil de liderazgo</div>
+        <h3 id="liteProfileName"></h3>
+        <p class="copy" id="liteProfileNarrative"></p>
+        <div class="recommendation-box" style="margin-top:18px">
+          <div class="eyebrow" style="margin-bottom:10px">Camino recomendado</div>
+          <h3 id="liteRecTitle"></h3>
+          <p class="copy" id="liteRecText"></p>
+          <div class="hero-actions" style="margin-top:18px">
+            <a class="btn btn-cyan" href="../empresa/" id="liteNextStepBtn">Ver BetaMode System™</a>
+            <a class="btn btn-outline" href="https://wa.link/zyw1c4" rel="noopener noreferrer" target="_blank">Hablar con Angelo</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Capture para Pro upgrade -->
+    <div class="result-card" style="margin-top:20px">
+      <div class="result-tag">¿Quieres el diagnóstico completo?</div>
+      <p class="copy" style="margin:0 0 14px">LeaderScan Pro va más profundo: 35 preguntas, 8 dimensiones, recomendaciones específicas por área. Se usa en procesos de coaching ejecutivo.</p>
+      <form class="capture-inline" id="liteProRequestForm">
+        <div class="capture-grid">
+          <input id="liteProName" placeholder="Nombre" required type="text"/>
+          <input id="liteProEmail" placeholder="Email" required type="email"/>
+          <input id="liteProCompany" placeholder="Empresa" type="text"/>
+        </div>
+        <div class="inline-actions">
+          <button class="btn btn-cyan" type="submit">Quiero el Pro</button>
+          <button class="btn btn-outline" id="liteRestartBtn" type="button">Rehacer diagnóstico</button>
+        </div>
+        <div class="form-success" id="liteProSuccess" style="display:none"></div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       PRO FLOW
+  ═══════════════════════════════════════════════ -->
+
+  <!-- PRO: Code gate -->
+  <div class="betascan-stage" id="proStageCode">
+    <div class="card betascan-intro-card">
+      <h2 class="stage-welcome-title">LeaderScan Pro</h2>
+      <p class="copy">Diagnóstico profundo de liderazgo conductual. 35 preguntas, 8 dimensiones, resultado ejecutivo.</p>
+      <div class="intro-points">
+        <div class="intro-point"><strong>Acceso</strong><span class="copy" style="margin:0">Exclusivo para participantes de procesos de coaching o empresas con convenio.</span></div>
+        <div class="intro-point"><strong>Qué incluye</strong><span class="copy" style="margin:0">Perfil completo con fortalezas, brechas críticas y plan de entrenamiento.</span></div>
+        <div class="intro-point"><strong>Tiempo</strong><span class="copy" style="margin:0">Entre 10 y 15 minutos de diagnóstico honesto.</span></div>
+      </div>
+      <form class="capture-inline" id="proCodeForm">
+        <div class="capture-grid">
+          <input id="proName" placeholder="Nombre" required type="text"/>
+          <input id="proCodeInput" placeholder="Código de acceso" required type="text" style="letter-spacing:2px;text-transform:uppercase"/>
+        </div>
+        <div id="proCodeError" style="color:#ff6b6b;font-size:14px;display:none;margin-bottom:8px">Código incorrecto. Verifica con quien te lo entregó.</div>
+        <div class="betascan-floating-actions">
+          <button class="btn btn-cyan" id="proCodeSubmit" type="submit">Acceder</button>
+          <button class="btn btn-outline" id="proBackBtn" type="button">Volver</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- PRO: Question -->
+  <div class="betascan-stage" id="proStageQuestion">
+    <div class="betascan-question-card">
+      <div class="betascan-question-meta">
+        <div class="betascan-progress-caption" id="proProgressCount">Pregunta 1 de 35</div>
+        <div class="betascan-progress-topic" id="proProgressTopic">Dirección</div>
+      </div>
+      <div class="progress-bar-bg" style="margin-bottom:20px">
+        <div class="progress-bar-fill" id="proProgressFill" style="width:0%"></div>
+      </div>
+      <h2 class="betascan-question-text" id="proQuestionText"></h2>
+      <p class="copy" id="proQuestionHelper" style="margin:0 0 16px"></p>
+      <div class="options" id="proOptionsWrap"></div>
+      <div id="proTextWrap" style="display:none"><textarea class="text-input" id="proTextAnswer" placeholder="Escribe aquí tu respuesta"></textarea></div>
+      <div class="nav-btns" style="margin-top:26px">
+        <div class="left-actions"><button class="btn-back" id="proPrevBtn" type="button">Atrás</button></div>
+        <button class="btn btn-cyan" id="proNextBtn" type="button">Siguiente</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRO: Result -->
+  <div class="betascan-stage" id="proStageResult">
+    <div class="betascan-result-grid">
+      <div class="result-card">
+        <div class="score-tile">
+          <div class="score-disc"><strong id="proScoreNumber">0</strong><span>índice liderazgo Pro</span></div>
+          <div>
+            <div class="eyebrow" style="margin-bottom:8px">Diagnóstico ejecutivo completo</div>
+            <h2 style="font-size:clamp(24px,3vw,36px);margin-bottom:10px">Lo que dice tu conducta real.</h2>
+            <p class="copy" style="margin:0">No tu intención. No tu cargo. Lo que hacen tus comportamientos todos los días.</p>
+          </div>
+        </div>
+        <div class="meter-list" id="proMeters" style="margin-top:22px"></div>
+      </div>
+      <div class="result-card">
+        <div class="result-tag">Perfil ejecutivo</div>
+        <h3 id="proProfileName"></h3>
+        <p class="copy" id="proProfileNarrative"></p>
+        <div id="proBrechaCritica" style="margin-top:18px;padding:16px;border:1px solid rgba(100,220,255,0.2);border-radius:8px">
+          <div class="eyebrow" style="margin-bottom:8px;color:var(--cyan)">Brecha crítica</div>
+          <p class="copy" id="proBrechaText" style="margin:0"></p>
+        </div>
+        <div class="recommendation-box" style="margin-top:18px">
+          <div class="eyebrow" style="margin-bottom:10px">Plan de entrenamiento</div>
+          <h3 id="proRecTitle"></h3>
+          <p class="copy" id="proRecText"></p>
+          <div class="hero-actions" style="margin-top:18px">
+            <a class="btn btn-cyan" href="https://wa.link/zyw1c4" rel="noopener noreferrer" target="_blank">Hablar con Angelo sobre este resultado</a>
+            <a class="btn btn-outline" href="../empresa/">Ver BetaMode System™</a>
+          </div>
+        </div>
+      </div>
+      <div class="two-col" style="margin-top:20px">
+        <div class="result-card">
+          <div class="result-tag">Fortalezas de liderazgo</div>
+          <ul class="result-list" id="proStrengthList"></ul>
+        </div>
+        <div class="result-card">
+          <div class="result-tag">Dimensiones a trabajar primero</div>
+          <ul class="result-list" id="proPriorityList"></ul>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:20px;text-align:center">
+      <button class="btn btn-outline" id="proRestartBtn" type="button">Rehacer diagnóstico</button>
+    </div>
+  </div>
+
+</div><!-- /leaderScanShell -->
+</section>
+
+<div class="divider"></div>
+
+<footer class="footer"><div class="container"><div class="footer-grid">
+  <div>
+    <div class="footer-brand"><div class="brand-lines"><span></span><span></span><span></span></div><div class="footer-title">Angelo Constanzo</div></div>
+    <div class="footer-copy">Entrenamiento humano para personas y empresas. Menos discurso. Más transformación observable.</div>
+  </div>
+  <div>
+    <div class="footer-group-title">Explorar</div>
+    <div class="footer-links">
+      <a href="../persona/">Persona</a><a href="../empresa/">Empresa</a><a href="../betascan/">BetaScan</a><a href="../betagym/">BetaGym</a><a href="../leaderscan/">LeaderScan</a><a href="../acerca-de/">Acerca de</a>
+    </div>
+  </div>
+  <div class="footer-cta">
+    <div class="footer-group-title">Conversemos</div>
+    <p>Si quieres mover algo de verdad, partamos por una conversación clara.</p>
+    <a class="btn btn-cyan" href="https://wa.link/zyw1c4" rel="noopener noreferrer" target="_blank">Ir a WhatsApp</a>
+  </div>
+</div>
+<div class="footer-bottom"><span>© 2026 Angelo Constanzo — La vida que quieres no llega. Se entrena.</span></div>
+</div></footer>
+
+<script src="../assets/site.js"></script>
+<script>
+// ═══════════════════════════════════════════════════════════════════
+// LEADERSCAN DATA
+// ═══════════════════════════════════════════════════════════════════
+
+// PRO access codes (simulated validation)
+const PRO_CODES = ['BETA2024','LEADER24','ANGELO01','BETAMODE'];
+
+// ─── LITE QUESTIONS (20) ──────────────────────────────────────────
+const LITE_Q = [
+  {key:'L1', block:'Dirección', text:'Cuando comunicas la dirección de tu equipo, ¿qué tan claro queda para todos?', options:[['A','Muy claro. Cada uno sabe qué hacer y por qué',90],['B','Bastante claro, aunque a veces hay que aclarar',70],['C','Claro para mí, no siempre para el equipo',50],['D','Se interpreta de distintas formas',20]]},
+  {key:'L2', block:'Dirección', text:'¿Tus decisiones estratégicas bajan como conducta observable en tu equipo?', options:[['A','Sí, se traducen en acciones concretas',90],['B','Parcialmente, con algún retraso',70],['C','Cuesta mucho que bajen a la práctica',50],['D','Quedan en el papel casi siempre',20]]},
+  {key:'L3', block:'Dirección', text:'¿Qué tan explícito eres al comunicar lo que esperas de cada persona?', options:[['A','Muy explícito. No asumo que ya saben',90],['B','Lo hago, aunque a veces lo doy por entendido',70],['C','Asumo bastante y después hay problemas',50],['D','Muy poco. Prefiero no microgestionar',20]]},
+  {key:'L4', block:'Conversaciones difíciles', text:'Cuando alguien en tu equipo no está rindiendo, ¿qué haces?', options:[['A','Lo abordo directamente y pronto',90],['B','Lo abordo, aunque busco el momento ideal',70],['C','Lo espero más tiempo del necesario',50],['D','Lo evito hasta que escala',20]]},
+  {key:'L5', block:'Conversaciones difíciles', text:'¿Puedes sostener un conflicto real con alguien sin escalar ni evitar?', options:[['A','Sí, lo sostengo con claridad',90],['B','La mayoría de las veces',70],['C','Me cuesta, busco salidas rápidas',50],['D','Evito o escalo fácilmente',20]]},
+  {key:'L6', block:'Conversaciones difíciles', text:'¿Das feedback crítico aunque sea incómodo para ti o la otra persona?', options:[['A','Sí, lo doy aunque incomode',90],['B','Lo doy, aunque a veces lo suavizo demasiado',70],['C','Lo suavizo tanto que el mensaje no llega',50],['D','Prefiero no darlo para no generar tensión',20]]},
+  {key:'L7', block:'Accountability', text:'¿Cómo reaccionas cuando un compromiso no se cumple?', options:[['A','Converso directo y reencuadro la responsabilidad',90],['B','Lo abordo, aunque no siempre con suficiente claridad',70],['C','A veces lo paso por alto para evitar conflicto',50],['D','Rara vez lo confronto',20]]},
+  {key:'L8', block:'Accountability', text:'¿Las personas en tu equipo saben exactamente de qué son responsables?', options:[['A','Sí, está muy claro para todos',90],['B','Mayormente sí',70],['C','Hay zonas grises importantes',50],['D','No, hay mucha ambigüedad',20]]},
+  {key:'L9', block:'Accountability', text:'¿Tu equipo cumple compromisos porque cree en el proyecto o porque tú estás encima?', options:[['A','Porque creen y están comprometidos',90],['B','Una mezcla, pero más por convicción',70],['C','Más por presión externa que interna',50],['D','Porque estoy encima casi siempre',20]]},
+  {key:'L10', block:'Influencia', text:'¿Puedes movilizar a personas que no te reportan directamente?', options:[['A','Sí, tengo influencia transversal real',90],['B','Bastante, aunque requiere esfuerzo',70],['C','Con dificultad fuera de mi área',50],['D','Casi solo con mi equipo directo',20]]},
+  {key:'L11', block:'Influencia', text:'¿Cómo reaccionan las personas cuando propones un cambio?', options:[['A','Con apertura y disposición a explorar',90],['B','Con algunas resistencias manejables',70],['C','Con bastante resistencia casi siempre',50],['D','Con resistencia o indiferencia sistemática',20]]},
+  {key:'L12', block:'Influencia', text:'¿Las personas buscan tu perspectiva antes de tomar decisiones importantes?', options:[['A','Sí, con frecuencia',90],['B','A veces',70],['C','Raramente',50],['D','Casi nunca',20]]},
+  {key:'L13', block:'Equipo', text:'¿Tu equipo puede funcionar bien sin que estés presente?', options:[['A','Sí, completamente',90],['B','Bastante bien',70],['C','Con algunas dificultades',50],['D','Depende demasiado de mí',20]]},
+  {key:'L14', block:'Equipo', text:'¿Desarrollas activamente las capacidades de las personas que lideras?', options:[['A','Sí, es una prioridad concreta',90],['B','Lo hago, aunque sin mucha estructura',70],['C','Poco, no tengo tiempo o foco para eso',50],['D','No lo hago sistemáticamente',20]]},
+  {key:'L15', block:'Equipo', text:'¿Las tensiones entre personas de tu equipo las abordas o las dejas que se resuelvan solas?', options:[['A','Las abordo cuando aparecen',90],['B','Las abordo, aunque a veces tarde',70],['C','Las dejo bastante tiempo antes de entrar',50],['D','Prefiero no meterme',20]]},
+  {key:'L16', block:'Adaptabilidad', text:'Cuando el contexto cambia inesperadamente, ¿cómo reaccionas?', options:[['A','Me adapto rápido y doy dirección',90],['B','Me adapto, aunque con cierta demora',70],['C','Me cuesta soltar el plan original',50],['D','Me frena bastante el cambio de contexto',20]]},
+  {key:'L17', block:'Adaptabilidad', text:'¿Cuánto te cuesta admitir frente a tu equipo que te equivocaste?', options:[['A','Poco. Lo hago sin problema',90],['B','Algo, pero lo hago cuando es necesario',70],['C','Bastante. Prefiero buscar explicaciones',50],['D','Mucho. Lo evito casi siempre',20]]},
+  {key:'L18', block:'Adaptabilidad', text:'¿Puedes cambiar tu propio estilo de liderazgo según lo que el equipo necesita?', options:[['A','Sí, lo ajusto según el contexto',90],['B','Lo intento, aunque no siempre logro ajustarlo',70],['C','Tiendo a usar siempre el mismo estilo',50],['D','No lo hago conscientemente',20]]},
+  {key:'L19', block:'Autoconocimiento', text:'¿Tienes claridad sobre cómo impacta tu estado emocional en el equipo?', options:[['A','Sí, lo veo y lo gestiono',90],['B','Bastante, aunque no siempre en el momento',70],['C','Poco. Me doy cuenta después',50],['D','No suelo verlo',20]]},
+  {key:'L20', block:'Autoconocimiento', text:'¿Sabes cuáles son tus comportamientos que más frenan tu liderazgo?', options:[['A','Sí, los conozco y trabajo en ellos',90],['B','Los conozco parcialmente',70],['C','Tengo pistas pero no claridad total',50],['D','No los tengo claros',20]]}
+];
+
+const LITE_BLOCKS = {
+  direccion:['L1','L2','L3'],
+  conversaciones:['L4','L5','L6'],
+  accountability:['L7','L8','L9'],
+  influencia:['L10','L11','L12'],
+  equipo:['L13','L14','L15'],
+  adaptabilidad:['L16','L17','L18'],
+  autoconocimiento:['L19','L20']
+};
+
+const LITE_LABELS = {
+  direccion:'Dirección',
+  conversaciones:'Conversaciones difíciles',
+  accountability:'Accountability',
+  influencia:'Influencia',
+  equipo:'Equipo',
+  adaptabilidad:'Adaptabilidad',
+  autoconocimiento:'Autoconocimiento'
+};
+
+// ─── PRO QUESTIONS (35) ───────────────────────────────────────────
+// Includes all Lite + 15 deeper questions
+const PRO_Q = [
+  ...LITE_Q,
+  {key:'P21', block:'Dirección', text:'¿Con qué frecuencia alineas a tu equipo con la visión de largo plazo de la organización?', options:[['A','Regularmente y de forma explícita',90],['B','Cuando hay cambios importantes',70],['C','Raramente',50],['D','Casi nunca',20]]},
+  {key:'P22', block:'Conversaciones difíciles', text:'¿Cuánto tiempo tardas en promedio desde que identificas un problema de desempeño hasta que lo hablas?', options:[['A','Días',90],['B','1-2 semanas',70],['C','Más de un mes',50],['D','Lo postergó indefinidamente',20]]},
+  {key:'P23', block:'Accountability', text:'¿Qué pasa en tu equipo cuando alguien no cumple un compromiso repetidamente?', options:[['A','Hay consecuencias claras y consistentes',90],['B','Se conversa, pero sin consecuencias definidas',70],['C','Se tolera sin mayor intervención',50],['D','Nada, o solo hay queja interna',20]]},
+  {key:'P24', block:'Influencia', text:'¿Puedes describir con precisión qué te hace influyente (más allá del cargo)?', options:[['A','Sí, lo tengo muy claro',90],['B','Tengo algunas ideas',70],['C','No lo tengo claro',50],['D','No he pensado en eso',20]]},
+  {key:'P25', block:'Equipo', text:'¿Qué tan psicológicamente seguro se siente tu equipo para disentir contigo?', options:[['A','Muy seguro. Lo hacen y yo lo valoro',90],['B','Bastante seguro',70],['C','Poco. Se cuidan de contradecirme',50],['D','No se sienten seguros en absoluto',20]]},
+  {key:'P26', block:'Adaptabilidad', text:'¿Con qué frecuencia cambias de opinión frente a evidencia nueva?', options:[['A','Con frecuencia, si la evidencia es sólida',90],['B','A veces, aunque me cuesta',70],['C','Raramente',50],['D','Casi nunca cambio de posición',20]]},
+  {key:'P27', block:'Autoconocimiento', text:'¿Tienes feedbacks formales recientes de personas que trabajen contigo?', options:[['A','Sí, recientes y concretos',90],['B','Tengo algunos, aunque no recientes',70],['C','Pocos y no muy concretos',50],['D','No tengo feedbacks formales',20]]},
+  {key:'P28', block:'Cultura', text:'¿Los valores de tu equipo se ven en decisiones cotidianas o solo en presentaciones?', options:[['A','Se ven en decisiones y comportamientos reales',90],['B','La mayoría de las veces',70],['C','A veces, dependiendo del contexto',50],['D','Están en las paredes, no en la práctica',20]]},
+  {key:'P29', block:'Cultura', text:'¿Qué pasa cuando alguien en tu equipo actúa en contra de los valores acordados?', options:[['A','Se aborda directa y rápidamente',90],['B','Se habla, aunque no siempre con consecuencias',70],['C','Se tolera si el rendimiento es bueno',50],['D','No se hace nada',20]]},
+  {key:'P30', block:'Cultura', text:'¿Tu equipo tiene rituales o prácticas que refuerzan la cultura intencionalmente?', options:[['A','Sí, varios y funcionan bien',90],['B','Algunos, aunque no muy consistentes',70],['C','Pocos y no muy intencionados',50],['D','No tenemos nada de eso',20]]},
+  {key:'P31', block:'Autoconocimiento', text:'¿Sabes cómo te perciben las personas de otras áreas?', options:[['A','Sí, tengo información concreta',90],['B','Tengo algunas pistas',70],['C','Lo intuyo, pero sin certeza',50],['D','No lo sé',20]]},
+  {key:'P32', block:'Conversaciones difíciles', text:'¿Puedes sostener conversaciones sobre compensación, desempeño bajo o desvinculación con claridad?', options:[['A','Sí, con claridad y sin rodeos innecesarios',90],['B','Las hago, aunque con algo de incomodidad visible',70],['C','Me cuesta mucho. Las evito o las suavizo en exceso',50],['D','Las evito o las delego cuando puedo',20]]},
+  {key:'P33', block:'Influencia', text:'¿Puedes nombrar a 3 personas clave que han cambiado su comportamiento a partir de tu influencia directa?', options:[['A','Sí, fácilmente',90],['B','Con algo de esfuerzo lo recuerdo',70],['C','Me cuesta identificar ejemplos concretos',50],['D','No viene nada a la mente',20]]},
+  {key:'P34', block:'Equipo', text:'¿Cuánto de tu tiempo de liderazgo se va en apagar incendios vs. desarrollar a las personas?', options:[['A','La mayoría en desarrollar personas',90],['B','Mitad y mitad',70],['C','Más en apagar incendios',50],['D','Casi todo en incendios',20]]},
+  {key:'P35', block:'Cultura', text:'¿Cuál es el comportamiento que más necesita cambiar en tu equipo hoy?', type:'text', placeholder:'Descríbelo brevemente…'}
+];
+
+const PRO_BLOCKS = {
+  ...LITE_BLOCKS,
+  cultura: ['P28','P29','P30']
+};
+
+const PRO_LABELS = {
+  ...LITE_LABELS,
+  cultura: 'Cultura'
+};
+
+// ─── LITE PROFILES ────────────────────────────────────────────────
+const LITE_PROFILES = {
+  1:{name:'El líder invisible', short:'Lideras con intención, pero tu impacto no siempre se siente en el equipo.', brecha:'La brecha está entre lo que haces y cómo el equipo lo interpreta. Claridad comunicacional.'},
+  2:{name:'El gestor sobrecargado', short:'Ejecutas bien, pero lideras poco. El equipo depende demasiado de ti.', brecha:'Necesitas pasar de resolver a desarrollar capacidades en otros.'},
+  3:{name:'El líder evitador', short:'Evitas las conversaciones difíciles. El equipo lo siente y lo compensa.', brecha:'Las conversaciones que no tienes están costando más que las que tendrías.'},
+  4:{name:'El líder directivo', short:'Eres claro en dirección, pero la influencia sin cargo todavía es limitada.', brecha:'Expandir el radio de influencia más allá de tu equipo directo.'},
+  5:{name:'El líder inconsistente', short:'Hay momentos de gran liderazgo y momentos de retroceso. Falta sostén.', brecha:'La consistencia conductual es lo que más piden tus colaboradores.'},
+  6:{name:'El líder en desarrollo', short:'Tienes base sólida. Las áreas de crecimiento son específicas y trabajables.', brecha:'Afinar conversaciones difíciles y desarrollo de equipo.'},
+  7:{name:'El líder de alto impacto', short:'Tu liderazgo muestra comportamientos sólidos y consistentes en múltiples dimensiones.', brecha:'El desafío ahora es sostener y escalar tu impacto a mayor complejidad.'}
+};
+
+function liteProfile(score) {
+  if (score < 35) return 5;
+  if (score < 45) return 3;
+  if (score < 55) return 2;
+  if (score < 65) return 1;
+  if (score < 75) return 4;
+  if (score < 85) return 6;
+  return 7;
+}
+
+function liteRec(score) {
+  if (score < 45) return {title:'Coaching Ejecutivo', text:'Hay brechas conductuales importantes que conviene trabajar con apoyo estructurado antes de escalar.'};
+  if (score < 60) return {title:'BetaMode System™ — Sprint de Liderazgo', text:'Tienes base para trabajar. Un sprint enfocado movería tus comportamientos de forma visible y rápida.'};
+  if (score < 75) return {title:'BetaMode System™ — Sprint de Equipo', text:'Tu liderazgo individual es sólido. El siguiente paso es escalar ese impacto a la dinámica de equipo.'};
+  return {title:'BetaMode System™ — Sprint de Cultura', text:'Tu liderazgo está bien desarrollado. El trabajo ahora es instalar cultura observable en toda la organización.'};
+}
+
+// ─── PRO PROFILES ─────────────────────────────────────────────────
+const PRO_PROFILES = {
+  ...LITE_PROFILES,
+  8:{name:'El líder cultural', short:'Tu impacto trasciende tu equipo directo. Hay trabajo de cultura a nivel organizacional.', brecha:'Formalizar y sostener los rituales culturales con más intencionalidad.'}
+};
+
+function proProfile(score, caps) {
+  const minDim = Object.entries(caps).sort((a,b)=>a[1]-b[1])[0];
+  if (score < 40) return {id:3, brecha: 'Las conversaciones que evitas están frenando al equipo completo.'};
+  if (score < 55 && caps.equipo < 50) return {id:2, brecha:'Tu equipo todavía depende demasiado de ti para funcionar.'};
+  if (score < 65 && caps.cultura && caps.cultura < 50) return {id:1, brecha:'La cultura de tu equipo no está siendo liderada intencionalmente.'};
+  if (score >= 75 && caps.cultura && caps.cultura > 70) return {id:8, brecha:'El nivel siguiente es impacto organizacional.'};
+  if (score >= 80) return {id:7, brecha:'Escalar a mayor complejidad y sostener el estándar.'};
+  return {id:6, brecha:`La dimensión con más margen hoy es ${PRO_LABELS[minDim[0]] || minDim[0]}.`};
+}
+
+// ═══════════════════════════════════════════════════════════════════
+// STATE & HELPERS
+// ═══════════════════════════════════════════════════════════════════
+
+const liteState = {index:0, answers:{}, lead:{}};
+const proState  = {index:0, answers:{}, name:''};
+
+function showStage(id) {
+  document.querySelectorAll('.betascan-stage').forEach(el => el.classList.remove('active'));
+  const t = document.getElementById(id);
+  if (t) { t.classList.add('active'); window.scrollTo({top:0,behavior:'auto'}); }
+}
+
+function avg(keys, answers) {
+  const vals = keys.map(k => Number(answers[k])||0).filter(v=>v>0);
+  if (!vals.length) return 0;
+  return Math.round(vals.reduce((a,b)=>a+b,0)/vals.length);
+}
+
+// ═══════════════════════════════════════════════════════════════════
+// HERO MODE BUTTONS
+// ═══════════════════════════════════════════════════════════════════
+document.getElementById('btnLite').addEventListener('click', () => showStage('liteStageIntro'));
+document.getElementById('btnPro').addEventListener('click',  () => showStage('proStageCode'));
+
+// ═══════════════════════════════════════════════════════════════════
+// LITE FLOW
+// ═══════════════════════════════════════════════════════════════════
+function renderLiteQ() {
+  const q = LITE_Q[liteState.index];
+  const pct = (liteState.index / LITE_Q.length) * 100;
+  document.getElementById('liteProgressCount').textContent = `Pregunta ${liteState.index+1} de ${LITE_Q.length}`;
+  document.getElementById('liteProgressTopic').textContent = q.block;
+  document.getElementById('liteProgressFill').style.width = pct + '%';
+  document.getElementById('liteQuestionText').textContent = q.text;
+  document.getElementById('liteQuestionHelper').textContent = 'Elige la opción que más se parezca a tu comportamiento habitual.';
+  const wrap = document.getElementById('liteOptionsWrap');
+  wrap.innerHTML = '';
+  q.options.forEach(([label, text, val]) => {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'option-btn' + (liteState.answers[q.key] === val ? ' selected' : '');
+    btn.innerHTML = `<strong>${label}</strong>${text}`;
+    btn.addEventListener('click', () => { liteState.answers[q.key] = val; renderLiteQ(); });
+    wrap.appendChild(btn);
+  });
+  document.getElementById('litePrevBtn').style.visibility = liteState.index === 0 ? 'hidden' : 'visible';
+  document.getElementById('liteNextBtn').textContent = liteState.index === LITE_Q.length-1 ? 'Ver resultado' : 'Siguiente';
+}
+
+function buildLiteResult() {
+  const caps = {};
+  Object.entries(LITE_BLOCKS).forEach(([k, keys]) => { caps[k] = avg(keys, liteState.answers); });
+  const score = Math.round(Object.values(caps).reduce((a,b)=>a+b,0) / Object.values(caps).length);
+  const profId = liteProfile(score);
+  const prof = LITE_PROFILES[profId];
+  const rec = liteRec(score);
+  const sorted = Object.entries(caps).sort((a,b)=>a[1]-b[1]);
+  const priorities = sorted.slice(0,2);
+  const strengths = sorted.slice(-2).reverse();
+
+  document.getElementById('liteScoreNumber').textContent = score;
+  document.getElementById('liteProfileName').textContent = prof.name;
+  document.getElementById('liteProfileNarrative').textContent = prof.short + ' ' + prof.brecha;
+  document.getElementById('liteRecTitle').textContent = rec.title;
+  document.getElementById('liteRecText').textContent = rec.text;
+
+  const meters = document.getElementById('liteMeters');
+  meters.innerHTML = '';
+  Object.entries(caps).forEach(([k,v]) => {
+    const row = document.createElement('div');
+    row.className = 'meter-item';
+    row.innerHTML = `<div class="meter-head"><strong>${LITE_LABELS[k]}</strong><span>${v}%</span></div><div class="meter-bg"><div class="meter-fill" style="width:${v}%"></div></div>`;
+    meters.appendChild(row);
+  });
+
+  // Pre-fill pro form
+  document.getElementById('liteProName').value = liteState.lead.name || '';
+  document.getElementById('liteProEmail').value = liteState.lead.email || '';
+
+  showStage('liteStageResult');
+}
+
+document.getElementById('liteLeadForm').addEventListener('submit', e => {
+  e.preventDefault();
+  liteState.lead = {
+    name: document.getElementById('liteName').value.trim(),
+    email: document.getElementById('liteEmail').value.trim(),
+    role: document.getElementById('liteRole').value.trim()
+  };
+  localStorage.setItem('leaderscan_lite_lead', JSON.stringify(liteState.lead));
+  showStage('liteStageQuestion');
+  renderLiteQ();
+});
+
+document.getElementById('liteBackBtn').addEventListener('click', () => {
+  document.getElementById('modeSelector').style.display = 'flex';
+  showStage('');
+  window.scrollTo({top:0,behavior:'auto'});
+  // Show hero
+  document.getElementById('modeSelector').scrollIntoView({behavior:'smooth'});
+});
+
+document.getElementById('liteNextBtn').addEventListener('click', () => {
+  const q = LITE_Q[liteState.index];
+  if (liteState.answers[q.key] == null) return;
+  if (liteState.index === LITE_Q.length-1) { buildLiteResult(); return; }
+  liteState.index++;
+  renderLiteQ();
+});
+
+document.getElementById('litePrevBtn').addEventListener('click', () => {
+  if (liteState.index > 0) { liteState.index--; renderLiteQ(); }
+});
+
+document.getElementById('liteRestartBtn').addEventListener('click', () => {
+  liteState.index = 0; liteState.answers = {};
+  showStage('liteStageIntro');
+});
+
+document.getElementById('liteProRequestForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const success = document.getElementById('liteProSuccess');
+  success.style.display = 'block';
+  success.textContent = 'Perfecto. Angelo revisará tu solicitud y recibirás tu código Pro en las próximas 24 horas.';
+  localStorage.setItem('leaderscan_pro_request', JSON.stringify({
+    name: document.getElementById('liteProName').value,
+    email: document.getElementById('liteProEmail').value,
+    company: document.getElementById('liteProCompany').value
+  }));
+});
+
+// ═══════════════════════════════════════════════════════════════════
+// PRO FLOW
+// ═══════════════════════════════════════════════════════════════════
+document.getElementById('proCodeForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const code = document.getElementById('proCodeInput').value.trim().toUpperCase();
+  const err = document.getElementById('proCodeError');
+  if (PRO_CODES.includes(code)) {
+    err.style.display = 'none';
+    proState.name = document.getElementById('proName').value.trim();
+    showStage('proStageQuestion');
+    renderProQ();
+  } else {
+    err.style.display = 'block';
+  }
+});
+
+document.getElementById('proBackBtn').addEventListener('click', () => {
+  showStage('');
+  window.scrollTo({top:0,behavior:'smooth'});
+});
+
+function renderProQ() {
+  const q = PRO_Q[proState.index];
+  const pct = (proState.index / PRO_Q.length) * 100;
+  document.getElementById('proProgressCount').textContent = `Pregunta ${proState.index+1} de ${PRO_Q.length}`;
+  document.getElementById('proProgressTopic').textContent = q.block;
+  document.getElementById('proProgressFill').style.width = pct + '%';
+  document.getElementById('proQuestionText').textContent = q.text;
+  document.getElementById('proQuestionHelper').textContent = q.type === 'text' ? 'Responde con honestidad desde tu realidad actual.' : 'Elige la opción que mejor describe tu comportamiento real.';
+  const wrap = document.getElementById('proOptionsWrap');
+  const textWrap = document.getElementById('proTextWrap');
+  wrap.innerHTML = '';
+  if (q.type === 'text') {
+    wrap.style.display = 'none';
+    textWrap.style.display = 'block';
+    document.getElementById('proTextAnswer').value = proState.answers[q.key] || '';
+    document.getElementById('proTextAnswer').placeholder = q.placeholder || '';
+  } else {
+    wrap.style.display = '';
+    textWrap.style.display = 'none';
+    q.options.forEach(([label, text, val]) => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'option-btn' + (proState.answers[q.key] === val ? ' selected' : '');
+      btn.innerHTML = `<strong>${label}</strong>${text}`;
+      btn.addEventListener('click', () => { proState.answers[q.key] = val; renderProQ(); });
+      wrap.appendChild(btn);
+    });
+  }
+  document.getElementById('proPrevBtn').style.visibility = proState.index === 0 ? 'hidden' : 'visible';
+  document.getElementById('proNextBtn').textContent = proState.index === PRO_Q.length-1 ? 'Ver resultado' : 'Siguiente';
+}
+
+function buildProResult() {
+  const caps = {};
+  Object.entries(PRO_BLOCKS).forEach(([k, keys]) => { caps[k] = avg(keys, proState.answers); });
+  const score = Math.round(Object.values(caps).reduce((a,b)=>a+b,0) / Object.values(caps).length);
+  const {id: profId, brecha} = proProfile(score, caps);
+  const prof = PRO_PROFILES[profId];
+  const rec = liteRec(score); // reuse rec logic
+  const sorted = Object.entries(caps).sort((a,b)=>a[1]-b[1]);
+  const priorities = sorted.slice(0,3);
+  const strengths = sorted.slice(-2).reverse();
+
+  document.getElementById('proScoreNumber').textContent = score;
+  document.getElementById('proProfileName').textContent = prof.name;
+  document.getElementById('proProfileNarrative').textContent = prof.short;
+  document.getElementById('proBrechaText').textContent = brecha;
+  document.getElementById('proRecTitle').textContent = rec.title;
+  document.getElementById('proRecText').textContent = rec.text;
+
+  const meters = document.getElementById('proMeters');
+  meters.innerHTML = '';
+  Object.entries(caps).forEach(([k,v]) => {
+    const row = document.createElement('div');
+    row.className = 'meter-item';
+    row.innerHTML = `<div class="meter-head"><strong>${PRO_LABELS[k] || k}</strong><span>${v}%</span></div><div class="meter-bg"><div class="meter-fill" style="width:${v}%"></div></div>`;
+    meters.appendChild(row);
+  });
+
+  const pList = document.getElementById('proPriorityList');
+  pList.innerHTML = '';
+  priorities.forEach(([k,v]) => {
+    const li = document.createElement('li');
+    li.innerHTML = `<strong>${PRO_LABELS[k]||k}</strong> · ${v}% — es la palanca con más potencial.`;
+    pList.appendChild(li);
+  });
+
+  const sList = document.getElementById('proStrengthList');
+  sList.innerHTML = '';
+  strengths.forEach(([k,v]) => {
+    const li = document.createElement('li');
+    li.innerHTML = `<strong>${PRO_LABELS[k]||k}</strong> · ${v}% — sólido.`;
+    sList.appendChild(li);
+  });
+
+  showStage('proStageResult');
+}
+
+document.getElementById('proNextBtn').addEventListener('click', () => {
+  const q = PRO_Q[proState.index];
+  if (q.type === 'text') {
+    const val = document.getElementById('proTextAnswer').value.trim();
+    if (!val) { document.getElementById('proTextAnswer').focus(); return; }
+    proState.answers[q.key] = val;
+  } else if (proState.answers[q.key] == null) return;
+  if (proState.index === PRO_Q.length-1) { buildProResult(); return; }
+  proState.index++;
+  renderProQ();
+});
+
+document.getElementById('proPrevBtn').addEventListener('click', () => {
+  if (proState.index > 0) { proState.index--; renderProQ(); }
+});
+
+document.getElementById('proRestartBtn').addEventListener('click', () => {
+  proState.index = 0; proState.answers = {};
+  showStage('proStageCode');
+});
+</script>
+</body></html>
