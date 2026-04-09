@@ -1,5 +1,47 @@
 <!DOCTYPE html>
-<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><title>LeaderScan — Angelo Constanzo</title><meta content="Diagnóstico de liderazgo para ver qué comportamientos están frenando tu impacto real." name="description"/><link href="../assets/site.css" rel="stylesheet"/></head>
+<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><title>LeaderScan — Angelo Constanzo</title><meta content="Diagnóstico de liderazgo para ver qué comportamientos están frenando tu impacto real." name="description"/><link href="../assets/site.css" rel="stylesheet"/><style>
+.page-leaderscan .option-btn.selected {
+  border-color: var(--cyan) !important;
+  background: rgba(0,184,212,0.12) !important;
+  color: var(--white) !important;
+}
+.page-leaderscan .option-btn.selected strong {
+  color: var(--cyan) !important;
+}
+.page-leaderscan .betascan-progress-topic {
+  color: var(--cyan) !important;
+}
+.page-leaderscan .meter-fill {
+  background: var(--cyan) !important;
+}
+.page-leaderscan .result-tag {
+  color: var(--cyan) !important;
+  border-color: rgba(0,184,212,0.3) !important;
+}
+.page-leaderscan .recommendation-box {
+  border-color: rgba(0,184,212,0.2) !important;
+  background: rgba(0,184,212,0.04) !important;
+}
+.page-leaderscan .betascan-progress-caption {
+  color: rgba(245,240,232,0.55);
+}
+.page-leaderscan .capture-inline input,
+.page-leaderscan .capture-inline select {
+  border-color: rgba(0,184,212,0.25) !important;
+}
+.page-leaderscan .capture-inline input:focus,
+.page-leaderscan .capture-inline select:focus {
+  border-color: var(--cyan) !important;
+  outline: none;
+}
+.page-leaderscan .intro-point strong {
+  color: var(--cyan) !important;
+}
+.page-leaderscan .score-disc {
+  border-color: var(--cyan) !important;
+}
+</style>
+</head>
 <body data-wa-personal="https://wa.link/zyw1c4" class="company-page page-leaderscan" data-root="../">
 
 <nav class="nav"><div class="container nav-inner">
@@ -26,10 +68,9 @@
       <p>Hay una diferencia enorme entre tener un cargo y liderar de verdad.</p>
       <p>LeaderScan mide tus comportamientos reales de liderazgo y te muestra dónde está la brecha.</p>
     </div>
-    <!-- Mode selector -->
+    <!-- CTA único -->
     <div id="modeSelector" class="hero-actions" style="gap:12px;flex-wrap:wrap">
-      <button class="btn btn-cyan" id="btnLite" type="button">LeaderScan Lite — gratis</button>
-      <button class="btn btn-outline" id="btnPro" type="button">LeaderScan Pro — tengo código</button>
+      <button class="btn btn-cyan" id="btnLite" type="button">Hacer el diagnóstico</button>
     </div>
   </div>
 </header>
@@ -76,7 +117,7 @@
         <div class="betascan-progress-topic" id="liteProgressTopic">Dirección</div>
       </div>
       <div class="progress-bar-bg" style="margin-bottom:20px">
-        <div class="progress-bar-fill" id="liteProgressFill" style="width:0%"></div>
+        <div class="progress-bar-fill" id="liteProgressFill" style="width:0%;background:var(--cyan)"></div>
       </div>
       <h2 class="betascan-question-text" id="liteQuestionText"></h2>
       <p class="copy" id="liteQuestionHelper" style="margin:0 0 16px"></p>
@@ -93,7 +134,7 @@
     <div class="betascan-result-grid">
       <div class="result-card">
         <div class="score-tile">
-          <div class="score-disc"><strong id="liteScoreNumber">0</strong><span>índice liderazgo</span></div>
+          <div class="score-disc" style="border-color:var(--cyan)"><strong id="liteScoreNumber" style="color:var(--cyan)">0</strong><span>índice liderazgo</span></div>
           <div>
             <div class="eyebrow" style="margin-bottom:8px">Tu diagnóstico inicial</div>
             <h2 style="font-size:clamp(24px,3vw,36px);margin-bottom:10px">Este es tu punto de partida real.</h2>
@@ -119,8 +160,9 @@
     </div>
     <!-- Capture para Pro upgrade -->
     <div class="result-card" style="margin-top:20px">
-      <div class="result-tag">¿Quieres el diagnóstico completo?</div>
-      <p class="copy" style="margin:0 0 14px">LeaderScan Pro va más profundo: 35 preguntas, 8 dimensiones, recomendaciones específicas por área. Se usa en procesos de coaching ejecutivo.</p>
+      <div class="result-tag" style="color:var(--cyan);border-color:var(--cyan)">LeaderScan Pro — Diagnóstico ejecutivo completo</div>
+      <p class="copy" style="margin:0 0 14px">35 preguntas · 8 dimensiones · Brecha crítica · Plan de entrenamiento específico. Usado en procesos de coaching ejecutivo.</p>
+      <p class="copy" style="margin:0 0 14px;font-size:13px;color:rgba(245,240,232,0.5)">Solicita tu código de acceso o pregunta a Angelo cómo acceder.</p>
       <form class="capture-inline" id="liteProRequestForm">
         <div class="capture-grid">
           <input id="liteProName" placeholder="Nombre" required type="text"/>
@@ -128,8 +170,9 @@
           <input id="liteProCompany" placeholder="Empresa" type="text"/>
         </div>
         <div class="inline-actions">
-          <button class="btn btn-cyan" type="submit">Quiero el Pro</button>
-          <button class="btn btn-outline" id="liteRestartBtn" type="button">Rehacer diagnóstico</button>
+          <button class="btn btn-cyan" type="submit">Solicitar acceso Pro</button>
+          <button class="btn btn-outline" id="btnProFromResult" type="button">Tengo un código</button>
+          <button class="btn btn-outline" id="liteRestartBtn" type="button">Rehacer</button>
         </div>
         <div class="form-success" id="liteProSuccess" style="display:none"></div>
       </form>
@@ -172,7 +215,7 @@
         <div class="betascan-progress-topic" id="proProgressTopic">Dirección</div>
       </div>
       <div class="progress-bar-bg" style="margin-bottom:20px">
-        <div class="progress-bar-fill" id="proProgressFill" style="width:0%"></div>
+        <div class="progress-bar-fill" id="proProgressFill" style="width:0%;background:var(--cyan)"></div>
       </div>
       <h2 class="betascan-question-text" id="proQuestionText"></h2>
       <p class="copy" id="proQuestionHelper" style="margin:0 0 16px"></p>
@@ -190,7 +233,7 @@
     <div class="betascan-result-grid">
       <div class="result-card">
         <div class="score-tile">
-          <div class="score-disc"><strong id="proScoreNumber">0</strong><span>índice liderazgo Pro</span></div>
+          <div class="score-disc" style="border-color:var(--cyan)"><strong id="proScoreNumber" style="color:var(--cyan)">0</strong><span>índice liderazgo Pro</span></div>
           <div>
             <div class="eyebrow" style="margin-bottom:8px">Diagnóstico ejecutivo completo</div>
             <h2 style="font-size:clamp(24px,3vw,36px);margin-bottom:10px">Lo que dice tu conducta real.</h2>
@@ -409,7 +452,7 @@ function avg(keys, answers) {
 // HERO MODE BUTTONS
 // ═══════════════════════════════════════════════════════════════════
 document.getElementById('btnLite').addEventListener('click', () => showStage('liteStageIntro'));
-document.getElementById('btnPro').addEventListener('click',  () => showStage('proStageCode'));
+// Pro access is revealed after Lite result — btnPro removed from hero
 
 // ═══════════════════════════════════════════════════════════════════
 // LITE FLOW
@@ -499,6 +542,10 @@ document.getElementById('liteNextBtn').addEventListener('click', () => {
 
 document.getElementById('litePrevBtn').addEventListener('click', () => {
   if (liteState.index > 0) { liteState.index--; renderLiteQ(); }
+});
+
+document.getElementById('btnProFromResult') && document.getElementById('btnProFromResult').addEventListener('click', () => {
+  showStage('proStageCode');
 });
 
 document.getElementById('liteRestartBtn').addEventListener('click', () => {

@@ -1938,3 +1938,114 @@ html{scroll-padding-top:80px}
   object-position: center 18% !important;
 }
 
+
+
+
+/* ═══════════════════════════════════════════════════════════
+   v45 — TIPOGRAFÍA ESCANEABLE + PROPORCIONES GLOBALES
+═══════════════════════════════════════════════════════════ */
+
+/* Base copy — sube de 14px a 16px */
+.copy {
+  font-size: 16px;
+  line-height: 1.82;
+  color: rgba(245,240,232,.78);
+}
+.copy p { margin: 0 0 16px; }
+.copy p:last-child { margin-bottom: 0; }
+
+/* Lead — más presencia */
+.lead,
+.page-hero-lead {
+  font-size: clamp(17px, 1.6vw, 20px) !important;
+  line-height: 1.72;
+  color: rgba(245,240,232,.80);
+}
+header .copy.lead {
+  font-size: clamp(17px, 1.6vw, 20px) !important;
+  line-height: 1.72;
+}
+
+/* H3 */
+h3 {
+  font-size: clamp(20px, 2.2vw, 26px);
+  line-height: 1.2;
+}
+
+/* Stat label */
+.stat-label { font-size: 15px; line-height: 1.6; }
+
+/* Lists */
+.clean-list li,
+.result-list li,
+.micro-points li { font-size: 15px; line-height: 1.72; }
+
+/* Mini process */
+.mini-process span { font-size: 15px; line-height: 1.7; }
+
+/* Card copy */
+.card .copy,
+.card.pad .copy { font-size: 15px; }
+
+/* Problem chips */
+.problem-chip span { font-size: 15px; line-height: 1.6; }
+
+/* Metrics */
+.metric-list li { font-size: 15px; line-height: 1.6; }
+.metric-box blockquote { font-size: 17px; line-height: 1.65; }
+.quote-role { font-size: 14px; }
+
+/* Section intro */
+.section-intro .copy { font-size: 18px; line-height: 1.82; }
+
+/* Footer */
+.footer-copy { font-size: 15px; line-height: 1.8; }
+.footer-cta p { font-size: 15px; }
+
+/* Forms */
+.capture-inline input,
+.capture-inline textarea,
+.capture-inline select,
+.native-form input,
+.native-form textarea,
+.native-form select { font-size: 15px; }
+
+/* Options */
+.option-btn { font-size: 15px; line-height: 1.6; }
+
+/* Result card */
+.result-card .copy { font-size: 15px; }
+
+/* Company cards */
+.company-interest-card .copy { font-size: 15px; line-height: 1.72; }
+.highlight-card .copy { font-size: 16px !important; }
+
+/* Intro points */
+.intro-point span.copy { font-size: 14px !important; }
+
+/* Carousel */
+.carousel-note { font-size: 14px; }
+
+/* Case slider */
+.case-story-col .copy { font-size: 16px; line-height: 1.78; }
+
+/* Company problem intro / system intro */
+.company-problem-intro,
+.company-system-intro { font-size: clamp(16px, 1.5vw, 18px); }
+
+/* Home section copy — proporciones iguales al hero */
+.page-home section .copy p,
+.page-mixed section .copy p {
+  font-size: clamp(16px, 1.5vw, 18px);
+  line-height: 1.82;
+}
+
+/* Responsive */
+@media (max-width: 760px) {
+  .copy { font-size: 15px; }
+  .lead, .page-hero-lead, header .copy.lead { font-size: 16px !important; }
+  .stat-label { font-size: 14px; }
+  .section-intro .copy { font-size: 16px; }
+  .page-home section .copy p,
+  .page-mixed section .copy p { font-size: 16px; }
+}
