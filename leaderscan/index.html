@@ -40,6 +40,39 @@
 .page-leaderscan .score-disc {
   border-color: var(--cyan) !important;
 }
+
+/* Intro card y cuadros info */
+.page-leaderscan .betascan-intro-card {
+  border-color: rgba(0,184,212,0.3) !important;
+  max-width: 720px;
+  margin: 0 auto;
+}
+.page-leaderscan .intro-point {
+  border-color: rgba(0,184,212,0.25) !important;
+  background: rgba(0,184,212,0.04) !important;
+}
+.page-leaderscan .betascan-question-card {
+  border-color: rgba(0,184,212,0.28) !important;
+}
+.page-leaderscan .progress-bar-bg {
+  background: rgba(0,184,212,0.10) !important;
+}
+.page-leaderscan .card {
+  border-color: rgba(0,184,212,0.22) !important;
+}
+.page-leaderscan .capture-inline input,
+.page-leaderscan .capture-inline select {
+  border-color: rgba(0,184,212,0.25) !important;
+}
+
+/* Ocultar hero cuando está en modo diagnóstico */
+.page-leaderscan.leaderscan-flow-mode > header,
+.page-leaderscan.leaderscan-flow-mode > .divider:first-of-type {
+  display: none !important;
+}
+.page-leaderscan.leaderscan-flow-mode > section {
+  padding-top: 28px !important;
+}
 </style>
 </head>
 <body data-wa-personal="https://wa.link/zyw1c4" class="company-page page-leaderscan" data-root="../">
@@ -79,7 +112,7 @@
 
 <!-- SHELL -->
 <section class="brand-company">
-<div class="container leaderscan-shell" id="leaderScanShell">
+<div class="container leaderscan-shell" id="leaderScanShell" style="max-width:760px;margin:0 auto">
 
   <!-- ══════════════════════════════════════════════
        LITE FLOW
@@ -451,7 +484,11 @@ function avg(keys, answers) {
 // ═══════════════════════════════════════════════════════════════════
 // HERO MODE BUTTONS
 // ═══════════════════════════════════════════════════════════════════
-document.getElementById('btnLite').addEventListener('click', () => showStage('liteStageIntro'));
+document.getElementById('btnLite').addEventListener('click', () => {
+  // Ocultar hero y activar modo diagnóstico
+  document.body.classList.add('leaderscan-flow-mode');
+  showStage('liteStageIntro');
+});
 // Pro access is revealed after Lite result — btnPro removed from hero
 
 // ═══════════════════════════════════════════════════════════════════
@@ -525,11 +562,9 @@ document.getElementById('liteLeadForm').addEventListener('submit', e => {
 });
 
 document.getElementById('liteBackBtn').addEventListener('click', () => {
-  document.getElementById('modeSelector').style.display = 'flex';
+  document.body.classList.remove('leaderscan-flow-mode');
   showStage('');
-  window.scrollTo({top:0,behavior:'auto'});
-  // Show hero
-  document.getElementById('modeSelector').scrollIntoView({behavior:'smooth'});
+  window.scrollTo({top:0,behavior:'smooth'});
 });
 
 document.getElementById('liteNextBtn').addEventListener('click', () => {
@@ -569,6 +604,7 @@ document.getElementById('liteProRequestForm').addEventListener('submit', functio
 // PRO FLOW
 // ═══════════════════════════════════════════════════════════════════
 document.getElementById('proCodeForm').addEventListener('submit', e => {
+  document.body.classList.add('leaderscan-flow-mode');
   e.preventDefault();
   const code = document.getElementById('proCodeInput').value.trim().toUpperCase();
   const err = document.getElementById('proCodeError');
@@ -583,6 +619,7 @@ document.getElementById('proCodeForm').addEventListener('submit', e => {
 });
 
 document.getElementById('proBackBtn').addEventListener('click', () => {
+  document.body.classList.remove('leaderscan-flow-mode');
   showStage('');
   window.scrollTo({top:0,behavior:'smooth'});
 });

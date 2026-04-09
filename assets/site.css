@@ -2049,3 +2049,47 @@ h3 {
   .page-home section .copy p,
   .page-mixed section .copy p { font-size: 16px; }
 }
+
+
+/* ═══════════════════════════════════════════════════════════
+   v46b — SPACING + HERO FIXES
+═══════════════════════════════════════════════════════════ */
+
+/* 2. Hero: reducir espacio interno — copy y botones más cerca del H1 */
+.index-hero {
+  padding: 52px 0 44px;
+}
+.hero-grid {
+  gap: 24px;
+}
+.hero-grid h1 {
+  margin-bottom: 14px;
+}
+.index-hero .copy.lead {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.index-hero .hero-actions {
+  margin-top: 20px;
+}
+
+/* 3. Reducir padding entre secciones — de 82px a 60px */
+header, section {
+  padding: 60px 0;
+}
+.index-hero {
+  padding: 52px 0 40px;
+}
+
+/* 4. Divider gap — menos aire */
+.divider {
+  margin: 0 auto;
+}
+
+/* Mobile — ajustar también */
+@media (max-width: 760px) {
+  header, section { padding: 44px 0; }
+  .index-hero { padding: 32px 0 28px; }
+  .hero-grid h1 { margin-bottom: 10px; }
+  .index-hero .hero-actions { margin-top: 16px; }
+}
