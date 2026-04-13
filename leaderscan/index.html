@@ -74,7 +74,90 @@
   padding-top: 28px !important;
 }
 </style>
-</head>
+<style>
+.ls-dashboard{display:grid;gap:14px;max-width:860px;margin:0 auto}
+.ls-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:18px}
+.ls-card-cyan{border-color:rgba(0,184,212,.2);background:linear-gradient(135deg,rgba(0,184,212,.05),rgba(255,255,255,.01))}
+.ls-card-red{border-color:rgba(255,100,100,.18);background:rgba(255,100,100,.03)}
+.ls-row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.ls-lbl{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:rgba(245,240,232,.35);margin-bottom:10px}
+.ls-name{font-size:22px;font-weight:700;color:#F5F0E8;line-height:1.1}
+.ls-date{font-size:11px;color:rgba(245,240,232,.3);margin:3px 0 13px}
+.ls-rdiv{height:1px;background:rgba(255,255,255,.07);margin:10px 0}
+.ls-rtext{font-size:15px;line-height:1.78;color:rgba(245,240,232,.76)}
+.ls-rtext strong{color:#F5F0E8}
+.ls-hl-c{color:#66dceb}.ls-hl-g{color:#E8C96A}.ls-hl-r{color:#ff9090}
+.ls-pbadge{display:inline-flex;padding:4px 10px;border-radius:999px;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:9px;background:rgba(0,184,212,.12);border:1px solid rgba(0,184,212,.28);color:#66dceb}
+.ls-pname{font-size:18px;font-weight:700;color:#F5F0E8;margin-bottom:6px;line-height:1.2}
+.ls-pdesc{font-size:13px;line-height:1.6;color:rgba(245,240,232,.6);margin-bottom:8px}
+.ls-psymps{display:grid;gap:4px}
+.ls-psymp{font-size:12px;color:rgba(245,240,232,.52);display:flex;align-items:center;gap:6px}
+.ls-psymp::before{content:'';width:3px;height:3px;border-radius:50%;background:rgba(0,184,212,.7);flex-shrink:0}
+.ls-score-row{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.ls-disc{width:62px;height:62px;border-radius:50%;border:2px solid rgba(0,184,212,.45);display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0}
+.ls-disc strong{font-size:22px;font-weight:700;color:#66dceb;line-height:1}
+.ls-disc span{font-size:8px;color:rgba(245,240,232,.35);letter-spacing:.06em;text-transform:uppercase}
+.ls-scopy h4{font-size:14px;font-weight:700;color:#F5F0E8;margin-bottom:2px}
+.ls-scopy p{font-size:12px;color:rgba(245,240,232,.5);line-height:1.5}
+.ls-meters{display:grid;gap:7px}
+.ls-mi{display:grid;gap:3px}
+.ls-mh{display:flex;justify-content:space-between;font-size:11px;align-items:center}
+.ls-mh strong{color:rgba(245,240,232,.78);font-weight:400}
+.ls-mhright{display:flex;align-items:center;gap:5px}
+.ls-delta{font-size:10px;padding:1px 6px;border-radius:999px;font-weight:700}
+.ls-up{background:rgba(0,184,212,.12);color:#66dceb}
+.ls-dn{background:rgba(255,100,100,.12);color:#ff9090}
+.ls-mid{background:rgba(201,168,76,.12);color:#E8C96A}
+.ls-mbg{height:5px;border-radius:999px;background:rgba(255,255,255,.07)}
+.ls-mf{height:5px;border-radius:999px}
+.ls-brecha{padding:13px;border-radius:10px;background:rgba(255,100,100,.06);border:1px solid rgba(255,100,100,.2)}
+.ls-bl{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#ff9090;margin-bottom:5px;display:block}
+.ls-bt{font-size:14px;font-weight:700;color:#F5F0E8;margin-bottom:5px}
+.ls-bd{font-size:13px;line-height:1.65;color:rgba(245,240,232,.7)}
+.ls-flist{display:grid;gap:7px}
+.ls-fi{padding:10px 12px;border-radius:10px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);display:flex;align-items:flex-start;gap:9px}
+.ls-fdot{width:7px;height:7px;border-radius:50%;flex-shrink:0;margin-top:4px}
+.ls-fname{font-size:13px;color:rgba(245,240,232,.8);font-weight:500;margin-bottom:2px}
+.ls-fwhy{font-size:11px;color:rgba(245,240,232,.42);line-height:1.45}
+.ls-fval{font-size:12px;font-weight:700;flex-shrink:0;margin-top:2px}
+.ls-fort{display:grid;gap:6px}
+.ls-fort-item{padding:9px 11px;border-radius:9px;background:rgba(0,184,212,.05);border:1px solid rgba(0,184,212,.14);display:flex;align-items:center;gap:9px}
+.ls-fdot2{width:6px;height:6px;border-radius:50%;background:#00B8D4;flex-shrink:0}
+.ls-fname2{font-size:13px;color:rgba(245,240,232,.8);font-weight:500;flex:1}
+.ls-fval2{font-size:12px;font-weight:700;color:#66dceb}
+/* Flujo */
+.ls-flow{padding:15px;border-radius:12px;border:1px solid rgba(201,168,76,.22);background:rgba(201,168,76,.04)}
+.ls-flow-title{font-size:14px;font-weight:700;color:#F5F0E8;margin-bottom:2px}
+.ls-flow-sub{font-size:12px;color:rgba(245,240,232,.45);margin-bottom:14px}
+.ls-steps{display:grid;gap:0}
+.ls-step{display:grid;grid-template-columns:30px 1fr;align-items:stretch}
+.ls-spine{display:flex;flex-direction:column;align-items:center}
+.ls-dot{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;z-index:1}
+.ls-line{width:1.5px;flex:1;min-height:8px;margin:2px 0}
+.ls-sc{padding:0 0 11px 11px}
+.ls-sn{font-size:13px;font-weight:700;margin-bottom:2px;line-height:1.3}
+.ls-sd{font-size:12px;color:rgba(245,240,232,.5);line-height:1.5}
+.ls-done .ls-dot{background:rgba(0,184,212,.18);border:1.5px solid rgba(0,184,212,.5);color:#66dceb}
+.ls-done .ls-line{background:linear-gradient(180deg,rgba(0,184,212,.4),rgba(201,168,76,.3))}
+.ls-done .ls-sc{opacity:.65}
+.ls-next .ls-dot{background:rgba(201,168,76,.15);border:2px solid rgba(201,168,76,.6);color:#E8C96A}
+.ls-next .ls-line{background:rgba(255,255,255,.08)}
+.ls-next .ls-sn{color:#F5F0E8}
+.ls-next .ls-sd{color:rgba(245,240,232,.65)}
+.ls-pend .ls-dot{background:rgba(255,255,255,.04);border:1.5px solid rgba(255,255,255,.12);color:rgba(245,240,232,.3)}
+.ls-pend .ls-line{background:rgba(255,255,255,.06)}
+.ls-pend .ls-sn{color:rgba(245,240,232,.42)}
+.ls-now{display:inline-flex;padding:3px 9px;border-radius:999px;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:rgba(201,168,76,.14);border:1px solid rgba(201,168,76,.35);color:#E8C96A;margin-bottom:5px}
+.ls-done-badge{display:inline-flex;padding:3px 9px;border-radius:999px;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:rgba(0,184,212,.1);border:1px solid rgba(0,184,212,.25);color:#66dceb;margin-bottom:5px}
+.ls-chk{width:11px;height:11px}
+.ls-cta-row{margin-top:12px;display:flex;gap:8px;flex-wrap:wrap}
+.ls-btn-g{padding:9px 16px;border-radius:999px;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border:1px solid rgba(201,168,76,.45);background:rgba(201,168,76,.1);color:#E8C96A;cursor:pointer;display:inline-flex;align-items:center;gap:6px;text-decoration:none}
+.ls-btn-c{padding:9px 16px;border-radius:999px;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border:1px solid rgba(0,184,212,.38);background:rgba(0,184,212,.08);color:#66dceb;cursor:pointer;display:inline-flex;align-items:center;gap:6px;text-decoration:none}
+.ls-btn-o{padding:9px 16px;border-radius:999px;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.03);color:rgba(245,240,232,.65);cursor:pointer;text-decoration:none}
+.ls-share{display:flex;gap:8px;flex-wrap:wrap}
+.ls-sbtn{padding:7px 13px;border-radius:8px;font-size:10px;font-weight:700;border:1px solid;cursor:pointer;display:inline-flex;align-items:center;gap:5px;text-transform:uppercase;letter-spacing:.04em;background:transparent}
+@media(max-width:760px){.ls-row2{grid-template-columns:1fr}}
+</style></head>
 <body data-wa-personal="https://wa.link/zyw1c4" class="company-page page-leaderscan" data-root="../">
 
 <nav class="nav"><div class="container nav-inner">
@@ -156,54 +239,115 @@
     </div>
   </div>
 
-  <!-- LITE: Result -->
+  <!-- LITE: Result Dashboard -->
   <div class="betascan-stage" id="liteStageResult">
-    <div class="betascan-result-grid">
-      <div class="result-card">
-        <div class="score-tile">
-          <div class="score-disc" style="border-color:var(--cyan)"><strong id="liteScoreNumber" style="color:var(--cyan)">0</strong><span>índice liderazgo</span></div>
-          <div>
-            <div class="eyebrow" style="margin-bottom:8px">Tu diagnóstico inicial</div>
-            <h2 style="font-size:clamp(24px,3vw,36px);margin-bottom:10px">Este es tu punto de partida real.</h2>
-            <p class="copy" style="margin:0">No lo que crees que eres como líder. Lo que muestran tus comportamientos.</p>
+  <div class="ls-dashboard">
+
+    <!-- 1. Lectura personalizada -->
+    <div class="ls-card ls-card-cyan">
+      <div class="ls-name" id="ls-user-name">Tu resultado</div>
+      <div class="ls-date" id="ls-date">LeaderScan</div>
+      <div class="ls-rtext" id="ls-reading-1"></div>
+      <div class="ls-rdiv"></div>
+      <div class="ls-rtext" id="ls-reading-2"></div>
+      <div class="ls-rdiv"></div>
+      <div class="ls-rtext" id="ls-reading-3"></div>
+    </div>
+
+    <!-- 2. Perfil -->
+    <div class="ls-card">
+      <div class="ls-lbl">Tu perfil de liderazgo</div>
+      <span class="ls-pbadge">Perfil detectado</span>
+      <div class="ls-pname" id="liteProfileName"></div>
+      <div class="ls-pdesc" id="ls-pdesc"></div>
+      <div class="ls-psymps" id="ls-psymps"></div>
+    </div>
+
+    <!-- 3. Score + dimensiones -->
+    <div class="ls-row2">
+      <div class="ls-card">
+        <div class="ls-lbl">Índice de liderazgo</div>
+        <div class="ls-score-row">
+          <div class="ls-disc"><strong id="liteScoreNumber">0</strong><span>índice</span></div>
+          <div class="ls-scopy"><h4 id="ls-score-title">Diagnóstico inicial</h4><p>No lo que crees que eres como líder. Lo que muestran tus comportamientos.</p></div>
+        </div>
+      </div>
+      <div class="ls-card">
+        <div class="ls-lbl">Tus 6 dimensiones</div>
+        <div class="ls-meters" id="liteMeters"></div>
+      </div>
+    </div>
+
+    <!-- 4. Fortalezas + Foco -->
+    <div class="ls-row2">
+      <div class="ls-card">
+        <div class="ls-lbl">Dónde ya eres sólido</div>
+        <div class="ls-fort" id="ls-strengths"></div>
+      </div>
+      <div class="ls-card">
+        <div class="ls-lbl">Dónde enfocar la energía</div>
+        <div class="ls-flist" id="ls-foco"></div>
+      </div>
+    </div>
+
+    <!-- 5. Flujo siguiente paso -->
+    <div class="ls-card">
+      <div class="ls-lbl">Tu camino recomendado</div>
+      <div class="ls-flow">
+        <div class="ls-flow-title">Desde el diagnóstico al entrenamiento</div>
+        <div class="ls-flow-sub">Completaste el paso 1. El siguiente es una conversación estratégica.</div>
+        <div class="ls-steps">
+          <div class="ls-step ls-done">
+            <div class="ls-spine"><div class="ls-dot"><svg class="ls-chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><div class="ls-line"></div></div>
+            <div class="ls-sc"><span class="ls-done-badge">Completado</span><div class="ls-sn">Paso 1 — LeaderScan Lite</div><div class="ls-sd">Diagnóstico conductual de tus 6 dimensiones de liderazgo.</div></div>
+          </div>
+          <div class="ls-step ls-next">
+            <div class="ls-spine"><div class="ls-dot">2</div><div class="ls-line"></div></div>
+            <div class="ls-sc"><span class="ls-now">Siguiente paso</span><div class="ls-sn">Paso 2 — Conversación estratégica</div><div class="ls-sd">30 minutos con Angelo para revisar este resultado en el contexto real de tu empresa y definir qué mover primero.</div></div>
+          </div>
+          <div class="ls-step ls-pend">
+            <div class="ls-spine"><div class="ls-dot">3</div><div class="ls-line"></div></div>
+            <div class="ls-sc"><div class="ls-sn">Paso 3 — LeaderScan Pro (opcional)</div><div class="ls-sd">35 preguntas, 8 dimensiones, brecha crítica detallada y plan de entrenamiento.</div></div>
+          </div>
+          <div class="ls-step ls-pend">
+            <div class="ls-spine"><div class="ls-dot" style="border:1.5px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);color:rgba(245,240,232,.3)">4</div></div>
+            <div class="ls-sc" style="padding-bottom:0"><div class="ls-sn">Paso 4 — Sprint de Liderazgo</div><div class="ls-sd">30 días de entrenamiento real. Cambios desde la semana 1.</div></div>
           </div>
         </div>
-        <div class="meter-list" id="liteMeters" style="margin-top:22px"></div>
-      </div>
-      <div class="result-card">
-        <div class="result-tag">Perfil de liderazgo</div>
-        <h3 id="liteProfileName"></h3>
-        <p class="copy" id="liteProfileNarrative"></p>
-        <div class="recommendation-box" style="margin-top:18px">
-          <div class="eyebrow" style="margin-bottom:10px">Camino recomendado</div>
-          <h3 id="liteRecTitle"></h3>
-          <p class="copy" id="liteRecText"></p>
-          <div class="hero-actions" style="margin-top:18px">
-            <a class="btn btn-cyan" href="../empresa/" id="liteNextStepBtn">Ver BetaMode System™</a>
-            <a class="btn btn-outline" href="https://wa.link/zyw1c4" rel="noopener noreferrer" target="_blank">Hablar con Angelo</a>
-          </div>
+        <div class="ls-cta-row">
+          <a class="ls-btn-g" href="https://wa.link/zyw1c4" target="_blank" rel="noopener">Agendar conversación estratégica</a>
+          <button class="ls-btn-c" id="btnProFromResult" type="button">Quiero el Pro</button>
+          <a class="ls-btn-o" href="../empresa/">Ver BetaMode System™</a>
         </div>
       </div>
     </div>
-    <!-- Capture para Pro upgrade -->
-    <div class="result-card" style="margin-top:20px">
-      <div class="result-tag" style="color:var(--cyan);border-color:var(--cyan)">LeaderScan Pro — Diagnóstico ejecutivo completo</div>
-      <p class="copy" style="margin:0 0 14px">35 preguntas · 8 dimensiones · Brecha crítica · Plan de entrenamiento específico. Usado en procesos de coaching ejecutivo.</p>
-      <p class="copy" style="margin:0 0 14px;font-size:13px;color:rgba(245,240,232,0.5)">Solicita tu código de acceso o pregunta a Angelo cómo acceder.</p>
-      <form class="capture-inline" id="liteProRequestForm">
-        <div class="capture-grid">
-          <input id="liteProName" placeholder="Nombre" required type="text"/>
-          <input id="liteProEmail" placeholder="Email" required type="email"/>
-          <input id="liteProCompany" placeholder="Empresa" type="text"/>
-        </div>
-        <div class="inline-actions">
-          <button class="btn btn-cyan" type="submit">Solicitar acceso Pro</button>
-          <button class="btn btn-outline" id="btnProFromResult" type="button">Tengo un código</button>
-          <button class="btn btn-outline" id="liteRestartBtn" type="button">Rehacer</button>
-        </div>
-        <div class="form-success" id="liteProSuccess" style="display:none"></div>
-      </form>
+
+    <!-- 6. Compartir -->
+    <div class="ls-card">
+      <div class="ls-lbl">Este resultado es tuyo</div>
+      <div class="ls-share">
+        <button class="ls-sbtn" style="border-color:rgba(255,255,255,.13);color:rgba(245,240,232,.6)" onclick="navigator.clipboard&&navigator.clipboard.writeText(window.location.href)">Copiar link</button>
+        <button class="ls-sbtn" style="border-color:rgba(0,184,212,.28);color:#66dceb" onclick="window.print()">Guardar PDF</button>
+        <button class="ls-sbtn" style="border-color:rgba(255,255,255,.13);color:rgba(245,240,232,.6)" id="liteRestartBtn" type="button">Rehacer</button>
+      </div>
     </div>
+
+    <!-- Pro request form (hidden, shown when "Quiero el Pro" clicked) -->
+    <form class="capture-inline" id="liteProRequestForm" style="display:none">
+      <div class="ls-lbl">Solicitar acceso LeaderScan Pro</div>
+      <div class="capture-grid">
+        <input id="liteProName" placeholder="Nombre" required type="text"/>
+        <input id="liteProEmail" placeholder="Email" required type="email"/>
+        <input id="liteProCompany" placeholder="Empresa" type="text"/>
+      </div>
+      <div class="inline-actions" style="margin-top:10px">
+        <button class="btn btn-cyan" type="submit">Solicitar acceso</button>
+        <button class="btn btn-outline" id="btnProFromResult2" type="button">Tengo un código → entrar al Pro</button>
+      </div>
+      <div class="form-success" id="liteProSuccess" style="display:none"></div>
+    </form>
+
+  </div>
   </div>
 
   <!-- ══════════════════════════════════════════════
@@ -518,22 +662,57 @@ function buildLiteResult() {
   const prof = LITE_PROFILES[profId];
   const rec = liteRec(score);
   const sorted = Object.entries(caps).sort((a,b)=>a[1]-b[1]);
-  const priorities = sorted.slice(0,2);
-  const strengths = sorted.slice(-2).reverse();
+  const priorities = sorted.slice(0,3);
+  const strengths = sorted.slice(-3).reverse();
 
+  const meterColors = {direccion:'#00B8D4',conversaciones:'#C9A84C',accountability:'#00B8D4',influencia:'#00B8D4',equipo:'#00B8D4',adaptabilidad:'#C9A84C',autoconocimiento:'#6F5A9F'};
+  const meterTC = {direccion:'#66dceb',conversaciones:'#E8C96A',accountability:'#66dceb',influencia:'#66dceb',equipo:'#66dceb',adaptabilidad:'#E8C96A',autoconocimiento:'#b7a7db'};
+
+  // Nombre y fecha
+  const firstName = (liteState.lead.name||'').split(' ')[0] || 'Tu resultado';
+  document.getElementById('ls-user-name').textContent = firstName;
+  document.getElementById('ls-date').textContent = 'LeaderScan · ' + new Date().toLocaleDateString('es-CL',{day:'numeric',month:'long',year:'numeric'});
+
+  // Lectura personalizada
+  const topStr = strengths[0]; const topGap = priorities[0]; const topGap2 = priorities[1];
+  document.getElementById('ls-reading-1').innerHTML = `Tu <span class="ls-hl-c">${LITE_LABELS[topStr[0]]} está en ${topStr[1]}%</span> — ${lsStrDesc(topStr[0])}. Eso es lo que hace que tu equipo funcione cuando estás presente.`;
+  document.getElementById('ls-reading-2').innerHTML = `Pero tu <span class="ls-hl-g">${LITE_LABELS[topGap[0]]} está en ${topGap[1]}%</span> y tu <span class="ls-hl-g">${LITE_LABELS[topGap2[0]]} en ${topGap2[1]}%</span>. ${lsGapDesc(topGap[0])}`;
+  document.getElementById('ls-reading-3').innerHTML = lsRec3(score, prof);
+
+  // Score
   document.getElementById('liteScoreNumber').textContent = score;
-  document.getElementById('liteProfileName').textContent = prof.name;
-  document.getElementById('liteProfileNarrative').textContent = prof.short + ' ' + prof.brecha;
-  document.getElementById('liteRecTitle').textContent = rec.title;
-  document.getElementById('liteRecText').textContent = rec.text;
+  document.getElementById('ls-score-title').textContent = score >= 70 ? 'Liderazgo sólido' : score >= 50 ? 'Liderazgo funcional con brechas' : 'Brechas críticas identificadas';
 
-  const meters = document.getElementById('liteMeters');
-  meters.innerHTML = '';
-  Object.entries(caps).forEach(([k,v]) => {
-    const row = document.createElement('div');
-    row.className = 'meter-item';
-    row.innerHTML = `<div class="meter-head"><strong>${LITE_LABELS[k]}</strong><span>${v}%</span></div><div class="meter-bg"><div class="meter-fill" style="width:${v}%"></div></div>`;
+  // Perfil
+  document.getElementById('liteProfileName').textContent = prof.name;
+  document.getElementById('ls-pdesc').textContent = prof.short;
+  const symps = document.getElementById('ls-psymps'); symps.innerHTML='';
+  (prof.brecha?[prof.brecha]:[]).concat([]).forEach(s=>{const d=document.createElement('div');d.className='ls-psymp';d.textContent=s;symps.appendChild(d);});
+
+  // Dimensiones ordenadas de mayor a menor
+  const meters = document.getElementById('liteMeters'); meters.innerHTML='';
+  sorted.slice().reverse().forEach(([k,v])=>{
+    const tag = v>=65?'sólido':v>=45?'en desarrollo':'crítico';
+    const tagClass = v>=65?'ls-up':v>=45?'ls-mid':'ls-dn';
+    const row=document.createElement('div'); row.className='ls-mi';
+    row.innerHTML=`<div class="ls-mh"><strong>${LITE_LABELS[k]}</strong><div class="ls-mhright"><span class="ls-delta ${tagClass}">${tag}</span><span style="color:${meterTC[k]};font-weight:700;font-size:11px">${v}%</span></div></div><div class="ls-mbg"><div class="ls-mf" style="width:${v}%;background:${meterColors[k]}"></div></div>`;
     meters.appendChild(row);
+  });
+
+  // Fortalezas
+  const fortEl = document.getElementById('ls-strengths'); fortEl.innerHTML='';
+  strengths.forEach(([k,v])=>{
+    const item=document.createElement('div'); item.className='ls-fort-item';
+    item.innerHTML=`<div class="ls-fdot2"></div><span class="ls-fname2">${LITE_LABELS[k]}</span><span class="ls-fval2">${v}%</span>`;
+    fortEl.appendChild(item);
+  });
+
+  // Foco
+  const focoEl = document.getElementById('ls-foco'); focoEl.innerHTML='';
+  priorities.forEach(([k,v])=>{
+    const item=document.createElement('div'); item.className='ls-fi';
+    item.innerHTML=`<div class="ls-fdot" style="background:${meterColors[k]}"></div><div style="flex:1"><div class="ls-fname">${LITE_LABELS[k]}</div><div class="ls-fwhy">${lsFocoWhy(k)}</div></div><span class="ls-fval" style="color:${meterTC[k]}">${v}%</span>`;
+    focoEl.appendChild(item);
   });
 
   // Pre-fill pro form
@@ -541,6 +720,24 @@ function buildLiteResult() {
   document.getElementById('liteProEmail').value = liteState.lead.email || '';
 
   showStage('liteStageResult');
+}
+
+function lsStrDesc(k){
+  const d={direccion:'das claridad y el equipo sabe hacia dónde va',conversaciones:'abordas lo difícil sin evitarlo',accountability:'exiges resultados con consistencia real',influencia:'movilizas personas más allá de tu equipo directo',equipo:'el equipo funciona con autonomía real',adaptabilidad:'ajustas tu estilo según lo que el contexto necesita',autoconocimiento:'tienes claridad sobre cómo impactas al equipo'};
+  return d[k]||'está bien desarrollada';
+}
+function lsGapDesc(k){
+  const d={conversaciones:'Las conversaciones que evitas son las que más cuestan al equipo.',adaptabilidad:'Tu liderazgo funciona bien en control. Se fragiliza cuando el contexto cambia.',equipo:'El equipo depende demasiado de tu presencia para funcionar bien.',influencia:'Tu impacto se limita a quien te reporta directamente.',accountability:'Los compromisos no siempre se sostienen sin tu presión activa.',autoconocimiento:'El estado emocional impacta al equipo más de lo que percibes.',direccion:'La falta de claridad sostenida genera interpretaciones distintas en el equipo.'};
+  return d[k]||'Esa brecha es donde más sentido tiene trabajar.';
+}
+function lsRec3(score, prof){
+  if(score<45) return `Hay brechas conductuales importantes. <strong>El primer paso es una conversación estratégica</strong> para ver qué tiene más sentido mover y en qué orden.`;
+  if(score<65) return `Tienes base para trabajar. <strong>Un Sprint de Liderazgo de 30 días</strong> movería tus comportamientos de forma visible y rápida desde la semana 1.`;
+  return `Tu liderazgo individual es sólido. <strong>El siguiente paso es escalar ese impacto al equipo</strong> — Sprint de Equipo o diagnóstico Pro para ver la brecha exacta.`;
+}
+function lsFocoWhy(k){
+  const d={conversaciones:'Las conversaciones que evitas hoy se acumulan como costo mañana.',adaptabilidad:'Rigidez ante el cambio limita el alcance del liderazgo.',equipo:'Un equipo autónomo multiplica tu impacto.',influencia:'Liderazgo transversal real, más allá del cargo.',accountability:'Compromisos que se sostienen sin presión permanente.',autoconocimiento:'Conocer el impacto emocional para gestionarlo.',direccion:'Claridad que no depende de que estés presente.'};
+  return d[k]||'Dimensión con mayor potencial de mejora.';
 }
 
 document.getElementById('liteLeadForm').addEventListener('submit', e => {
@@ -574,7 +771,12 @@ document.getElementById('litePrevBtn').addEventListener('click', () => {
 });
 
 document.getElementById('btnProFromResult') && document.getElementById('btnProFromResult').addEventListener('click', () => {
+  const form = document.getElementById('liteProRequestForm');
+  if(form) form.style.display = form.style.display === 'none' ? 'grid' : 'none';
+});
+document.getElementById('btnProFromResult2') && document.getElementById('btnProFromResult2').addEventListener('click', () => {
   showStage('proStageCode');
+  document.body.classList.add('leaderscan-flow-mode');
 });
 
 document.getElementById('liteRestartBtn').addEventListener('click', () => {
