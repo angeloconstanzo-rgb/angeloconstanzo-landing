@@ -82,14 +82,30 @@
   .bg-stat strong{font-size:20px}
 }
 </style>
-</head>
+<style>
+/* ── Capacidades slider ── */
+.bg-caps-slider{position:relative;overflow:hidden;margin-top:20px}
+.bg-caps-track{display:flex;transition:transform .5s cubic-bezier(.16,1,.3,1)}
+.bg-cap-slide{min-width:100%;display:grid;grid-template-columns:repeat(4,1fr);gap:10px;padding:2px}
+.bg-cap{padding:18px 16px;border-radius:16px;border:1px solid rgba(201,168,76,.15);background:rgba(255,255,255,.02);display:flex;flex-direction:column;gap:8px;transition:border-color .2s}
+.bg-cap:hover{border-color:rgba(201,168,76,.3);background:rgba(201,168,76,.05)}
+.bg-cap .c-ico{font-size:26px;line-height:1}
+.bg-cap .c-name{font-size:14px;font-weight:700;color:#F5F0E8;line-height:1.25}
+.bg-cap .c-tag{font-size:12px;color:rgba(245,240,232,.5);line-height:1.45}
+.bg-caps-dots{display:flex;gap:8px;justify-content:center;margin-top:14px}
+.bg-cap-dot{width:8px;height:8px;border-radius:50%;border:none;padding:0;cursor:pointer;background:rgba(255,255,255,.2);transition:background .2s,transform .2s}
+.bg-cap-dot.active{background:var(--gold);transform:scale(1.25)}
+@media(max-width:760px){
+  .bg-cap-slide{grid-template-columns:repeat(2,1fr);gap:8px}
+}
+</style></head>
 <body data-wa-personal="https://wa.link/zyw1c4" class="betagym-page page-beta" data-root="../">
 
 <nav class="nav"><div class="container nav-inner">
   <a class="brand" href="../"><div class="brand-lines"><span></span><span></span><span></span></div><div class="brand-name">Angelo Constanzo</div></a>
   <div class="nav-links">
     <a href="../">Inicio</a><a href="../persona/">Persona</a><a href="../empresa/">Empresa</a>
-    <a href="../betascan/">BetaScan</a><a class="active" href="../betagym/">BetaGym</a>
+    <a class="active" href="../betagym/">BetaGym</a>
     <a href="../reflexiones/">Reflexiones</a><a href="../acerca-de/">Acerca de</a>
   </div>
   <a class="btn btn-gold" href="https://wa.link/zyw1c4" rel="noopener noreferrer" target="_blank">Hablemos</a>
@@ -147,17 +163,50 @@
 <!-- 8 CAPACIDADES -->
 <section><div class="container reveal">
   <div class="eyebrow">Qué entrenamos</div>
-  <h2>Las 8 capacidades del sistema.</h2>
-  <div class="bg-caps">
-    <div class="bg-cap"><div class="c-ico">🔥</div><div class="c-name">Fuego propio</div><div class="c-tag">Autoestima · actuar desde ti</div></div>
-    <div class="bg-cap"><div class="c-ico">🧠</div><div class="c-name">Mundo interior</div><div class="c-tag">Autoconocimiento · regulación emocional</div></div>
-    <div class="bg-cap"><div class="c-ico">🌱</div><div class="c-name">Raíz</div><div class="c-tag">Resiliencia · tolerar incertidumbre</div></div>
-    <div class="bg-cap"><div class="c-ico">🤝</div><div class="c-name">Campo de empatía</div><div class="c-tag">Relaciones · conectar sin perderte</div></div>
-    <div class="bg-cap"><div class="c-ico">🧭</div><div class="c-name">Norte vital</div><div class="c-tag">Dirección · propósito · sentido</div></div>
-    <div class="bg-cap"><div class="c-ico">✨</div><div class="c-name">Chispa creativa</div><div class="c-tag">Nuevas posibilidades · salir del automático</div></div>
-    <div class="bg-cap"><div class="c-ico">🏃</div><div class="c-name">Movimiento</div><div class="c-tag">Pasar a la acción · materializar</div></div>
-    <div class="bg-cap"><div class="c-ico">⚡</div><div class="c-name">Energía vital</div><div class="c-tag">Sostener el proceso · recuperar la carga</div></div>
+  <div style="display:flex;align-items:baseline;gap:14px;margin-bottom:4px"><span style="font-size:11px;font-weight:700;letter-spacing:.18em;color:rgba(245,240,232,.3)">03</span><h2 style="margin:0">Las 8 capacidades del sistema.</h2></div>
+  <div class="bg-caps-slider" id="capSlider">
+    <div class="bg-caps-track" id="capTrack">
+      <!-- Slide 1: caps 1-4 -->
+      <div class="bg-cap-slide">
+        <div class="bg-cap"><div class="c-ico">🔥</div><div class="c-name">Fuego propio</div><div class="c-tag">Autoestima · actuar desde ti</div></div>
+        <div class="bg-cap"><div class="c-ico">🧠</div><div class="c-name">Mundo interior</div><div class="c-tag">Autoconocimiento · regulación emocional</div></div>
+        <div class="bg-cap"><div class="c-ico">🌱</div><div class="c-name">Raíz</div><div class="c-tag">Resiliencia · tolerar incertidumbre</div></div>
+        <div class="bg-cap"><div class="c-ico">🤝</div><div class="c-name">Campo de empatía</div><div class="c-tag">Relaciones · conectar sin perderte</div></div>
+      </div>
+      <!-- Slide 2: caps 5-8 -->
+      <div class="bg-cap-slide">
+        <div class="bg-cap"><div class="c-ico">🧭</div><div class="c-name">Norte vital</div><div class="c-tag">Dirección · propósito · sentido</div></div>
+        <div class="bg-cap"><div class="c-ico">✨</div><div class="c-name">Chispa creativa</div><div class="c-tag">Nuevas posibilidades · salir del automático</div></div>
+        <div class="bg-cap"><div class="c-ico">🏃</div><div class="c-name">Movimiento</div><div class="c-tag">Pasar a la acción · materializar</div></div>
+        <div class="bg-cap"><div class="c-ico">⚡</div><div class="c-name">Energía vital</div><div class="c-tag">Sostener el proceso · recuperar la carga</div></div>
+      </div>
+    </div>
+    <div class="bg-caps-dots">
+      <button class="bg-cap-dot active" data-idx="0" aria-label="1-4"></button>
+      <button class="bg-cap-dot" data-idx="1" aria-label="5-8"></button>
+    </div>
   </div>
+  <script>
+  (function(){
+    var track=document.getElementById('capTrack');
+    var dots=document.querySelectorAll('.bg-cap-dot');
+    var cur=0; var total=2; var timer;
+    function go(idx){
+      cur=idx;
+      track.style.transform='translateX(-'+idx*100+'%)';
+      dots.forEach(function(d,i){d.classList.toggle('active',i===idx);});
+    }
+    function next(){go((cur+1)%total);}
+    function startAuto(){timer=setInterval(next,3000);}
+    function stopAuto(){clearInterval(timer);}
+    dots.forEach(function(d){
+      d.addEventListener('click',function(){stopAuto();go(parseInt(d.dataset.idx));startAuto();});
+    });
+    document.getElementById('capSlider').addEventListener('mouseenter',stopAuto);
+    document.getElementById('capSlider').addEventListener('mouseleave',startAuto);
+    startAuto();
+  })();
+  </script>
 </div></section>
 
 <div class="divider"></div>
@@ -165,7 +214,7 @@
 <!-- QUÉ CONSTRUYES DENTRO -->
 <section><div class="container reveal">
   <div class="eyebrow">Qué construyes dentro</div>
-  <h2><span class="line">No entrenas en abstracto.</span><span class="line text-gold">Trabajas algo tuyo y real.</span></h2>
+  <div style="display:flex;align-items:baseline;gap:14px"><span style="font-size:11px;font-weight:700;letter-spacing:.18em;color:rgba(245,240,232,.3)">04</span><h2 style="margin:0"><span class="line">No entrenas en abstracto.</span><span class="line text-gold">Trabajas algo tuyo y real.</span></h2>
   <div class="bg-projects">
     <div class="bg-project"><div class="proj-ico">🔄</div><div><strong>Cambio personal</strong><span>Algo que vienes evitando — lo vuelves visible y lo mueves.</span></div></div>
     <div class="bg-project"><div class="proj-ico">🧭</div><div><strong>Dirección</strong><span>Una decisión importante con foco, sostén y claridad real.</span></div></div>
@@ -184,7 +233,7 @@
 <!-- CÓMO ENTRAS — proceso -->
 <section><div class="container reveal">
   <div class="eyebrow">Cómo entras</div>
-  <h2>Un proceso claro.</h2>
+  <div style="display:flex;align-items:baseline;gap:14px;margin-bottom:4px"><span style="font-size:11px;font-weight:700;letter-spacing:.18em;color:rgba(245,240,232,.3)">05</span><h2 style="margin:0">Un proceso claro.</h2></div>
   <div style="position:relative">
     <div class="bg-process-line"></div>
     <div class="bg-process">
@@ -221,7 +270,7 @@
 <!-- VALIDACIÓN -->
 <section><div class="container reveal">
   <div class="eyebrow">Validación</div>
-  <h2><span class="line">Un método con historia.</span></h2>
+  <div style="display:flex;align-items:baseline;gap:14px"><span style="font-size:11px;font-weight:700;letter-spacing:.18em;color:rgba(245,240,232,.3)">06</span><h2 style="margin:0"><span class="line">Un método con historia.</span></h2>
   <div class="bg-validation">
     <div>
       <p class="copy">Antes de convertirse en BetaGym, este sistema se probó en experiencias vivenciales de alto impacto — naturaleza, cuerpo, mente, emoción y gamificación. Las personas no solo vivían algo. Se transformaban.</p>
@@ -232,9 +281,9 @@
       </div>
     </div>
     <div class="bg-gallery">
-      <img src="../assets/images/antitour-1.jpg" alt="Antitour experiencia"/>
-      <img src="../assets/images/antitour-2.jpg" alt="Grupo Antitour"/>
-      <img src="../assets/images/antitour-3.jpg" alt="Facilitación Antitour"/>
+      <img src="../assets/images/antitour-trekking.jpg" alt="Antitour experiencia"/>
+      <img src="../assets/images/antitour-naturaleza.jpg" alt="Grupo Antitour"/>
+      <img src="../assets/images/antitour-vendas.jpg" alt="Facilitación Antitour"/>
     </div>
   </div>
 </div></section>
