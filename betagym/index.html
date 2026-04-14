@@ -1,68 +1,274 @@
-<!DOCTYPE html><html lang="es"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>BetaGym — Angelo Constanzo</title><meta name="description" content="BetaGym — sistema presencial y social para entrenar mente, emoción y dirección."/><link rel="stylesheet" href="../assets/site.css"/><style>
-/* ── Capacidades BetaGym ── */
-.cap-list{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:22px}
-.cap-item{padding:16px 14px;border-radius:16px;border:1px solid rgba(201,168,76,.15);background:rgba(255,255,255,.02);display:flex;flex-direction:column;gap:8px;transition:border-color .2s,background .2s}
-.cap-item:hover{border-color:rgba(201,168,76,.32);background:rgba(201,168,76,.05)}
-.cap-ico{font-size:22px;line-height:1}
-.cap-name{font-size:13px;font-weight:700;color:#F5F0E8;line-height:1.25}
-.cap-tag{font-size:11px;color:rgba(245,240,232,.5);line-height:1.45}
-@media(max-width:1024px){.cap-list{grid-template-columns:repeat(2,1fr);gap:10px}}
-@media(max-width:760px){.cap-list{grid-template-columns:repeat(2,1fr);gap:8px}.cap-item{padding:13px 12px}}
-</style></head><body data-wa-personal="https://wa.link/zyw1c4" class="betagym-page page-beta" data-root="../"><nav class="nav"><div class="container nav-inner"><a class="brand" href="../"><div class="brand-lines"><span></span><span></span><span></span></div><div class="brand-name">Angelo Constanzo</div></a><div class="nav-links"><a href="../">Inicio</a><a href="../persona/">Persona</a><a href="../empresa/">Empresa</a><a href="../betascan/">BetaScan</a><a class="active" href="../betagym/">BetaGym</a><a href="../reflexiones/">Reflexiones</a><a href="../acerca-de/">Acerca de</a></div><a class="btn btn-gold" href="https://wa.link/o1dohs" rel="noopener noreferrer" target="_blank">Hablemos</a></div></nav>
-<header class="brand-beta beta-hero-shell"><div class="container beta-hero-grid"><div class="reveal"><div class="eyebrow">BetaGym</div><h1 class="page-hero-title compact"><span class="line">Entrenas tu cuerpo.</span><span class="line">Pero nadie te enseñó a entrenar</span><span class="line text-gold">tu mente, tus emociones y tu dirección.</span></h1><div class="copy lead page-hero-lead" style="font-size:clamp(17px,1.7vw,20px);line-height:1.72"><p>BetaGym es un sistema para transformar lo que sabes en lo que haces.</p></div><div class="hero-actions"><a class="btn btn-gold" href="../betascan/">Paso 1: conoce tus capacidades y punto de partida</a></div></div><div class="reveal beta-hero-visual card"><img src="../assets/images/betagym-main.jpg" alt="Grupo viviendo experiencia BetaGym en naturaleza"/><div class="beta-hero-overlay"><span class="hero-chip gold">Presencial + social</span><strong>Entrenar el poder humano.</strong></div></div></div></header>
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>BetaGym — Entrenamiento para tu mente, emociones y dirección | Angelo Constanzo</title>
+<meta name="description" content="BetaGym es un sistema progresivo para convertir lo que sabes en lo que haces. Mente, emociones, relaciones y dirección. Entrenamiento real, con grupo."/>
+<link rel="stylesheet" href="../assets/site.css"/>
+<style>
+/* ── BetaGym page styles ── */
+.bg-hero-sub{font-size:clamp(16px,1.6vw,20px);line-height:1.72;color:rgba(245,240,232,.72);margin-top:14px;max-width:560px}
+
+/* Problema — 4 items horizontal */
+.bg-problem-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:28px}
+.bg-problem-item{padding:18px 16px;border-radius:16px;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.07);display:grid;gap:6px}
+.bg-problem-item .p-icon{font-size:20px}
+.bg-problem-item strong{font-size:14px;font-weight:700;color:#F5F0E8;line-height:1.3}
+.bg-problem-item span{font-size:13px;color:rgba(245,240,232,.52);line-height:1.5}
+
+/* Sistema — 3 pilares */
+.bg-pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px}
+.bg-pillar{padding:22px;border-radius:18px;border:1px solid rgba(201,168,76,.2);background:rgba(201,168,76,.04);display:grid;gap:8px}
+.bg-pillar .p-label{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(201,168,76,.7);font-weight:700}
+.bg-pillar h3{font-size:16px;font-weight:700;color:#F5F0E8;margin:0;line-height:1.25}
+.bg-pillar p{font-size:13px;line-height:1.65;color:rgba(245,240,232,.62);margin:0}
+
+/* 8 capacidades — 4 col */
+.bg-caps{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:20px}
+.bg-cap{padding:14px 13px;border-radius:14px;border:1px solid rgba(201,168,76,.14);background:rgba(255,255,255,.02);display:flex;flex-direction:column;gap:6px;transition:border-color .2s,background .2s}
+.bg-cap:hover{border-color:rgba(201,168,76,.3);background:rgba(201,168,76,.05)}
+.bg-cap .c-ico{font-size:20px;line-height:1}
+.bg-cap .c-name{font-size:13px;font-weight:700;color:#F5F0E8;line-height:1.2}
+.bg-cap .c-tag{font-size:11px;color:rgba(245,240,232,.48);line-height:1.4}
+
+/* Qué construyes dentro */
+.bg-projects{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:20px}
+.bg-project{padding:16px 18px;border-radius:14px;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.07);display:flex;gap:12px;align-items:flex-start}
+.bg-project .proj-ico{font-size:18px;flex-shrink:0;margin-top:2px}
+.bg-project strong{font-size:14px;font-weight:700;color:#F5F0E8;display:block;margin-bottom:3px}
+.bg-project span{font-size:13px;color:rgba(245,240,232,.55);line-height:1.5}
+
+/* Por qué funciona — 3 razones */
+.bg-why{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
+.bg-why-item{padding:18px;border-radius:16px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.07);display:grid;gap:6px}
+.bg-why-item strong{font-size:14px;font-weight:700;color:#F5F0E8}
+.bg-why-item span{font-size:13px;color:rgba(245,240,232,.55);line-height:1.55}
+
+/* Proceso — horizontal steps */
+.bg-process{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-top:20px;position:relative}
+.bg-step{display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;position:relative}
+.bg-step-dot{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0;z-index:1}
+.bg-step-done .bg-step-dot{background:rgba(201,168,76,.18);border:2px solid rgba(201,168,76,.5);color:#E8C96A}
+.bg-step-next .bg-step-dot{background:rgba(0,184,212,.15);border:2px solid rgba(0,184,212,.5);color:#66dceb}
+.bg-step-pend .bg-step-dot{background:rgba(255,255,255,.04);border:1.5px solid rgba(255,255,255,.14);color:rgba(245,240,232,.4)}
+.bg-step strong{font-size:12px;font-weight:700;color:rgba(245,240,232,.8);line-height:1.3}
+.bg-step span{font-size:11px;color:rgba(245,240,232,.45);line-height:1.4}
+.bg-process-line{position:absolute;top:18px;left:10%;right:10%;height:1.5px;background:rgba(255,255,255,.08);z-index:0}
+
+/* Validación */
+.bg-validation{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:center;margin-top:24px}
+.bg-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.bg-gallery img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:12px;display:block}
+.bg-stats{display:grid;gap:16px}
+.bg-stat{padding:16px 18px;border-radius:14px;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.07)}
+.bg-stat strong{display:block;font-size:26px;font-weight:700;color:#E8C96A;line-height:1;margin-bottom:3px}
+.bg-stat span{font-size:13px;color:rgba(245,240,232,.55)}
+
+/* Filtro — sección final */
+.bg-filter{padding:32px;border-radius:22px;border:1px solid rgba(201,168,76,.22);background:linear-gradient(135deg,rgba(201,168,76,.07),rgba(255,255,255,.01));text-align:center}
+.bg-filter h2{font-size:clamp(22px,3vw,32px);font-weight:700;margin:0 0 10px;line-height:1.2}
+.bg-filter p{font-size:16px;line-height:1.75;color:rgba(245,240,232,.72);max-width:560px;margin:0 auto 22px}
+
+@media(max-width:1024px){
+  .bg-problem-grid,.bg-caps{grid-template-columns:repeat(2,1fr)}
+  .bg-process{grid-template-columns:repeat(3,1fr);gap:12px}
+  .bg-process-line{display:none}
+}
+@media(max-width:760px){
+  .bg-problem-grid,.bg-pillars,.bg-caps,.bg-projects,.bg-why,.bg-validation{grid-template-columns:1fr}
+  .bg-process{grid-template-columns:repeat(2,1fr)}
+  .bg-gallery{grid-template-columns:repeat(3,1fr)}
+  .bg-gallery img{aspect-ratio:1/1}
+  .bg-filter{padding:22px}
+  .bg-stats{grid-template-columns:repeat(3,1fr)}
+  .bg-stat strong{font-size:20px}
+}
+</style>
+</head>
+<body data-wa-personal="https://wa.link/zyw1c4" class="betagym-page page-beta" data-root="../">
+
+<nav class="nav"><div class="container nav-inner">
+  <a class="brand" href="../"><div class="brand-lines"><span></span><span></span><span></span></div><div class="brand-name">Angelo Constanzo</div></a>
+  <div class="nav-links">
+    <a href="../">Inicio</a><a href="../persona/">Persona</a><a href="../empresa/">Empresa</a>
+    <a href="../betascan/">BetaScan</a><a class="active" href="../betagym/">BetaGym</a>
+    <a href="../reflexiones/">Reflexiones</a><a href="../acerca-de/">Acerca de</a>
+  </div>
+  <a class="btn btn-gold" href="https://wa.link/zyw1c4" rel="noopener noreferrer" target="_blank">Hablemos</a>
+</div></nav>
+
+<!-- HERO -->
+<header class="brand-beta">
+  <div class="container reveal">
+    <div class="eyebrow">BetaGym</div>
+    <h1 class="page-hero-title compact">
+      <span class="line">Entrenas tu cuerpo.</span>
+      <span class="line">Pero nadie te enseñó a entrenar</span>
+      <span class="line text-gold">tu mente, tus emociones y tu dirección.</span>
+    </h1>
+    <p class="bg-hero-sub">BetaGym es el sistema que convierte lo que sabes en lo que realmente haces.</p>
+    <div class="hero-actions" style="margin-top:24px">
+      <a class="btn btn-gold" href="../betascan/">Paso 1 — Descubre tus capacidades</a>
+      <a class="btn btn-outline" href="https://wa.link/zyw1c4" rel="noopener noreferrer" target="_blank">Hablemos</a>
+    </div>
+  </div>
+</header>
+
 <div class="divider"></div>
-<section><div class="container reveal beta-insight-shell"><div class="beta-insight-copy"><div class="eyebrow">Insight</div><h2><span class="line beta-kicker">Quizás</span><span class="line">sabes lo que te pasa.</span><span class="line text-gold">Pero eso todavía no cambia tu vida.</span></h2><p class="copy">Entiendes mucho, decides, a veces incluso te motivas… y aun así vuelves al mismo punto.</p></div><div class="problem-grid beta-wow deluxe"><div class="problem-chip"><div class="chip-icon pulse">🧠</div><strong>Sabes lo que te pasa</strong><span>pero repites lo mismo.</span></div><div class="problem-chip"><div class="chip-icon pulse">🧭</div><strong>Tomas decisiones</strong><span>pero no las sostienes.</span></div><div class="problem-chip"><div class="chip-icon pulse">⚡</div><strong>Te motivas</strong><span>pero vuelves al punto inicial.</span></div><div class="problem-chip emphasis"><div class="chip-icon pulse">🏋️</div><strong>No te falta conciencia</strong><span>te falta entrenamiento.</span></div></div></div></section>
+
+<!-- EL PROBLEMA -->
+<section><div class="container reveal">
+  <div class="eyebrow">El patrón</div>
+  <h2><span class="line">Sabes lo que te pasa.</span><span class="line text-gold">Pero eso no cambia tu vida.</span></h2>
+  <div class="bg-problem-grid">
+    <div class="bg-problem-item"><div class="p-icon">🧠</div><strong>Sabes lo que te pasa</strong><span>pero repites lo mismo.</span></div>
+    <div class="bg-problem-item"><div class="p-icon">🧭</div><strong>Tomas decisiones</strong><span>pero no las sostienes.</span></div>
+    <div class="bg-problem-item"><div class="p-icon">⚡</div><strong>Te motivas</strong><span>pero vuelves al punto inicial.</span></div>
+    <div class="bg-problem-item"><div class="p-icon">🏋️</div><strong>No te falta conciencia</strong><span>te falta entrenamiento.</span></div>
+  </div>
+</div></section>
+
 <div class="divider"></div>
-<section><div class="container beta-definition-shell"><div class="definition-main reveal"><div class="eyebrow">Qué es</div><h2>BetaGym no es solo un espacio de entrenamiento.</h2><p class="copy">Es un sistema diseñado desde psicología, ciencia del comportamiento, neurociencia, mindfulness, coaching y gamificación para algo muy concreto: <strong>convertir conciencia en capacidad.</strong></p></div><div class="definition-side reveal"><article class="card pad mini-fact"><h3>Cómo se vive</h3><p class="copy">Presencial, progresivo y social. Te expones, te ves, te sostienen y sostienes a otros.</p></article><article class="card pad mini-fact"><h3>Qué cambia</h3><p class="copy">Dirección, regulación emocional, decisiones, relaciones, energía y acción sostenida.</p></article></div></div></section>
+
+<!-- QUÉ ES BETAGYM -->
+<section><div class="container two-col align-center reveal">
+  <div>
+    <div class="eyebrow">El sistema</div>
+    <h2><span class="line">No es terapia.</span><span class="line">No es coaching.</span><span class="line text-gold">Es entrenamiento.</span></h2>
+    <p class="copy" style="margin-top:14px">BetaGym está diseñado desde psicología, neurociencia, ciencia del comportamiento y gamificación para algo muy concreto: <strong>convertir conciencia en capacidad.</strong></p>
+  </div>
+  <div class="bg-pillars" style="margin-top:0">
+    <div class="bg-pillar"><div class="p-label">Cómo se vive</div><h3>Presencial, progresivo y social</h3><p>Te expones, te ves, te sostienen y sostienes a otros. No es abstracto.</p></div>
+    <div class="bg-pillar"><div class="p-label">Qué cambia</div><h3>Conducta observable</h3><p>Dirección, regulación emocional, decisiones, relaciones y acción sostenida.</p></div>
+    <div class="bg-pillar"><div class="p-label">El diferencial</div><h3>Construyes algo propio</h3><p>Trabajas un cambio real tuyo — no un ejercicio genérico.</p></div>
+  </div>
+</div></section>
+
 <div class="divider"></div>
-<section><div class="container beta-project-shell-v2"><div class="beta-project-copy reveal"><div class="eyebrow">Diferencial</div><h2><span class="line">No entrenas en abstracto.</span><span class="line text-gold">Construyes algo propio y real.</span></h2><p class="copy">Dentro de BetaGym puedes trabajar un cambio personal, una decisión importante o un proyecto propio mientras el grupo te ayuda a no volver al mismo punto.</p></div><div class="project-widget reveal v2"><div class="project-top compact"><span class="project-badge">Proyecto en grupo</span><h3>El grupo deja de ser compañía y se vuelve estructura.</h3></div><div class="goal-list"><div class="mini-widget"><strong>Cambio personal</strong><span>Trabajas algo que vienes evitando y lo vuelves visible.</span></div><div class="mini-widget"><strong>Dirección</strong><span>Ordenas una decisión importante con foco y sostén.</span></div><div class="mini-widget"><strong>Proyecto propio</strong><span>Mueves una idea personal, profesional o de emprendimiento.</span></div></div><div class="project-divider"></div><div class="benefit-list"><div class="mini-widget"><strong>Te sostiene</strong><span>Evita que te quedes solo con la intención.</span></div><div class="mini-widget"><strong>Te refleja</strong><span>Otros ven lo que tú solo no ves.</span></div><div class="mini-widget"><strong>Te mueve</strong><span>Avanzas con estructura, exigencia y seguimiento.</span></div></div></div></div></section>
+
+<!-- 8 CAPACIDADES -->
+<section><div class="container reveal">
+  <div class="eyebrow">Qué entrenamos</div>
+  <h2>Las 8 capacidades del sistema.</h2>
+  <div class="bg-caps">
+    <div class="bg-cap"><div class="c-ico">🔥</div><div class="c-name">Fuego propio</div><div class="c-tag">Autoestima · actuar desde ti</div></div>
+    <div class="bg-cap"><div class="c-ico">🧠</div><div class="c-name">Mundo interior</div><div class="c-tag">Autoconocimiento · regulación emocional</div></div>
+    <div class="bg-cap"><div class="c-ico">🌱</div><div class="c-name">Raíz</div><div class="c-tag">Resiliencia · tolerar incertidumbre</div></div>
+    <div class="bg-cap"><div class="c-ico">🤝</div><div class="c-name">Campo de empatía</div><div class="c-tag">Relaciones · conectar sin perderte</div></div>
+    <div class="bg-cap"><div class="c-ico">🧭</div><div class="c-name">Norte vital</div><div class="c-tag">Dirección · propósito · sentido</div></div>
+    <div class="bg-cap"><div class="c-ico">✨</div><div class="c-name">Chispa creativa</div><div class="c-tag">Nuevas posibilidades · salir del automático</div></div>
+    <div class="bg-cap"><div class="c-ico">🏃</div><div class="c-name">Movimiento</div><div class="c-tag">Pasar a la acción · materializar</div></div>
+    <div class="bg-cap"><div class="c-ico">⚡</div><div class="c-name">Energía vital</div><div class="c-tag">Sostener el proceso · recuperar la carga</div></div>
+  </div>
+</div></section>
+
 <div class="divider"></div>
-<section><div class="container"><div class="eyebrow reveal">Qué entrenamos</div><div class="cap-list reveal">
-  <div class="cap-item">
-    <div class="cap-ico">🔥</div>
-    <div class="cap-name">Fuego propio</div>
-    <div class="cap-tag">Autoestima · actuar desde ti</div>
+
+<!-- QUÉ CONSTRUYES DENTRO -->
+<section><div class="container reveal">
+  <div class="eyebrow">Qué construyes dentro</div>
+  <h2><span class="line">No entrenas en abstracto.</span><span class="line text-gold">Trabajas algo tuyo y real.</span></h2>
+  <div class="bg-projects">
+    <div class="bg-project"><div class="proj-ico">🔄</div><div><strong>Cambio personal</strong><span>Algo que vienes evitando — lo vuelves visible y lo mueves.</span></div></div>
+    <div class="bg-project"><div class="proj-ico">🧭</div><div><strong>Dirección</strong><span>Una decisión importante con foco, sostén y claridad real.</span></div></div>
+    <div class="bg-project"><div class="proj-ico">🚀</div><div><strong>Proyecto propio</strong><span>Una idea personal, profesional o de emprendimiento que avanza.</span></div></div>
+    <div class="bg-project"><div class="proj-ico">🤝</div><div><strong>Proyecto en grupo</strong><span>El grupo deja de ser compañía y se vuelve estructura.</span></div></div>
   </div>
-  <div class="cap-item">
-    <div class="cap-ico">🧠</div>
-    <div class="cap-name">Mundo interior</div>
-    <div class="cap-tag">Autoconocimiento · regulación emocional</div>
+  <div class="bg-why">
+    <div class="bg-why-item"><strong>Te sostiene</strong><span>Evita que te quedes solo con la intención.</span></div>
+    <div class="bg-why-item"><strong>Te refleja</strong><span>Otros ven lo que tú solo no puedes ver.</span></div>
+    <div class="bg-why-item"><strong>Te mueve</strong><span>Avanzas con estructura, exigencia y seguimiento real.</span></div>
   </div>
-  <div class="cap-item">
-    <div class="cap-ico">🌱</div>
-    <div class="cap-name">Raíz</div>
-    <div class="cap-tag">Resiliencia · tolerar incertidumbre</div>
-  </div>
-  <div class="cap-item">
-    <div class="cap-ico">🤝</div>
-    <div class="cap-name">Campo de empatía</div>
-    <div class="cap-tag">Relaciones · conectar sin perderte</div>
-  </div>
-  <div class="cap-item">
-    <div class="cap-ico">🧭</div>
-    <div class="cap-name">Norte vital</div>
-    <div class="cap-tag">Dirección · propósito · sentido</div>
-  </div>
-  <div class="cap-item">
-    <div class="cap-ico">✨</div>
-    <div class="cap-name">Chispa creativa</div>
-    <div class="cap-tag">Nuevas posibilidades · salir del automático</div>
-  </div>
-  <div class="cap-item">
-    <div class="cap-ico">🏃</div>
-    <div class="cap-name">Movimiento</div>
-    <div class="cap-tag">Pasar a la acción · materializar</div>
-  </div>
-  <div class="cap-item">
-    <div class="cap-ico">⚡</div>
-    <div class="cap-name">Energía vital</div>
-    <div class="cap-tag">Sostener el proceso · recuperar la carga</div>
-  </div>
-</div></div></section>
+</div></section>
+
 <div class="divider"></div>
-<section><div class="container flow-panel reveal beta-process-shell"><div class="eyebrow">Cómo entras</div><h2><span class="line">Un proceso claro.</span><span class="line text-gold">Del diagnóstico al comienzo del grupo.</span></h2><div class="journey-ladder uniform"><div class="journey-node reveal"><span class="journey-mini">1</span><strong>BetaScan</strong><span>Entiendes tu punto de partida.</span></div><div class="journey-node reveal"><span class="journey-mini">2</span><strong>Laboratorio Beta</strong><span>Vives cómo trabajamos.</span></div><div class="journey-node reveal"><span class="journey-mini">3</span><strong>Postulación</strong><span>Aplicas con claridad real.</span></div><div class="journey-node reveal"><span class="journey-mini">4</span><strong>Entrevista</strong><span>Vemos si este proceso es para ti.</span></div><div class="journey-node reveal"><span class="journey-mini">5</span><strong>Resultados</strong><span>Se confirma quién entra.</span></div><div class="journey-node reveal"><span class="journey-mini">6</span><strong>Comienzo del grupo</strong><span>Empieza el entrenamiento real.</span></div></div></div></section>
+
+<!-- CÓMO ENTRAS — proceso -->
+<section><div class="container reveal">
+  <div class="eyebrow">Cómo entras</div>
+  <h2>Un proceso claro.</h2>
+  <div style="position:relative">
+    <div class="bg-process-line"></div>
+    <div class="bg-process">
+      <div class="bg-step bg-step-pend">
+        <div class="bg-step-dot">1</div>
+        <strong>BetaScan</strong><span>Conoces tu punto de partida</span>
+      </div>
+      <div class="bg-step bg-step-pend">
+        <div class="bg-step-dot">2</div>
+        <strong>Laboratorio Beta</strong><span>Vives cómo trabajamos</span>
+      </div>
+      <div class="bg-step bg-step-pend">
+        <div class="bg-step-dot">3</div>
+        <strong>Postulación</strong><span>Aplicas con claridad real</span>
+      </div>
+      <div class="bg-step bg-step-pend">
+        <div class="bg-step-dot">4</div>
+        <strong>Entrevista</strong><span>Vemos si es para ti</span>
+      </div>
+      <div class="bg-step bg-step-pend">
+        <div class="bg-step-dot">5</div>
+        <strong>Resultados</strong><span>Se confirma quién entra</span>
+      </div>
+      <div class="bg-step bg-step-pend">
+        <div class="bg-step-dot">6</div>
+        <strong>Comienzo</strong><span>Empieza el entrenamiento real</span>
+      </div>
+    </div>
+  </div>
+</div></section>
+
 <div class="divider"></div>
-<section><div class="container reveal beta-validation-shell"><div class="validation-copy"><div class="eyebrow">Validación</div><h2><span class="line">Un método con historia</span></h2><p class="copy">Antes de convertirse en BetaGym, este sistema se probó en el mundo real a través de experiencias vivenciales de alto impacto.</p><div class="validation-stats-grid"><div class="validation-stat"><strong>+700</strong><span>participantes</span></div><div class="validation-stat"><strong>3 años</strong><span>operativos</span></div><div class="validation-stat"><strong>2017–2020</strong><span>validando el método en personas reales</span></div></div><p class="copy validation-note">Antitour fue la base: naturaleza + cuerpo + mente + emoción + experiencias gamificadas de alto impacto. Las personas no solo vivían una experiencia… se transformaban.</p></div><div class="beta-gallery-grid"><img class="reveal" src="../assets/images/antitour-1.jpg" alt="Antitour experiencia en naturaleza"/><img class="reveal" src="../assets/images/antitour-2.jpg" alt="Grupo Antitour"/><img class="reveal" src="../assets/images/antitour-3.jpg" alt="Facilitación Antitour"/></div></div></section>
+
+<!-- VALIDACIÓN -->
+<section><div class="container reveal">
+  <div class="eyebrow">Validación</div>
+  <h2><span class="line">Un método con historia.</span></h2>
+  <div class="bg-validation">
+    <div>
+      <p class="copy">Antes de convertirse en BetaGym, este sistema se probó en experiencias vivenciales de alto impacto — naturaleza, cuerpo, mente, emoción y gamificación. Las personas no solo vivían algo. Se transformaban.</p>
+      <div class="bg-stats">
+        <div class="bg-stat"><strong>+700</strong><span>participantes</span></div>
+        <div class="bg-stat"><strong>3 años</strong><span>en operación</span></div>
+        <div class="bg-stat"><strong>2017–2020</strong><span>validando el método</span></div>
+      </div>
+    </div>
+    <div class="bg-gallery">
+      <img src="../assets/images/antitour-1.jpg" alt="Antitour experiencia"/>
+      <img src="../assets/images/antitour-2.jpg" alt="Grupo Antitour"/>
+      <img src="../assets/images/antitour-3.jpg" alt="Facilitación Antitour"/>
+    </div>
+  </div>
+</div></section>
+
 <div class="divider"></div>
-<section><div class="container two-col align-center"><div class="reveal"><div class="eyebrow">Filtro</div><h2><span class="line">Esto no es para todos.</span><span class="line text-gold">Es para quienes quieren entrenar en serio.</span></h2><p class="copy">Esto es para ti si estás dispuesto a trabajar en serio, te cansaste de repetir patrones, quieres estructura real y buscas crecimiento con otros. No es para curiosos ni para inspiración momentánea.</p></div><div class="card pad reveal highlight-card beta-final-cta"><h3>Los sueños no se cumplen. Se entrenan.</h3><p class="copy">Si estás listo para ver si este sistema es para ti, el primer paso es claro.</p><div class="hero-actions"><a class="btn btn-gold" href="../betascan/">Paso 1: conoce tus capacidades y punto de partida</a></div></div></div></section>
-<div class="divider"></div><footer class="footer"><div class="container"><div class="footer-grid"><div><div class="footer-brand"><div class="brand-lines"><span></span><span></span><span></span></div><div class="footer-title">Angelo Constanzo</div></div><div class="footer-copy">Entrenamiento humano para personas y empresas. Menos discurso. Más transformación observable.</div></div><div><div class="footer-group-title">Explorar</div><div class="footer-links"><a href="../persona/">Persona</a><a href="../empresa/">Empresa</a><a href="../betascan/">BetaScan</a><a href="../betagym/">BetaGym</a><a href="../leaderscan/">LeaderScan</a><a href="../acerca-de/">Acerca de</a></div></div><div class="footer-cta"><div class="footer-group-title">Conversemos</div><p>Si quieres mover algo de verdad, partamos por una conversación clara.</p><a class="btn btn-gold" href="https://wa.link/o1dohs" rel="noopener noreferrer" target="_blank">Ir a WhatsApp</a></div></div><div class="footer-bottom"><span>© 2026 Angelo Constanzo — La vida que quieres no llega. Se entrena.</span></div></div></footer><script src="../assets/site.js"></script></body></html>
+
+<!-- FILTRO + CTA FINAL -->
+<section><div class="container reveal">
+  <div class="bg-filter">
+    <div class="eyebrow">¿Es para ti?</div>
+    <h2>Los sueños no se cumplen.<br>Se entrenan.</h2>
+    <p>Para quienes quieren estructura real, se cansaron de repetir patrones y buscan crecer con otros. No es para curiosos ni para inspiración momentánea.</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+      <a class="btn btn-gold" href="../betascan/">Paso 1 — Descubre tus capacidades</a>
+      <a class="btn btn-outline" href="https://wa.link/zyw1c4" rel="noopener noreferrer" target="_blank">Hablar con Angelo</a>
+    </div>
+  </div>
+</div></section>
+
+<div class="divider"></div>
+
+<footer class="footer"><div class="container"><div class="footer-grid">
+  <div><div class="footer-brand"><div class="brand-lines"><span></span><span></span><span></span></div><div class="footer-title">Angelo Constanzo</div></div>
+  <div class="footer-copy">Entrenamiento humano para personas y empresas. Menos discurso. Más transformación observable.</div></div>
+  <div><div class="footer-group-title">Explorar</div><div class="footer-links">
+    <a href="../persona/">Persona</a><a href="../empresa/">Empresa</a><a href="../betascan/">BetaScan</a>
+    <a href="../betagym/">BetaGym</a><a href="../reflexiones/">Reflexiones</a><a href="../acerca-de/">Acerca de</a>
+  </div></div>
+  <div class="footer-cta"><div class="footer-group-title">Conversemos</div>
+    <p>Si quieres mover algo de verdad, partamos por una conversación clara.</p>
+    <a class="btn btn-gold" href="https://wa.link/zyw1c4" rel="noopener noreferrer" target="_blank">Ir a WhatsApp</a>
+  </div>
+</div>
+<div class="footer-bottom"><span>© 2026 Angelo Constanzo — La vida que quieres no llega. Se entrena.</span></div>
+</div></footer>
+<script src="../assets/site.js"></script>
+</body></html>

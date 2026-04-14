@@ -2191,3 +2191,11 @@ header, section {
 @media(min-width:761px){
   .beta-gallery-grid img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:16px;display:block}
 }
+
+.text-purple{color:var(--purple)}
+
+/* Empresa video section responsive */
+@media(max-width:760px){
+  .empresa-video-grid{grid-template-columns:1fr!important}
+  .empresa-video-grid video{max-width:100%!important}
+}
