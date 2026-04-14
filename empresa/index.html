@@ -50,7 +50,19 @@
 @media(max-width:900px){.como-grid,.audience-grid{grid-template-columns:1fr}.case-row{grid-template-columns:1fr}.case-kpis{justify-content:flex-start}}
 @media(max-width:760px){.quiebre-block{padding:22px}.main-cta-block{padding:24px}}
 </style>
-</head>
+<style>
+/* ── Logo carousel ── */
+.logo-carousel-wrap{overflow:hidden;position:relative;padding:0;margin-top:28px}
+.logo-carousel-wrap::before,.logo-carousel-wrap::after{content:'';position:absolute;top:0;bottom:0;width:80px;z-index:2;pointer-events:none}
+.logo-carousel-wrap::before{left:0;background:linear-gradient(90deg,#0A0A0A,transparent)}
+.logo-carousel-wrap::after{right:0;background:linear-gradient(270deg,#0A0A0A,transparent)}
+.logo-track{display:flex;align-items:center;gap:48px;width:max-content;animation:logoScroll 28s linear infinite}
+.logo-track:hover{animation-play-state:paused}
+.logo-item{flex-shrink:0;height:44px;display:flex;align-items:center;opacity:.55;filter:brightness(0) invert(1);transition:opacity .2s}
+.logo-item:hover{opacity:.9}
+.logo-item img{height:44px;width:auto;display:block}
+@keyframes logoScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+</style></head>
 <body data-wa-personal="https://wa.link/zyw1c4" class="company-page page-company" data-root="../">
 
 <nav class="nav"><div class="container nav-inner">
@@ -115,6 +127,31 @@
     <span class="industry-pill">💻 Tecnología</span>
     <span class="industry-pill">🏗️ Construcción</span>
   </div>
+
+<div class="logo-carousel-wrap">
+      <div class="logo-track">
+        <div class="logo-item"><img src="../assets/images/logos/uai.png" alt="Universidad Adolfo Ibáñez"/></div>
+        <div class="logo-item"><img src="../assets/images/logos/ua-chile.png" alt="Universidad Autónoma de Chile"/></div>
+        <div class="logo-item"><img src="../assets/images/logos/fch.png" alt="Fundación Chile"/></div>
+        <div class="logo-item"><img src="../assets/images/logos/if.png" alt="iF"/></div>
+        <div class="logo-item"><img src="../assets/images/logos/mallplaza.png" alt="Mallplaza"/></div>
+        <div class="logo-item"><img src="../assets/images/logos/ministerio.png" alt="Ministerio de Salud"/></div>
+        <div class="logo-item"><img src="../assets/images/logos/integramedica.png" alt="IntegraMédica"/></div>
+        <div class="logo-item"><img src="../assets/images/logos/cencosud.png" alt="Cencosud"/></div>
+        <div class="logo-item"><img src="../assets/images/logos/ksb.png" alt="KSB"/></div>
+        <div class="logo-item"><img src="../assets/images/logos/dhl.png" alt="DHL"/></div>
+        <div class="logo-item"><img src="../assets/images/logos/uai.png" alt="Universidad Adolfo Ibáñez"/></div>
+        <div class="logo-item"><img src="../assets/images/logos/ua-chile.png" alt="Universidad Autónoma de Chile"/></div>
+        <div class="logo-item"><img src="../assets/images/logos/fch.png" alt="Fundación Chile"/></div>
+        <div class="logo-item"><img src="../assets/images/logos/if.png" alt="iF"/></div>
+        <div class="logo-item"><img src="../assets/images/logos/mallplaza.png" alt="Mallplaza"/></div>
+        <div class="logo-item"><img src="../assets/images/logos/ministerio.png" alt="Ministerio de Salud"/></div>
+        <div class="logo-item"><img src="../assets/images/logos/integramedica.png" alt="IntegraMédica"/></div>
+        <div class="logo-item"><img src="../assets/images/logos/cencosud.png" alt="Cencosud"/></div>
+        <div class="logo-item"><img src="../assets/images/logos/ksb.png" alt="KSB"/></div>
+        <div class="logo-item"><img src="../assets/images/logos/dhl.png" alt="DHL"/></div>
+      </div>
+    </div>
 
   <div class="quiebre-block" style="margin-top:32px">
     <p>La estrategia existe… <strong>pero no baja.</strong></p>
