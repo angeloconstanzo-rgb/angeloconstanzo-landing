@@ -1,104 +1,89 @@
 <!DOCTYPE html>
 <html lang="es"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>BetaGym — Entrenamiento para tu mente, emociones y dirección | Angelo Constanzo</title>
-<meta name="description" content="BetaGym es un sistema progresivo para convertir lo que sabes en lo que haces. Mente, emociones, relaciones y dirección. Entrenamiento real, con grupo."/>
+<meta name="description" content="BetaGym es el sistema que convierte lo que sabes en lo que realmente haces. Mente, emociones, relaciones y dirección."/>
 <link rel="stylesheet" href="../assets/site.css"/>
 <style>
-/* ── BetaGym page styles ── */
-.bg-hero-sub{font-size:clamp(16px,1.6vw,20px);line-height:1.72;color:rgba(245,240,232,.72);margin-top:14px;max-width:560px}
+/* Sección numerada */
+.bg-section-num{font-size:clamp(48px,6vw,72px);font-weight:700;line-height:1;color:rgba(201,168,76,.15);display:block;margin-bottom:-8px;letter-spacing:-.02em}
+.bg-section-title{font-size:clamp(22px,2.8vw,34px);font-weight:700;color:#F5F0E8;line-height:1.2;margin:0 0 12px}
+.bg-section-sub{font-size:clamp(15px,1.4vw,17px);line-height:1.75;color:rgba(245,240,232,.65);margin:0}
 
-/* Problema — 4 items horizontal */
-.bg-problem-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:28px}
-.bg-problem-item{padding:18px 16px;border-radius:16px;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.07);display:grid;gap:6px}
-.bg-problem-item .p-icon{font-size:20px}
-.bg-problem-item strong{font-size:14px;font-weight:700;color:#F5F0E8;line-height:1.3}
-.bg-problem-item span{font-size:13px;color:rgba(245,240,232,.52);line-height:1.5}
+/* Problema 4 items */
+.bg-4grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:24px}
+.bg-4item{padding:20px 18px;border-radius:18px;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.07)}
+.bg-4item .icon{font-size:22px;margin-bottom:8px;display:block}
+.bg-4item strong{font-size:14px;font-weight:700;color:#F5F0E8;display:block;margin-bottom:4px;line-height:1.3}
+.bg-4item span{font-size:13px;color:rgba(245,240,232,.5);line-height:1.5}
 
-/* Sistema — 3 pilares */
-.bg-pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px}
-.bg-pillar{padding:22px;border-radius:18px;border:1px solid rgba(201,168,76,.2);background:rgba(201,168,76,.04);display:grid;gap:8px}
-.bg-pillar .p-label{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(201,168,76,.7);font-weight:700}
-.bg-pillar h3{font-size:16px;font-weight:700;color:#F5F0E8;margin:0;line-height:1.25}
-.bg-pillar p{font-size:13px;line-height:1.65;color:rgba(245,240,232,.62);margin:0}
+/* Sistema — 3 columnas */
+.bg-3col{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px}
+.bg-col{padding:22px 20px;border-radius:18px;border:1px solid rgba(201,168,76,.18);background:rgba(201,168,76,.04)}
+.bg-col .col-label{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(201,168,76,.65);font-weight:700;margin-bottom:8px;display:block}
+.bg-col h3{font-size:16px;font-weight:700;color:#F5F0E8;margin:0 0 6px;line-height:1.25}
+.bg-col p{font-size:13px;line-height:1.65;color:rgba(245,240,232,.6);margin:0}
 
-/* 8 capacidades — 4 col */
-.bg-caps{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:20px}
-.bg-cap{padding:14px 13px;border-radius:14px;border:1px solid rgba(201,168,76,.14);background:rgba(255,255,255,.02);display:flex;flex-direction:column;gap:6px;transition:border-color .2s,background .2s}
-.bg-cap:hover{border-color:rgba(201,168,76,.3);background:rgba(201,168,76,.05)}
-.bg-cap .c-ico{font-size:20px;line-height:1}
-.bg-cap .c-name{font-size:13px;font-weight:700;color:#F5F0E8;line-height:1.2}
-.bg-cap .c-tag{font-size:11px;color:rgba(245,240,232,.48);line-height:1.4}
+/* Capacidades slider */
+.bg-slider{position:relative;overflow:hidden;margin-top:24px}
+.bg-track{display:flex;transition:transform .5s cubic-bezier(.16,1,.3,1)}
+.bg-slide{min-width:100%;display:grid;grid-template-columns:repeat(4,1fr);gap:10px;padding:2px}
+.bg-cap-card{padding:18px 16px;border-radius:16px;border:1px solid rgba(201,168,76,.15);background:rgba(255,255,255,.025);display:flex;flex-direction:column;gap:7px;transition:all .2s}
+.bg-cap-card:hover{border-color:rgba(201,168,76,.32);background:rgba(201,168,76,.06)}
+.bg-cap-card .ico{font-size:24px;line-height:1}
+.bg-cap-card .name{font-size:14px;font-weight:700;color:#F5F0E8;line-height:1.2}
+.bg-cap-card .tag{font-size:12px;color:rgba(245,240,232,.48);line-height:1.45}
+.bg-dots{display:flex;gap:8px;justify-content:center;margin-top:14px}
+.bg-dot{width:28px;height:5px;border-radius:999px;border:none;padding:0;cursor:pointer;background:rgba(255,255,255,.15);transition:all .2s}
+.bg-dot.active{background:rgba(201,168,76,.7);width:40px}
 
-/* Qué construyes dentro */
-.bg-projects{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:20px}
-.bg-project{padding:16px 18px;border-radius:14px;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.07);display:flex;gap:12px;align-items:flex-start}
-.bg-project .proj-ico{font-size:18px;flex-shrink:0;margin-top:2px}
-.bg-project strong{font-size:14px;font-weight:700;color:#F5F0E8;display:block;margin-bottom:3px}
-.bg-project span{font-size:13px;color:rgba(245,240,232,.55);line-height:1.5}
+/* Qué construyes */
+.bg-2x2{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:24px}
+.bg-build{padding:20px 20px;border-radius:18px;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.07);display:flex;gap:14px;align-items:flex-start}
+.bg-build .b-ico{font-size:22px;flex-shrink:0;margin-top:2px}
+.bg-build strong{font-size:14px;font-weight:700;color:#F5F0E8;display:block;margin-bottom:4px;line-height:1.3}
+.bg-build span{font-size:13px;color:rgba(245,240,232,.55);line-height:1.55}
+.bg-3why{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:10px}
+.bg-why{padding:16px 18px;border-radius:14px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06)}
+.bg-why strong{font-size:13px;font-weight:700;color:#F5F0E8;display:block;margin-bottom:3px}
+.bg-why span{font-size:12px;color:rgba(245,240,232,.5);line-height:1.5}
 
-/* Por qué funciona — 3 razones */
-.bg-why{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
-.bg-why-item{padding:18px;border-radius:16px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.07);display:grid;gap:6px}
-.bg-why-item strong{font-size:14px;font-weight:700;color:#F5F0E8}
-.bg-why-item span{font-size:13px;color:rgba(245,240,232,.55);line-height:1.55}
-
-/* Proceso — horizontal steps */
-.bg-process{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-top:20px;position:relative}
-.bg-step{display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;position:relative}
-.bg-step-dot{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0;z-index:1}
-.bg-step-done .bg-step-dot{background:rgba(201,168,76,.18);border:2px solid rgba(201,168,76,.5);color:#E8C96A}
-.bg-step-next .bg-step-dot{background:rgba(0,184,212,.15);border:2px solid rgba(0,184,212,.5);color:#66dceb}
-.bg-step-pend .bg-step-dot{background:rgba(255,255,255,.04);border:1.5px solid rgba(255,255,255,.14);color:rgba(245,240,232,.4)}
-.bg-step strong{font-size:12px;font-weight:700;color:rgba(245,240,232,.8);line-height:1.3}
-.bg-step span{font-size:11px;color:rgba(245,240,232,.45);line-height:1.4}
-.bg-process-line{position:absolute;top:18px;left:10%;right:10%;height:1.5px;background:rgba(255,255,255,.08);z-index:0}
+/* Proceso — linea horizontal */
+.bg-proceso{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-top:24px;position:relative}
+.bg-proceso::before{content:'';position:absolute;top:16px;left:8%;right:8%;height:1px;background:rgba(255,255,255,.08);z-index:0}
+.bg-paso{display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;position:relative;z-index:1}
+.bg-paso-num{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.04);border:1.5px solid rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:rgba(245,240,232,.5);flex-shrink:0}
+.bg-paso strong{font-size:12px;font-weight:700;color:rgba(245,240,232,.75);line-height:1.3}
+.bg-paso span{font-size:11px;color:rgba(245,240,232,.4);line-height:1.4}
 
 /* Validación */
-.bg-validation{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:center;margin-top:24px}
-.bg-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.bg-valid{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start;margin-top:24px}
+.bg-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
 .bg-gallery img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:12px;display:block}
-.bg-stats{display:grid;gap:16px}
-.bg-stat{padding:16px 18px;border-radius:14px;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.07)}
-.bg-stat strong{display:block;font-size:26px;font-weight:700;color:#E8C96A;line-height:1;margin-bottom:3px}
-.bg-stat span{font-size:13px;color:rgba(245,240,232,.55)}
+.bg-stats{display:flex;flex-direction:column;gap:12px}
+.bg-stat{padding:14px 18px;border-radius:14px;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.07)}
+.bg-stat strong{display:block;font-size:28px;font-weight:700;color:#E8C96A;line-height:1;margin-bottom:2px}
+.bg-stat span{font-size:13px;color:rgba(245,240,232,.5)}
 
-/* Filtro — sección final */
-.bg-filter{padding:32px;border-radius:22px;border:1px solid rgba(201,168,76,.22);background:linear-gradient(135deg,rgba(201,168,76,.07),rgba(255,255,255,.01));text-align:center}
-.bg-filter h2{font-size:clamp(22px,3vw,32px);font-weight:700;margin:0 0 10px;line-height:1.2}
-.bg-filter p{font-size:16px;line-height:1.75;color:rgba(245,240,232,.72);max-width:560px;margin:0 auto 22px}
+/* CTA final */
+.bg-cta{padding:40px;border-radius:28px;border:1px solid rgba(201,168,76,.22);background:linear-gradient(135deg,rgba(201,168,76,.07),rgba(255,255,255,.01));text-align:center}
+.bg-cta h2{font-size:clamp(24px,3vw,36px);font-weight:700;margin:0 0 12px;line-height:1.2}
+.bg-cta p{font-size:16px;line-height:1.75;color:rgba(245,240,232,.7);max-width:520px;margin:0 auto 24px}
 
 @media(max-width:1024px){
-  .bg-problem-grid,.bg-caps{grid-template-columns:repeat(2,1fr)}
-  .bg-process{grid-template-columns:repeat(3,1fr);gap:12px}
-  .bg-process-line{display:none}
+  .bg-4grid,.bg-slide{grid-template-columns:repeat(2,1fr)}
+  .bg-proceso{grid-template-columns:repeat(3,1fr)}
+  .bg-proceso::before{display:none}
 }
 @media(max-width:760px){
-  .bg-problem-grid,.bg-pillars,.bg-caps,.bg-projects,.bg-why,.bg-validation{grid-template-columns:1fr}
-  .bg-process{grid-template-columns:repeat(2,1fr)}
+  .bg-4grid,.bg-3col,.bg-2x2,.bg-3why,.bg-valid{grid-template-columns:1fr}
+  .bg-slide{grid-template-columns:repeat(2,1fr)}
+  .bg-proceso{grid-template-columns:repeat(2,1fr)}
   .bg-gallery{grid-template-columns:repeat(3,1fr)}
-  .bg-gallery img{aspect-ratio:1/1}
-  .bg-filter{padding:22px}
-  .bg-stats{grid-template-columns:repeat(3,1fr)}
-  .bg-stat strong{font-size:20px}
+  .bg-cta{padding:26px}
+  .bg-section-num{font-size:36px}
 }
 </style>
-<style>
-/* ── Capacidades slider ── */
-.bg-caps-slider{position:relative;overflow:hidden;margin-top:20px}
-.bg-caps-track{display:flex;transition:transform .5s cubic-bezier(.16,1,.3,1)}
-.bg-cap-slide{min-width:100%;display:grid;grid-template-columns:repeat(4,1fr);gap:10px;padding:2px}
-.bg-cap{padding:18px 16px;border-radius:16px;border:1px solid rgba(201,168,76,.15);background:rgba(255,255,255,.02);display:flex;flex-direction:column;gap:8px;transition:border-color .2s}
-.bg-cap:hover{border-color:rgba(201,168,76,.3);background:rgba(201,168,76,.05)}
-.bg-cap .c-ico{font-size:26px;line-height:1}
-.bg-cap .c-name{font-size:14px;font-weight:700;color:#F5F0E8;line-height:1.25}
-.bg-cap .c-tag{font-size:12px;color:rgba(245,240,232,.5);line-height:1.45}
-.bg-caps-dots{display:flex;gap:8px;justify-content:center;margin-top:14px}
-.bg-cap-dot{width:8px;height:8px;border-radius:50%;border:none;padding:0;cursor:pointer;background:rgba(255,255,255,.2);transition:background .2s,transform .2s}
-.bg-cap-dot.active{background:var(--gold);transform:scale(1.25)}
-@media(max-width:760px){
-  .bg-cap-slide{grid-template-columns:repeat(2,1fr);gap:8px}
-}
-</style></head>
+</head>
 <body data-wa-personal="https://wa.link/zyw1c4" class="betagym-page page-beta" data-root="../">
 
 <nav class="nav"><div class="container nav-inner">
@@ -120,7 +105,7 @@
       <span class="line">Pero nadie te enseñó a entrenar</span>
       <span class="line text-gold">tu mente, tus emociones y tu dirección.</span>
     </h1>
-    <p class="bg-hero-sub">BetaGym es el sistema que convierte lo que sabes en lo que realmente haces.</p>
+    <p style="font-size:clamp(16px,1.6vw,19px);line-height:1.72;color:rgba(245,240,232,.72);margin-top:14px;max-width:540px">BetaGym es el sistema que convierte lo que sabes en lo que realmente haces.</p>
     <div class="hero-actions" style="margin-top:24px">
       <a class="btn btn-gold" href="../betascan/">Paso 1 — Descubre tus capacidades</a>
       <a class="btn btn-outline" href="https://wa.link/zyw1c4" rel="noopener noreferrer" target="_blank">Hablemos</a>
@@ -130,170 +115,127 @@
 
 <div class="divider"></div>
 
-<!-- EL PROBLEMA -->
+<!-- 01 EL PATRÓN -->
 <section><div class="container reveal">
-  <div class="eyebrow">El patrón</div>
-  <h2><span class="line">Sabes lo que te pasa.</span><span class="line text-gold">Pero eso no cambia tu vida.</span></h2>
-  <div class="bg-problem-grid">
-    <div class="bg-problem-item"><div class="p-icon">🧠</div><strong>Sabes lo que te pasa</strong><span>pero repites lo mismo.</span></div>
-    <div class="bg-problem-item"><div class="p-icon">🧭</div><strong>Tomas decisiones</strong><span>pero no las sostienes.</span></div>
-    <div class="bg-problem-item"><div class="p-icon">⚡</div><strong>Te motivas</strong><span>pero vuelves al punto inicial.</span></div>
-    <div class="bg-problem-item"><div class="p-icon">🏋️</div><strong>No te falta conciencia</strong><span>te falta entrenamiento.</span></div>
+  <span class="bg-section-num">01</span>
+  <h2 class="bg-section-title">El patrón</h2>
+  <p class="bg-section-sub">Entiendes mucho, decides, a veces te motivas… y aun así vuelves al mismo punto.</p>
+  <div class="bg-4grid">
+    <div class="bg-4item"><span class="icon">🧠</span><strong>Sabes lo que te pasa</strong><span>pero repites lo mismo.</span></div>
+    <div class="bg-4item"><span class="icon">🧭</span><strong>Tomas decisiones</strong><span>pero no las sostienes.</span></div>
+    <div class="bg-4item"><span class="icon">⚡</span><strong>Te motivas</strong><span>pero vuelves al punto inicial.</span></div>
+    <div class="bg-4item"><span class="icon">🏋️</span><strong>No te falta conciencia</strong><span>te falta entrenamiento.</span></div>
   </div>
 </div></section>
 
 <div class="divider"></div>
 
-<!-- QUÉ ES BETAGYM -->
-<section><div class="container two-col align-center reveal">
-  <div>
-    <div class="eyebrow">El sistema</div>
-    <h2><span class="line">No es terapia.</span><span class="line">No es coaching.</span><span class="line text-gold">Es entrenamiento.</span></h2>
-    <p class="copy" style="margin-top:14px">BetaGym está diseñado desde psicología, neurociencia, ciencia del comportamiento y gamificación para algo muy concreto: <strong>convertir conciencia en capacidad.</strong></p>
-  </div>
-  <div class="bg-pillars" style="margin-top:0">
-    <div class="bg-pillar"><div class="p-label">Cómo se vive</div><h3>Presencial, progresivo y social</h3><p>Te expones, te ves, te sostienen y sostienes a otros. No es abstracto.</p></div>
-    <div class="bg-pillar"><div class="p-label">Qué cambia</div><h3>Conducta observable</h3><p>Dirección, regulación emocional, decisiones, relaciones y acción sostenida.</p></div>
-    <div class="bg-pillar"><div class="p-label">El diferencial</div><h3>Construyes algo propio</h3><p>Trabajas un cambio real tuyo — no un ejercicio genérico.</p></div>
+<!-- 02 EL SISTEMA -->
+<section><div class="container reveal">
+  <span class="bg-section-num">02</span>
+  <h2 class="bg-section-title">El sistema</h2>
+  <p class="bg-section-sub">BetaGym está diseñado desde psicología, neurociencia y ciencia del comportamiento para algo muy concreto: <strong style="color:#F5F0E8">convertir conciencia en capacidad.</strong></p>
+  <div class="bg-3col">
+    <div class="bg-col"><span class="col-label">Cómo se vive</span><h3>Presencial, progresivo y social</h3><p>Te expones, te ves, te sostienen y sostienes a otros. No es abstracto.</p></div>
+    <div class="bg-col"><span class="col-label">Qué cambia</span><h3>Conducta observable</h3><p>Dirección, regulación emocional, decisiones, relaciones y acción sostenida.</p></div>
+    <div class="bg-col"><span class="col-label">El diferencial</span><h3>Construyes algo tuyo y real</h3><p>Trabajas un cambio concreto tuyo — no un ejercicio genérico.</p></div>
   </div>
 </div></section>
 
 <div class="divider"></div>
 
-<!-- 8 CAPACIDADES -->
+<!-- 03 QUÉ ENTRENAMOS -->
 <section><div class="container reveal">
-  <div class="eyebrow">Qué entrenamos</div>
-  <div style="display:flex;align-items:baseline;gap:14px;margin-bottom:4px"><span style="font-size:11px;font-weight:700;letter-spacing:.18em;color:rgba(245,240,232,.3)">03</span><h2 style="margin:0">Las 8 capacidades del sistema.</h2></div>
-  <div class="bg-caps-slider" id="capSlider">
-    <div class="bg-caps-track" id="capTrack">
-      <!-- Slide 1: caps 1-4 -->
-      <div class="bg-cap-slide">
-        <div class="bg-cap"><div class="c-ico">🔥</div><div class="c-name">Fuego propio</div><div class="c-tag">Autoestima · actuar desde ti</div></div>
-        <div class="bg-cap"><div class="c-ico">🧠</div><div class="c-name">Mundo interior</div><div class="c-tag">Autoconocimiento · regulación emocional</div></div>
-        <div class="bg-cap"><div class="c-ico">🌱</div><div class="c-name">Raíz</div><div class="c-tag">Resiliencia · tolerar incertidumbre</div></div>
-        <div class="bg-cap"><div class="c-ico">🤝</div><div class="c-name">Campo de empatía</div><div class="c-tag">Relaciones · conectar sin perderte</div></div>
+  <span class="bg-section-num">03</span>
+  <h2 class="bg-section-title">Qué entrenamos</h2>
+  <p class="bg-section-sub">Las 8 capacidades del sistema. Cada una tiene métricas reales antes y después.</p>
+
+  <div class="bg-slider" id="capSlider">
+    <div class="bg-track" id="capTrack">
+      <div class="bg-slide">
+        <div class="bg-cap-card"><div class="ico">🔥</div><div class="name">Fuego propio</div><div class="tag">Autoestima · actuar desde ti</div></div>
+        <div class="bg-cap-card"><div class="ico">🧠</div><div class="name">Mundo interior</div><div class="tag">Autoconocimiento · regulación emocional</div></div>
+        <div class="bg-cap-card"><div class="ico">🌱</div><div class="name">Raíz</div><div class="tag">Resiliencia · tolerar incertidumbre</div></div>
+        <div class="bg-cap-card"><div class="ico">🤝</div><div class="name">Campo de empatía</div><div class="tag">Relaciones · conectar sin perderte</div></div>
       </div>
-      <!-- Slide 2: caps 5-8 -->
-      <div class="bg-cap-slide">
-        <div class="bg-cap"><div class="c-ico">🧭</div><div class="c-name">Norte vital</div><div class="c-tag">Dirección · propósito · sentido</div></div>
-        <div class="bg-cap"><div class="c-ico">✨</div><div class="c-name">Chispa creativa</div><div class="c-tag">Nuevas posibilidades · salir del automático</div></div>
-        <div class="bg-cap"><div class="c-ico">🏃</div><div class="c-name">Movimiento</div><div class="c-tag">Pasar a la acción · materializar</div></div>
-        <div class="bg-cap"><div class="c-ico">⚡</div><div class="c-name">Energía vital</div><div class="c-tag">Sostener el proceso · recuperar la carga</div></div>
+      <div class="bg-slide">
+        <div class="bg-cap-card"><div class="ico">🧭</div><div class="name">Norte vital</div><div class="tag">Dirección · propósito · sentido</div></div>
+        <div class="bg-cap-card"><div class="ico">✨</div><div class="name">Chispa creativa</div><div class="tag">Nuevas posibilidades · salir del automático</div></div>
+        <div class="bg-cap-card"><div class="ico">🏃</div><div class="name">Movimiento</div><div class="tag">Pasar a la acción · materializar</div></div>
+        <div class="bg-cap-card"><div class="ico">⚡</div><div class="name">Energía vital</div><div class="tag">Sostener el proceso · recuperar la carga</div></div>
       </div>
     </div>
-    <div class="bg-caps-dots">
-      <button class="bg-cap-dot active" data-idx="0" aria-label="1-4"></button>
-      <button class="bg-cap-dot" data-idx="1" aria-label="5-8"></button>
-    </div>
-  </div>
-  <script>
-  (function(){
-    var track=document.getElementById('capTrack');
-    var dots=document.querySelectorAll('.bg-cap-dot');
-    var cur=0; var total=2; var timer;
-    function go(idx){
-      cur=idx;
-      track.style.transform='translateX(-'+idx*100+'%)';
-      dots.forEach(function(d,i){d.classList.toggle('active',i===idx);});
-    }
-    function next(){go((cur+1)%total);}
-    function startAuto(){timer=setInterval(next,3000);}
-    function stopAuto(){clearInterval(timer);}
-    dots.forEach(function(d){
-      d.addEventListener('click',function(){stopAuto();go(parseInt(d.dataset.idx));startAuto();});
-    });
-    document.getElementById('capSlider').addEventListener('mouseenter',stopAuto);
-    document.getElementById('capSlider').addEventListener('mouseleave',startAuto);
-    startAuto();
-  })();
-  </script>
-</div></section>
-
-<div class="divider"></div>
-
-<!-- QUÉ CONSTRUYES DENTRO -->
-<section><div class="container reveal">
-  <div class="eyebrow">Qué construyes dentro</div>
-  <div style="display:flex;align-items:baseline;gap:14px"><span style="font-size:11px;font-weight:700;letter-spacing:.18em;color:rgba(245,240,232,.3)">04</span><h2 style="margin:0"><span class="line">No entrenas en abstracto.</span><span class="line text-gold">Trabajas algo tuyo y real.</span></h2>
-  <div class="bg-projects">
-    <div class="bg-project"><div class="proj-ico">🔄</div><div><strong>Cambio personal</strong><span>Algo que vienes evitando — lo vuelves visible y lo mueves.</span></div></div>
-    <div class="bg-project"><div class="proj-ico">🧭</div><div><strong>Dirección</strong><span>Una decisión importante con foco, sostén y claridad real.</span></div></div>
-    <div class="bg-project"><div class="proj-ico">🚀</div><div><strong>Proyecto propio</strong><span>Una idea personal, profesional o de emprendimiento que avanza.</span></div></div>
-    <div class="bg-project"><div class="proj-ico">🤝</div><div><strong>Proyecto en grupo</strong><span>El grupo deja de ser compañía y se vuelve estructura.</span></div></div>
-  </div>
-  <div class="bg-why">
-    <div class="bg-why-item"><strong>Te sostiene</strong><span>Evita que te quedes solo con la intención.</span></div>
-    <div class="bg-why-item"><strong>Te refleja</strong><span>Otros ven lo que tú solo no puedes ver.</span></div>
-    <div class="bg-why-item"><strong>Te mueve</strong><span>Avanzas con estructura, exigencia y seguimiento real.</span></div>
-  </div>
-</div></section>
-
-<div class="divider"></div>
-
-<!-- CÓMO ENTRAS — proceso -->
-<section><div class="container reveal">
-  <div class="eyebrow">Cómo entras</div>
-  <div style="display:flex;align-items:baseline;gap:14px;margin-bottom:4px"><span style="font-size:11px;font-weight:700;letter-spacing:.18em;color:rgba(245,240,232,.3)">05</span><h2 style="margin:0">Un proceso claro.</h2></div>
-  <div style="position:relative">
-    <div class="bg-process-line"></div>
-    <div class="bg-process">
-      <div class="bg-step bg-step-pend">
-        <div class="bg-step-dot">1</div>
-        <strong>BetaScan</strong><span>Conoces tu punto de partida</span>
-      </div>
-      <div class="bg-step bg-step-pend">
-        <div class="bg-step-dot">2</div>
-        <strong>Laboratorio Beta</strong><span>Vives cómo trabajamos</span>
-      </div>
-      <div class="bg-step bg-step-pend">
-        <div class="bg-step-dot">3</div>
-        <strong>Postulación</strong><span>Aplicas con claridad real</span>
-      </div>
-      <div class="bg-step bg-step-pend">
-        <div class="bg-step-dot">4</div>
-        <strong>Entrevista</strong><span>Vemos si es para ti</span>
-      </div>
-      <div class="bg-step bg-step-pend">
-        <div class="bg-step-dot">5</div>
-        <strong>Resultados</strong><span>Se confirma quién entra</span>
-      </div>
-      <div class="bg-step bg-step-pend">
-        <div class="bg-step-dot">6</div>
-        <strong>Comienzo</strong><span>Empieza el entrenamiento real</span>
-      </div>
+    <div class="bg-dots">
+      <button class="bg-dot active" data-idx="0" aria-label="Capacidades 1-4"></button>
+      <button class="bg-dot" data-idx="1" aria-label="Capacidades 5-8"></button>
     </div>
   </div>
 </div></section>
 
 <div class="divider"></div>
 
-<!-- VALIDACIÓN -->
+<!-- 04 QUÉ CONSTRUYES -->
 <section><div class="container reveal">
-  <div class="eyebrow">Validación</div>
-  <div style="display:flex;align-items:baseline;gap:14px"><span style="font-size:11px;font-weight:700;letter-spacing:.18em;color:rgba(245,240,232,.3)">06</span><h2 style="margin:0"><span class="line">Un método con historia.</span></h2>
-  <div class="bg-validation">
-    <div>
-      <p class="copy">Antes de convertirse en BetaGym, este sistema se probó en experiencias vivenciales de alto impacto — naturaleza, cuerpo, mente, emoción y gamificación. Las personas no solo vivían algo. Se transformaban.</p>
-      <div class="bg-stats">
-        <div class="bg-stat"><strong>+700</strong><span>participantes</span></div>
-        <div class="bg-stat"><strong>3 años</strong><span>en operación</span></div>
-        <div class="bg-stat"><strong>2017–2020</strong><span>validando el método</span></div>
-      </div>
+  <span class="bg-section-num">04</span>
+  <h2 class="bg-section-title">Qué construyes dentro</h2>
+  <p class="bg-section-sub">No entrenas en abstracto. Trabajas algo tuyo — un cambio real, una decisión importante o un proyecto propio.</p>
+  <div class="bg-2x2">
+    <div class="bg-build"><div class="b-ico">🔄</div><div><strong>Cambio personal</strong><span>Algo que vienes evitando — lo vuelves visible y lo mueves.</span></div></div>
+    <div class="bg-build"><div class="b-ico">🧭</div><div><strong>Dirección</strong><span>Una decisión importante con foco, sostén y claridad real.</span></div></div>
+    <div class="bg-build"><div class="b-ico">🚀</div><div><strong>Proyecto propio</strong><span>Una idea personal, profesional o de emprendimiento que avanza.</span></div></div>
+    <div class="bg-build"><div class="b-ico">🤝</div><div><strong>Proyecto en grupo</strong><span>El grupo deja de ser compañía y se vuelve estructura.</span></div></div>
+  </div>
+  <div class="bg-3why">
+    <div class="bg-why"><strong>Te sostiene</strong><span>Evita que te quedes solo con la intención.</span></div>
+    <div class="bg-why"><strong>Te refleja</strong><span>Otros ven lo que tú solo no puedes ver.</span></div>
+    <div class="bg-why"><strong>Te mueve</strong><span>Avanzas con estructura, exigencia y seguimiento real.</span></div>
+  </div>
+</div></section>
+
+<div class="divider"></div>
+
+<!-- 05 CÓMO ENTRAS -->
+<section><div class="container reveal">
+  <span class="bg-section-num">05</span>
+  <h2 class="bg-section-title">Cómo entras</h2>
+  <p class="bg-section-sub">Un proceso de 6 pasos. Claro y sin vueltas.</p>
+  <div class="bg-proceso">
+    <div class="bg-paso"><div class="bg-paso-num">1</div><strong>BetaScan</strong><span>Tu punto de partida</span></div>
+    <div class="bg-paso"><div class="bg-paso-num">2</div><strong>Laboratorio Beta</strong><span>Vives cómo trabajamos</span></div>
+    <div class="bg-paso"><div class="bg-paso-num">3</div><strong>Postulación</strong><span>Aplicas con claridad</span></div>
+    <div class="bg-paso"><div class="bg-paso-num">4</div><strong>Entrevista</strong><span>Vemos si es para ti</span></div>
+    <div class="bg-paso"><div class="bg-paso-num">5</div><strong>Resultados</strong><span>Se confirma quién entra</span></div>
+    <div class="bg-paso"><div class="bg-paso-num">6</div><strong>Comienzo</strong><span>Empieza el entrenamiento</span></div>
+  </div>
+</div></section>
+
+<div class="divider"></div>
+
+<!-- 06 LO QUE HEMOS HECHO -->
+<section><div class="container reveal">
+  <span class="bg-section-num">06</span>
+  <h2 class="bg-section-title">Lo que hemos hecho</h2>
+  <p class="bg-section-sub">Antes de BetaGym, el sistema se probó en experiencias vivenciales de alto impacto durante 3 años. Naturaleza, cuerpo, mente, emoción y gamificación. Las personas no solo vivían una experiencia — se transformaban.</p>
+  <div class="bg-valid">
+    <div class="bg-stats">
+      <div class="bg-stat"><strong>+700</strong><span>participantes reales</span></div>
+      <div class="bg-stat"><strong>3 años</strong><span>operando el método</span></div>
+      <div class="bg-stat"><strong>2017–2020</strong><span>validando antes de BetaGym</span></div>
     </div>
     <div class="bg-gallery">
-      <img src="../assets/images/antitour-trekking.jpg" alt="Antitour experiencia"/>
-      <img src="../assets/images/antitour-naturaleza.jpg" alt="Grupo Antitour"/>
-      <img src="../assets/images/antitour-vendas.jpg" alt="Facilitación Antitour"/>
+      <img src="../assets/images/antitour-1.jpg" alt="Antitour experiencia"/>
+      <img src="../assets/images/antitour-2.jpg" alt="Grupo Antitour"/>
+      <img src="../assets/images/antitour-3.jpg" alt="Facilitación Antitour"/>
     </div>
   </div>
 </div></section>
 
 <div class="divider"></div>
 
-<!-- FILTRO + CTA FINAL -->
+<!-- CTA FINAL -->
 <section><div class="container reveal">
-  <div class="bg-filter">
-    <div class="eyebrow">¿Es para ti?</div>
+  <div class="bg-cta">
+    <div class="eyebrow" style="margin-bottom:12px">¿Es para ti?</div>
     <h2>Los sueños no se cumplen.<br>Se entrenan.</h2>
     <p>Para quienes quieren estructura real, se cansaron de repetir patrones y buscan crecer con otros. No es para curiosos ni para inspiración momentánea.</p>
     <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
@@ -309,7 +251,7 @@
   <div><div class="footer-brand"><div class="brand-lines"><span></span><span></span><span></span></div><div class="footer-title">Angelo Constanzo</div></div>
   <div class="footer-copy">Entrenamiento humano para personas y empresas. Menos discurso. Más transformación observable.</div></div>
   <div><div class="footer-group-title">Explorar</div><div class="footer-links">
-    <a href="../persona/">Persona</a><a href="../empresa/">Empresa</a><a href="../betascan/">BetaScan</a>
+    <a href="../persona/">Persona</a><a href="../empresa/">Empresa</a>
     <a href="../betagym/">BetaGym</a><a href="../reflexiones/">Reflexiones</a><a href="../acerca-de/">Acerca de</a>
   </div></div>
   <div class="footer-cta"><div class="footer-group-title">Conversemos</div>
@@ -319,5 +261,27 @@
 </div>
 <div class="footer-bottom"><span>© 2026 Angelo Constanzo — La vida que quieres no llega. Se entrena.</span></div>
 </div></footer>
+
 <script src="../assets/site.js"></script>
+<script>
+(function(){
+  var track = document.getElementById('capTrack');
+  var dots = document.querySelectorAll('.bg-dot');
+  var cur = 0; var total = 2; var timer;
+  function go(idx){
+    cur = idx;
+    track.style.transform = 'translateX(-' + idx * 100 + '%)';
+    dots.forEach(function(d,i){ d.classList.toggle('active', i === idx); });
+  }
+  function next(){ go((cur + 1) % total); }
+  function start(){ timer = setInterval(next, 3500); }
+  function stop(){ clearInterval(timer); }
+  dots.forEach(function(d){
+    d.addEventListener('click', function(){ stop(); go(parseInt(d.dataset.idx)); start(); });
+  });
+  document.getElementById('capSlider').addEventListener('mouseenter', stop);
+  document.getElementById('capSlider').addEventListener('mouseleave', start);
+  start();
+})();
+</script>
 </body></html>
