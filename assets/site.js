@@ -327,3 +327,18 @@ document.querySelectorAll('[data-case-slider]').forEach(slider=>{
     }, {passive:true});
   });
 })();
+
+// ── Hero photo rotator — todas las páginas ──
+(function(){
+  var rotators = document.querySelectorAll('.hero-photo-rotator');
+  rotators.forEach(function(rot){
+    var imgs = rot.querySelectorAll('img');
+    if(imgs.length < 2) return;
+    var cur = 0;
+    setInterval(function(){
+      imgs[cur].classList.remove('active');
+      cur = (cur + 1) % imgs.length;
+      imgs[cur].classList.add('active');
+    }, 4000);
+  });
+})();

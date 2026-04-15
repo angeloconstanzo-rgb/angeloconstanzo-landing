@@ -56,9 +56,9 @@
 .bg-paso span{font-size:12px;color:rgba(245,240,232,.5);line-height:1.4}
 
 /* Validación */
-.bg-valid{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start;margin-top:24px}
+.bg-valid{display:grid;grid-template-columns:2fr 3fr;gap:24px;align-items:start;margin-top:24px}
 .bg-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.bg-gallery img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center top;border-radius:14px;display:block}
+.bg-gallery img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center top;border-radius:14px;display:block}
 .bg-stats{display:flex;flex-direction:column;gap:12px}
 .bg-stat{padding:14px 18px;border-radius:14px;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.07)}
 .bg-stat strong{display:block;font-size:28px;font-weight:700;color:#E8C96A;line-height:1;margin-bottom:4px}
@@ -97,18 +97,26 @@
 </div></nav>
 
 <!-- HERO -->
-<header class="brand-beta">
-  <div class="container reveal">
-    <div class="eyebrow">BetaGym</div>
-    <h1 class="page-hero-title compact">
-      <span class="line">Entrenas tu cuerpo.</span>
-      <span class="line">Pero nadie te enseñó a entrenar</span>
-      <span class="line text-gold">tu mente, tus emociones y tu dirección.</span>
-    </h1>
-    <p style="font-size:clamp(16px,1.6vw,19px);line-height:1.72;color:rgba(245,240,232,.72);margin-top:14px;max-width:540px">BetaGym es el sistema que convierte lo que sabes en lo que realmente haces.</p>
-    <div class="hero-actions" style="margin-top:24px">
-      <a class="btn btn-gold" href="../betascan/">Paso 1 — Descubre tus capacidades</a>
-      <a class="btn btn-outline" href="https://wa.link/zyw1c4" rel="noopener noreferrer" target="_blank">Hablemos</a>
+<header class="brand-beta hero-photo-bg" style="min-height:540px;display:flex;align-items:flex-end;padding-bottom:64px">
+  <div class="hero-photo-rotator">
+    <img class="active" src="../assets/images/betagym-main.jpg" alt="BetaGym experiencia grupal"/>
+    <img src="../assets/images/antitour-naturaleza.jpg" alt="Grupo en naturaleza"/>
+    <img src="../assets/images/antitour-trekking.jpg" alt="Trekking grupal"/>
+    <img src="../assets/images/antitour-vendas.jpg" alt="Actividad BetaGym"/>
+  </div>
+  <div class="container hero-inner reveal">
+    <div style="max-width:660px">
+      <div class="eyebrow">BetaGym</div>
+      <h1 class="page-hero-title compact">
+        <span class="line">Entrenas tu cuerpo.</span>
+        <span class="line">Pero nadie te enseñó a entrenar</span>
+        <span class="line text-gold">tu mente, tus emociones y tu dirección.</span>
+      </h1>
+      <p style="font-size:clamp(16px,1.6vw,19px);line-height:1.72;color:rgba(245,240,232,.82);margin-top:14px;max-width:540px">BetaGym es el sistema que convierte lo que sabes en lo que realmente haces.</p>
+      <div class="hero-actions" style="margin-top:24px">
+        <a class="btn btn-gold" href="../betascan/">Paso 1 — Descubre tus capacidades</a>
+        <a class="btn btn-outline" href="https://wa.link/zyw1c4" rel="noopener noreferrer" target="_blank">Hablemos</a>
+      </div>
     </div>
   </div>
 </header>
